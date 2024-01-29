@@ -1,28 +1,64 @@
 @use "../base/variables" as *;
 @use "../base/mixins" as *;
+@use "../base/colors" as *;
 
 .c-button {
-	display: inline-block;
-	width: fit-content;
-	padding: 13px;
-	border-radius: 30px;
+	display: inline-flex;
+	width: 36.5rem;
+  padding: 1.5rem 1.7rem;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 3px;
 
-	font-size: 1.3125rem;
-	line-height: 1.2;
+
+
+  font-family: $font-headings;
+  font-size: 1.7rem;
+  font-weight: 600;
+	line-height: 136.646%;
+  letter-spacing: -.017rem;
 	text-decoration: none;
+
 
 	border: 1px solid transparent;
 	transition: all 0.3s;
 
-	&--white {
-		background-color: clr(white);
-		border-color: clr(black);
-		color: clr(black);
-	}
+  color: #212121;
+  background-color: #F4F4FA;
 
-	&--black {
-		background-color: clr(black);
-		border-color: clr(black);
-		color: clr(white);
-	}
+  &--sm {
+    width: 30rem;
+    height: 7.1rem;
+  }
+
+  &--b {
+    font-weight: 500;
+    letter-spacing: -.0147rem;
+    padding: 1.9rem 3.5rem;
+    width: fit-content;
+
+    &.c-button--sm {
+      width: fit-content;
+      height: 4.4rem;
+    }
+  }
+
+  &--yellow {
+    background-color:$yellow;
+  }
+  &--yellow-2 {
+    background-color:$yellow-1;
+  }
+  &--green {
+    background-color:$green;
+    color: $white;
+
+  }
+  &--black {
+    background-color:$black;
+    color: $white;
+  }
+
+
+
 }
