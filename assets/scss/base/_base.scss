@@ -1,5 +1,6 @@
 @use "./variables" as *;
 @use "./colors" as *;
+@use "./mixins" as *;
 
 *,
 *::before,
@@ -22,6 +23,18 @@
 	color: $clr-text-selection !important;
 	-webkit-text-fill-color: $clr-text-selection !important;
 }
+
+html {
+  overflow-x: hidden;
+  font-size: calc(100vw / 390 * 10);
+  scroll-behavior: smooth;
+
+  @include media-up(md) {
+    font-size: calc(100vw / 1728 * 10);
+
+  }
+}
+
 
 .noscroll {
 	overflow: hidden;
@@ -47,3 +60,4 @@ ul {
 .wp-admin ul {
 	list-style-image: initial;
 }
+
