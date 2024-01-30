@@ -3,9 +3,9 @@ $font-headings: "Denim INK WD TRIAL", sans-serif;
 $font-body: 'Inter', sans-serif;
 
 // Radiuses
-$radius-sm: 14px;
-$radius: 20px;
-$radius-xl: 50px;
+$radius-sm: 1.4rem;
+$radius: 2.0rem;
+$radius-xl: 5.0rem;
 
 //Breakpoints
 $screen-sm: 576px;
@@ -15,13 +15,13 @@ $screen-xl: 1200px;
 $screen-xxl: 1400px;
 
 // Container
-$container-margin: 20px;
-$container-margin-xs: 20px;
-$container-margin-sm: 20px;
-$container-margin-md: 20px;
-$container-margin-lg: 20px;
-$container-margin-xl: 20px;
-$container-margin-xxl: 20px;
+$container-margin: 4rem;
+$container-margin-xs: 4rem;
+$container-margin-sm: 4rem;
+$container-margin-md: 4rem;
+$container-margin-lg: 19.2rem;
+$container-margin-xl: 19.2rem;
+$container-margin-xxl: 19.2rem;
 $container-max-width: 1800px;
 
 // HAMBURGER ==========================================
@@ -30,11 +30,10 @@ $is-hamburger: with-breakpoint;
 $hamburger-breakpoint: $screen-lg;
 
 $z-layers: (
-	"header": (
-		"base": 30,
-		"open": 100,
-		"overlay": 50,
-	),
-	"slider": 20,
-	"modal": 20,
+  "header": ("base": 30,
+    "open": 100,
+    "overlay": 50,
+  ),
+  "slider": 20,
+  "modal": 20,
 );
