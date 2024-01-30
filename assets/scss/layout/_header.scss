@@ -1,5 +1,25 @@
 @use "../base/variables" as *;
 @use "../base/mixins" as *;
 
+.main-menu {
+  padding: 1.6rem 2.2rem 1.6rem;
+  background: #F4F6FA;
+  &__logo {
+    img {
+      width: 20rem;
+    }
+  }
+  @include media-up(md) {
+    padding: 4rem 9.6rem 2.5rem;
+
+    &__logo {
+      img {
+        width: auto;
+      }
+    }
+  }
+}
+
+
 .l-navbar {
 }
