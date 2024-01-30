@@ -20,6 +20,7 @@
 @use "./components/layout";
 @use "./components/buttons";
 @use "./components/loaders";
+@use "./components/marquee";
 @use "./components/wysiwyg";
 
 /* ----- TEMPLATES ------------ */
@@ -28,3 +29,10 @@
 
 /* ----- ANIMATIONS  ------------ */
 @use "./animations/transitions";
+@use "./animations/keyframes";
+
+/* ----- LAYOUTS  ------------ */
+@import "../../dotstarter/layouts/notice-banner/notice-banner.scss";
+@import "../../dotstarter/layouts/header-yellow/header-yellow.scss";
+@import "../../dotstarter/layouts/column/column.scss";
+@import "../../dotstarter/layouts/text-x-image/text-x-image.scss";
