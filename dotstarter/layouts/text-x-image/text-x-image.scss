@@ -1,0 +1,75 @@
+@use "../../../assets/scss/base/variables" as *;
+@use "../../../assets/scss/base/colors" as *;
+@use "../../../assets/scss/base/mixins" as *;
+
+.f-text-x-image {
+  background: #F4F6FA;
+
+  &__tb {
+    padding: 4.4rem 0 6rem
+  }
+
+
+  &__wrapper {
+    & + * {
+      padding: 5.2rem 0 0
+    }
+  }
+
+  &__content {
+    padding: 1.6rem 0 0;
+
+  }
+
+  &__image {
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+
+  @include media-up(md) {
+
+    &__tb {
+      padding: 9.8rem 0 12rem
+    }
+
+
+    &__wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      & + * {
+        padding: 9.6rem 0 0
+      }
+
+      &.reverse {
+        flex-direction: row-reverse;
+      }
+    }
+
+    &__content {
+      padding: 0 0 0 12.8rem;
+      width: 50%;
+
+      & > * {
+        max-width: 57.7rem;
+
+      }
+    }
+    &__title {
+      margin: 0 0 2.4rem;
+      padding: 0 0 0 1.1rem;
+    }
+    &__image {
+      width: 50%;
+
+
+    }
+  }
+}
