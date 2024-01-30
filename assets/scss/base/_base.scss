@@ -57,6 +57,15 @@ ul {
 	padding: 0;
 }
 
+span {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+
+}
+
 .wp-admin ul {
 	list-style-image: initial;
 }
