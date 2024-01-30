@@ -20,7 +20,6 @@
                 "white": "Blanc",
                 "black": "Noir",
                 "yellow": "Jaune",
-                "yellow-1": "Jaune clair",
                 "green": "Vert"
             },
             "default_value": false,
@@ -48,8 +47,9 @@
                 "id": ""
             },
             "choices": {
-                "default": "Normal",
-                "s": "Petit"
+                "m": "Grand",
+                "s": "Normal",
+                "xs": "Petit"
             },
             "default_value": false,
             "return_format": "value",
@@ -96,7 +96,7 @@
             "aria-label": "",
             "type": "text",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -153,5 +153,5 @@
     "dot_is_lpart": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1706545404
+    "modified": 1706609900
 }
