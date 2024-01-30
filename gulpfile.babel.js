@@ -47,7 +47,8 @@ const scriptsEntryPoint = [
 ]
 
 const styles = [
-  'assets/scss/**/*.scss'
+  'assets/scss/**/*.scss',
+  'dotstarter/**/*.scss'
 ]
 
 const stylesEntryPoints = [
