@@ -1,53 +1,66 @@
+@use "../base/colors" as *;
 @use "../base/variables" as *;
 @use "../base/mixins" as *;
 @use "typography-config" as *;
 
 * {
-	font-family: $font-body;
+  font-family: $font-body;
+}
+
+.uppercase-s {
+  color: $grey-4;
+  font-family: $font-body;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 135%;
+  text-transform: uppercase;
 }
 
 // ========== HEADINGS FONTS =========
 
 @each $size, $title in map-get($titles, mobile) {
-	h#{$size},
-	.heading#{$size} {
-		font-family: map-get($title, font-family);
-		font-size: map-get($title, font-size);
-		line-height: map-get($title, line-height);
-		font-weight: map-get($title, font-weight);
 
-		span,
-		div {
-			font-family: inherit;
-			font-size: inherit;
-			line-height: inherit;
-			font-weight: inherit;
-		}
-	}
+  h#{$size},
+  .heading#{$size} {
+    font-family: map-get($title, font-family);
+    font-size: map-get($title, font-size);
+    line-height: map-get($title, line-height);
+    font-weight: map-get($title, font-weight);
+
+    span,
+    div {
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      font-weight: inherit;
+    }
+  }
 }
 
 @each $size, $body in map-get($body, mobile) {
-	.body-#{$size} {
-		font-family: map-get($body, font-family);
-		font-size: map-get($body, font-size);
-		line-height: map-get($body, line-height);
-		font-weight: map-get($body, font-weight);
-	}
+  .body-#{$size} {
+    font-family: map-get($body, font-family);
+    font-size: map-get($body, font-size);
+    line-height: map-get($body, line-height);
+    font-weight: map-get($body, font-weight);
+  }
 }
 
 @include media-up(md) {
-	@each $size, $title in map-get($titles, desktop) {
-		h#{$size},
-		.heading#{$size} {
-			font-size: map-get($title, font-size);
-			line-height: map-get($title, line-height);
-		}
-	}
+  @each $size, $title in map-get($titles, desktop) {
 
-	@each $size, $body in map-get($body, desktop) {
-		.body-#{$size} {
-			font-size: map-get($body, font-size);
-			line-height: map-get($body, line-height);
-		}
-	}
+    h#{$size},
+    .heading#{$size} {
+      font-size: map-get($title, font-size);
+      line-height: map-get($title, line-height);
+    }
+  }
+
+  @each $size, $body in map-get($body, desktop) {
+    .body-#{$size} {
+      font-size: map-get($body, font-size);
+      line-height: map-get($body, line-height);
+    }
+  }
 }
