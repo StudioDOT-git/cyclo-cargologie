@@ -5,7 +5,6 @@ import Newsletter from './components/newsletter'
 /* eslint-disable */
 jQuery(function ($) {
 
-  alert('Hello from your JavaScript file!')
   registerGsapPlugins()
   Menu();
   Newsletter();

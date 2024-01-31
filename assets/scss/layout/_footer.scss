@@ -80,11 +80,13 @@
     align-items: center;
     border-radius: .3667rem;
     margin-top: 1.5rem;
+    transition: ease 0.4s;
 
     svg {
       display: block;
       height: 1.3rem;
       width: 1.3rem;
+      transition: ease 0.4s;
     }
   }
 
@@ -160,7 +162,12 @@
 
     &__social-link {
       &:hover {
-        background-color: $green;
+        background-color: $black;
+
+        svg path {
+          fill: $white;
+          stroke: $white;
+        }
       }
     }
 
