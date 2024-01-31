@@ -96,8 +96,8 @@
 
   &__logo-partners {
     display: block;
-    width: 9.2rem;
-    height: 6.6rem;
+    width: 11.2rem;
+    height: 7.7rem;
     object-fit: contain;
     object-position: center center;
   }
@@ -139,7 +139,9 @@
   }
 
   @include media-up(md) {
-    padding: 11rem 0 18rem;
+    &__yellow {
+      padding: 11rem 0 18rem;
+    }
 
     &__container {
 
