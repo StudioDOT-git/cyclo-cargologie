@@ -5,3 +5,4 @@ package-lock.json
 composer.lock
 dist
 .env
+assets/.DS_Store
