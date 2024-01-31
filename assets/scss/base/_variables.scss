@@ -15,10 +15,10 @@ $screen-xl: 1200px;
 $screen-xxl: 1400px;
 
 // Container
-$container-margin: 4rem;
-$container-margin-xs: 4rem;
-$container-margin-sm: 4rem;
-$container-margin-md: 4rem;
+$container-margin: 2rem;
+$container-margin-xs: 2rem;
+$container-margin-sm: 2rem;
+$container-margin-md: 19.2rem;
 $container-margin-lg: 19.2rem;
 $container-margin-xl: 19.2rem;
 $container-margin-xxl: 19.2rem;
@@ -30,7 +30,8 @@ $is-hamburger: with-breakpoint;
 $hamburger-breakpoint: $screen-lg;
 
 $z-layers: (
-  "header": ("base": 30,
+  "header": (
+    "base": 30,
     "open": 100,
     "overlay": 50,
   ),

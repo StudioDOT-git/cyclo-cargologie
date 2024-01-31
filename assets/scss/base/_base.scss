@@ -6,6 +6,8 @@
 *::before,
 *::after {
 	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 * {
@@ -25,12 +27,12 @@
 }
 
 html {
-  overflow-x: hidden;
+  overflow: clip visible ;
   font-size: calc(100vw / 390 * 10);
   scroll-behavior: smooth;
 
   @include media-up(md) {
-    font-size: calc(100vw / 1728 * 10);
+    font-size: min(calc(100vw / 1728 * 10), 0.45vw);
 
   }
 }
@@ -70,3 +72,6 @@ span {
 	list-style-image: initial;
 }
 
+.hidden {
+  visibility: hidden;
+}

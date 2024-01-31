@@ -1,0 +1,36 @@
+@use "../../../assets/scss/base/variables" as *;
+@use "../../../assets/scss/base/colors" as *;
+@use "../../../assets/scss/base/mixins" as *;
+
+.f-header-yellow {
+  background: $yellow;
+
+  &__tb {
+    padding: 4rem 0 13.7rem;
+  }
+  &__paragraph {
+    padding: 1.2rem 0 0;
+  }
+
+  @include media-up(md) {
+    &__tb {
+      padding: 6.6rem 0 22.2rem;
+    }
+    &__wrapper {
+      padding: 0 0 0 12.8rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__title {
+      max-width: 50rem;
+    }
+
+    &__content {
+      padding: 4.4rem 0 0;
+      max-width: 63.5rem;
+    }
+
+  }
+
+}

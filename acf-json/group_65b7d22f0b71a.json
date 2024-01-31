@@ -1,13 +1,13 @@
 {
     "key": "group_65b7d22f0b71a",
-    "title": "Header",
+    "title": "Header Yellow",
     "fields": [
         {
-            "key": "field_65b7d22ffdaff",
-            "label": "Button",
-            "name": "button",
+            "key": "field_65b8f5940a1e8",
+            "label": "Title",
+            "name": "title",
             "aria-label": "",
-            "type": "layout_part",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,13 +16,51 @@
                 "class": "",
                 "id": ""
             },
-            "clone": [
-                "group_65b7cebc92b44"
-            ],
-            "display": "group",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
+            "default_value": "Le programme de  Cyclo-cargologie",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_65b8f5a50a1e9",
+            "label": "Intro",
+            "name": "intro",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Ce projet est axé sur la promotion et le développement de la cyclologistique pour optimiser la logistique du dernier kilomètre en milieu urbain. Innovant et écologiquement responsable.",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_65b8f5e50a1ea",
+            "label": "Paragraphe",
+            "name": "paragraph",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Cela a un impact direct sur la congestion des centres urbains avec des effets sur la pollution de l’air, les nuisances sonores, la qualité de vie locale ainsi que des confli ts d’usage de l’espace public.  Dans ce contexte, la cyclologistique est une solution à fort potentiel de grâce à une empreinte carbone inférieure à tout autre type de véhicules utilitaires.",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -49,9 +87,9 @@
     ],
     "acfe_form": 0,
     "dot_thumbnail": "",
-    "dot_layout_slug": "header",
+    "dot_layout_slug": "header-yellow",
     "dot_is_layout": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1706545901
+    "modified": 1706621178
 }

@@ -1,0 +1,23 @@
+.c-marquee {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.c-marquee-inner {
+  animation: marquee 20s linear infinite;
+  display: flex;
+  position: absolute;
+  top: 0;
+  height: 100%;
+
+
+
+  &.is-last {
+    animation: marquee-bis 20s linear infinite;
+
+  }
+  &.is-reverse {
+    animation-direction: reverse;
+  }
+}

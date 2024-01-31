@@ -1,0 +1,105 @@
+@use "../../../assets/scss/base/variables" as *;
+@use "../../../assets/scss/base/colors" as *;
+@use "../../../assets/scss/base/mixins" as *;
+
+.f-column {
+  //background: #F4F6FA;
+
+  &__wrapper {
+    position: relative;
+    top: -6.2rem;
+  }
+
+  &__item + * {
+    padding: 4.8rem 0 0;
+  }
+
+  &__image {
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 0.7779503106;
+    }
+
+    &::after {
+      content: attr(data-id);
+      color:$yellow;
+      font-family: $font-body;
+      font-size: 9.1051rem;
+      font-weight: 100;
+      line-height: 111%;
+      letter-spacing: -1.1052rem;
+      opacity: 0.7;
+      mix-blend-mode: plus-darker;
+      position: absolute;
+      right: 1.3rem;
+      bottom: 0;
+      z-index: 0;
+      transform: translate(0,100%);
+    }
+  }
+
+  &__title {
+    padding: 1.6rem 0 0;
+  }
+
+  &__description {
+    padding: .6rem 0 0;
+  }
+
+  @include media-up(md) {
+    &__wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: stretch;
+
+      gap: 1.6rem;
+
+      top: -12.5rem;
+
+      & > * {
+        max-width: 47.5%;
+        flex: 1;
+        min-width: calc(33% - 1.6rem * 3);
+      }
+    }
+    &__item {
+      position: relative;
+      &::after {
+        content: attr(data-id);
+        color:$yellow;
+        font-family: $font-body;
+        font-size: 18.4208rem;
+        font-weight: 100;
+        line-height: 111%;
+        letter-spacing: -1.1052rem;
+        opacity: 0.7;
+        mix-blend-mode: plus-darker;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        z-index: 0;
+        transform: translate(-50%,50%);
+
+      }
+      & + * {
+        padding: 0;
+      }
+    }
+
+
+
+    &__title {
+      padding: 2.6rem 0 0;
+    }
+
+    &__description {
+      padding: 2.2rem 0 0;
+    }
+
+  }
+}

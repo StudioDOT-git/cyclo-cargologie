@@ -1,0 +1,30 @@
+@use "../../../assets/scss/base/variables" as *;
+@use "../../../assets/scss/base/colors" as *;
+@use "../../../assets/scss/base/mixins" as *;
+
+.f-notice-banner {
+  padding: 2rem 0;
+  background: $green;
+  overflow: hidden;
+
+
+  &__marquee-wrapper {
+    position: relative;
+
+  }
+
+  &__message {
+    font-weight: 500;
+    font-size: 1.7rem;
+    color: $green-1;
+    font-family: $font-headings;
+    white-space: nowrap;
+
+
+  }
+
+  .c-marquee__item {
+    padding: 0 2.3rem;
+  }
+
+}
