@@ -23,6 +23,24 @@
         padding: 0;
       }
 
+      input {
+        border-radius: 0 !important;
+      }
+
+      input[type=text],
+      input[type=button],
+      input[type=submit] {
+        -webkit-appearance: none !important;
+        -webkit-border-radius: 0 !important;
+      }
+
+      input:focus,
+      textarea:focus,
+      select:focus,
+      a:focus {
+        outline: none !important;
+        box-shadow: 0 0 0 0px #fff, 0px 0px 0px rgba(0, 0, 0, 0);
+      }
 
       input[placeholder],
       [placeholder],
