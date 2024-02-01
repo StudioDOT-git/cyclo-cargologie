@@ -30,8 +30,8 @@ $colors: (
 }
 
 $clr-body-bg: map-get($colors, white);
-$clr-text-selection: map-get($colors, white);
-$clr-text-selection-bg: map-get($colors, black);
+$clr-text-selection: $green-2;
+$clr-text-selection-bg: $yellow-1;
 
 $clr-link: map-get($colors, blue);
 $clr-primary: map-get($colors, blue);
