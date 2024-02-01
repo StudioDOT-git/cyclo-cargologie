@@ -70,7 +70,7 @@
     &__item {
       position: relative;
       &::after {
-        content: attr(data-id);
+        //content: attr(data-id);
         color:$yellow;
         font-family: $font-body;
         font-size: 18.4208rem;
@@ -95,10 +95,13 @@
 
     &__title {
       padding: 2.6rem 0 0;
+      font-size: 2.9rem;
+
     }
 
     &__description {
       padding: 2.2rem 0 0;
+      font-size:1.7rem;
     }
 
   }
