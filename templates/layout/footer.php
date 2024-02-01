@@ -60,7 +60,7 @@
                     <?php endforeach; ?>
                 </ul>
             </div>
-            <div class="l-footer__columns">
+            <div class="l-footer__columns l-footer__sponsors">
                 <span class="uppercase-s">Avec le soutien de :</span>
                 <?php $partners = get_field('avec_le_soutien_de', 'option'); ?>
                 <ul class="l-footer__partners-list">

@@ -106,6 +106,10 @@
     object-position: center center;
   }
 
+  &__sponsors {
+    display:none
+  }
+
   &__copyright {
     color: $grey-4;
     font-family: $font-body;
@@ -143,8 +147,12 @@
   }
 
   @include media-up(md) {
+    &__sponsors {
+      display:block;
+      visibility: hidden;
+    }
     &__yellow {
-      padding: 11rem 0 18rem;
+      padding: 11rem 0 23.8rem;
     }
 
     &__container {

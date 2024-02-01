@@ -51,6 +51,7 @@
       ::placeholder {
         color: $black !important;
         opacity: 1 !important;
+        font-size: 3.3rem;
       }
 
 
@@ -150,12 +151,14 @@
 
   .heading3 {
     margin-bottom: .7rem;
+    font-size: 2.9rem;
   }
 
   .heading6 {
     display: block;
     max-width: 53rem;
     margin-bottom: 6.2rem;
+    font-size: 1.7rem;
   }
 
   &__deco {

@@ -16,16 +16,19 @@
   &__paragraph {
     padding: 1.2rem 0 0;
   }
+
   &__bg {
     display: block;
     position: absolute;
     bottom: 0;
     transform: translateX(-20.5rem);
+
     svg {
       width: 55.8rem;
       height: 56rem;
     }
   }
+
   @include media-up(md) {
     &__tb {
       padding: 6.6rem 0 22.2rem;
@@ -39,12 +42,21 @@
 
     &__title {
       max-width: 50rem;
+
+      h1 {
+        margin: 0;
+        letter-spacing: -1%;
+      }
     }
 
     &__content {
       padding: 4.4rem 0 0;
       max-width: 63.5rem;
       margin: 0 min(12rem, 120px) 0 0;
+    }
+
+    &__intro {
+      font-size: 2.4rem;
     }
 
   }
