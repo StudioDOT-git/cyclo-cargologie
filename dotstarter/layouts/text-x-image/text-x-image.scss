@@ -38,6 +38,12 @@
       padding: 9.8rem 0 12rem
     }
 
+    &__paragraph {
+      & > p:last-child {
+        font-size: 1.9rem;
+      }
+    }
+
 
     &__wrapper {
       display: flex;
