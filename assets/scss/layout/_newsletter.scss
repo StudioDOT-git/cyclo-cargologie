@@ -5,6 +5,9 @@
 .l-newsletter {
   position: relative;
 
+
+
+
   &__container {
     display: grid;
     grid-template-columns: 1fr;
@@ -131,6 +134,11 @@
         font-weight: 600;
         line-height: 136.646%;
         letter-spacing: -.0145rem;
+
+        display: none;
+        &.is-show {
+          display: flex;
+        }
       }
     }
 
