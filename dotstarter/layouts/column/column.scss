@@ -5,6 +5,9 @@
 .f-column {
   //background: #F4F6FA;
 
+  .l-container {
+    position: relative;
+  }
   &__wrapper {
     position: relative;
     top: -6.2rem;
@@ -51,6 +54,22 @@
   }
 
   @include media-up(md) {
+
+    &__tb {
+      position: relative;
+      z-index: 1;
+    }
+    &__bg {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    
     &__wrapper {
       display: flex;
       flex-wrap: wrap;

@@ -5,6 +5,10 @@
 .f-text-x-image {
   background: #F4F6FA;
 
+  .l-container {
+    position: relative;
+  }
+
   &__tb {
     padding: 4.4rem 0 6rem
   }
@@ -35,7 +39,20 @@
   @include media-up(md) {
 
     &__tb {
-      padding: 9.8rem 0 12rem
+      padding: 9.8rem 0 12rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    &__bg {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      overflow: hidden;
+      z-index: 0;
+
     }
 
     &__paragraph {
