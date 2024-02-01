@@ -32,7 +32,7 @@ html {
   scroll-behavior: smooth;
 
   @include media-up(md) {
-    font-size: min(calc(100vw / 1728 * 10), 0.45vw);
+    font-size: min(calc(100vw / 1728 * 10), 100vw);
 
   }
 }
