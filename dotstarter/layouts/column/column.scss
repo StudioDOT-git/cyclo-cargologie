@@ -51,6 +51,12 @@
 
   &__description {
     padding: .6rem 0 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__bg {
+    display: none;
   }
 
   @include media-up(md) {
@@ -60,6 +66,7 @@
       z-index: 1;
     }
     &__bg {
+      display: block;
       position: absolute;
       left: 0;
       right: 0;

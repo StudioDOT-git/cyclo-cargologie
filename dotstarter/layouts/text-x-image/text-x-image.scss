@@ -35,7 +35,9 @@
     }
   }
 
-
+  &__bg {
+    display: none;
+  }
   @include media-up(md) {
 
     &__tb {
@@ -45,6 +47,7 @@
     }
 
     &__bg {
+      display: block;
       position: absolute;
       left: 0;
       right: 0;
