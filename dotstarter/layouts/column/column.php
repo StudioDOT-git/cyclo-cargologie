@@ -19,7 +19,7 @@
                 <?php endwhile; ?>
             </div>
         </div>
-        <div class="f-text-x-image__bg">
+        <div class="f-column__bg">
             <svg viewBox="0 0 1538 4930" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <line opacity="0.1" x1="0.5" y1="2.18557e-08" x2="0.499605" y2="9039" stroke="#979797"/>
                 <line opacity="0.1" x1="307.5" y1="2.18557e-08" x2="307.5" y2="9039" stroke="#979797"/>
@@ -29,4 +29,5 @@
                 <line opacity="0.1" x1="1535.5" y1="2.18557e-08" x2="1535.5" y2="9039" stroke="#979797"/>
             </svg>
         </div>
+</div>
 </div>
