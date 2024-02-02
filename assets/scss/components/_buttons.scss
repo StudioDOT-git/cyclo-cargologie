@@ -4,7 +4,9 @@
 
 .c-button {
   display: inline-flex;
-  width: 36.5rem;
+  //width: 36.5rem;
+  gap: 1.5rem;
+
   padding: 1.5rem 1.7rem;
   justify-content: space-between;
   align-items: center;
@@ -44,7 +46,8 @@
 
   // Sizes
   &--s {
-    width: 30rem;
+    //width: 30rem;
+    gap: 1.5rem;
 
     svg {
       width: 4.6rem;
@@ -53,7 +56,7 @@
   }
 
   &--xs {
-    width: 23.8rem;
+    //width: 23.8rem;
 
     svg {
       width: 3.6rem;
@@ -74,6 +77,7 @@
 
     }
   }
+
 
   // Colors
   &--white {
@@ -127,5 +131,22 @@
     }
   }
 
+  &--outline {
+    background-color: transparent;
+    color: $black;
+    border: 1px solid $black;
+    padding: 1.6rem 1.7rem;
+
+    svg {
+      margin-left: 1rem;
+      width: 1.4rem;
+      height: 1.4rem;
+    }
+
+    span {
+      padding: 0 0 0 1.7rem
+    }
+
+  }
 
 }
