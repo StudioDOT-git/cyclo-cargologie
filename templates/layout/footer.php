@@ -92,6 +92,8 @@
                 </ul>
             </div>
 
+        </div>
+        <div class="l-container l-footer__container l-footer__copyright-x-credits">
             <div class="l-footer__columns">
                 <span class="l-footer__copyright">
                     © Cyclocargologie
@@ -105,7 +107,7 @@
                     <svg width="54" height="19" viewBox="0 0 54 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <title>DOT</title>
                         <path d="M49.876 18.2003H45.2897V4.38207H41.5996V0.481079H53.5662V4.38207H49.876V18.2003Z"
-                            fill="black"></path>
+                              fill="black"></path>
                         <path
                             d="M0 0.481079H6.35228C8.82335 0.514027 10.8859 1.35748 12.5464 3.01804C14.2267 4.67859 15.0834 6.78724 15.1097 9.33737C15.0768 11.8941 14.2267 13.983 12.5464 15.6106C10.8859 17.3041 8.82335 18.1607 6.35228 18.1937H0V0.481079ZM4.5863 14.2993H5.5879C6.95193 14.3125 8.0985 13.9171 9.03421 13.1066C9.96333 12.3027 10.4444 11.0506 10.4773 9.34396C10.4641 7.72954 10.0095 6.4973 9.12647 5.64725C8.23688 4.81697 7.07054 4.39525 5.63403 4.38207H4.5863V14.2993Z"
                             fill="black"></path>
