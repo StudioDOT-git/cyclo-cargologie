@@ -119,6 +119,9 @@
 
       .wpforms-submit {
         background-color: $yellow !important;
+        background-image: url('/wp-content/themes/cyclo-cargologie/assets/img/cta-arrow.svg') !important;
+        background-repeat: no-repeat !important;
+        background-position: right 17px top 50%;
         display: flex;
         width: 23.8rem;
         height: 6.1rem;
@@ -137,6 +140,12 @@
         letter-spacing: -.0145rem;
 
         display: none;
+
+        &:hover {
+          background-position: right 12px top 50%;
+
+        }
+
         &.is-show {
           display: flex;
         }
