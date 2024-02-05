@@ -6,8 +6,6 @@
   position: relative;
 
 
-
-
   &__container {
     display: grid;
     grid-template-columns: 1fr;
@@ -139,6 +137,9 @@
         line-height: 136.646%;
         letter-spacing: -.0145rem;
 
+        background-image: url('/assets/img/arrow-circle.png');
+
+
         display: none;
 
         &:hover {
@@ -149,6 +150,10 @@
         &.is-show {
           display: flex;
         }
+
+ 
+
+
       }
     }
 
