@@ -107,7 +107,7 @@
   }
 
   &__sponsors {
-    display:none
+    display: none
   }
 
   &__copyright {
@@ -148,7 +148,7 @@
 
   @include media-up(md) {
     &__sponsors {
-      display:block;
+      display: block;
       visibility: hidden;
     }
     &__yellow {
@@ -197,6 +197,12 @@
           fill: #4999ff;
         }
       }
+    }
+
+    &__copyright-x-credits {
+      padding: 2.4rem 0 0;
+      margin-top: 6.6rem ;
+      border-top: 1px solid $grey-1;
     }
   }
 }
