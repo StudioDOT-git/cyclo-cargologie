@@ -6,8 +6,6 @@
   position: relative;
 
 
-
-
   &__container {
     display: grid;
     grid-template-columns: 1fr;
@@ -136,10 +134,27 @@
         line-height: 136.646%;
         letter-spacing: -.0145rem;
 
+        background-image: url('/assets/img/arrow-circle.png');
+
+
         display: none;
+        align-items: center;
+
         &.is-show {
           display: flex;
         }
+
+        &::after {
+          content: url('/wp-content/uploads/2024/02/arrow-circle.svg');
+          display: block;
+          width: 3.6424rem;
+          height: 3.6424rem;
+          margin-top: -.2712rem;
+
+
+        }
+
+
       }
     }
 
