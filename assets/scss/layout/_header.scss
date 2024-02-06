@@ -40,6 +40,10 @@
     right: 3.4rem;
     z-index: 12;
 
+    &.c-button {
+      padding: 1.6rem 1.5rem;
+    }
+
   }
 
   &__hamburger {
@@ -156,6 +160,7 @@
 
   .c-button.c-button--yellow {
     background: $yellow-1;
+    font-size: 1.45rem;
   }
 
   &__social-link {
@@ -167,7 +172,7 @@
     justify-content: center;
     align-items: center;
     border-radius: .3667rem;
-    margin-top: 1.5rem;
+    margin-top: 1.2rem;
     transition: ease 0.4s;
 
     svg {
@@ -234,7 +239,7 @@
 
 
     &__nav-content {
-      padding: 19.4rem 0 0 12rem
+      padding: 19.4rem 0 0 12.9rem
     }
 
     &__nav-content-row {
@@ -268,6 +273,11 @@
       font-size: 4.2rem;
       letter-spacing: -.042rem;
     }
+
+    &__mailto {
+      font-size: 2rem;
+    }
+
 
   }
 
