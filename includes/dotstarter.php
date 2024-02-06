@@ -94,6 +94,7 @@ if (!class_exists('DOT_Starter')) {
          * @return void
          */
         public function enqueue_styles() {
+            wp_enqueue_style('slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
             wp_enqueue_style('frontend', DOT_THEME_URI . '/dist/css/frontend.min.css', null, filemtime(DOT_THEME_PATH . '/dist/css/frontend.min.css'));
         }
 
@@ -115,6 +116,7 @@ if (!class_exists('DOT_Starter')) {
         public function enqueue_scripts() {
             wp_enqueue_script('jquery');
             wp_enqueue_script('detect-autofill', 'https://unpkg.com/detect-autofill/dist/detect-autofill.js', array(), null, true);
+            wp_enqueue_script('slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array('jquery'), null, true);
 
             wp_enqueue_script('dotstarter-frontend', DOT_THEME_URI . '/dist/js/bundle.min.js', array('jquery', 'detect-autofill'), filemtime(DOT_THEME_PATH . '/dist/js/bundle.min.js'), true);
 
