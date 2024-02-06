@@ -3,7 +3,7 @@
         <a href="<?php echo home_url() ?>" class="main-menu__logo">
             <img src="<?php the_field('logo', 'option') ?>" alt="Logo"/>
         </a>
-        <div class="main-menu__nav" style="display: none">
+        <div class="main-menu__nav">
             <div class="main-menu__nav-wrapper">
                 <div class="main-menu__nav-image">
                     <img src="<?php the_field('menu__background-image', 'option') ?>" alt=""/>
