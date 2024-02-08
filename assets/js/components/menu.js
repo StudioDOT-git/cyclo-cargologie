@@ -1,19 +1,19 @@
 function Menu() {
-  const navbar = document.querySelector('#navbar')
-  const toggleButton = document.querySelector('#navbar-toggle')
+  const openButton = document.querySelector('.main-menu__cta-open')
+  const closeButton = document.querySelector('.main-menu__cta-close')
 
-  if (!navbar || !toggleButton) return
+  if (!openButton || !closeButton) return
 
-  toggleButton.addEventListener('click', toggle)
+  openButton.addEventListener('click', open)
+  closeButton.addEventListener('click', close)
 
-  function toggle() {
-    if (navbar.dataset.isOpen) {
-      delete navbar.dataset.isOpen
-    } else {
-      navbar.dataset.isOpen = 'true'
-    }
-
+  function open() {
+    document.querySelector('.main-menu__nav').classList.add('is-open')
     document.documentElement.classList.toggle('noscroll')
+  }
+  function close() {
+    document.querySelector('.main-menu__nav').classList.remove('is-open')
+    document.documentElement.classList.remove('noscroll')
   }
 }
 

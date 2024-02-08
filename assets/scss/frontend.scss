@@ -23,6 +23,7 @@
 @use "./components/loaders";
 @use "./components/marquee";
 @use "./components/wysiwyg";
+@use "./components/slider";
 
 /* ----- TEMPLATES ------------ */
 @use "./templates/four-oh-four";
@@ -37,3 +38,4 @@
 @import "../../dotstarter/layouts/header-yellow/header-yellow.scss";
 @import "../../dotstarter/layouts/column/column.scss";
 @import "../../dotstarter/layouts/text-x-image/text-x-image.scss";
+@import "../../dotstarter/layouts/testimonials/testimonals.scss";
