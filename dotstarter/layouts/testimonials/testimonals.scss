@@ -153,5 +153,12 @@
     &__headings {
       padding: 0 0 0 12.8rem;
     }
+
+    &__author-wrapper {
+      grid-template-columns: 1fr 1fr;
+    }
+    &__card-image {
+      width: 19.4rem;
+    }
   }
 }
