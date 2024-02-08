@@ -32,31 +32,6 @@
 
 <body <?php body_class() ?>>
     <?php wp_body_open() ?>
-
-    <div class="f-notice-banner">
-        <div class="f-notice-banner__marquee-wrapper">
-            <div class="c-marquee__item hidden">
-                <span class="f-notice-banner__message">Cyclo-cargologie.fr - Site en cours de livraison </span>
-            </div>
-            <div class="c-marquee">
-                <div class="c-marquee-inner">
-                    <?php for ($i = 0; $i < 5; $i++): ?>
-                        <div class="c-marquee__item">
-                            <span class="f-notice-banner__message">Cyclo-cargologie.fr - Site en cours de livraison </span>
-                        </div>
-                    <?php endfor; ?>
-                </div>
-                <div class="c-marquee-inner is-last">
-                    <?php for ($i = 0; $i < 5; $i++): ?>
-                        <div class="c-marquee__item">
-                            <span class="f-notice-banner__message">Cyclo-cargologie.fr - Site en cours de livraison </span>
-                        </div>
-                    <?php endfor; ?>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <?php get_template_part('templates/layout/menu'); ?>
 
     <div id="main">
