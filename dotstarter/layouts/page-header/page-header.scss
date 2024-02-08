@@ -1,0 +1,51 @@
+@use "../../../assets/scss/base/variables" as *;
+@use "../../../assets/scss/base/colors" as *;
+@use "../../../assets/scss/base/mixins" as *;
+
+.f-page-header {
+  background: $grey-1;
+
+  &__tb {
+    padding: 4.4rem 0 4.6rem;
+  }
+
+  &__title {
+    font-size: 3.6rem;
+    margin: 0;
+  }
+
+  &__paragraph {
+    padding: 1.1rem 0 0;
+    font-size: 1.7rem;
+  }
+
+  .c-button {
+    margin-top: 2.8rem;
+    grid-template-columns: auto auto;
+    display: inline-grid;
+    gap: 7.75rem;
+  }
+
+  @include media-up(md) {
+    &__tb {
+      padding: 9.5rem 0 12.8rem
+    }
+    &__wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4.4rem;
+    }
+    &__title {
+      padding: 0 13.3rem 0 12.8rem;
+
+    }
+    &__paragraph {
+      padding: 0;
+      max-width: 63.5rem;
+    }
+    .c-button {
+      margin: 2.8rem 0 0
+    }
+
+  }
+}
