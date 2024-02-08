@@ -62,11 +62,6 @@
     }
 
 
-    &__paragraph {
-      & > p:last-child {
-        font-size: 1.9rem;
-      }
-    }
 
 
     &__wrapper {
@@ -94,7 +89,6 @@
     }
     &__title {
       margin: 0 0 2.4rem;
-      padding: 0 0 0 1.1rem;
     }
     &__image {
       width: 50%;

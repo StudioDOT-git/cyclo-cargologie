@@ -7,7 +7,7 @@
                 <?php $i++; ?>
                 <div class="f-text-x-image__wrapper <?= $i % 2 == 1 ? 'reverse' : '' ?>">
                     <div class="f-text-x-image__image">
-                        <?= wp_get_attachment_image(get_sub_field('image'), 'medium') ?>
+                        <?= wp_get_attachment_image(get_sub_field('image'), 'large') ?>
                     </div>
                     <div class="f-text-x-image__content">
                         <h3 class="f-text-x-image__title heading2"><?= get_sub_field('title') ?></h3>
