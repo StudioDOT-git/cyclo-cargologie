@@ -61,7 +61,6 @@
                                     <?= $logo_img; ?>
                                 </a>
                             <?php else: ?>
-
                                 <?= $logo_img; ?>
                             <?php endif; ?>
                         </li>
@@ -78,7 +77,13 @@
                             $logo_id = $partner['logo'];
                             $logo_img = wp_get_attachment_image($logo_id, 'full', null, ['class' => 'l-footer__logo-partners']);
                             ?>
-                            <?php echo $logo_img; ?>
+                            <?php if ($partner['link']): ?>
+                                <a href="<?= $partner['link']['url']; ?>" target="_blank">
+                                    <?= $logo_img; ?>
+                                </a>
+                            <?php else: ?>
+                                <?= $logo_img; ?>
+                            <?php endif; ?>
                         </li>
                     <?php endforeach; ?>
                 </ul>
@@ -93,7 +98,13 @@
                             $logo_id = $partner['logo'];
                             $logo_img = wp_get_attachment_image($logo_id, 'full', null, ['class' => 'l-footer__logo-partners']);
                             ?>
-                            <?php echo $logo_img; ?>
+                            <?php if ($partner['link']): ?>
+                                <a href="<?= $partner['link']['url']; ?>" target="_blank">
+                                    <?= $logo_img; ?>
+                                </a>
+                            <?php else: ?>
+                                <?= $logo_img; ?>
+                            <?php endif; ?>
                         </li>
                     <?php endforeach; ?>
                 </ul>
