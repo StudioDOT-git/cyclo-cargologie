@@ -114,6 +114,7 @@ if (!class_exists('DOT_Starter')) {
          */
         public function enqueue_scripts() {
             wp_enqueue_script('jquery');
+            wp_enqueue_script('detect-autofill', 'https://unpkg.com/detect-autofill/dist/detect-autofill.js', array(), null, true);
 
             wp_enqueue_script('dotstarter-frontend', DOT_THEME_URI . '/dist/js/bundle.min.js', array('jquery', 'detect-autofill'), filemtime(DOT_THEME_PATH . '/dist/js/bundle.min.js'), true);
 

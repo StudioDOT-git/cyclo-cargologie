@@ -5,11 +5,28 @@
 .f-header-yellow {
   background: $yellow;
 
+  .l-container {
+    position: relative;
+  }
+
   &__tb {
     padding: 4rem 0 13.7rem;
   }
+
   &__paragraph {
     padding: 1.2rem 0 0;
+  }
+
+  &__bg {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    transform: translateX(-20.5rem);
+
+    svg {
+      width: 55.8rem;
+      height: 56rem;
+    }
   }
 
   @include media-up(md) {
@@ -17,18 +34,29 @@
       padding: 6.6rem 0 22.2rem;
     }
     &__wrapper {
-      padding: 0 0 0 12.8rem;
+      padding: 0 0 0 min(128px, 12.8rem);
       display: flex;
+      gap: 128px;
       justify-content: space-between;
     }
 
     &__title {
       max-width: 50rem;
+
+      h1 {
+        margin: 0;
+        letter-spacing: -1%;
+      }
     }
 
     &__content {
       padding: 4.4rem 0 0;
       max-width: 63.5rem;
+      margin: 0 min(12rem, 120px) 0 0;
+    }
+
+    &__intro {
+      font-size: 2.4rem;
     }
 
   }

@@ -5,8 +5,14 @@
 .f-text-x-image {
   background: #F4F6FA;
 
+  .l-container {
+    position: relative;
+  }
+
   &__tb {
-    padding: 4.4rem 0 6rem
+    padding: 4.4rem 0 6rem;
+    position: relative;
+    z-index: 2;
   }
 
 
@@ -21,6 +27,10 @@
 
   }
 
+  &__title {
+    margin: 0 0 .8rem;
+  }
+
   &__image {
     width: 100%;
 
@@ -32,11 +42,26 @@
   }
 
 
+  &__bg {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: 1;
+  }
+
   @include media-up(md) {
 
     &__tb {
-      padding: 9.8rem 0 12rem
+      padding: 9.8rem 0 12rem;
+      position: relative;
+      z-index: 2;
     }
+
+
 
 
     &__wrapper {
@@ -64,7 +89,6 @@
     }
     &__title {
       margin: 0 0 2.4rem;
-      padding: 0 0 0 1.1rem;
     }
     &__image {
       width: 50%;

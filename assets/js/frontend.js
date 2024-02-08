@@ -1,11 +1,10 @@
-import { registerGsapPlugins } from './config/gsap'
+import {registerGsapPlugins} from './config/gsap'
 import Menu from './components/menu'
 import Newsletter from './components/newsletter'
 
 /* eslint-disable */
-jQuery(function ($) {
 
-  alert('Hello from your JavaScript file!')
+jQuery(function ($) {
   registerGsapPlugins()
   Menu();
   Newsletter();

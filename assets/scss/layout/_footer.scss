@@ -80,11 +80,13 @@
     align-items: center;
     border-radius: .3667rem;
     margin-top: 1.5rem;
+    transition: ease 0.4s;
 
     svg {
       display: block;
       height: 1.3rem;
       width: 1.3rem;
+      transition: ease 0.4s;
     }
   }
 
@@ -102,6 +104,10 @@
     height: 7.7rem;
     object-fit: contain;
     object-position: center center;
+  }
+
+  &__sponsors {
+    display: none
   }
 
   &__copyright {
@@ -141,8 +147,12 @@
   }
 
   @include media-up(md) {
+    &__sponsors {
+      display: block;
+      visibility: hidden;
+    }
     &__yellow {
-      padding: 11rem 0 18rem;
+      padding: 11rem 0 23.8rem;
     }
 
     &__container {
@@ -160,7 +170,12 @@
 
     &__social-link {
       &:hover {
-        background-color: $green;
+        background-color: $black;
+
+        svg path {
+          fill: $white;
+          stroke: $white;
+        }
       }
     }
 
@@ -182,6 +197,12 @@
           fill: #4999ff;
         }
       }
+    }
+
+    &__copyright-x-credits {
+      padding: 2.4rem 0 0;
+      margin-top: 6.6rem ;
+      border-top: 1px solid $grey-1;
     }
   }
 }
