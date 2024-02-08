@@ -13,7 +13,7 @@ const TestimonialsSlider = new Slider('f-testimonials', {
   autoplay: false,
   responsive: [
     {
-      breakpoint: 480,
+      breakpoint: 992,
       settings: {
         slidesToShow: 3.2,
         slidesToScroll: 1
