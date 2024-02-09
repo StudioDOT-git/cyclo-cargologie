@@ -3,6 +3,26 @@
     "title": "Button",
     "fields": [
         {
+            "key": "field_65c6037d8fdeb",
+            "label": "Activer",
+            "name": "is_active",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_65b7cebc0e704",
             "label": "Color",
             "name": "color",
@@ -12,7 +32,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -42,7 +62,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -51,7 +71,7 @@
                 "s": "Normal",
                 "xs": "Petit"
             },
-            "default_value": false,
+            "default_value": "s",
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -71,7 +91,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -96,7 +116,7 @@
             "aria-label": "",
             "type": "text",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -110,6 +130,26 @@
             "append": ""
         },
         {
+            "key": "field_65c64191fd35d",
+            "label": "Type du bouton",
+            "name": "button_type",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Le bouton est-il un lien ou ouvre-t-il la pop-up Newsletter",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui_on_text": "Lien",
+            "ui_off_text": "Pop-up",
+            "ui": 1
+        },
+        {
             "key": "field_65b7d07d0cd75",
             "label": "Lien",
             "name": "link",
@@ -117,7 +157,15 @@
             "type": "link",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_65c64191fd35d",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -153,5 +201,5 @@
     "dot_is_lpart": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1706609900
+    "modified": 1707491896
 }

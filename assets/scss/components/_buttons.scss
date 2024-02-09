@@ -72,12 +72,12 @@
     padding: 1.9rem 3.5rem;
     width: fit-content;
 
-    &.c-button--xs, &.c-button--s {
+    &.c-button--xs,
+    &.c-button--s {
       padding: 1.45rem 2.15rem;
 
     }
   }
-
 
   // Colors
   &--white {

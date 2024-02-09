@@ -151,14 +151,15 @@
           display: flex;
         }
 
- 
+
 
 
       }
     }
 
     &:nth-of-type(2) {
-      // background: $green;
+      background: $green;
+      color: $white;
       padding: 21.5 $container-margin-sm 3.4rem $container-margin-sm;
     }
   }
@@ -177,6 +178,12 @@
     font-size: 2rem;
     line-height: 120%;
     letter-spacing: -.02rem;
+  }
+
+  &__button-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.3rem 1.6rem;
   }
 
   &__deco {
@@ -202,12 +209,12 @@
     &__column {
 
       &:nth-of-type(1) {
-        padding: 21.5rem 2rem 17.6rem calc(13rem + #{$container-margin-lg});
+        padding: 21.5rem 13.9rem 17.6rem calc(3.3rem + #{$container-margin-lg});
 
       }
 
       &:nth-of-type(2) {
-        padding: 21.5rem calc(13rem + #{$container-margin-lg}) 17.6rem 22.6rem;
+        padding: 21.5rem calc(13rem + #{$container-margin-lg}) 17.6rem 13.5rem;
       }
     }
   }
