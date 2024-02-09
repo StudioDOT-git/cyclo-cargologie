@@ -148,14 +148,23 @@
 
     &__section-deco {
       display: block;
-      margin: 0 0 3.3rem;
+      margin: 0 0 2.7rem;
     }
     &__subtitle {
       font-size: 1.6rem;
     }
 
     &__title {
-      margin: 0 0 2.4rem;
+      margin: 0 0 2.7rem;
+      font-size: 4.2rem;
+    }
+
+    &__paragraph {
+      max-width: 63.4rem;
+
+      p {
+        font-size: 1.7rem;
+      }
     }
 
     &__image {
@@ -177,7 +186,7 @@
 
     }
     .c-button {
-      margin: 2.8rem 0 0;
+      margin: 2.7rem 0 0;
       font-size: 1.7rem;
       gap: 11.358rem;
 
