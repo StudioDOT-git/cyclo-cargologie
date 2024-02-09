@@ -1,4 +1,9 @@
 <?php
+
+$is_active = get_sub_field('is_active');
+if (!$is_active) {
+    return;
+}
 $label = get_sub_field('label');
 $color = get_sub_field('color');
 $type = get_sub_field('type');
