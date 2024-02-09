@@ -125,6 +125,8 @@
 
       &.--have-section-deco {
         margin-top: 1.5rem;
+
+
       }
 
       & + * {
@@ -160,7 +162,6 @@
     }
 
     &__paragraph {
-      max-width: 63.4rem;
 
       p {
         font-size: 1.7rem;
@@ -172,6 +173,13 @@
 
       &.--have-deco {
         max-width: 63.5rem;
+
+        &+ div {
+          .f-text-x-image__paragraph {
+            max-width: 63.4rem;
+
+          }
+        }
 
       }
 
