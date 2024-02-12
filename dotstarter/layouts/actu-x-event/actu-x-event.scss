@@ -17,12 +17,16 @@
 
   &__subtitle {
     font-size: 1.6rem;
+    line-height: 150%;
+    text-transform: uppercase;
+    letter-spacing: 0.016rem;
   }
 
   &__title {
     font-size: 2.9rem;
     margin: 0 0 2.6rem;
     padding: .55rem 0 0;
+    letter-spacing: -0.01em;
 
   }
 
@@ -70,6 +74,9 @@
     background: $black;
     text-transform: uppercase;
     padding: .6rem;
+    font-size: 1.5rem;
+    letter-spacing: 0.01em;
+
 
   }
 
@@ -87,6 +94,7 @@
     border-radius: 1.3rem;
     background: rgba(244, 244, 250, 0.90);
     color: $black;
+    font-size: 1.5rem;
 
   }
 
@@ -95,7 +103,8 @@
     font-weight: 500;
     line-height: 110%;
     padding: .9rem 0 0;
-    font-family:$font-headings;
+    font-family: $font-headings;
+    letter-spacing: -0.01em;
   }
 
   .c-button {
@@ -112,7 +121,39 @@
 
 
   @include media-up(md) {
+    &__tb {
+      padding: 10.4rem 0 6.5rem;
+    }
+    &__wrapper {
+      grid-template:auto/ auto auto;
+      justify-content: start;
+      gap: 14.6rem;
+    }
 
+    &__title {
+      font-size: 4.2rem;
+      line-height: 110%;
+      margin: 0 0 4.3rem;
+    }
+
+    &__image {
+      aspect-ratio: 1.1775700935;
+      width: 63rem;
+    }
+    .c-button {
+      margin: 5rem 0 0;
+      width: 30rem;
+      height: 7.1rem;
+      svg {
+        width: 4.6424rem;
+        height: 4.6424rem;
+      }
+    }
+    &__resume {
+      font-size: 2.9rem;
+      line-height: 110%;
+
+    }
 
   }
 }
