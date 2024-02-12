@@ -19,7 +19,11 @@
 
                             <div class="f-testimonials__author-wrapper">
                                 <div class="f-testimonials__card-image">
+                                    <?php if (get_sub_field('image')) : ?>
                                     <?= wp_get_attachment_image(get_sub_field('image'), 'medium') ?>
+                                    <?php else: ?>
+                                        <img src="<?= DOT_THEME_URI . '/assets/img/testimonial-default.png'?>" alt="Vélo zoomé">
+                                    <?php endif; ?>
                                 </div>
                                 <div class="f-testimonials__card-author-info">
                                     <p class="f-testimonials__card-author-name"><?= get_sub_field('author') ?></p>
