@@ -81,12 +81,12 @@
 
             </div>
         </div>
-        <!-- <button class="main-menu__cta-open">
+        <button class="main-menu__cta-open">
             <div class="main-menu__hamburger">
                 <span></span>
                 <span></span>
             </div>
             <span>Menu</span>
-        </button> -->
+        </button>
     </div>
 </div>

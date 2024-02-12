@@ -84,6 +84,55 @@
             "library": "all"
         },
         {
+            "key": "field_65c64d3319ad8",
+            "label": "Image de fond du menu",
+            "name": "menu__background-image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "uploader": "",
+            "return_format": "url",
+            "acfe_thumbnail": 0,
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium",
+            "library": "all"
+        },
+        {
+            "key": "field_65c6496294e9f",
+            "label": "Bouton de contact",
+            "name": "contact_button",
+            "aria-label": "",
+            "type": "layout_part",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_65b7cebc92b44"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
             "key": "field_62a31139499e6",
             "label": "Footer",
             "name": "",
@@ -565,7 +614,7 @@
         {
             "key": "field_65c6405671c02",
             "label": "Boutons",
-            "name": "buttons",
+            "name": "buttons_mouvement",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
@@ -588,7 +637,7 @@
                 {
                     "key": "field_65c6406271c03",
                     "label": "Bouton",
-                    "name": "button",
+                    "name": "button_mouvement",
                     "aria-label": "",
                     "type": "layout_part",
                     "instructions": "",
@@ -637,5 +686,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1707491456
+    "modified": 1707494724
 }

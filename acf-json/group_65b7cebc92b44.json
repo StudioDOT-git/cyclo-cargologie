@@ -130,26 +130,6 @@
             "append": ""
         },
         {
-            "key": "field_65c64191fd35d",
-            "label": "Type du bouton",
-            "name": "button_type",
-            "aria-label": "",
-            "type": "true_false",
-            "instructions": "Le bouton est-il un lien ou ouvre-t-il la pop-up Newsletter",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 1,
-            "ui_on_text": "Lien",
-            "ui_off_text": "Pop-up",
-            "ui": 1
-        },
-        {
             "key": "field_65b7d07d0cd75",
             "label": "Lien",
             "name": "link",
@@ -201,5 +181,5 @@
     "dot_is_lpart": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1707491896
+    "modified": 1707498092
 }
