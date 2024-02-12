@@ -17,7 +17,13 @@
     text-transform: uppercase;
     font-weight: 400;
     line-height: 150%;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+  }
+
+  &__title {
+    letter-spacing: -0.01em;
+    font-size: 2.9rem;
+
   }
 
   &__slider {
@@ -152,6 +158,12 @@
   @include media-up(md) {
     &__headings {
       padding: 0 0 0 12.8rem;
+    }
+
+
+    &__title {
+      font-size: 4.2rem;
+
     }
 
     &__author-wrapper {
