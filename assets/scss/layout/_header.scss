@@ -43,7 +43,7 @@
     gap: 1.6rem;
     position: fixed;
     right: 1rem;
-    z-index: 20;
+    z-index: 8;
     @include media-up(md) {
       right: 9.6rem;
     }
