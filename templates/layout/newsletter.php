@@ -39,6 +39,6 @@
 
     </div>
     <img class="l-newsletter__deco" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/deco-newsletter.svg"
-        alt="">
+        alt="deco">
 
 </div>

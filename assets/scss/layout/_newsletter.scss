@@ -159,9 +159,13 @@
     }
 
     &:nth-of-type(2) {
-      background: $green;
+      background-color: $green;
       color: $white;
       padding: 10rem $container-margin-sm 10rem $container-margin-sm;
+      background-image: url('/wp-content/themes/cyclo-cargologie/assets/img/deco-aside-newsletter.png');
+      background-size: auto 100%;
+      background-position: center;
+      background-repeat: no-repeat;
     }
   }
 
@@ -214,6 +218,10 @@
       &:nth-of-type(2) {
         padding: 21.5rem calc(13rem + #{$container-margin-lg}) 17.6rem 13.5rem !important;
       }
+    }
+
+    &__deco {
+      width: 48.5vw;
     }
 
     &__button-container {

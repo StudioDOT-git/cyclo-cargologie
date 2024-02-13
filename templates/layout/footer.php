@@ -8,7 +8,9 @@
                     <?php the_field('baseline', 'option') ?>
                 </span>
             </div>
-            <div class="l-footer__columns"></div>
+            <div class="l-footer__columns">
+                <?= the_menu('main-menu') ?>
+            </div>
             <div class="l-footer__columns">
                 <span class="uppercase-s">Contact & réseau</span>
                 <a href="mailto:<?php the_field('email', 'option') ?>" class="l-footer__mailto heading5">
