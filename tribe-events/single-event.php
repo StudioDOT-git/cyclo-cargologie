@@ -62,7 +62,7 @@ $after = apply_filters('tribe_events_single_event_title_html_after', '</h1>', $e
  */
 $title = apply_filters('tribe_events_single_event_title_html', the_title($before, $after, false), $event_id);
 
-$disciplines = get_the_terms(null, 'discipline');
+$tags = get_the_terms(null, 'post_tag');
 $categories = get_the_terms(null, 'tribe_events_cat');
 
 $slides_count = is_array(get_field('slides')) ? count(get_field('slides')) : null;
@@ -85,7 +85,7 @@ if (get_field('days') === false) {
     <section class="t-events-single-header">
         <div class="l-container">
             <div class="t-events-single-header__column">
-                <section class="t-events-single-slider c-slider slide-ttb" id="<?php echo uniqid() ?>">
+                <section class="t-events-single-slider c-slider slide-ttb" id="<?= uniqid() ?>">
                     <?php if (get_field('carousel_images')) : ?>
                         <div class="t-events-single-slider__slider">
                             <?php foreach (get_field('carousel_images') as $image) : ?>
@@ -119,11 +119,11 @@ if (get_field('days') === false) {
                         </div>
                         <?php if (count(get_field('carousel_images')) > 1) : ?>
                             <div class="t-events-single-slider__index c-slider__index">
-                                <span class="c-slider__prev btn-prev"><img src="<?php echo DOT_THEME_URI ?>/assets/icons/slider-arrow-left.svg" /></span>
+                                <span class="c-slider__prev btn-prev"><img src="<?= DOT_THEME_URI ?>/assets/icons/slider-arrow-left.svg" /></span>
                                 <div class="c-slider__index-mid">
                                     <span class="current-index">1</span> / <span class="total-slides">0</span>
                                 </div>
-                                <span class="c-slider__next btn-next"><img src="<?php echo DOT_THEME_URI ?>/assets/icons/slider-arrow-right.svg" /></span>
+                                <span class="c-slider__next btn-next"><img src="<?= DOT_THEME_URI ?>/assets/icons/slider-arrow-right.svg" /></span>
                             </div>
                         <?php endif; ?>
                     <?php else : ?>
@@ -137,9 +137,9 @@ if (get_field('days') === false) {
                 <h1 class="t-events-single-header__title heading1">
                     <?php the_title() ?>
                 </h1>
-                <?php if (get_field('performer')) : ?>
-                    <p class="t-events-single-header__performer">
-                        <?php the_field('performer') ?>
+                <?php if (get_field('subtitle')) : ?>
+                    <p class="t-events-single-header__subtitle">
+                        <?php the_field('subtitle') ?>
                     </p>
                 <?php endif; ?>
 
@@ -183,8 +183,8 @@ if (get_field('days') === false) {
                             </li>
                         <?php endforeach; ?>
                     <?php endif; ?>
-                    <?php if (is_array($disciplines)) : ?>
-                        <?php foreach ($disciplines as $term) : ?>
+                    <?php if (is_array($tags)) : ?>
+                        <?php foreach ($tags as $term) : ?>
                             <div class="c-tag c-tag--yellow-light">
                                 <?= $term->name ?>
                             </div>
@@ -252,16 +252,11 @@ if (get_field('days') === false) {
                     <?php endif; ?>
                 </div>
 
-                <?php if (have_rows('buttons')) : ?>
-                    <div class="t-events-single-header__buttons">
-                        <?php while (have_rows('buttons')) :
+                <?php if (have_rows('button')) : ?>
+                    <div class="t-events-single-header__button">
+                        <?php while (have_rows('button')):
                             the_row() ?>
-                            <?php if (acf_maybe_get(get_sub_field('button'), 'link') && have_rows('button')) : ?>
-                                <?php while (have_rows('button')) :
-                                    the_row() ?>
-                                    <?php dot_the_layout_part('button') ?>
-                                <?php endwhile; ?>
-                            <?php endif; ?>
+                            <?php dot_the_layout_part('button') ?>
                         <?php endwhile; ?>
                     </div>
                 <?php endif; ?>
