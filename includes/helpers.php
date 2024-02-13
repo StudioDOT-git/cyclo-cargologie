@@ -123,3 +123,34 @@ function is_edit_page_type_page(): bool {
 
     return false;
 }
+
+
+function dot_get_formatted_event_date()
+{
+    $start_date = tribe_get_start_date(null, false, 'D. d M');
+    $end_date = tribe_get_end_date(null, false, 'D. d M');
+
+    $start_date_year = tribe_get_start_date(null, false, 'Y');
+    $end_date_year = tribe_get_end_date(null, false, 'Y');
+
+    $show_start_date_year = true;
+    $show_end_date = false;
+
+    if ($start_date !== $end_date) {
+        $show_end_date = true;
+
+        if ($start_date_year === $end_date_year) {
+            $show_start_date_year = false;
+        }
+    }
+
+    if ($show_start_date_year) {
+        $start_date = "$start_date <span>$start_date_year</span>";
+    }
+
+    $full_date = $show_end_date ?
+        "$start_date > $end_date <span>$end_date_year</span>" :
+        $start_date;
+
+    return $full_date;
+}

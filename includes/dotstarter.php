@@ -28,6 +28,10 @@ if (!class_exists('DOT_Starter')) {
             require_once(DOT_THEME_INCLUDES_PATH . 'storage.php');
             require_once(DOT_THEME_INCLUDES_PATH . 'tinymce.php');
 
+            // AJAX
+            require_once(DOT_THEME_INCLUDES_PATH . 'ajax/events.php');
+
+
             add_action('after_setup_theme', array($this, 'theme_setup'));
             add_action('after_setup_theme', array($this, 'register_nav_menus'));
 
