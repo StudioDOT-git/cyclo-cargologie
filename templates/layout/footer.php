@@ -145,8 +145,11 @@
 <div class="l-modal">
     <div class="l-modal__background"></div>
     <div class="l-modal__container">
-        <span class="l-modal__subtitle">Information</span>
-        <h2 class="heading3 l-modal__title">Disponible prochainement, inscrivez-vous à notre lettre d'information
+        <span class="l-modal__subtitle">
+            <?php the_field('subtitle_pop-up', 'option') ?>
+        </span>
+        <h2 class="heading3 l-modal__title">
+            <?php the_field('title_pop-up', 'option') ?>
         </h2>
         <button class="l-modal__btn-close">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
