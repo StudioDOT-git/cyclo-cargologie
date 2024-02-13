@@ -20,7 +20,7 @@ $show_top_border = get_sub_field('show_top_border');
                             $tag_close = "</$type>";
 
                             $full_title = $tag_open;
-                            
+
                             $full_title .= get_sub_field('title') . $tag_close;
 
                             echo $full_title;
