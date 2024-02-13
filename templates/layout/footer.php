@@ -9,7 +9,10 @@
                 </span>
             </div>
             <div class="l-footer__columns">
-                <?= the_menu('main-menu') ?>
+                <span class="uppercase-s">Pages</span>
+                <div class="l-footer__menu-links">
+                    <?= the_menu('main-menu') ?>
+                </div>
             </div>
             <div class="l-footer__columns">
                 <span class="uppercase-s">Contact & réseau</span>

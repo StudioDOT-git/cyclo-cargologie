@@ -9,7 +9,6 @@
     position: relative;
     padding: 5rem 0 5rem;
     background: $yellow;
-
   }
 
   &__container {
@@ -59,10 +58,26 @@
     line-height: 111%;
     letter-spacing: -.0269rem;
     text-transform: uppercase;
-
     display: block;
     max-width: 22rem;
     margin: 1.5rem 0 0 8.6rem;
+  }
+
+  &__menu-links {
+    margin-top: 2.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .menu-item {
+      color: $black;
+      font-family: $font-headings;
+      font-size: 2.4rem;
+      line-height: 1.3;
+      letter-spacing: -1%;
+      text-decoration: none;
+    }
+
   }
 
   &__mailto {
@@ -148,6 +163,14 @@
   }
 
   @include media-up(md) {
+    &__menu-links {
+      .menu-item {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
     &__sponsors {
       display: block;
       visibility: hidden;
@@ -208,7 +231,6 @@
     }
   }
 }
-
 
 .l-modal {
   pointer-events: none;
