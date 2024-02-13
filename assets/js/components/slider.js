@@ -8,6 +8,7 @@ class SlickSlider {
   }
 
   init() {
+    console.log('SlickSlider init')
 
     this.reset()
 

@@ -5,8 +5,15 @@ import TestimonialsSlider from '../../dotstarter/layouts/testimonials/testimonia
 import FullWidthSlider from '../../dotstarter/layouts/slider-full-width/slider-full-width.js'
 
 import { modalAnims, modalForm } from './layouts/modal'
+import { SingleEventsContactSlider, SingleEventsSlider } from './templates/events-single.js'
 
 /* eslint-disable */
+
+const sliders = [
+  SingleEventsSlider,
+  SingleEventsContactSlider,
+];
+
 
 jQuery(function ($) {
   TestimonialsSlider.init();
@@ -17,4 +24,7 @@ jQuery(function ($) {
 
   modalAnims();
   modalForm();
+
+  sliders.forEach(slider => slider.init())
+
 })
