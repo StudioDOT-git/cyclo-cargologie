@@ -1,7 +1,7 @@
 function Newsletter () {
-  const btn = document.querySelector('.wpforms-submit')
-  const input = document.querySelector('#wpforms-82-field_1')
-  function checkInput() {
+  const btn = document.querySelector('.l-newsletter__column .wpforms-submit')
+  const input = document.querySelector('.l-newsletter__column #wpforms-82-field_1')
+  function checkInput () {
     if (input.value.trim() !== '') {
       btn.classList.add('is-show')
     } else {

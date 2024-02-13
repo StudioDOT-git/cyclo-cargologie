@@ -50,7 +50,7 @@
       ::placeholder {
         color: $black !important;
         opacity: 1 !important;
-        font-size: 3.3rem;
+        font-size: 2.1rem;
       }
 
 
@@ -73,7 +73,7 @@
       input[type=email] {
         color: $black;
         font-family: $font-headings;
-        font-size: 4.558rem;
+        font-size: 4.558rem !important;
         font-style: normal;
         font-weight: 300;
         line-height: 111%;
@@ -84,7 +84,7 @@
       input[type=text] {
         color: $black;
         font-family: $font-headings;
-        font-size: 2.1rem;
+        font-size: 2.1rem !important;
         font-style: normal;
         font-weight: 300;
         line-height: 111%;
@@ -159,8 +159,9 @@
     }
 
     &:nth-of-type(2) {
-      // background: $green;
-      padding: 21.5 $container-margin-sm 3.4rem $container-margin-sm;
+      background: $green;
+      color: $white;
+      padding: 10rem $container-margin-sm 10rem $container-margin-sm;
     }
   }
 
@@ -180,6 +181,12 @@
     letter-spacing: -.02rem;
   }
 
+  &__button-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.3rem 1.6rem;
+  }
+
   &__deco {
     pointer-events: none;
     user-select: none;
@@ -197,20 +204,20 @@
   @include media-up(md) {
     &__container {
       grid-template-columns: 1fr 1fr;
-
     }
 
     &__column {
-
       &:nth-of-type(1) {
-        padding: 21.5rem 2rem 17.6rem calc(13rem + #{$container-margin-lg});
-
+        padding: 21.5rem 13.9rem 17.6rem calc(3.3rem + #{$container-margin-lg});
       }
 
       &:nth-of-type(2) {
-        padding: 21.5rem calc(13rem + #{$container-margin-lg}) 17.6rem 22.6rem;
+        padding: 21.5rem calc(13rem + #{$container-margin-lg}) 17.6rem 13.5rem !important;
       }
     }
-  }
 
+    &__button-container {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
 }

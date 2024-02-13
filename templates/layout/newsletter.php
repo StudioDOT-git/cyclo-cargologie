@@ -15,6 +15,26 @@
             ?>
         </div>
         <div class="l-newsletter__column">
+            <h3 class="heading3">
+                <?php the_field('title_mouvement', 'option') ?>
+            </h3>
+            <span class="heading6">
+                <?php the_field('text_mouvement', 'option') ?>
+            </span>
+
+
+
+            <?php if (have_rows('buttons_mouvement', 'option')): ?>
+                <div class="l-newsletter__button-container">
+                    <?php while (have_rows('buttons_mouvement', 'option')):
+                        the_row() ?>
+                        <?php while (have_rows('button_mouvement', 'option')):
+                            the_row() ?>
+                            <?php dot_the_layout_part('button') ?>
+                        <?php endwhile; ?>
+                    <?php endwhile; ?>
+                </div>
+            <?php endif; ?>
         </div>
 
     </div>
