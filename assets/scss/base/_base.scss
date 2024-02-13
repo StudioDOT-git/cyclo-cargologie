@@ -32,7 +32,7 @@ html {
   scroll-behavior: smooth;
 
   @include media-up(md) {
-    font-size: min(calc(100vw / 1728 * 10), 0.45vw);
+    font-size: min(calc(100vw / 1728 * 10), 100vw);
 
   }
 }
@@ -48,6 +48,14 @@ img {
 
 body {
 	color: clr(black);
+  background-image: url("/wp-content/themes/cyclo-cargologie/assets/img/bg.svg");
+  background-repeat: no-repeat;
+  background-size: calc(100vw - $container-margin) ;
+  background-attachment: fixed;
+  background-position: center;
+  @include media-up(md) {
+    background-size: calc(100vw - $container-margin-md) ;
+  }
 }
 
 b,

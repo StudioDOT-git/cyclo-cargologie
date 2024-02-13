@@ -2,6 +2,17 @@
 <html <?php language_attributes(); ?>>
 
 <head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WHZG08PZF5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag () { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-WHZG08PZF5');
+    </script>
+
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -21,31 +32,6 @@
 
 <body <?php body_class() ?>>
     <?php wp_body_open() ?>
-
-    <div class="f-notice-banner">
-        <div class="f-notice-banner__marquee-wrapper">
-            <div class="c-marquee__item hidden">
-                <span class="f-notice-banner__message">Cyclo-cargologie.com - Site en construction</span>
-            </div>
-            <div class="c-marquee">
-                <div class="c-marquee-inner">
-                    <?php for ($i = 0; $i < 5; $i++): ?>
-                        <div class="c-marquee__item">
-                            <span class="f-notice-banner__message">Cyclo-cargologie.com - Site en construction</span>
-                        </div>
-                    <?php endfor; ?>
-                </div>
-                <div class="c-marquee-inner is-last">
-                    <?php for ($i = 0; $i < 5; $i++): ?>
-                        <div class="c-marquee__item">
-                            <span class="f-notice-banner__message">Cyclo-cargologie.com - Site en construction</span>
-                        </div>
-                    <?php endfor; ?>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <?php get_template_part('templates/layout/menu'); ?>
 
     <div id="main">

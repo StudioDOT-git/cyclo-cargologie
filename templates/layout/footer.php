@@ -8,13 +8,16 @@
                     <?php the_field('baseline', 'option') ?>
                 </span>
             </div>
-            <div class="l-footer__columns"></div>
+            <div class="l-footer__columns">
+                <?= the_menu('main-menu') ?>
+            </div>
             <div class="l-footer__columns">
                 <span class="uppercase-s">Contact & réseau</span>
                 <a href="mailto:<?php the_field('email', 'option') ?>" class="l-footer__mailto heading5">
                     <?php the_field('email', 'option') ?>
                 </a>
-                <span class="uppercase-s">Nous suivre</span>
+                <!--                <span class="uppercase-s">Nous suivre</span>-->
+
                 <a href="<?php the_field('linkedin', 'option') ?>" target="_blank" class="l-footer__social-link">
                     <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="Frame" clip-path="url(#clip0_475_25023)">
@@ -55,12 +58,18 @@
                             $logo_id = $partner['logo'];
                             $logo_img = wp_get_attachment_image($logo_id, 'full', null, ['class' => 'l-footer__logo-partners']);
                             ?>
-                            <?php echo $logo_img; ?>
+                            <?php if ($partner['link']): ?>
+                                <a href="<?= $partner['link']['url']; ?>" target="_blank">
+                                    <?= $logo_img; ?>
+                                </a>
+                            <?php else: ?>
+                                <?= $logo_img; ?>
+                            <?php endif; ?>
                         </li>
                     <?php endforeach; ?>
                 </ul>
             </div>
-            <div class="l-footer__columns">
+            <div class="l-footer__columns l-footer__sponsors">
                 <span class="uppercase-s">Avec le soutien de :</span>
                 <?php $partners = get_field('avec_le_soutien_de', 'option'); ?>
                 <ul class="l-footer__partners-list">
@@ -70,7 +79,13 @@
                             $logo_id = $partner['logo'];
                             $logo_img = wp_get_attachment_image($logo_id, 'full', null, ['class' => 'l-footer__logo-partners']);
                             ?>
-                            <?php echo $logo_img; ?>
+                            <?php if ($partner['link']): ?>
+                                <a href="<?= $partner['link']['url']; ?>" target="_blank">
+                                    <?= $logo_img; ?>
+                                </a>
+                            <?php else: ?>
+                                <?= $logo_img; ?>
+                            <?php endif; ?>
                         </li>
                     <?php endforeach; ?>
                 </ul>
@@ -85,15 +100,23 @@
                             $logo_id = $partner['logo'];
                             $logo_img = wp_get_attachment_image($logo_id, 'full', null, ['class' => 'l-footer__logo-partners']);
                             ?>
-                            <?php echo $logo_img; ?>
+                            <?php if ($partner['link']): ?>
+                                <a href="<?= $partner['link']['url']; ?>" target="_blank">
+                                    <?= $logo_img; ?>
+                                </a>
+                            <?php else: ?>
+                                <?= $logo_img; ?>
+                            <?php endif; ?>
                         </li>
                     <?php endforeach; ?>
                 </ul>
             </div>
 
+        </div>
+        <div class="l-container l-footer__container l-footer__copyright-x-credits">
             <div class="l-footer__columns">
                 <span class="l-footer__copyright">
-                    © Cyclocargologie
+                    © Cyclo-cargologie
                     <?php echo date("Y"); ?>
                 </span>
             </div>
@@ -121,8 +144,27 @@
 </div>
 
 
-
-
+<div class="l-modal">
+    <div class="l-modal__background"></div>
+    <div class="l-modal__container">
+        <span class="l-modal__subtitle">
+            <?php the_field('subtitle_pop-up', 'option') ?>
+        </span>
+        <h2 class="heading3 l-modal__title">
+            <?php the_field('title_pop-up', 'option') ?>
+        </h2>
+        <button class="l-modal__btn-close">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M6 6L18 18" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </button>
+        <?php
+        $newsletter_form = get_field('form_shortcode', 'option');
+        echo do_shortcode($newsletter_form);
+        ?>
+    </div>
+</div>
 
 <?php wp_footer(); ?>
 

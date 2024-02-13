@@ -3,11 +3,48 @@
 @use "../../../assets/scss/base/mixins" as *;
 
 .f-column {
-  //background: #F4F6FA;
+
+  &__tb {
+    padding: 0 0 7.3rem;
+
+  }
+
+  .f-header-yellow {
+    overflow: hidden;
+
+    &__tb {
+      padding: 4.95rem 0 32.3rem;
+    }
+    &__subtitle {
+      color: $grey-4;
+      text-transform: uppercase;
+      font-weight: 400;
+      line-height: 150%;
+      font-size: 1.4rem;
+      letter-spacing: 0.01em;
+
+    }
+    &__title {
+      font-size: 2.9rem;
+      margin: 0;
+      line-height: 110%;
+      letter-spacing: -0.01em;
+
+      padding: .4rem 0 0;
+    }
+    &__paragraph {
+      max-width: 34.8rem;
+
+    }
+  }
+
+  .l-container {
+    position: relative;
+  }
 
   &__wrapper {
     position: relative;
-    top: -6.2rem;
+    margin-top: -29.7rem;
   }
 
   &__item + * {
@@ -21,36 +58,115 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      aspect-ratio: 0.7779503106;
+      aspect-ratio: 125 / 134;
     }
 
     &::after {
       content: attr(data-id);
-      color:$yellow;
+      color: $yellow;
       font-family: $font-body;
-      font-size: 9.1051rem;
       font-weight: 100;
+      font-size: 6.272rem;
       line-height: 111%;
       letter-spacing: -1.1052rem;
       opacity: 0.7;
-      mix-blend-mode: plus-darker;
+      mix-blend-mode: darken;
       position: absolute;
       right: 1.3rem;
       bottom: 0;
       z-index: 0;
-      transform: translate(0,100%);
+      transform: translate(0, 100%);
+
+      @include media-up(md) {
+        font-size: 7.122rem;
+
+      }
     }
   }
 
   &__title {
-    padding: 1.6rem 0 0;
+    padding: 2.4rem 0 0;
+    font-size: 2.4rem;
+    letter-spacing: -0.01em;
   }
 
   &__description {
-    padding: .6rem 0 0;
+    padding: .8rem 0 0;
+
+    position: relative;
+    z-index: 2;
+  }
+
+  &__cta-wrapper {
+    margin: 5.2rem 0 0 ;
+  }
+  .c-button {
+    margin-top: 2.3rem;
+    font-size: 1.45rem;
+    width: 23.8rem;
+    height: 6.1rem;
+
+    svg {
+      width: 3.6rem;
+      height: 3.6rem;
+    }
+  }
+
+
+  &__bg {
+    display: none;
   }
 
   @include media-up(md) {
+    .f-header-yellow {
+      &__wrapper {
+        gap: 5.6rem;
+      }
+
+      &__tb {
+        padding: 10.9rem 0 31rem;
+      }
+
+      &__title {
+        max-width: 60rem;
+        font-size: 4.2rem;
+
+        letter-spacing: -0.01em;
+      }
+
+      &__paragraph {
+        padding: 1.5rem 0 0;
+        max-width: 63.5rem;
+        font-size: 1.7rem;
+        letter-spacing: 0.0em;
+
+      }
+
+      &__content {
+        padding: 3.2rem 0 0;
+      }
+
+    }
+
+
+    &__tb {
+      padding: 0 0 7.6rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    &__bg {
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      overflow: hidden;
+      z-index: 1;
+      display: none;
+    }
+
     &__wrapper {
       display: flex;
       flex-wrap: wrap;
@@ -59,7 +175,7 @@
 
       gap: 1.6rem;
 
-      top: -12.5rem;
+      margin-top: -25.3rem;
 
       & > * {
         max-width: 47.5%;
@@ -67,38 +183,62 @@
         min-width: calc(33% - 1.6rem * 3);
       }
     }
+
     &__item {
       position: relative;
+
       &::after {
-        content: attr(data-id);
-        color:$yellow;
+        //content: attr(data-id);
+        color: $yellow;
         font-family: $font-body;
         font-size: 18.4208rem;
         font-weight: 100;
         line-height: 111%;
         letter-spacing: -1.1052rem;
         opacity: 0.7;
-        mix-blend-mode: plus-darker;
+        mix-blend-mode: darken;
         position: absolute;
         left: 50%;
         bottom: 0;
         z-index: 0;
-        transform: translate(-50%,50%);
+        transform: translate(-50%, 50%);
 
       }
+
       & + * {
         padding: 0;
       }
     }
 
-
-
     &__title {
-      padding: 2.6rem 0 0;
+      padding: 2rem 0 0;
+      font-size: 2.9rem;
+
+
     }
 
     &__description {
-      padding: 2.2rem 0 0;
+      padding: .9rem 0 0;
+      font-size: 1.7rem;
+      line-height: 140%;
+      letter-spacing: -0.01em;
+
+    }
+
+    &__cta-wrapper {
+      display: flex;
+      justify-content: center;
+      margin: 8.2rem 0 0;
+    }
+
+    .c-button {
+      margin: 5rem 0 0;
+      width: 30rem;
+      height: 7.1rem;
+      svg {
+        width: 4.6424rem;
+        height: 4.6424rem;
+      }
     }
 
   }

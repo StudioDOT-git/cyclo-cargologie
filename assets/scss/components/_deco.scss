@@ -1,0 +1,21 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+@use "../base/colors" as *;
+
+.c-deco {
+  width: 8rem;
+  height: 8rem;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  @include media-up(md) {
+    width: 8rem;
+    height: 8rem;
+  }
+
+}
