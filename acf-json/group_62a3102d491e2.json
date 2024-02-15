@@ -84,6 +84,51 @@
             "library": "all"
         },
         {
+            "key": "field_65ccec03d459f",
+            "label": "Bouton menu",
+            "name": "bouton_menu",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "acfe_seamless_style": 0,
+            "acfe_group_modal": 0,
+            "sub_fields": [
+                {
+                    "key": "field_65cced30ff21c",
+                    "label": "Bouton",
+                    "name": "button",
+                    "aria-label": "",
+                    "type": "layout_part",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "clone": [
+                        "group_65b7cebc92b44"
+                    ],
+                    "display": "group",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0
+                }
+            ],
+            "acfe_group_modal_close": 0,
+            "acfe_group_modal_button": "",
+            "acfe_group_modal_size": "large"
+        },
+        {
             "key": "field_65c64d3319ad8",
             "label": "Image de fond du menu",
             "name": "menu__background-image",
@@ -743,5 +788,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1707821121
+    "modified": 1707928919
 }

@@ -22,8 +22,6 @@
                 <?php the_field('text_mouvement', 'option') ?>
             </span>
 
-
-
             <?php if (have_rows('buttons_mouvement', 'option')): ?>
                 <div class="l-newsletter__button-container">
                     <?php while (have_rows('buttons_mouvement', 'option')):

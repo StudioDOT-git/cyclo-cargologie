@@ -17,9 +17,55 @@
     img {
       width: 20rem;
     }
+
+    &-mobile {
+      display: none;
+    }
+
+    @include media-down(md) {
+      display: none;
+
+      &-mobile {
+        display: block;
+        height: 6.2rem;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
   }
 
   // Buttons
+
+  &__cta-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.6rem;
+    position: fixed;
+    right: 1rem;
+    z-index: 20;
+
+    @include media-up(md) {
+      right: 9.6rem;
+    }
+  }
+
+  &__cta {
+    .c-button {
+      padding: 1.4rem 1.2rem;
+      background: $black;
+      color: $white;
+      border-radius: 5px;
+      font-size: 1.4rem;
+      border: 0;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+  }
+
   &__cta-open {
     background: $white;
     border-radius: 5px;
@@ -28,8 +74,9 @@
     display: flex;
     align-items: center;
     cursor: pointer;
+    justify-content: center;
 
-    & > span {
+    &>span {
       display: none;
     }
   }
@@ -86,7 +133,8 @@
         opacity: 1;
       }
 
-      img, svg {
+      img,
+      svg {
         transform: scale(1);
       }
 
@@ -132,7 +180,7 @@
     display: flex;
     flex-direction: column;
 
-    & > * + * {
+    &>*+* {
       margin-top: 1.164rem;
     }
   }
@@ -152,17 +200,15 @@
 
   }
 
-
   &__nav-content-row {
     display: flex;
     flex-direction: column;
     align-items: start;
 
-    & + * {
+    &+* {
       padding: 3.6rem 0 0;
     }
   }
-
 
   &__mailto {
     color: $black;
@@ -206,11 +252,21 @@
     }
 
 
+    &__cta {
+      .c-button {
+        padding: 2rem 1.2rem;
+        font-size: 1.8rem;
+
+      }
+    }
+
+
     &__cta-close {
       top: 3.8rem;
       right: 9.5rem;
 
     }
+
     &__social-link {
       &:hover {
         background-color: $yellow-1;
@@ -262,7 +318,7 @@
     }
 
     &__nav-content-row {
-      & + * {
+      &+* {
         padding: 9.0rem 0 0;
       }
     }
@@ -270,7 +326,7 @@
     &__cta-open {
       padding: 1.6rem 1.8rem;
 
-      & > span {
+      &>span {
         padding: 0 0 0 1.9rem;
         font-weight: 500;
         font-size: 1.8rem;
@@ -283,7 +339,7 @@
     &__nav-content-links {
       padding: 1.5rem 0 0;
 
-      & > * + * {
+      &>*+* {
         margin-top: 1.5rem;
       }
     }
@@ -303,5 +359,4 @@
 }
 
 
-.l-navbar {
-}
+.l-navbar {}

@@ -3,6 +3,9 @@
         <a href="<?php echo home_url() ?>" class="main-menu__logo">
             <img src="<?php the_field('logo', 'option') ?>" alt="Logo" />
         </a>
+        <a href="<?php echo home_url() ?>" class="main-menu__logo-mobile">
+            <img src="<?php the_field('logo_mobile', 'option') ?>" alt="Logo" />
+        </a>
         <div class="main-menu__nav">
             <div class="main-menu__nav-wrapper">
                 <div class="main-menu__nav-image">
@@ -81,12 +84,24 @@
 
             </div>
         </div>
-        <button class="main-menu__cta-open">
-            <div class="main-menu__hamburger">
-                <span></span>
-                <span></span>
+        <div class="main-menu__cta-wrapper">
+            <div class="main-menu__cta">
+                <?php while (have_rows('bouton_menu', 'option')):
+                    the_row() ?>
+                    <?php while (have_rows('button', 'option')):
+                        the_row() ?>
+                        <?php dot_the_layout_part('button') ?>
+                    <?php endwhile; ?>
+                <?php endwhile; ?>
             </div>
-            <span>Menu</span>
-        </button>
+            <!-- <button class="main-menu__cta"><span>Se Former</span></button> -->
+            <button class="c-button--nav main-menu__cta-open">
+                <div class="main-menu__hamburger">
+                    <span></span>
+                    <span></span>
+                </div>
+                <span>Menu</span>
+            </button>
+        </div>
     </div>
 </div>
