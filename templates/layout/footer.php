@@ -12,6 +12,15 @@
                 <span class="uppercase-s">Pages</span>
                 <div class="l-footer__menu-links">
                     <?= the_menu('main-menu') ?>
+                    <div class="main-menu__cta">
+                        <?php while (have_rows('bouton_menu', 'option')):
+                            the_row() ?>
+                            <?php while (have_rows('button', 'option')):
+                                the_row() ?>
+                                <?php dot_the_layout_part('button') ?>
+                            <?php endwhile; ?>
+                        <?php endwhile; ?>
+                    </div>
                 </div>
             </div>
             <div class="l-footer__columns">
@@ -20,7 +29,6 @@
                     <?php the_field('email', 'option') ?>
                 </a>
                 <!--                <span class="uppercase-s">Nous suivre</span>-->
-
                 <a href="<?php the_field('linkedin', 'option') ?>" target="_blank" class="l-footer__social-link">
                     <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="Frame" clip-path="url(#clip0_475_25023)">
@@ -50,7 +58,6 @@
 
     <div class="l-footer__white">
         <div class="l-container l-footer__container">
-
             <div class="l-footer__columns">
                 <span class="uppercase-s">Porté par :</span>
                 <?php $partners = get_field('porte_par', 'option'); ?>
@@ -114,8 +121,8 @@
                     <?php endforeach; ?>
                 </ul>
             </div>
-
         </div>
+
         <div class="l-container l-footer__container l-footer__copyright-x-credits">
             <div class="l-footer__columns">
                 <span class="l-footer__copyright">
@@ -142,8 +149,6 @@
             </div>
         </div>
     </div>
-
-
 </div>
 
 
