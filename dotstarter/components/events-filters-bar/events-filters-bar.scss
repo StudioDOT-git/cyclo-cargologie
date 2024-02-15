@@ -1,0 +1,149 @@
+@use "../../../assets/scss/base/variables" as *;
+@use "../../../assets/scss/base/colors" as *;
+@use "../../../assets/scss/base/mixins" as *;
+
+.c-events-filters-bar {
+  --gap: 8px;
+  background: $purple;
+  padding: 10px;
+  padding: 25px 0;
+  position: relative;
+
+  &__filters {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--gap);
+
+    margin-bottom: 10px;
+  }
+
+  &__taxonomies {
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+  }
+
+  &__selected {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0;
+    gap: var(--gap);
+  }
+
+  &__reset {
+    display: none;
+
+    &.show {
+      display: block;
+    }
+  }
+
+  &__past-events-btn {
+    background-color: $white;
+    border-radius: 70px;
+    padding: 11px;
+    line-height: 1;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #232323;
+    cursor: pointer;
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    transition: all 0.2s;
+
+    svg path {
+      stroke: $purple;
+    }
+  }
+
+  .c-tag {
+    cursor: pointer;
+  }
+
+  @include media-up(md) {
+    .l-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__filters {
+      margin-bottom: 0;
+      justify-content: flex-start;
+    }
+
+    &__past-events-btn {
+      padding: 13.5px;
+    }
+  }
+}
+
+.c-events-search-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  border-radius: 70px;
+  padding: 0;
+  margin-top: 12px;
+  margin: 0 auto;
+
+  background: $white;
+  color: $purple;
+  border-radius: 70px;
+  padding-left: 8px;
+
+  &::before {
+    content: url("/wp-content/themes/dotcirca/assets/icons/loupe.svg");
+    display: block;
+    margin-left: 10px;
+    width: 16px;
+    height: 16px;
+  }
+
+  &__input {
+    border: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 8px 0 8px 8px;
+    color: $purple;
+    font-size: 1.3125rem;
+    border-radius: 70px;
+    position: relative;
+
+    &:focus,
+    &:focus-within {
+      outline: 0;
+    }
+  }
+
+  &__submit {
+    background: $black;
+    border-radius: 50px;
+    border: 0;
+    color: $white;
+    font-weight: 500;
+    font-size: 1.1rem;
+    line-height: 1.2;
+    margin: 8px;
+    padding: 7px 9px;
+    cursor: pointer;
+  }
+
+  @include media-up(xs) {
+    margin: 0;
+  }
+
+  @include media-up(md) {
+    margin-top: 0;
+    justify-content: flex-start;
+  }
+}

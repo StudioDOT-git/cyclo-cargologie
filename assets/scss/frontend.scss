@@ -25,10 +25,15 @@
 @use "./components/wysiwyg";
 @use "./components/slider";
 @use "./components/deco";
+@use "./components/multi-terms-selector";
+@use "./components/filters-bar";
+@use "./components/multi-filter";
 
 /* ----- TEMPLATES ------------ */
 @use "./templates/four-oh-four";
 @use "./templates/legal";
+@use "./tribe/index";
+@use "./templates/events-single";
 
 /* ----- ANIMATIONS  ------------ */
 @use "./animations/transitions";
@@ -43,3 +48,11 @@
 @import "../../dotstarter/layouts/slider-full-width/slider-full-width.scss";
 @import "../../dotstarter/layouts/page-header/page-header.scss";
 @import "../../dotstarter/layouts/actu-x-event/actu-x-event.scss";
+@import "../../dotstarter/layouts/blog/blog.scss";
+
+
+
+/* ----- DOT/COMPONENTS  ------------ */
+@import "../../dotstarter/components/post-card/post-card.scss";
+@import "../../dotstarter/components/events-filters-bar/events-filters-bar.scss";
+@import "../../dotstarter/components/months-navbar/months-navbar.scss";
