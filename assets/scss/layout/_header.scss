@@ -38,20 +38,17 @@
   }
 
   // Buttons
-
   &__cta-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.6rem;
     position: fixed;
     right: 1rem;
-    z-index: 20;
-
+    z-index: 8;
     @include media-up(md) {
       right: 9.6rem;
     }
   }
-
   &__cta {
     .c-button {
       padding: 1.4rem 1.2rem;
@@ -65,7 +62,6 @@
       cursor: pointer;
     }
   }
-
   &__cta-open {
     background: $white;
     border-radius: 5px;
@@ -251,7 +247,7 @@
       }
     }
 
-
+   
     &__cta {
       .c-button {
         padding: 2rem 1.2rem;
