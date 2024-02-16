@@ -5,6 +5,7 @@ import TestimonialsSlider from '../../dotstarter/layouts/testimonials/testimonia
 import FullWidthSlider from '../../dotstarter/layouts/slider-full-width/slider-full-width.js'
 
 import { modalAnims, modalForm } from './layouts/modal'
+import { dropdownslist, dropdownslistAnims } from '../../dotstarter/layouts/dropdowns-list/dropdowns-list.js'
 import { SingleEventsContactSlider, SingleEventsSlider } from './templates/events-single.js'
 import { EventsArchiveManager } from './templates/events-archive.js'
 import QueryManager from './components/query-manager.js'
@@ -34,6 +35,9 @@ jQuery(function ($) {
 
   modalAnims();
   modalForm();
+
+  //faq
+  dropdownslist()
 
   sliders.forEach(slider => slider.init())
 

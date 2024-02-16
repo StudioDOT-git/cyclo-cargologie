@@ -20,6 +20,26 @@
             "endpoint": 0
         },
         {
+            "key": "field_65cf61dea77d5",
+            "label": "Sous-titre",
+            "name": "subtitle",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "FAQ",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_63497938c080a",
             "label": "Titre",
             "name": "title",
@@ -33,27 +53,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_6475c72cf3a7f",
-            "label": "Titre (EN)",
-            "name": "title_en",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
+            "default_value": "Une question sur le programme ? (H2)",
             "maxlength": "",
             "placeholder": "",
             "prepend": "",
@@ -63,27 +63,6 @@
             "key": "field_6475c4907f8f9",
             "label": "Introduction",
             "name": "introduction",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "acfe_textarea_code": 0,
-            "maxlength": "",
-            "rows": 2,
-            "placeholder": "",
-            "new_lines": ""
-        },
-        {
-            "key": "field_6475c733f3a80",
-            "label": "Introduction (EN)",
-            "name": "introduction_en",
             "aria-label": "",
             "type": "textarea",
             "instructions": "",
@@ -320,7 +299,7 @@
     "dot_is_layout": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1707836028,
+    "modified": 1708089888,
     "acfe_categories": {
         "grid": "Grille"
     }
