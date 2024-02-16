@@ -13,6 +13,11 @@ $titles_size = get_sub_field('titles_size');
     <div class="f-layout__header">
 
       <div class="f-layout__titles">
+          <?php if (get_sub_field('title')) : ?>
+              <h6 class=" f-dropdowns-list__subtitle  <?= $title_class ?>">
+                  <?php the_sub_field('subtitle') ?>
+              </h6>
+          <?php endif; ?>
         <?php if (get_sub_field('title')) : ?>
           <h2 class="f-layout__title f-dropdowns-list__title  <?= $title_class ?>">
             <?php the_sub_field('title') ?>
