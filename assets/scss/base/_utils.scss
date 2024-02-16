@@ -35,11 +35,11 @@ $gaps: (30, 50, 75, 100, 150);
 }
 
 @each $label, $colorValue in $colors {
-	.u-color-#{$label} {
-		color: #{$colorValue};
-	}
+  .u-color-#{"#{$label}"} {
+    color: #{$colorValue};
+  }
 
-	.u-bg-#{$label} {
-		background-color: #{$colorValue};
-	}
+  .u-bg-#{"#{$label}"} {
+    background-color: #{$colorValue};
+  }
 }
