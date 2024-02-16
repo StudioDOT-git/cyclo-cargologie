@@ -52,7 +52,7 @@
                 </a>
             </div>
         </div>
-        <img class="l-footer__deco" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/deco-footer.svg"
+        <img class="l-footer__deco" src="<?= get_stylesheet_directory_uri(); ?>/assets/img/deco-footer.svg"
             alt="">
     </div>
 
@@ -127,7 +127,7 @@
             <div class="l-footer__columns">
                 <span class="l-footer__copyright">
                     © Cyclo-cargologie
-                    <?php echo date("Y"); ?>
+                    <?= date("Y"); ?>
                 </span>
             </div>
             <div class="l-footer__columns">

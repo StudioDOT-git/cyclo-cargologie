@@ -13,11 +13,11 @@
                 </div>
             </div>
             <div class="f-slider-full-width__index c-slider__index">
-                <span class="c-slider__prev btn-prev"><img src="<?php echo DOT_THEME_URI ?>/assets/icons/slider-arrow-left.svg" /></span>
+                <span class="c-slider__prev btn-prev"><img src="<?= DOT_THEME_URI ?>/assets/icons/slider-arrow-left.svg" /></span>
                 <div class="c-slider__index-mid">
                     <span class="current-index">1</span> / <span class="total-slides">0</span>
                 </div>
-                <span class="c-slider__next btn-next"><img src="<?php echo DOT_THEME_URI ?>/assets/icons/slider-arrow-right.svg" /></span>
+                <span class="c-slider__next btn-next"><img src="<?= DOT_THEME_URI ?>/assets/icons/slider-arrow-right.svg" /></span>
             </div>
         </div>
     </div>

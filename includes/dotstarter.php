@@ -82,7 +82,7 @@ if (!class_exists('DOT_Starter')) {
             <style type="text/css">
                 #login h1 a,
                 .login h1 a {
-                    background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/img/logo-dot-black.svg');
+                    background-image: url('<?= get_stylesheet_directory_uri(); ?>/assets/img/logo-dot-black.svg');
                 }
             </style>
         <?php }
