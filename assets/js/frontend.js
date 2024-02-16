@@ -5,6 +5,7 @@ import TestimonialsSlider from '../../dotstarter/layouts/testimonials/testimonia
 import FullWidthSlider from '../../dotstarter/layouts/slider-full-width/slider-full-width.js'
 
 import { modalAnims, modalForm } from './layouts/modal'
+import { SingleEventsContactSlider, SingleEventsSlider } from './templates/events-single.js'
 import { EventsArchiveManager } from './templates/events-archive.js'
 import QueryManager from './components/query-manager.js'
 import GenericContentSlider from '../../dotstarter/layouts/generic-content/generic-content.js'
@@ -15,6 +16,12 @@ const Sliders = [
   FullWidthSlider,
   GenericContentSlider
 ]
+
+const sliders = [
+  SingleEventsSlider,
+  SingleEventsContactSlider,
+];
+
 
 jQuery(function ($) {
   Sliders.forEach((slider) => {
@@ -27,6 +34,9 @@ jQuery(function ($) {
 
   modalAnims();
   modalForm();
+
+  sliders.forEach(slider => slider.init())
+
 
   new EventsArchiveManager();
 

@@ -22,7 +22,7 @@ $events_query_base_args = array(
  *  'html':   (string) => The rendered HTML
  *  'offset:' (int)    => Amount of currently loaded posts
  * ]
- *
+ * 
  */
 function dot_events_archive_load_next_page()
 {
@@ -124,9 +124,9 @@ add_action('wp_ajax_nopriv_load_events_archive_next_page', 'dot_events_archive_l
  *
  * @return array $data;
  * $data = [
- *  'html':               (string) => The rendered HTML
+ *  'html':               (string) => The rendered HTML         
  * ]
- *
+ * 
  */
 function dot_events_archive_load_next_month()
 {
@@ -286,7 +286,6 @@ function dot_past_events_load_more()
             ),
         )
     ));
-
 
     if ($eventsQuery->have_posts()) :
         while ($eventsQuery->have_posts()) :

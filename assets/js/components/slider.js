@@ -8,7 +8,6 @@ class SlickSlider {
   }
 
   init() {
-
     this.reset()
 
     const layoutSlug = this.layoutSlug
