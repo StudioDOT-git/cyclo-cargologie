@@ -87,3 +87,32 @@ $tags = get_tags();
         </div>
     </div>
 </div>
+
+
+
+<?php
+
+
+$events = tribe_get_events(['posts_per_page' => 4, 'start_date' => 'now']);
+
+?>
+
+<div class="f-related-events">
+    <div class="l-container">
+        <div class="f-related-events__tb">
+            <div class="f-related-events__title heading2">Découvrir les évènements</div>
+            <div class="f-related-events__events" style="display: grid;grid-template-columns: repeat(4,1fr)">
+                <?php if (!empty($events)) : ?>
+                    <?php foreach ($events as $event) : ?>
+                        <?php setup_postdata($GLOBALS['post'] = $event); ?>
+                        <?php dot_the_component('event-card') ?>
+                    <?php endforeach; ?>
+                    <?php wp_reset_postdata(); ?>
+                <?php endif; ?>
+            </div>
+            <div class="f-related-events__cta">
+                <a href="<?= get_post_type_archive_link('tribe_events') ?>" class="c-button c-button--lg c-button--black">Voir tous les évènements</a>
+            </div>
+        </div>
+    </div>
+</div>

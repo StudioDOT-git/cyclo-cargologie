@@ -34,7 +34,6 @@ $show_ticket_button = $tickets_url && (!in_array('full', $statuses) && !in_array
             <div class="c-status-tag c-status-tag--blue-light">Reporté</div>
         <?php endif; ?>
     </div>
-
     <a href="<?php the_permalink() ?>" class="c-event-card__thumbnail">
         <?php the_post_thumbnail('large') ?>
     </a>

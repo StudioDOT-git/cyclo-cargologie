@@ -29,4 +29,33 @@ dot_the_layouts();
     </div>
 </div>
 
+
+<?php
+
+
+$posts = get_posts(['numberposts' => 2]);
+
+?>
+<div class="f-related-posts">
+    <div class="l-container">
+        <div class="f-related-posts__tb">
+            <div class="f-related-posts__title">
+                <h2 class="heading2">En attendant les prochains évènements, un peu de lecture</h2>
+                <div class="f-related-posts__posts" style="display: grid;grid-template-columns: repeat(2,1fr)">
+                    <?php if (!empty($posts)) : ?>
+                        <?php foreach ($posts as $post) : ?>
+                            <?php setup_postdata($GLOBALS['post'] = $post); ?>
+                            <?php dot_the_component('post-card') ?>
+                        <?php endforeach; ?>
+                        <?php wp_reset_postdata(); ?>
+                    <?php endif; ?>
+                </div>
+                <div class="f-related-posts__cta">
+                    <a href="<?= get_post_type_archive_link('post') ?>" class="c-button c-button--lg c-button--black">voir tous les contenus & Ressources</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <?php get_footer(); ?>
