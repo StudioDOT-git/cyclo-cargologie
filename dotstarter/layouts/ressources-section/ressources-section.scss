@@ -1,0 +1,19 @@
+@use "../../../assets/scss/base/variables" as *;
+@use "../../../assets/scss/base/colors" as *;
+@use "../../../assets/scss/base/mixins" as *;
+
+.f-ressources-section {
+  &__list {
+    display:grid;
+    gap: 1.6rem;
+  }
+  &__item {
+    background: $purple;
+    a {
+      display: block;
+      padding: 1.6rem 4.8rem 1.6rem 1.6rem;
+      
+    }
+
+  }
+}
