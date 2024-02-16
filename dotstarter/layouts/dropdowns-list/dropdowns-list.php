@@ -11,18 +11,16 @@ $titles_size = get_sub_field('titles_size');
   class="f-dropdowns-list f-layout <?= $show_top_border ? 'f-layout--has-border-top' : '' ?> <?= $bg_color ? "bg-$bg_color" : '' ?>">
   <div class="l-container">
     <div class="f-layout__header">
-      <?php dot_the_title_deco(); ?>
 
       <div class="f-layout__titles">
         <?php if (get_sub_field('title')) : ?>
-          <<?= $title_tag ?> class="f-layout__title f-dropdowns-list__title a-line-ttb <?= $title_class ?>">
-            <?= dot_get_deco("title-bg-$bg_color") ?>
+          <h2 class="f-layout__title f-dropdowns-list__title  <?= $title_class ?>">
             <?php the_sub_field('title') ?>
-          </<?= $title_tag ?>>
+          </h2>
         <?php endif; ?>
 
         <?php if (get_sub_field('title_en')): ?>
-          <div class="f-layout__title-en a-fade-in a-fade-in">
+          <div class="f-layout__title-en  ">
             <?php the_sub_field('title_en') ?>
           </div>
         <?php endif; ?>
@@ -30,11 +28,11 @@ $titles_size = get_sub_field('titles_size');
 
       <?php if (get_sub_field('introduction')): ?>
         <div class="f-layout__introductions">
-          <div class="f-layout__introduction a-fade-in wysiwyg body-md">
+          <div class="f-layout__introduction  wysiwyg body-md">
             <?php the_sub_field('introduction') ?>
           </div>
           <?php if (get_sub_field('introduction_en')): ?>
-            <div class="f-layout__introduction-en  a-fade-in wysiwyg body-md">
+            <div class="f-layout__introduction-en   wysiwyg body-md">
               <?php the_sub_field('introduction_en') ?>
             </div>
           <?php endif; ?>
@@ -48,7 +46,7 @@ $titles_size = get_sub_field('titles_size');
         <?php $cpt = 0; ?>
         <?php while (have_rows('dropdowns-list')):
           the_row() ?>
-          <div class="f-dropdowns-list__item<?php echo $cpt == 0 ? ' js-open' : '' ?> a-translate-btt">
+          <div class="f-dropdowns-list__item<?php echo $cpt == 0 ? ' js-open' : '' ?>">
             <div class="f-dropdowns-list__content">
               <div class="f-dropdowns-list__header">
                 <?php if (get_sub_field('title')): ?>

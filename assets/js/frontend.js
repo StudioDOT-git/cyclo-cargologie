@@ -5,6 +5,7 @@ import TestimonialsSlider from '../../dotstarter/layouts/testimonials/testimonia
 import FullWidthSlider from '../../dotstarter/layouts/slider-full-width/slider-full-width.js'
 
 import { modalAnims, modalForm } from './layouts/modal'
+import { dropdownslist, dropdownslistAnims } from '../../dotstarter/layouts/dropdowns-list/dropdowns-list.js'
 
 /* eslint-disable */
 
@@ -17,4 +18,7 @@ jQuery(function ($) {
 
   modalAnims();
   modalForm();
+
+  //faq
+  dropdownslist()
 })
