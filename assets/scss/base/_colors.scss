@@ -20,8 +20,21 @@ $grey-1: #F4F6FA;
 $colors: (
   "black": #000,
   "white": #ffffff,
-  "blue": #0000ff,
-  "blue-dot": #0000ff,
+  //"blue": #0000ff,
+  //"blue-dot": #0000ff,
+
+  gray: #DFDFDF,
+  gray-dark: #8E8E8E,
+  gray-darker: #61626C,
+
+  blue: #6284FC,
+  blue-dark: #5470D6,
+  blue-darkest: #1D1F2E,
+  blue-soft: #2a2c39,
+
+  green: #5FC098,
+  green-lighter: #4DD880,
+  emerald: #06A754,
 );
 
 @function clr($name) {

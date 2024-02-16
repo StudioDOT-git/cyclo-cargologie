@@ -28,6 +28,13 @@ if (!class_exists('DOT_Starter')) {
             require_once(DOT_THEME_INCLUDES_PATH . 'storage.php');
             require_once(DOT_THEME_INCLUDES_PATH . 'tinymce.php');
 
+            // AJAX
+            require_once(DOT_THEME_INCLUDES_PATH . 'ajax/events.php');
+
+            // REST API
+            require_once(DOT_THEME_INCLUDES_PATH . 'api/wp.php');
+            require_once(DOT_THEME_INCLUDES_PATH . 'api/acf.php');
+
             add_action('after_setup_theme', array($this, 'theme_setup'));
             add_action('after_setup_theme', array($this, 'register_nav_menus'));
 
@@ -129,6 +136,7 @@ if (!class_exists('DOT_Starter')) {
             $args = array(
                 'ajaxUrl' => admin_url('admin-ajax.php'),
                 'homeUrl' => home_url(),
+                'baseUrl' => get_site_url(),
                 'isLoggedIn' => is_user_logged_in(),
                 'nonce' => wp_create_nonce('dot_nonce'),
                 'isFirstVisit' => $is_first_visit

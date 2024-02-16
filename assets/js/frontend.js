@@ -5,6 +5,8 @@ import TestimonialsSlider from '../../dotstarter/layouts/testimonials/testimonia
 import FullWidthSlider from '../../dotstarter/layouts/slider-full-width/slider-full-width.js'
 
 import { modalAnims, modalForm } from './layouts/modal'
+import { EventsArchiveManager } from './templates/events-archive.js'
+import QueryManager from './components/query-manager.js'
 import GenericContentSlider from '../../dotstarter/layouts/generic-content/generic-content.js'
 
 /* eslint-disable */
@@ -25,4 +27,11 @@ jQuery(function ($) {
 
   modalAnims();
   modalForm();
+
+  new EventsArchiveManager();
+
+  // QueryFilters : Blog, Community
+  new QueryManager('.f-blog', '.f-blog__posts', 'posts');
+
+
 })

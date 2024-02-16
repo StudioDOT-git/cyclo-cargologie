@@ -1,0 +1,174 @@
+@use '../base/colors' as *;
+@use '../base/mixins' as *;
+
+.c-multi-filter {
+  width: 250px;
+  border-radius: 60px;
+  position: relative;
+  border: 2px solid transparent;
+
+  $root: &;
+
+  &__toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    border-radius: 30px;
+
+    color: clr(white);
+    font-weight: 500;
+    position: relative;
+    z-index: 3;
+
+    cursor: pointer;
+  }
+
+  &__toggle-icon {
+    background-color: clr(white);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    transition: transform .3s;
+  }
+
+  &__options {
+    position: absolute;
+    padding-top: 33px;
+    padding-bottom: 5px;
+    top: 33px;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    pointer-events: none;
+    border-radius: 0 0 30px 30px;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity .3s;
+  }
+
+  &__option {
+    padding: 10px 20px;
+    color: clr(white);
+    cursor: pointer;
+
+    &[data-selected=true] {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      transition: background-color .3s;
+
+      &::after {
+        content: '';
+        display: block;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='11' viewBox='0 0 14 11' fill='none'%3E%3Cpath d='M1 6.4L5.21622 10L13 1' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+        background-position: center;
+        background-size: contain;
+        width: 12px;
+        height: 9px;
+      }
+    }
+  }
+
+  &--green {
+    background-color: clr(emerald);
+
+    #{$root}__options {
+      background-color: clr(emerald);
+    }
+
+    #{$root}__toggle path {
+      stroke: clr(emerald);
+    }
+
+    #{$root}__option[data-selected=true] {
+      background-color: #38B976;
+    }
+  }
+
+  &--blue {
+    background-color: clr(blue-dark);
+
+    #{$root}__options {
+      background-color: clr(blue-dark);
+    }
+
+    #{$root}__toggle path {
+      stroke: clr(blue-dark);
+    }
+
+    #{$root}__option[data-selected=true] {
+      background-color: #768DDE;
+    }
+  }
+
+  &--blue-darkest {
+    background-color: clr(blue-darkest);
+
+    #{$root}__options {
+      background-color: clr(blue-darkest);
+    }
+
+    #{$root}__toggle path {
+      stroke: clr(blue-darkest);
+    }
+
+    #{$root}__option[data-selected=true] {
+      background-color: #4A4C58;
+    }
+  }
+
+  &.expand {
+    border-radius: 33px;
+    z-index: 10;
+
+    #{$root}__toggle {
+      background-color: clr(white);
+      font-weight: 600;
+    }
+
+    #{$root}__toggle-icon {
+      transform: rotate(180deg);
+    }
+
+    #{$root}__options {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    &#{$root}--green {
+      border-color: clr(emerald);
+
+      #{$root}__toggle {
+        color: clr(emerald);
+      }
+    }
+
+    &#{$root}--blue {
+      border-color: clr(blue-dark);
+
+      #{$root}__toggle {
+        color: clr(blue-dark);
+      }
+    }
+
+    &#{$root}--blue-darkest {
+      border-color: clr(blue-darkest);
+
+      #{$root}__toggle {
+        color: clr(blue-darkest);
+      }
+    }
+  }
+
+  @include media-up(md) {
+    &--green &__option {
+      &:hover {
+        background-color: #38B976;
+      }
+    }
+  }
+}
