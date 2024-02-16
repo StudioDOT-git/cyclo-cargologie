@@ -10,12 +10,14 @@ import { SingleEventsContactSlider, SingleEventsSlider } from './templates/event
 import { EventsArchiveManager } from './templates/events-archive.js'
 import QueryManager from './components/query-manager.js'
 import GenericContentSlider from '../../dotstarter/layouts/generic-content/generic-content.js'
+import ProjectPartnersSlider from '../../dotstarter/layouts/project-partners-section/project-partners-section.js'
 
 /* eslint-disable */
 const Sliders = [
   TestimonialsSlider,
   FullWidthSlider,
-  GenericContentSlider
+  GenericContentSlider,
+  ProjectPartnersSlider
 ]
 
 const sliders = [
