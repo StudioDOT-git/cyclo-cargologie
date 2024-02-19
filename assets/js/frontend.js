@@ -11,6 +11,7 @@ import { EventsArchiveManager } from './templates/events-archive.js'
 import QueryManager from './components/query-manager.js'
 import GenericContentSlider from '../../dotstarter/layouts/generic-content/generic-content.js'
 import ProjectPartnersSlider from '../../dotstarter/layouts/project-partners-section/project-partners-section.js'
+import { onResize } from './lib/utils.js'
 
 /* eslint-disable */
 const Sliders = [
@@ -27,6 +28,8 @@ const sliders = [
 
 
 jQuery(function ($) {
+  // onResize
+  onResize()
   Sliders.forEach((slider) => {
     slider.init();
   });

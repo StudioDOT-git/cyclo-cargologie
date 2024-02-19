@@ -56,4 +56,25 @@ function slugify(str) {
   return str
 }
 
-export { hideOnClickOutside, isVisible, slugify }
+function updateSafePadding(menuClass, position = 'top') {
+  if (!document.querySelector(menuClass)) return
+  const h = document.querySelector(menuClass).offsetHeight
+  const value = h + 'px'
+  document.documentElement.style.setProperty(`--safe-padding-${position}`, value)
+}
+
+function updateZoom() {
+  const zoom = devicePixelRatio / 2
+  document.documentElement.style.setProperty('--zoom', zoom)
+}
+
+function onResize(menuClass, position = 'top') {
+  updateZoom()
+  updateSafePadding(menuClass, position)
+  window.addEventListener('resize', () => {
+    updateSafePadding(menuClass, position)
+    updateZoom()
+  })
+}
+
+export { hideOnClickOutside, isVisible, slugify, onResize }

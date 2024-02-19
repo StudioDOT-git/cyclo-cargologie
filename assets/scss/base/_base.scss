@@ -5,66 +5,66 @@
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 * {
-	font-family: $font-body;
+  font-family: $font-body;
 }
 
 *::selection {
-	background-color: $clr-text-selection-bg !important;
-	color: $clr-text-selection !important;
-	-webkit-text-fill-color: $clr-text-selection !important;
+  background-color: $clr-text-selection-bg !important;
+  color: $clr-text-selection !important;
+  -webkit-text-fill-color: $clr-text-selection !important;
 }
 
 ::-moz-selection {
-	background: $clr-text-selection-bg !important;
-	color: $clr-text-selection !important;
-	-webkit-text-fill-color: $clr-text-selection !important;
+  background: $clr-text-selection-bg !important;
+  color: $clr-text-selection !important;
+  -webkit-text-fill-color: $clr-text-selection !important;
 }
 
 html {
-  overflow: clip visible ;
+  overflow: clip visible;
   font-size: calc(100vw / 390 * 10);
   scroll-behavior: smooth;
 
   @include media-up(md) {
-    font-size: min(calc(100vw / 1728 * 10), 100vw);
+    font-size: calc(var(--zoom) * min(calc(100vw / 1728 * 10), 100vw));
 
   }
 }
 
 
 .noscroll {
-	overflow: hidden;
+  overflow: hidden;
 }
 
 img {
-	max-width: 100%;
+  max-width: 100%;
 }
 
 body {
-	color: clr(black);
+  color: clr(black);
   background-image: url("/wp-content/themes/cyclo-cargologie/assets/img/bg.svg");
   background-repeat: no-repeat;
-  background-size: calc(100vw - $container-margin) ;
+  background-size: calc(100vw - $container-margin);
   background-attachment: fixed;
   background-position: center;
   @include media-up(md) {
-    background-size: calc(100vw - $container-margin-md) ;
+    background-size: calc(100vw - $container-margin-md);
   }
 }
 
 b,
 strong {
-	font-weight: bold;
+  font-weight: bold;
 }
 
-ul,ol {
-	padding: 0;
+ul, ol {
+  padding: 0;
   list-style: none;
 }
 
@@ -78,7 +78,7 @@ span {
 }
 
 .wp-admin ul {
-	list-style-image: initial;
+  list-style-image: initial;
 }
 
 .hidden {
