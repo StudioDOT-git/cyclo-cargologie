@@ -31,13 +31,15 @@
 
   @include media-up(md) {
     &__tb {
-      padding: 9.5rem 0 12.8rem
+      padding: 9.5rem 0 12rem
     }
+
     &__wrapper {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 4.4rem;
     }
+
     &__title {
       padding: 0 12rem 0 12.7rem;
       max-width: 75.9rem;
@@ -47,15 +49,17 @@
 
     }
 
-    &__content{
-      margin-left:-1.5rem ;
+    &__content {
+      margin-left: -1.5rem;
 
     }
+
     &__paragraph {
       font-size: 1.9rem;
       padding: 0;
       max-width: 63.5rem;
     }
+
     .c-button {
       margin: 2.8rem 0 0;
       font-size: 1.7rem;

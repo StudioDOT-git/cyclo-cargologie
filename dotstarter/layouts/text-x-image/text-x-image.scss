@@ -21,7 +21,7 @@
       margin-top: -1.2rem;
     }
 
-    & + * {
+    &+* {
       padding: 5.2rem 0 0
     }
   }
@@ -39,7 +39,7 @@
     font-size: 1.4rem;
     line-height: 150%;
     text-transform: uppercase;
-    margin: 0 0 .7rem;
+    margin: 0 0 0.4rem;
     letter-spacing: 0.014rem;
     color: $grey-4;
   }
@@ -70,7 +70,7 @@
     position: relative;
 
 
-    & > img {
+    &>img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -114,7 +114,7 @@
   @include media-up(md) {
 
     &__tb {
-      padding: 9.8rem 0 12rem;
+      padding: 9.8rem 0 8rem;
       position: relative;
       z-index: 2;
     }
@@ -125,12 +125,12 @@
       justify-content: space-between;
 
       &.--have-section-deco {
-        margin-top: 1.5rem;
+        margin-top: 1rem;
 
 
       }
 
-      & + * {
+      &+* {
         padding: 9.6rem 0 0
       }
 
@@ -143,7 +143,7 @@
       padding: 0 0 0 12.8rem;
       width: 50%;
 
-      & > * {
+      &>* {
         max-width: 57.7rem;
 
       }
@@ -151,8 +151,9 @@
 
     &__section-deco {
       display: block;
-      margin: 0 0 2.7rem;
+      margin: 0 0 2.2rem;
     }
+
     &__subtitle {
       font-size: 1.6rem;
     }
@@ -175,7 +176,7 @@
       &.--have-deco {
         max-width: 63.5rem;
 
-        &+ div {
+        &+div {
           .f-text-x-image__paragraph {
             max-width: 63.4rem;
 
@@ -186,6 +187,7 @@
 
 
     }
+
     &__image-deco {
       left: 0;
       right: auto;
@@ -194,8 +196,9 @@
       transform: translate(-50%, 0);
 
     }
+
     .c-button {
-      margin: 2.7rem 0 0;
+      margin: 2.5rem 0 0;
       font-size: 1.7rem;
       gap: 11.358rem;
 

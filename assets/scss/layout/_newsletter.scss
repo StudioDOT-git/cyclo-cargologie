@@ -163,8 +163,8 @@
       color: $white;
       padding: 10rem $container-margin-sm 10rem $container-margin-sm;
       background-image: url('/wp-content/themes/cyclo-cargologie/assets/img/deco-aside-newsletter.png');
-      background-size: auto 100%;
-      background-position: center;
+      background-size: 120% auto;
+      background-position: top;
       background-repeat: no-repeat;
     }
   }
@@ -211,6 +211,8 @@
     }
 
     &__column {
+      width: 50vw;
+
       &:nth-of-type(1) {
         padding: 21.5rem 13.9rem 17.6rem calc(3.3rem + #{$container-margin-lg});
       }

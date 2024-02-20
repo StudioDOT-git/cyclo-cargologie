@@ -28,7 +28,7 @@
                 <a href="mailto:<?php the_field('email', 'option') ?>" class="l-footer__mailto heading5">
                     <?php the_field('email', 'option') ?>
                 </a>
-                <!--                <span class="uppercase-s">Nous suivre</span>-->
+                <!--<span class="uppercase-s">Nous suivre</span>-->
                 <a href="<?php the_field('linkedin', 'option') ?>" target="_blank" class="l-footer__social-link">
                     <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g id="Frame" clip-path="url(#clip0_475_25023)">
