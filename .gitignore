@@ -6,3 +6,5 @@ composer.lock
 dist
 .env
 assets/.DS_Store
+
+dotstarter/layouts/key-numbers/.DS_Store
