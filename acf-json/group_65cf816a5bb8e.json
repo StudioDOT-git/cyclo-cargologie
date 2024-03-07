@@ -3,6 +3,28 @@
     "title": "Projects Partners",
     "fields": [
         {
+            "key": "field_65e9d57a25db0",
+            "label": "Deco",
+            "name": "deco",
+            "aria-label": "",
+            "type": "layout_part",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_65c5fc80c3366"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
             "key": "field_65cf816a8b246",
             "label": "Titre",
             "name": "title",
@@ -74,27 +96,6 @@
                     "parent_repeater": "field_65cf82228b248"
                 }
             ]
-        },
-        {
-            "key": "field_65cf82058b247",
-            "label": "Paragraphe",
-            "name": "paragraph",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "Morbi rutrum sem odio, nec mollis massa rutrum non. Integer ante sem, ultrices in tortor vel, venenatis vulputate velit. Pellentesque vel purus sit amet ante facilisis pretium. Curabitur sollicitudin cursus magna a posuere. Etiam id magna a leo feugiat sagittis. Integer faucibus feugiat nisi, id tempus est placerat a.",
-            "acfe_textarea_code": 0,
-            "maxlength": "",
-            "rows": "",
-            "placeholder": "",
-            "new_lines": ""
         }
     ],
     "location": [
@@ -125,5 +126,5 @@
     "dot_is_layout": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1708100228
+    "modified": 1709823385
 }
