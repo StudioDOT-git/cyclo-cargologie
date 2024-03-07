@@ -1,5 +1,4 @@
 <div class="f-key-numbers">
-
     <div class="l-container">
         <h1 class="f-key-numbers__title heading2">
             <?php the_sub_field('title') ?>
@@ -9,12 +8,10 @@
                 the_row() ?>
                 <div class="f-key-numbers__item">
                     <?php if (have_rows('sticker')): ?>
-                        <div class="f-key-numbers__section-deco">
-                            <?php while (have_rows('sticker')):
-                                the_row() ?>
-                                <?php dot_the_layout_part('deco') ?>
-                            <?php endwhile; ?>
-                        </div>
+                        <?php while (have_rows('sticker')):
+                            the_row() ?>
+                            <?php dot_the_layout_part('deco') ?>
+                        <?php endwhile; ?>
                     <?php endif; ?>
                     <h3 class="f-key-numbers__number">
                         <?= get_sub_field('number') ?>
