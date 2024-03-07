@@ -1,8 +1,8 @@
 <div class="f-key-numbers">
     <div class="l-container">
-        <h1 class="f-key-numbers__title heading2">
+        <h2 class="f-key-numbers__title heading2">
             <?php the_sub_field('title') ?>
-        </h1>
+        </h2>
         <div class="f-key-numbers__wrapper">
             <?php while (have_rows('columns')):
                 the_row() ?>
