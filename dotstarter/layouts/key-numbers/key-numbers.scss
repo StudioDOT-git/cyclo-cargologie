@@ -12,15 +12,13 @@
     position: relative;
   }
 
-  &__wrapper {
-    position: relative;
-  }
-
   &__item {
     position: relative;
   }
 
   &__wrapper {
+    position: relative;
+
     display: grid;
     grid-template-columns: 1fr;
     gap: 6rem;

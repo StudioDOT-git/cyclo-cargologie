@@ -130,17 +130,13 @@
         flex-shrink: 0;
         border-radius: .3rem !important;
         color: $black !important;
-
         font-family: $font-headings;
         font-size: 1.45rem;
         font-style: normal;
         font-weight: 600;
         line-height: 136.646%;
         letter-spacing: -.0145rem;
-
         background-image: url('/assets/img/arrow-circle.png');
-
-
         display: none;
 
         &:hover {
@@ -151,10 +147,6 @@
         &.is-show {
           display: flex;
         }
-
-
-
-
       }
     }
 
