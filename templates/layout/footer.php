@@ -151,6 +151,8 @@
     </div>
 </div>
 
+<?php get_template_part('templates/layout/search-modal'); ?>
+
 
 <div class="l-modal">
     <div class="l-modal__background"></div>

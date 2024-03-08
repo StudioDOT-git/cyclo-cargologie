@@ -40,7 +40,8 @@
   // Buttons
   &__cta-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto auto auto;
+    align-items: center;
     gap: 1.6rem;
     position: fixed;
     right: 1rem;
@@ -48,6 +49,19 @@
     @include media-up(md) {
       right: 9.6rem;
     }
+
+  }
+
+  &__search-btn {
+    border: none;
+    margin: 0 1rem 0 0;
+    cursor: pointer;
+    height: 100%;
+    width: 5.5rem;
+    border-radius: 3px;
+    position: relative;
+    background: $white;
+
   }
   &__cta {
     .c-button {
@@ -115,7 +129,7 @@
     bottom: 0;
     right: 0;
     background: $yellow;
-    z-index: 10;
+    z-index: 100;
     clip-path: inset(0 0 100% 0);
     transition: ease 0.4s;
     overflow: hidden;
@@ -247,7 +261,7 @@
       }
     }
 
-   
+
     &__cta {
       .c-button {
         padding: 2rem 1.2rem;

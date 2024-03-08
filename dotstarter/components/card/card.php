@@ -1,0 +1,75 @@
+<?php
+$tickets_url = tribe_get_event_website_url();
+$statuses = get_field('status') ? get_field('status') : array();
+$categories = get_the_terms(null, 'tribe_events_cat');
+$post = get_post();
+
+$event = get_the_terms($post->ID, 'tribe_events_cat');
+$event_date = dot_get_formatted_event_date();
+
+$category = get_the_category($post->ID);
+$tags = get_the_tags($post->ID);
+
+$show_ticket_button = $tickets_url && (!in_array('full', $statuses) && !in_array('canceled', $statuses) && !in_array('postponed', $statuses));
+
+$statuses = get_field('status') ? get_field('status') : array();
+
+
+?>
+
+<div class="f-card__spotlight">
+    <a href="<?= get_post_permalink($post->ID) ?>" class="f-card__image">
+        <?php if (get_the_post_thumbnail($post->ID)): ?>
+            <?= get_the_post_thumbnail($post->ID) ?>
+        <?php else: ?>
+            <img src="<?= DOT_THEME_URI . '/assets/img/page-thumbnail.png' ?>" alt="Illustration">
+        <?php endif; ?>
+        <div class="f-card__image-overlay">
+
+            <div class="f-card__tags">
+                <?php if ($event): ?>
+                    <div class="f-card__date">
+                        <span><?= $event_date ?></span>
+                        <?php if (!empty(get_field('location'))): ?>
+
+                            <div class="f-card__location">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="13" viewBox="0 0 10 13"
+                                     fill="none">
+                                    <path
+                                        d="M9 5.13105C9 7.02445 6.5625 10.3594 5.47917 11.7579C5.22917 12.0807 4.75 12.0807 4.5 11.7579C3.41667 10.3594 1 7.02445 1 5.13105C1 2.85037 2.77083 1 5 1C7.20833 1 9 2.85037 9 5.13105Z"
+                                        fill="white" fill-opacity="0.5" stroke="#181818" stroke-width="1.1"/>
+                                </svg>
+                                <span class="f-card__location-name"><?= the_field('location') ?></span>
+                            </div>
+                        <?php endif; ?>
+
+                    </div>
+                <?php endif; ?>
+                <?php if (isset($category[0])): ?>
+                    <span class="f-card__tag"><?= $category[0]->name ?></span>
+                <?php elseif ($post->post_type == 'page'): ?>
+                    <span class="f-card__tag">Page</span>
+                <?php else: ?>
+                    <span class="f-card__tag">Evènement</span>
+                <?php endif; ?>
+                <?php if ($tags): ?>
+                    <?php foreach ($tags as $tag): ?>
+                        <span class="f-card__tag"><?= $tag->name ?></span>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
+            <p class="f-card__title"><?= $post->post_title ?></p>
+        </div>
+        <span class="f-card__statuses">
+            <?php if (in_array('full', $statuses)) : ?>
+                <div class="c-status-tag c-status-tag--purple">Complet</div>
+            <?php endif; ?>
+            <?php if (in_array('canceled', $statuses)) : ?>
+                <div class="c-status-tag c-status-tag--red">Annulé</div>
+            <?php endif; ?>
+            <?php if (in_array('postponed', $statuses)) : ?>
+                <div class="c-status-tag c-status-tag--white">Reporté</div>
+            <?php endif; ?>
+        </span>
+    </a>
+</div>

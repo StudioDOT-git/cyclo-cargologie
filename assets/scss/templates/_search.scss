@@ -1,0 +1,88 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+@use "../base/colors" as *;
+
+.t-search {
+  background: $grey-1;
+  padding: 0 0 7.9rem;
+
+
+  &__header {
+    background: $grey-1;
+
+    padding: 6.7rem 0 4.8rem;
+
+    .l-container {
+      position: relative;
+    }
+
+    &-deco {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate(calc(-100% - 4.8rem), -50%);
+    }
+    &-title {
+      font-size: 5.1rem;
+
+      span {
+        color: $green;
+      }
+    }
+  }
+
+  &__background {
+    height: 41.8rem;
+    background: $yellow;
+    position: relative;
+    overflow: hidden;
+    svg {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 36rem;
+      height: 36.2rem;
+      transform: translate(-30%,2.2rem);
+    }
+  }
+
+  &__content {
+    margin-top:-36.4rem ;
+    position: relative;
+  }
+
+
+  &__results {
+    padding: 48px 0 0;
+
+  }
+
+  &__category {
+    &:not(:last-child) {
+      margin: 0 0 5.5rem;
+    }
+    h3 {
+      font-size: 4.2rem;
+      font-weight: 500;
+      line-height: 110%; /* 46.2px */
+      letter-spacing: -.042rem;
+    }
+  }
+
+  &__posts {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 2.9rem 0 0;
+    gap: .9rem;
+  }
+
+  @include media-up(md) {
+    .l-container {
+      max-width: calc(100vw - 2 * 22.5rem) ;
+    }
+
+    &__posts {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}

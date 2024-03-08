@@ -1,0 +1,82 @@
+@use "../base/variables" as *;
+@use "../base/colors" as *;
+@use "../base/mixins" as *;
+@use "../animations/easings" as *;
+
+.l-search-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+
+  opacity: 0;
+  transform: scale(1.2);
+  pointer-events: none;
+
+  transition: opacity 0.6s $Power3EaseInOut, transform 0.6s $Power3EaseInOut;
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(24, 24, 24, 0.30);
+    backdrop-filter: blur(1px);
+    z-index: 1;
+    opacity: 0;
+
+    transition: opacity 0.8s $Power4EaseInOut;
+    cursor: pointer;
+  }
+
+  &__form {
+    width: 35.2rem;
+    background: white;
+    position: relative;
+    z-index: 2;
+    padding: .9rem 1.3rem 1.3rem;
+    margin: 5.9rem auto 0;
+
+
+  }
+
+  &__field {
+
+    border-bottom: 1px solid $black;
+    display: flex;
+    padding: 1rem 1.4rem 1.6rem 0;
+    justify-content: space-between;
+
+
+    input {
+      font-size: 2.3164rem;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 111%; /* 25.712px */
+      letter-spacing: -.0927rem;
+      background:none;
+      width: 25.5367rem;
+      border: 0;
+    }
+    button {
+      background:none;
+      cursor: pointer;
+      border: 0;
+    }
+  }
+
+  &.visible {
+    pointer-events: initial;
+    opacity: 1;
+    transform: scale(1);
+
+    .l-search-modal__bg{
+      opacity: 1;
+      pointer-events: initial;
+    }
+  }
+
+}
