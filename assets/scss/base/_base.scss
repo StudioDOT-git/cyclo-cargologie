@@ -2,6 +2,10 @@
 @use "./colors" as *;
 @use "./mixins" as *;
 
+:root {
+  --zoom: 1;
+}
+
 *,
 *::before,
 *::after {

@@ -16,6 +16,7 @@
 @use "./layout/header";
 @use "./layout/footer";
 @use "./layout/newsletter";
+@use "./layout/search-modal";
 
 /* ----- COMPONENTS ----- */
 @use "./components/layout";
@@ -25,15 +26,19 @@
 @use "./components/wysiwyg";
 @use "./components/slider";
 @use "./components/deco";
-@use "./components/multi-terms-selector";
 @use "./components/filters-bar";
 @use "./components/multi-filter";
+@use "./components/card";
+@use "./components/tag";
+@use "./components/pagination";
+@use "./components/filters-bar-search-form";
 
 /* ----- TEMPLATES ------------ */
 @use "./templates/four-oh-four";
 @use "./templates/legal";
 @use "./tribe/index";
 @use "./templates/events-single";
+@use "./templates/search";
 
 /* ----- ANIMATIONS  ------------ */
 @use "./animations/transitions";
@@ -62,4 +67,3 @@
 /* ----- DOT/COMPONENTS  ------------ */
 @import "../../dotstarter/components/post-card/post-card.scss";
 @import "../../dotstarter/components/events-filters-bar/events-filters-bar.scss";
-@import "../../dotstarter/components/months-navbar/months-navbar.scss";

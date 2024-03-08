@@ -69,17 +69,19 @@ function dot_get_icon($slug, $className = null) {
 
 function dot_get_formatted_event_date()
 {
-    $start_date = tribe_get_start_date(null, false, 'D. d M');
-    $end_date = tribe_get_end_date(null, false, 'D. d M');
+    $start_date = tribe_get_start_date(null, true, 'D. d F, H\h');
+    $start_date = ucwords($start_date);
+
+    $end_date = tribe_get_end_date(null, false, 'D. d F');
 
     $start_date_year = tribe_get_start_date(null, false, 'Y');
     $end_date_year = tribe_get_end_date(null, false, 'Y');
 
-    $show_start_date_year = true;
+    $show_start_date_year = false;
     $show_end_date = false;
 
     if ($start_date !== $end_date) {
-        $show_end_date = true;
+        $show_end_date = false;
 
         if ($start_date_year === $end_date_year) {
             $show_start_date_year = false;
@@ -87,7 +89,7 @@ function dot_get_formatted_event_date()
     }
 
     if ($show_start_date_year) {
-        $start_date = "$start_date <span>$start_date_year</span>";
+        $start_date = "$start_date\h, <span>$start_date_year</span>";
     }
 
     $full_date = $show_end_date ?

@@ -13,7 +13,7 @@ $link = get_sub_field('link');
 
 ?>
 
-
+<?php if($is_active):?>
 <?php if (is_array($link)): ?>
     <?php
     $url = $link['url'];
@@ -47,4 +47,5 @@ $link = get_sub_field('link');
             </svg>
         <?php endif; ?>
     </button>
+<?php endif; ?>
 <?php endif; ?>

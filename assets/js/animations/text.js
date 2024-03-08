@@ -39,7 +39,7 @@ const gsapBeforeTitle = {
 
 const gsapParagraph = {
   opacity: 0,
-  y: "1.5em",
+  y: '1.5em',
   duration: 1.2,
   stagger: 0.1,
   ease: 'power2'
@@ -63,7 +63,7 @@ const gsapNumberedCards = {
 
 const gsapContentCardsDelay = {
   // y: 20,
-  delay: .5,
+  delay: 0.5,
   stagger: 0.07,
   opacity: 0,
   duration: 1,
@@ -82,17 +82,17 @@ const gsapDecoPolygonLeft = {
   x: 100,
   opacity: 0,
   rotation: -90,
-  transformOrigin: "center center",
+  transformOrigin: 'center center',
   duration: 1.2,
-  ease: 'power2',
+  ease: 'power2'
 }
 const gsapDecoPolygonRight = {
   x: 100,
   opacity: 0,
   rotation: 90,
-  transformOrigin: "center center",
+  transformOrigin: 'center center',
   duration: 1.2,
-  ease: 'power2',
+  ease: 'power2'
 }
 
 const gsapDecoTop = {
@@ -100,47 +100,47 @@ const gsapDecoTop = {
   y: -25,
   opacity: 0,
   duration: 1.8,
-  ease: 'power2',
+  ease: 'power2'
 }
 
 const gsapDecoBot = {
   y: 25,
   opacity: 0,
   duration: 1.8,
-  ease: 'power2',
+  ease: 'power2'
 }
 
 const gsapLineDeco = {
   drawSVG: 0,
   duration: 3,
-  ease: 'power1',
+  ease: 'power1'
 }
 
 const gsapFigureScale = {
   duration: 0.85,
   ease: 'power4.out',
   scale: 0.85,
-  background: '#ffffff',
+  background: '#ffffff'
 }
 
 const gsapFigureOpacity = {
   duration: 0.85,
   ease: 'power4.out',
-  opacity: 0,
+  opacity: 0
 }
 
 const gsapFigureScaleStagger = {
   duration: 0.85,
   ease: 'power4.out',
   scale: 0.85,
-  background: '#ffffff',
+  background: '#ffffff'
 }
 
 const gsapFigureOpacityStagger = {
   duration: 0.85,
   ease: 'power4.out',
   opacity: 0,
-  stagger: 0.1,
+  stagger: 0.1
 }
 
 const gsapFigureLabels = {
@@ -172,4 +172,4 @@ export {
   gsapFigureScaleStagger,
   gsapFigureOpacityStagger,
   gsapFigureLabels
-};
+}
