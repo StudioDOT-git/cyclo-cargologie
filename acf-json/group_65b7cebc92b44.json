@@ -12,12 +12,12 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 1,
+            "message": "Activer ou non le boutton",
+            "default_value": 0,
             "ui": 0,
             "ui_on_text": "",
             "ui_off_text": ""
@@ -32,7 +32,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -62,7 +62,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -71,7 +71,7 @@
                 "s": "Normal",
                 "xs": "Petit"
             },
-            "default_value": "s",
+            "default_value": false,
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -91,7 +91,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -173,5 +173,5 @@
     "dot_is_lpart": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1707990964
+    "modified": 1709886748
 }

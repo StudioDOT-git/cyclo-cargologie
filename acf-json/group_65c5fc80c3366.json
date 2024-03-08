@@ -38,7 +38,8 @@
             },
             "choices": {
                 "thumb": "Pouce",
-                "helmet": "Casque"
+                "helmet": "Casque",
+                "files": "Fichiers"
             },
             "default_value": false,
             "return_format": "value",
@@ -78,5 +79,5 @@
     "dot_is_lpart": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1707476061
+    "modified": 1709886738
 }
