@@ -1,0 +1,100 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+@use "../base/colors" as *;
+
+.c-tag {
+  display: inline-flex;
+  border-radius: 6px;
+  gap: 5px;
+  padding: 3px 6px 0.5px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  background: red;
+
+  font-family: $font-headings;
+  font-size: 0.8125rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  svg {
+    position: relative;
+    top: 1px;
+  }
+
+
+  &--green {
+    color: $black;
+    border-color: $green;
+    background-color: $green;
+  }
+
+  &--yellow {
+    color: $black;
+    border-color: $yellow;
+    background-color: $yellow;
+  }
+
+  &--purple {
+    color: $black;
+    border-color: $purple;
+    background-color: $purple;
+  }
+
+  &--black {
+    background-color: $black;
+    border-color: $black;
+    color: $white;
+
+    svg path {
+      fill: $white;
+    }
+  }
+
+  &--white {
+    background-color: $white;
+    border-color: $white;
+    color: $black;
+
+    svg path {
+      fill: $black;
+    }
+  }
+}
+
+.c-status-tag {
+  display: inline-flex;
+
+  padding: .7rem 1rem .6rem;
+  border-radius: 4rem;
+
+  font-size: 1.4rem;
+  font-family: $font-headings;
+
+
+  color: $white;
+  font-weight: 500;
+  line-height: 120%;
+
+  & + *{
+    margin-left: .6rem;
+  }
+
+
+  &--yellow {
+    background-color: $yellow;
+  }
+
+  &--purple {
+    background-color: $purple;
+  }
+
+  &--red {
+    background-color: $red;
+  }
+
+  &--white {
+    background-color: $white;
+    color: $black;
+  }
+
+}

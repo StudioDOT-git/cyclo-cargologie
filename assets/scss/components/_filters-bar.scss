@@ -2,54 +2,40 @@
 @use "../base/mixins" as *;
 
 .c-filters-bar {
-  margin: 30px 0 20px;
 
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  column-gap: 20px;
-
-  position: relative;
-  z-index: 2;
-
-  &__header {
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-  }
+  column-gap: 2.6rem;
+  z-index: 10;
+  width: 100%;
 
   &__title {
     font-family: $font-headings;
-    font-size: 0.9375rem;
-    line-height: 1;
-    font-weight: 700;
-    text-transform: lowercase;
+    font-size: 2rem;
+    line-height: 120%; /* 24px */
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin: 0 0 .3rem;
   }
 
   &__filters {
-    margin-top: 30px;
     display: flex;
-    flex-direction: column;
-    row-gap: 10px;
-    justify-content: center;
-    align-items: center;
+    gap: 1.1rem;
   }
 
   @include media-up(md) {
     flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    &__left {
+      display: flex;
+      align-items: flex-end;
+      column-gap: 2.6rem;
 
-    &__filters {
-      margin-top: 0;
-      flex-direction: row;
-      column-gap: 20px;
     }
+
   }
 }
 
-.f-blog .c-filters-bar {
-  max-width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-}
+

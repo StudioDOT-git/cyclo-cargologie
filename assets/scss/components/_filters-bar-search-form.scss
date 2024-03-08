@@ -1,0 +1,53 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+@use "../base/colors" as *;
+
+
+.c-filters-bar-search-form {
+  background: $white;
+  width: 25.7rem;
+  border-radius: .3rem;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-items: center;
+  padding: 0.829rem 1.358rem 0.829rem 1.5rem;
+
+
+  & > svg {
+    width: 1.6rem;
+    height: auto;
+    overflow: visible;
+  }
+
+  input {
+    border: 0;
+    margin-left: .8rem;
+    background: none;
+    width: 90%;
+    padding: .4rem 0;
+
+    &, &::placeholder {
+      font-size: 1.35rem;
+      ine-height: 136.646%;
+      font-weight: 600;
+      color: $black;
+      letter-spacing: -0.01em;
+      font-family: $font-headings;
+    }
+  }
+
+  button {
+    background: none;
+    border: 0;
+
+    & > svg {
+      width: 3.6rem;
+      height: 3.6rem;
+      fill: $black;
+    }
+
+    .c-button__circle {
+      fill: $yellow;
+    }
+  }
+}
