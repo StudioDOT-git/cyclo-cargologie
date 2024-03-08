@@ -1,6 +1,5 @@
 import { FiltersBar } from '../components/filters-bar'
 import { EventsSearchForm } from '../components/events-search-form'
-import { EventsArchiveMonthsNavbar } from '../../../dotstarter/components/months-navbar/months-navbar'
 import { defaultEventArchive } from '../../../dotstarter/components/month-events-grid/month-events-grid'
 
 const VIEW_MONTHS = 0
@@ -20,7 +19,7 @@ class EventsArchiveManager {
     this.rootElement.classList.add('view-months')
 
     // Get required DOM elements
-    this.eventsContainerSelector = '.t-events-archive__months'
+    this.eventsContainerSelector = '.t-events-archive__events'
     this.eventsContainer = this.rootElement.querySelector(this.eventsContainerSelector)
     this.loader = this.rootElement.querySelector('#loader')
 
@@ -37,7 +36,7 @@ class EventsArchiveManager {
     })
 
     // Create months navbar
-    this.monthsNavbar = new EventsArchiveMonthsNavbar(this)
+    // this.monthsNavbar = new EventsArchiveMonthsNavbar(this)
 
     // Create Search Form
     const searchFormElem = document.querySelector('#events-search-form')

@@ -22,7 +22,7 @@ $events_query_base_args = array(
  *  'html':   (string) => The rendered HTML
  *  'offset:' (int)    => Amount of currently loaded posts
  * ]
- * 
+ *
  */
 function dot_events_archive_load_next_page()
 {
@@ -82,7 +82,7 @@ function dot_events_archive_load_next_page()
         ),
     );
 
-    $events_archive_query = new WP_Query($query_args);
+    $events_archive_query = new WP_Query($events_query_base_args);
     $found_posts = $events_archive_query->found_posts;
 
     if ($found_posts > 0) {
@@ -124,9 +124,9 @@ add_action('wp_ajax_nopriv_load_events_archive_next_page', 'dot_events_archive_l
  *
  * @return array $data;
  * $data = [
- *  'html':               (string) => The rendered HTML         
+ *  'html':               (string) => The rendered HTML
  * ]
- * 
+ *
  */
 function dot_events_archive_load_next_month()
 {
@@ -290,7 +290,7 @@ function dot_past_events_load_more()
     if ($eventsQuery->have_posts()) :
         while ($eventsQuery->have_posts()) :
             $eventsQuery->the_post();
-            dot_the_component('event-card');
+            dot_the_component('card');
         endwhile;
     else :
         wp_send_json_error(null, 404);

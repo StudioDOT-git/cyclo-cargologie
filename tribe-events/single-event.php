@@ -82,6 +82,17 @@ if (get_field('days') === false) {
     <!-- Notices -->
     <?php tribe_the_notices() ?>
 
+    <div class="t-events-single__background">
+        <svg viewBox="0 0 219 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M95.1074 362H16.3201C10.9402 362 6.56488 357.667 6.46765 352.259V350.304C5.23608 274.134 -56.3743 212.918 -132.18 212.657C-137.592 212.657 -142 208.194 -142 202.753V123.684C-142 118.08 -137.365 113.552 -131.823 113.78C-3.61169 119.025 99.7096 222.92 104.928 351.77C105.154 357.374 100.649 362 95.075 362H95.1074Z"
+                fill="#FFEC54"/>
+            <path
+                d="M31.1005 0H-132.135C-137.586 0 -142 4.42933 -142 9.90085V89.1077C-142 94.5792 -137.586 99.0085 -132.135 99.0085H110.187C115.639 99.0085 120.052 103.438 120.052 108.909V352.099C120.052 357.571 124.466 362 129.918 362H208.842C214.294 362 218.707 357.571 218.707 352.099V188.279C218.707 185.641 217.669 183.133 215.819 181.277L38.0777 2.89861C36.228 1.0422 33.7291 0 31.1005 0Z"
+                fill="#FFEC54"/>
+        </svg>
+    </div>
+
     <section class="t-events-single-header">
         <div class="l-container">
             <div class="t-events-single-header__column">
@@ -94,11 +105,11 @@ if (get_field('days') === false) {
                                         <?php foreach ($statuses as $s) :
                                             switch ($s) {
                                                 case 'postponed':
-                                                    $clr = 'blue-light';
+                                                    $clr = 'red';
                                                     $label = 'Reporté';
                                                     break;
                                                 case 'full':
-                                                    $clr = 'yellow';
+                                                    $clr = 'red';
                                                     $label = 'Annulé';
                                                     break;
                                                 case 'canceled':
@@ -106,7 +117,7 @@ if (get_field('days') === false) {
                                                     $label = 'Complet';
                                                     break;
                                             }
-                                        ?>
+                                            ?>
                                             <div class="c-status-tag c-status-tag--<?= $clr ?>"><?= $label ?></div>
                                         <?php endforeach; ?>
                                     </div>
@@ -119,11 +130,13 @@ if (get_field('days') === false) {
                         </div>
                         <?php if (count(get_field('carousel_images')) > 1) : ?>
                             <div class="t-events-single-slider__index c-slider__index">
-                                <span class="c-slider__prev btn-prev"><img src="<?= DOT_THEME_URI ?>/assets/icons/slider-arrow-left.svg" /></span>
+                                <span class="c-slider__prev btn-prev"><img
+                                        src="<?= DOT_THEME_URI ?>/assets/icons/slider-arrow-left.svg"/></span>
                                 <div class="c-slider__index-mid">
                                     <span class="current-index">1</span> / <span class="total-slides">0</span>
                                 </div>
-                                <span class="c-slider__next btn-next"><img src="<?= DOT_THEME_URI ?>/assets/icons/slider-arrow-right.svg" /></span>
+                                <span class="c-slider__next btn-next"><img
+                                        src="<?= DOT_THEME_URI ?>/assets/icons/slider-arrow-right.svg"/></span>
                             </div>
                         <?php endif; ?>
                     <?php else : ?>
@@ -134,110 +147,44 @@ if (get_field('days') === false) {
                 </section>
             </div>
             <div class="t-events-single-header__column">
-                <h1 class="t-events-single-header__title heading1">
+                <div class="f-card__tags">
+                    <div class="f-card__date f-card__date--black">
+                        <span><?= $date ?></span>
+                        <?php if (!empty(get_field('location'))): ?>
+
+                            <div class="f-card__location">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="13" viewBox="0 0 10 13"
+                                     fill="none">
+                                    <path
+                                        d="M9 5.13105C9 7.02445 6.5625 10.3594 5.47917 11.7579C5.22917 12.0807 4.75 12.0807 4.5 11.7579C3.41667 10.3594 1 7.02445 1 5.13105C1 2.85037 2.77083 1 5 1C7.20833 1 9 2.85037 9 5.13105Z"
+                                        fill="white" fill-opacity="0.5" stroke="#181818" stroke-width="1.1"/>
+                                </svg>
+                                <span class="f-card__location-name"><?= the_field('location') ?></span>
+                            </div>
+                        <?php endif; ?>
+
+                    </div>
+                    <?php if ($categories): ?>
+                        <?php foreach ($categories as $categorie): ?>
+                            <span class="f-card__tag"><?= $categorie->name ?></span>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                    <?php if ($tags): ?>
+                        <?php foreach ($tags as $tag): ?>
+                            <span class="f-card__tag"><?= $tag->name ?></span>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </div>
+
+                <h1 class="t-events-single-header__title">
                     <?php the_title() ?>
                 </h1>
+
                 <?php if (get_field('subtitle')) : ?>
                     <p class="t-events-single-header__subtitle">
                         <?php the_field('subtitle') ?>
                     </p>
                 <?php endif; ?>
-
-                <div class="t-events-single-header__tags ">
-                    <?php if (is_array($categories)) : ?>
-                        <?php foreach ($categories as $term) : ?>
-                            <?php
-                            $color = 'red-light';
-
-                            switch ($term->slug) {
-                                case 'pirouette-cacahuete':
-                                    $color = 'green';
-                                    break;
-                                case 'pirouette-circaouette':
-                                    $color = 'green';
-                                    break;
-                                case 'saison':
-                                    $color = 'red-light';
-                                    break;
-                                case 'sortie-de-residence':
-                                    $color = 'blue-light';
-                                    break;
-                                case 'festival':
-                                    $color = 'yellow';
-                                    break;
-                                case 'residence':
-                                    $color = 'blue';
-                                    break;
-                                case 'rencontre':
-                                case 'scolaire':
-                                    $color = 'purple';
-                                    break;
-                                default:
-                                    $color = 'red-light';
-                            }
-
-
-                            ?>
-                            <li class="c-tag c-tag--<?= $color ?>">
-                                <?= $term->name ?>
-                            </li>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                    <?php if (is_array($tags)) : ?>
-                        <?php foreach ($tags as $term) : ?>
-                            <div class="c-tag c-tag--yellow-light">
-                                <?= $term->name ?>
-                            </div>
-                        <?php endforeach ?>
-                    <?php endif; ?>
-                </div>
-
-                <?php if (have_rows('prices')) : ?>
-                    <div class="t-events-single-header__prices">
-                        <?php while (have_rows('prices')) :
-                            the_row() ?>
-                            <div class="t-events-single-header__price">
-                                <?php the_sub_field('price') ?>
-                            </div>
-                        <?php endwhile; ?>
-                    </div>
-                <?php endif; ?>
-
-                <?php if (have_rows('dates')) : ?>
-                    <div class="t-events-single-header__dates">
-                        <?php while (have_rows('dates')) :
-                            the_row() ?>
-                            <div class="t-events-single-header__date">
-                                <?php the_sub_field('date') ?>
-                            </div>
-                        <?php endwhile; ?>
-                    </div>
-                <?php endif; ?>
-
-                <div class="t-events-single-header__meta">
-                    <?php if (get_field('duration')) : ?>
-                        <div class="t-events-single-header__duration">
-                            <?= dot_get_icon('clock-red') ?>
-                            <?php the_field('duration') ?>
-                        </div>
-                    <?php endif; ?>
-                    <?php if (get_field('location')) : ?>
-                        <div class="t-events-single-header__location">
-                            <?= dot_get_icon('location-red') ?>
-                            <?php if (get_field('location_url')) : ?>
-                                <a href="<?php the_field('location_url') ?>" target="_blank"><?php the_field('location') ?></a>
-                            <?php else : ?>
-                                <?php the_field('location') ?>
-                            <?php endif; ?>
-                        </div>
-                    <?php endif; ?>
-                    <?php if (get_field('age')) : ?>
-                        <div class="t-events-single-header__age">
-                            <?= dot_get_icon('age') ?>
-                            <?php the_field('age') ?>
-                        </div>
-                    <?php endif; ?>
-                </div>
 
                 <div class="t-events-single-header__descriptions">
                     <?php if (get_field('description')) : ?>
