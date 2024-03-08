@@ -1,9 +1,9 @@
 {
-    "key": "group_65cf816a5bb8e",
-    "title": "Projects Partners",
+    "key": "group_65eb15d84552d",
+    "title": "Cards Columns",
     "fields": [
         {
-            "key": "field_65e9d57a25db0",
+            "key": "field_65eb15ef66238",
             "label": "Sticker",
             "name": "sticker",
             "aria-label": "",
@@ -25,8 +25,8 @@
             "prefix_name": 0
         },
         {
-            "key": "field_65cf816a8b246",
-            "label": "Titre",
+            "key": "field_65eb15d846993",
+            "label": "Title",
             "name": "title",
             "aria-label": "",
             "type": "text",
@@ -38,16 +38,16 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "Nos partenaires sur le projet",
+            "default_value": "",
             "maxlength": "",
             "placeholder": "",
             "prepend": "",
             "append": ""
         },
         {
-            "key": "field_65cf82228b248",
-            "label": "Logos Partenaires",
-            "name": "partners_logo",
+            "key": "field_65eb15d846999",
+            "label": "Sections",
+            "name": "sections",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
@@ -64,17 +64,17 @@
             "min": 0,
             "max": 0,
             "collapsed": "",
-            "button_label": "Ajouter un élément",
+            "button_label": "Add Row",
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_65cf82628b249",
-                    "label": "logo",
-                    "name": "logo",
+                    "key": "field_65eb15d847b84",
+                    "label": "Image",
+                    "name": "image",
                     "aria-label": "",
                     "type": "image",
                     "instructions": "",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -82,7 +82,7 @@
                         "id": ""
                     },
                     "uploader": "",
-                    "return_format": "array",
+                    "return_format": "id",
                     "acfe_thumbnail": 0,
                     "min_width": "",
                     "min_height": "",
@@ -93,7 +93,50 @@
                     "mime_types": "",
                     "preview_size": "medium",
                     "library": "all",
-                    "parent_repeater": "field_65cf82228b248"
+                    "parent_repeater": "field_65eb15d846999"
+                },
+                {
+                    "key": "field_65eb15d847b7c",
+                    "label": "Titre",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_65eb15d846999"
+                },
+                {
+                    "key": "field_65eb15d847b7f",
+                    "label": "Description",
+                    "name": "description",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "acfe_textarea_code": 0,
+                    "maxlength": "",
+                    "rows": "",
+                    "placeholder": "",
+                    "new_lines": "",
+                    "parent_repeater": "field_65eb15d846999"
                 }
             ]
         }
@@ -122,9 +165,9 @@
     ],
     "acfe_form": 0,
     "dot_thumbnail": "",
-    "dot_layout_slug": "project-partners-section",
+    "dot_layout_slug": "cards-columns",
     "dot_is_layout": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1709904798
+    "modified": 1709906051
 }

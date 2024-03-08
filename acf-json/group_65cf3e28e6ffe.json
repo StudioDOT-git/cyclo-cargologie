@@ -3,6 +3,28 @@
     "title": "Members Grid",
     "fields": [
         {
+            "key": "field_65eb100dda5bb",
+            "label": "Sticker",
+            "name": "sticker",
+            "aria-label": "",
+            "type": "layout_part",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_65c5fc80c3366"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
             "key": "field_65cf3eacdfd2e",
             "label": "Titre",
             "name": "title",
@@ -21,6 +43,27 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_65eb1002da5ba",
+            "label": "Description",
+            "name": "description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "acfe_textarea_code": 0,
+            "maxlength": "",
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
         },
         {
             "key": "field_65cf3e29dfd2c",
@@ -116,11 +159,11 @@
                     "parent_repeater": "field_65cf3e29dfd2c"
                 },
                 {
-                    "key": "field_65cf5b12007f1",
-                    "label": "Linkedin",
-                    "name": "linkedin",
+                    "key": "field_65eae0ed8a8f5",
+                    "label": "Description",
+                    "name": "description",
                     "aria-label": "",
-                    "type": "url",
+                    "type": "text",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -130,25 +173,10 @@
                         "id": ""
                     },
                     "default_value": "",
+                    "maxlength": "",
                     "placeholder": "",
-                    "parent_repeater": "field_65cf3e29dfd2c"
-                },
-                {
-                    "key": "field_65cf5b2c007f2",
-                    "label": "Twitter",
-                    "name": "twitter",
-                    "aria-label": "",
-                    "type": "url",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
                     "parent_repeater": "field_65cf3e29dfd2c"
                 }
             ]
@@ -182,5 +210,5 @@
     "dot_is_layout": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1708088583
+    "modified": 1709904015
 }

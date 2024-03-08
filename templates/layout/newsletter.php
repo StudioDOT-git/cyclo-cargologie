@@ -1,5 +1,4 @@
 <div class="l-newsletter">
-
     <div class="l-newsletter__container">
         <div class="l-newsletter__column">
             <h3 class="heading3">
@@ -38,5 +37,4 @@
     </div>
     <img class="l-newsletter__deco" src="<?= get_stylesheet_directory_uri(); ?>/assets/img/deco-newsletter.svg"
         alt="deco">
-
 </div>
