@@ -5,8 +5,8 @@ $images = get_sub_field('partners_logo');
 <div id="f-project-partners-section" class="f-project-partners-section">
     <div class="l-container">
         <div class="f-project-partners-section__headings">
-            <?php if (have_rows('deco')): ?>
-                <?php while (have_rows('deco')):
+            <?php if (have_rows('sticker')): ?>
+                <?php while (have_rows('sticker')):
                     the_row() ?>
                     <?php dot_the_layout_part('deco') ?>
                 <?php endwhile; ?>
