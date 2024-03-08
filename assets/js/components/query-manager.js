@@ -1,5 +1,7 @@
 import MultiFilter from './multi-filter'
 import PostCard from './post-card'
+import { PostsSearchForm } from './posts-search-form.js'
+import { bindAll } from '../helpers.js'
 
 const $ = jQuery
 
@@ -41,9 +43,15 @@ export default class QueryManager {
   posts = []
 
   constructor(selector, templateSelector, postType) {
+    bindAll(this, ['resetFilters'])
     this.$wrapper = document.querySelector(selector)
 
-    if (!this.$wrapper) { return }
+    const searchFormElem = document.querySelector('#posts-search-form')
+    this.searchForm = new PostsSearchForm(searchFormElem, this.resetFilters)
+
+    if (!this.$wrapper) {
+      return
+    }
 
     this.$postsContainer = this.$wrapper.querySelector(templateSelector)
 
@@ -168,7 +176,9 @@ export default class QueryManager {
     const postCards = []
 
     if (this.posts.length === 0) {
-      this.$postsContainer.innerHTML = '<div class="query-no-results">Aucun résultat pour cette recherche.</div>'
+      this.$postsContainer.innerHTML = ' <div class="f-blog__no-results">\n' +
+        '                <div>Aucun article trouvé</div>\n' +
+        '            </div>'
       return
     }
 
@@ -220,6 +230,9 @@ export default class QueryManager {
       if (!this.$nextPageButton.classList.contains('hide')) {
         this.$nextPageButton.classList.add('hide')
       }
+    }
+    if (this.paged + 2 <= this.maxNumPages) {
+      paginationButtons.push('<div class="c-pagination__page c-button c-button--sm c-button--sand">...</div>')
     }
 
     // Add elements to document

@@ -45,23 +45,23 @@ export default class PostCard {
     let terms = ''
 
     this.state.taxonomies.category?.forEach(term => {
-      terms += `<div class="f-post-card__category c-tag" data-term-id="${term.id}">${term.name}</div>`
+      terms += `<div class="f-card__tag" data-term-id="${term.id}">${term.name}</div>`
     })
 
     this.state.taxonomies.post_tag?.forEach(term => {
-      terms += `<div class="f-post-card__tag c-tag" data-term-id="${term.id}">${term.name}</div>`
+      terms += `<span class="f-card__tag" data-term-id="${term.id}">${term.name}</span>`
     })
 
-    return `<a class="f-post-card" href="${this.state.permalink}" target="_blank">
-                    <div class="f-post-card__header">
-                        <img class="f-post-card__thumbnail" src="${this.state.thumbnail.url}" alt="${this.state.thumbnail.alt}">
+    return `<div class="f-card__spotlight">
+                <a href="${this.state.permalink}" class="f-card__image">
+                    <img src="${this.state.thumbnail.url}" alt="${this.state.thumbnail.alt}">
+                    <div class="f-card__image-overlay">
+                        <div class="f-card__tags">${terms}</div>
+                        <p class="f-card__title">${this.state.title}</p>
+                        <div class="f-card__excerpt">${this.state.excerpt}</div>
                     </div>
-                    <div class="f-post-card__content">
-                        <div class="f-post-card__read-duration"><span>${this.state.estimatedReadingTime}</span> Lecture</div>
-                        <div class="f-post-card__terms">${terms}</div>
-                        <div class="f-post-card__title">${this.state.title}</div>
-                        <div class="f-post-card__excerpt">${this.state.excerpt}</div>
-                    </div>
-                </a>`
+                </a>
+            </div>
+`
   }
 }

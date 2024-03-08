@@ -46,8 +46,6 @@ class FiltersBar {
   // Set term selectors event listeners
   createTermSelectors() {
     this.termSelectorElems.forEach(elem => {
-      elem.addEventListener('apply-selection', this.applyFilters.bind(this), false)
-
       this.termSelectors.push(new MultipleTermsSelector(elem))
     })
   }
