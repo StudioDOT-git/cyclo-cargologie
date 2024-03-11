@@ -3,6 +3,7 @@ import Menu from './components/menu'
 import Newsletter from './components/newsletter'
 import TestimonialsSlider from '../../dotstarter/layouts/testimonials/testimonials.js'
 import FullWidthSlider from '../../dotstarter/layouts/slider-full-width/slider-full-width.js'
+import cardsSliderSwiper from '../../dotstarter/layouts/cards-slider/cards-slider.js'
 
 import { modalAnims, modalForm } from './layouts/modal'
 import { dropdownslist } from '../../dotstarter/layouts/dropdowns-list/dropdowns-list.js'
@@ -20,6 +21,7 @@ const Sliders = [
   TestimonialsSlider,
   FullWidthSlider,
   GenericContentSlider,
+  cardsSliderSwiper,
   // ProjectPartnersSlider
 ]
 
@@ -46,6 +48,7 @@ jQuery(function ($) {
 
   //faq
   dropdownslist()
+
 
   sliders.forEach(slider => slider.init())
 
