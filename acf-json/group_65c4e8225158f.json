@@ -7,6 +7,26 @@
             "label": "Titre",
             "name": "title",
             "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_65c4ea4b6583d",
+            "label": "Paragraphe",
+            "name": "paragraph",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "",
             "required": 0,
@@ -22,26 +42,6 @@
             "rows": "",
             "placeholder": "",
             "new_lines": ""
-        },
-        {
-            "key": "field_65c4ea4b6583d",
-            "label": "Paragraphe",
-            "name": "paragraph",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
         },
         {
             "key": "field_65c4ea616583e",
@@ -116,5 +116,5 @@
     "dot_is_layout": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1709885582
+    "modified": 1710174422
 }
