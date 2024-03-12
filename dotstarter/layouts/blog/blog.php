@@ -1,16 +1,20 @@
 <?php
 
 $posts_per_page = 8;
-$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+$paged = $_GET['paged'] ?? 1;
+$args = $_GET;
+$args['post_type'] = 'post';
+$args['per_page'] = $posts_per_page;
+$args['post_status'] = 'publish';
 
-$query = new WP_Query(array(
-    "post_type" => "post",
-    "posts_per_page" => $posts_per_page,
-    "paged" => $paged,
-));
+$posts = AjaxPost::renderPosts($args);
 
 $categories = get_categories();
-$tags = get_tags();
+
+$current_categories = $_GET['categories'] ?? [];
+$current_categories = AjaxPost::explode($current_categories);
+
+
 ?>
 
 <div class="f-blog__background">
@@ -46,7 +50,7 @@ $tags = get_tags();
                         <div class="c-multi-filter__options">
                             <?php foreach ($categories as $cat) : ?>
                                 <div class="c-multi-filter__option" data-term-id="<?= $cat->term_id ?>"
-                                     data-selected="false">
+                                     data-selected="<?= in_array($cat->term_id, $current_categories) ? 'true' : 'false' ?>">
                                     <?= $cat->name; ?>
                                 </div>
                             <?php endforeach; ?>
@@ -55,11 +59,13 @@ $tags = get_tags();
                 </div>
             </div>
             <div class="c-filters-bar__right">
-                <form id="posts-search-form" class="c-filters-bar-search-form c-posts-search-form">
-                    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 16 16" fill="none">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M11.164 10.133L16 14.97L14.969 16L10.133 11.164C9.03131 12.0397 7.66537 12.5163 6.25801 12.516C5.43579 12.5174 4.62142 12.3562 3.86168 12.0418C3.10195 11.7274 2.41183 11.266 1.83101 10.684C0.65919 9.50899 0.000789981 7.91746 1.21194e-05 6.258C-0.00160851 5.43568 0.159321 4.62116 0.473548 3.86125C0.787776 3.10133 1.2491 2.41102 1.83101 1.83C3.00643 0.6583 4.59834 0.000247782 6.25801 0C7.92801 0 9.49301 0.658 10.684 1.831C11.8564 3.00609 12.5152 4.59805 12.516 6.258C12.516 7.68 12.036 9.031 11.164 10.133ZM6.25801 1.458C4.97801 1.458 3.76801 1.956 2.86201 2.862C0.996012 4.729 0.996012 7.787 2.86201 9.653C3.30717 10.0999 3.8365 10.4542 4.41939 10.6954C5.00229 10.9365 5.6272 11.0598 6.25801 11.058C7.53801 11.058 8.74701 10.56 9.65301 9.653C11.52 7.787 11.52 4.729 9.65301 2.863C9.20797 2.41618 8.67881 2.06196 8.09609 1.82081C7.51338 1.57965 6.88865 1.45634 6.25801 1.458Z" fill="#181818"/>
+                <form id="c-filters-bar-search-form" class="c-filters-bar-search-form c-posts-search-form">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M11.164 10.133L16 14.97L14.969 16L10.133 11.164C9.03131 12.0397 7.66537 12.5163 6.25801 12.516C5.43579 12.5174 4.62142 12.3562 3.86168 12.0418C3.10195 11.7274 2.41183 11.266 1.83101 10.684C0.65919 9.50899 0.000789981 7.91746 1.21194e-05 6.258C-0.00160851 5.43568 0.159321 4.62116 0.473548 3.86125C0.787776 3.10133 1.2491 2.41102 1.83101 1.83C3.00643 0.6583 4.59834 0.000247782 6.25801 0C7.92801 0 9.49301 0.658 10.684 1.831C11.8564 3.00609 12.5152 4.59805 12.516 6.258C12.516 7.68 12.036 9.031 11.164 10.133ZM6.25801 1.458C4.97801 1.458 3.76801 1.956 2.86201 2.862C0.996012 4.729 0.996012 7.787 2.86201 9.653C3.30717 10.0999 3.8365 10.4542 4.41939 10.6954C5.00229 10.9365 5.6272 11.0598 6.25801 11.058C7.53801 11.058 8.74701 10.56 9.65301 9.653C11.52 7.787 11.52 4.729 9.65301 2.863C9.20797 2.41618 8.67881 2.06196 8.09609 1.82081C7.51338 1.57965 6.88865 1.45634 6.25801 1.458Z"
+                              fill="#181818"/>
                     </svg>
-                    <input type="text" class="c-filters-bar-search-form__input" placeholder="Rechercher" />
+                    <input type="text" class="c-filters-bar-search-form__input" placeholder="Rechercher"/>
                     <button type="submit">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61 61" fill="none">
                             <circle class="c-button__circle" cx="30.2121" cy="30.2121" r="30.2121"/>
@@ -71,19 +77,15 @@ $tags = get_tags();
             </div>
         </div>
         <div class="f-blog__posts">
-            <?php if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
-                <?php dot_the_component('card') ?>
-            <?php endwhile;
-            endif;
-            wp_reset_postdata(); ?>
+            <?= $posts['render'] ?>
+            <?php if (!$posts['total_posts']): ?>
+                <div class="f-blog__no-results">
+                    <div>Aucun article trouvé</div>
+                </div>
+            <?php endif; ?>
         </div>
-        <?php if (!$query->have_posts()): ?>
-            <div class="f-blog__no-results">
-                <div>Aucun article trouvé</div>
-            </div>
-        <?php endif; ?>
 
-        <div class="f-blog__pagination c-pagination" data-max-num-pages="<?= $query->max_num_pages ?>"
+        <div class="f-blog__pagination c-pagination" data-max-num-pages="<?= $posts["max_num_pages"] ?>"
              data-paged="<?= $paged ?>">
             <div class="c-pagination__prev" rel="prev">Précédent</div>
             <div class="c-pagination__pages"></div>

@@ -7,6 +7,15 @@ get_header();
 
 dot_the_layouts();
 
+$posts_per_page = 8;
+$paged = $_GET['paged'] ?? 1;
+$args = $_GET;
+$args['post_type'] = 'tribe_events';
+$args['per_page'] = $posts_per_page;
+$args['post_status'] = 'publish';
+
+$posts = AjaxPost::renderPosts($args);
+
 ?>
 <div class="t-events-archive__background">
     <svg viewBox="0 0 219 340" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,20 +28,26 @@ dot_the_layouts();
     </svg>
 </div>
 
-<div id="events-archive" class="t-events-archive">
+<div id="events-archive" class="t-events-archive" data-posts-per-page="<?= $posts_per_page ?>">
     <div class="l-container l-container--md">
         <div class="t-events-archive__filters-bar">
             <?php dot_the_component('events-filters-bar') ?>
         </div>
 
         <div class="t-events-archive__events">
-
+            <?= $posts['render'] ?>
+            <?php if (!$posts['total_posts']): ?>
+                <div class="f-blog__no-results">
+                    <div>Aucun article trouvé</div>
+                </div>
+            <?php endif; ?>
         </div>
 
-
-
-        <div id="events-end" class="t-events-archive__after">
-            <div id="loader" class="t-events-archive__loader lds-dual-ring"></div>
+        <div class="t-events-archive__pagination c-pagination" data-max-num-pages="<?= $posts['max_num_pages'] ?>"
+             data-paged="<?= $paged ?>">
+            <div class="c-pagination__prev" rel="prev">Précédent</div>
+            <div class="c-pagination__pages"></div>
+            <div class="c-pagination__next" rel="next">Suivant</div>
         </div>
     </div>
 </div>

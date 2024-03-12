@@ -44,6 +44,11 @@
     }
   }
 
+  &.hide {
+    display: none;
+
+  }
+
   @include media-up(md) {
     &__page:not(.active):hover,
     &__prev:hover,

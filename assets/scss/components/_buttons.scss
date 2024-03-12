@@ -4,7 +4,6 @@
 
 .c-button {
   display: inline-flex;
-  //width: 36.5rem;
   gap: 1.5rem;
 
   padding: 1.2rem 1.7rem;
@@ -159,6 +158,32 @@
 
   &.reset-filters {
     font-size: 1.4rem;
+  }
+
+  &--filter {
+
+    width: 25.7rem;
+    border-radius: .3rem;
+    position: relative;
+    padding: .829rem 1.7rem;
+    border: 0;
+
+    span {
+      font-size: 1.35rem;
+      font-weight: 600;
+      line-height: 136.646%;
+      letter-spacing: -0.01rem;
+    }
+
+    svg {
+      width: 3.6rem;
+      height: 3.6rem;
+    }
+
+    .c-button__circle {
+      fill: $yellow;
+    }
+
   }
 
 }
