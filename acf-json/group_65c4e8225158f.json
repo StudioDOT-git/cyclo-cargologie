@@ -67,8 +67,8 @@
         },
         {
             "key": "field_65eac875517c0",
-            "label": "Deco",
-            "name": "deco",
+            "label": "Sticker",
+            "name": "sticker",
             "aria-label": "",
             "type": "layout_part",
             "instructions": "",
@@ -116,5 +116,5 @@
     "dot_is_layout": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1710174422
+    "modified": 1710256990
 }
