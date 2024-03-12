@@ -21,12 +21,21 @@
     line-height: 140%;
   }
 
+  &__wrapper {
+    position: relative;
+  }
+
   .c-button {
     margin-top: 2.8rem;
     grid-template-columns: auto auto;
     display: inline-grid;
     gap: 7.75rem;
     font-size: 1.45rem;
+  }
+
+  &__deco {
+    position: absolute;
+    top: 0;
   }
 
   @include media-up(md) {
@@ -41,17 +50,15 @@
     }
 
     &__title {
-      padding: 0 12rem 0 12.7rem;
-      max-width: 75.9rem;
+      padding-left: 12rem;
+      max-width: 62.6rem;
       font-size: 5.1rem;
       letter-spacing: -.051rem;
       line-height: 110%;
-
     }
 
     &__content {
-      margin-left: -1.5rem;
-
+      // margin-left: -1.5rem;
     }
 
     &__paragraph {
@@ -65,6 +72,5 @@
       font-size: 1.7rem;
       gap: 11.358rem;
     }
-
   }
 }
