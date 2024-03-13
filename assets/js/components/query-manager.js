@@ -1,19 +1,13 @@
 import MultiFilter from './multi-filter'
-import PostCard from './post-card'
-import { PostsSearchForm } from './posts-search-form.js'
 import { bindAll } from '../helpers.js'
 
 const $ = jQuery
 
 export default class QueryManager {
   // Static
-  endpoint = '/wp-json/wp/v2/'
+  endpoint = '/wp-json/ajax-posts/v1/posts'
   $query
   multiFilters
-
-  templatesMap = {
-    posts: PostCard
-  }
 
   // Elements
   $wrapper
@@ -43,11 +37,8 @@ export default class QueryManager {
   posts = []
 
   constructor(selector, templateSelector, postType) {
-    bindAll(this, ['resetFilters'])
+    bindAll(this, ['resetFilters', 'search'])
     this.$wrapper = document.querySelector(selector)
-
-    const searchFormElem = document.querySelector('#posts-search-form')
-    this.searchForm = new PostsSearchForm(searchFormElem, this.resetFilters)
 
     if (!this.$wrapper) {
       return
@@ -60,12 +51,6 @@ export default class QueryManager {
     }
 
     this.postType = postType
-
-    // Get elements
-    if (!(this.postType in this.templatesMap)) {
-      console.error('Query Manager - Unsupported post type: ', this.postType)
-      return
-    }
 
     this.postsPerPage = this.$wrapper.dataset.postsPerPage
     if (!this.postsPerPage) {
@@ -82,6 +67,7 @@ export default class QueryManager {
     this.$pagesButtonsContainer = this.$wrapper.querySelector('.c-pagination__pages')
 
     const paginationContainer = this.$wrapper.querySelector('.c-pagination')
+    this.paginationContainer = paginationContainer
     this.maxNumPages = paginationContainer.dataset.maxNumPages
     this.paged = parseInt(paginationContainer.dataset.paged)
 
@@ -100,7 +86,16 @@ export default class QueryManager {
     this.multiFilters = [...$multiFilters].map(($multiFilter) => new MultiFilter($multiFilter, this))
 
     // Prepare reset button
-    this.$resetFiltersButton.addEventListener('click', () => this.resetFilters())
+    this.$resetFiltersButton.addEventListener('click', (e) => this.resetFilters(e))
+
+    // Prepare search form
+    this.searchForm = this.$wrapper.querySelector('.c-filters-bar-search-form')
+    this.states = {}
+    if (this.searchForm) {
+      this.searchForm.addEventListener('submit', this.search)
+      this.inputElem = this.searchForm.querySelector('input[type="text"]')
+      this.states.isSearch = false
+    }
   }
 
   async doQueryAndRender() {
@@ -125,16 +120,20 @@ export default class QueryManager {
       order = 'asc'
     }
 
-    const baseUrl = ajaxConfig.baseUrl + this.endpoint + this.postType
-    console.log(ajaxConfig)
+    const baseUrl = ajaxConfig.baseUrl + this.endpoint
 
     const queryUrl = new URL(baseUrl)
     queryUrl.searchParams.append('per_page', this.postsPerPage)
+    queryUrl.searchParams.append('post_type', this.postType)
     queryUrl.searchParams.append('page', this.paged)
     queryUrl.searchParams.append('orderby', orderby)
     queryUrl.searchParams.append('order', order)
-    queryUrl.searchParams.append('acf_format', 'standard') // Set ACF format
-    queryUrl.searchParams.append('_embed', true) // Set context to get terms - see https://developer.wordpress.org/rest-api/reference/posts/
+
+    const s = this.inputElem.value
+
+    if (s.length > 0) {
+      queryUrl.searchParams.append('s', s)
+    }
 
     this.firstTaxonomy = this.multiFilters[0].getTaxonomy()
     this.firstTerm = this.multiFilters[0].getSelected().length ? this.multiFilters[0].getSelected()[0] : false
@@ -149,6 +148,12 @@ export default class QueryManager {
       }
     })
 
+    this.newPathName = new URL(queryUrl.toString())
+    this.newPathName.searchParams.delete('per_page')
+    this.newPathName.searchParams.delete('post_type')
+    this.newPathName.searchParams.delete('orderby')
+    this.newPathName.searchParams.delete('order')
+
     this.query = queryUrl
   }
 
@@ -157,13 +162,13 @@ export default class QueryManager {
       method: 'GET'
     })
 
-    const maxNumPages = response.headers.get('x-wp-totalpages')
-    if (maxNumPages) this.maxNumPages = maxNumPages
+    const maxNumPages = response.headers.get('x-ap-totalpages')
+    this.maxNumPages = parseInt(maxNumPages)
 
     response = await response.json()
 
-    if (Array.isArray(response)) {
-      this.posts = response
+    if (response.total_posts) {
+      this.posts = response.rendered_posts
       return
     }
 
@@ -173,8 +178,6 @@ export default class QueryManager {
   }
 
   renderPosts() {
-    const postCards = []
-
     if (this.posts.length === 0) {
       this.$postsContainer.innerHTML = ' <div class="f-blog__no-results">\n' +
         '                <div>Aucun article trouvé</div>\n' +
@@ -182,17 +185,18 @@ export default class QueryManager {
       return
     }
 
-    this.posts.forEach(post => {
-      postCards.push(new this.templatesMap[this.postType](post))
-    })
-
-    const postCardTemplates = postCards.map(postCard => postCard.getTemplate())
-
-    this.$postsContainer.innerHTML = postCardTemplates.join('')
+    this.$postsContainer.innerHTML = this.posts
   }
 
-  resetFilters() {
+  resetFilters(e) {
     this.paged = 1
+    if (e) {
+      this.states.isSearch = false
+    }
+
+    if (!this.states.isSearch) {
+      this.inputElem.value = ''
+    }
 
     this.multiFilters?.forEach(filter => {
       filter.resetSelection()
@@ -208,6 +212,13 @@ export default class QueryManager {
 
   // todo: make pagination an independent component
   buildPagination() {
+    if (this.maxNumPages === 0) {
+      this.paginationContainer.classList.add('hide')
+      return
+    } else {
+      this.paginationContainer.classList.remove('hide')
+    }
+
     const paginationButtons = []
 
     // Reset Prev/Next buttons
@@ -252,21 +263,13 @@ export default class QueryManager {
   }
 
   setCurrentUrl() {
-    let url = window.location.href
+    let url = location.origin + location.pathname
 
     url = url.endsWith('/') ? url.slice(0, -1) : url
-
-    if (this.firstTaxonomy && this.firstTerm) {
-      url += `/${this.firstTaxonomy}/${this.firstTerm}`
-    }
+    url += '/?' + this.newPathName.searchParams
 
     // Reset "/page/{i}" part
     url = url.replace(/\/page\/\d.*/, '')
-
-    // Set "/page/{i}" part
-    if (this.paged > 1) {
-      url += `/page/${this.paged}`
-    }
 
     history.pushState({ page: this.paged }, null, url)
   }
@@ -289,6 +292,15 @@ export default class QueryManager {
       this.paged = this.paged - 1
       this.goToPage(this.paged)
     }
+  }
+
+  search(e) {
+    e.preventDefault()
+    this.states.isSearch = true
+
+    this.resetFilters()
+
+    this.doQueryAndRender()
   }
 
   startLoading() {

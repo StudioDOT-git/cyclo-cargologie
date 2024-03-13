@@ -7,13 +7,14 @@ $post = get_post();
 $event = get_the_terms($post->ID, 'tribe_events_cat');
 $event_date = dot_get_formatted_event_date();
 
+
+
 $category = get_the_category($post->ID);
-$tags = get_the_tags($post->ID);
+$formats = get_the_terms($post->ID, 'format');
 
 $show_ticket_button = $tickets_url && (!in_array('full', $statuses) && !in_array('canceled', $statuses) && !in_array('postponed', $statuses));
 
 $statuses = get_field('status') ? get_field('status') : array();
-
 
 ?>
 
@@ -49,12 +50,12 @@ $statuses = get_field('status') ? get_field('status') : array();
                     <span class="f-card__tag"><?= $category[0]->name ?></span>
                 <?php elseif ($post->post_type == 'page'): ?>
                     <span class="f-card__tag">Page</span>
-                <?php else: ?>
-                    <span class="f-card__tag">Evènement</span>
+                <?php elseif (isset($categories[0])): ?>
+                    <span class="f-card__tag"><?= $categories[0]->name ?></span>
                 <?php endif; ?>
-                <?php if ($tags): ?>
-                    <?php foreach ($tags as $tag): ?>
-                        <span class="f-card__tag"><?= $tag->name ?></span>
+                <?php if ($formats): ?>
+                    <?php foreach ($formats as $format): ?>
+                        <span class="f-card__tag"><?= $format->name ?></span>
                     <?php endforeach; ?>
                 <?php endif; ?>
             </div>

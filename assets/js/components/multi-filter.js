@@ -18,7 +18,6 @@ export default class MultiFilter {
     this.queryManager = queryManager
     this.$wrapper = element
     this.taxonomy = element.dataset.taxonomy
-
     if (!this.taxonomy) {
       console.error('MultiFilter error : no data-taxonomy found on wrapper element')
       return

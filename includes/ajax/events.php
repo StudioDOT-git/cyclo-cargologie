@@ -1,7 +1,7 @@
 <?php
 
 global $events_archive_query, $events_query_base_args, $is_doing_events_archive_ajax, $events_query_posts_per_page;
-$events_query_posts_per_page = 12;
+$events_query_posts_per_page = 8;
 $is_doing_events_archive_ajax = false;
 
 // The base for the main Events Query arguments

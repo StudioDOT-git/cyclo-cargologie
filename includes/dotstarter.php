@@ -30,6 +30,7 @@ if (!class_exists('DOT_Starter')) {
 
             // AJAX
             require_once(DOT_THEME_INCLUDES_PATH . 'ajax/events.php');
+            require_once(DOT_THEME_INCLUDES_PATH . 'ajax/AjaxPost.php');
 
             // REST API
             require_once(DOT_THEME_INCLUDES_PATH . 'api/wp.php');
@@ -50,6 +51,8 @@ if (!class_exists('DOT_Starter')) {
             add_filter('script_loader_tag', array($this, 'set_scripts_type_module_attribute'), 99, 3);
 
             add_action('admin_init', array($this, 'disable_comments'));
+            add_action('rest_api_init', [ AjaxPost::class, 'setGetPostsRoute' ] );
+
 
             // Modifier le logo sur la page de connexion à l'administration
             add_action('login_enqueue_scripts', array($this, 'login_page_custom_logo'));

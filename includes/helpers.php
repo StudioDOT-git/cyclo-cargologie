@@ -160,4 +160,13 @@ function is_edit_page_type_page(): bool {
     return false;
 }
 
+function  better_var_dump($var, $bool = false)
+{
+    echo '<pre>';
+    var_dump($var);
+    echo '</pre>';
+    if ($bool) {
+        die();
+    }
+}
 
