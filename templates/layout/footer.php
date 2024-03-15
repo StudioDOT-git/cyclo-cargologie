@@ -28,6 +28,19 @@
                 <a href="mailto:<?php the_field('email', 'option') ?>" class="l-footer__mailto heading5">
                     <?php the_field('email', 'option') ?>
                 </a>
+                <span>
+                    <?php
+                    $link = get_field('contact_link', 'option');
+                    $link_url = $link['url'];
+                    $link_title = $link['title'];
+                    $link_target = $link['target'] ? $link['target'] : '_self';
+                    ?>
+
+                    <a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>"
+                        class="l-footer__contact-link">
+                        <?php echo esc_html($link_title); ?>
+                    </a>
+                </span>
                 <!--<span class="uppercase-s">Nous suivre</span>-->
                 <a href="<?php the_field('linkedin', 'option') ?>" target="_blank" class="l-footer__social-link">
                     <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,8 +65,7 @@
                 </a>
             </div>
         </div>
-        <img class="l-footer__deco" src="<?= get_stylesheet_directory_uri(); ?>/assets/img/deco-footer.svg"
-            alt="">
+        <img class="l-footer__deco" src="<?= get_stylesheet_directory_uri(); ?>/assets/img/deco-footer.svg" alt="">
     </div>
 
     <div class="l-footer__white">
@@ -130,7 +142,20 @@
                     <?= date("Y"); ?>
                 </span>
             </div>
-            <div class="l-footer__columns">
+            <div class="l-footer__columns l-footer__legal-links">
+                <?php while (have_rows('links', 'option')):
+                    the_row() ?>
+                    <?php
+                    $link = get_sub_field('link');
+                    $link_url = $link['url'];
+                    $link_title = $link['title'];
+                    $link_target = $link['target'] ? $link['target'] : '_self';
+                    ?>
+
+                    <a href="<?php echo esc_url($link_url); ?>" target="<?php echo esc_attr($link_target); ?>">
+                        <?php echo esc_html($link_title); ?>
+                    </a>
+                <?php endwhile; ?>
             </div>
             <div class="l-footer__columns l-footer__credits">
                 <a class="l-footer__dot" href="https://studio-dot.fr" target="_blank">Site web par Studio
