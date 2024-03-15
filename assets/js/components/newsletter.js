@@ -26,7 +26,7 @@ function NewsletterForm () {
   const expandableElHeight = expandableEl.scrollHeight + termsControlEl.scrollHeight
 
   const errors = []
-  let email, firstname, lastname, region
+  let email, firstname, lastname, region, company, role, city
   let isSubscribed = false
 
   if (!emailInputEl || !formEl) {
@@ -42,7 +42,12 @@ function NewsletterForm () {
     email = emailInputEl.value
     lastname = formEl.querySelector('#newsletter-lastname').value
     firstname = formEl.querySelector('#newsletter-firstname').value
-    region = formEl.querySelector('#newsletter-region').value
+    // region = formEl.querySelector('#newsletter-region').value
+
+    // TODO
+    company = formEl.querySelector('#newsletter-company').value
+    role = formEl.querySelector('#newsletter-role').value
+    city = formEl.querySelector('#newsletter-city').value
 
     const isEmailValid = EmailValidator.validate(email)
 
@@ -58,9 +63,21 @@ function NewsletterForm () {
       errors.push('Le prénom est obligatoire')
     }
 
-    if (!region.length) {
-      errors.push('Le pays est obligatoire')
+    if (!company.length) {
+      errors.push("L'entreprise est obligatoire")
     }
+
+    // if (!role.length) {
+    //   errors.push('La fonction est obligatoire')
+    // }
+
+    if (!city.length) {
+      errors.push('La ville est obligatoire')
+    }
+
+    // if (!region.length) {
+    //   errors.push('Le pays est obligatoire')
+    // }
 
     if (!termsCheckboxEl.checked) {
       errors.push('Vous devez accepter les conditions.')
