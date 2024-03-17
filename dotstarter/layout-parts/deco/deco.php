@@ -1,6 +1,6 @@
 <?php
 
-$is_active = get_sub_field('is_active');
+$is_active = get_sub_field('is_deco_active');
 if (!$is_active) {
     return;
 }
