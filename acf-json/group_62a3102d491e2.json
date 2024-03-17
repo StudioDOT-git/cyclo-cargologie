@@ -323,6 +323,22 @@
             "placeholder": ""
         },
         {
+            "key": "field_65f32b98a6231",
+            "label": "Lien vers page contact",
+            "name": "contact_link",
+            "aria-label": "",
+            "type": "link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
+        },
+        {
             "key": "field_65b8fea5a5ba4",
             "label": "Logos Partenaires",
             "name": "",
@@ -874,5 +890,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1710262426
+    "modified": 1710435362
 }
