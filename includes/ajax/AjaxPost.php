@@ -2,7 +2,8 @@
 
 class  AjaxPost
 {
-    const POST_TYPES_ALLOWED = ['post', 'tribe_events'];
+//    TODO : Add the ability to filter by post type
+    const POST_TYPES_ALLOWED = ['post', 'tribe_events', 'page'];
 
     static function explode($string): array
     {
@@ -25,6 +26,11 @@ class  AjaxPost
                 'relation' => 'AND'
             )
         );
+        if (isset( $request_args['post_type'] )) {
+            if($request_args['post_type'] === 'all'){
+                $args['post_type'] = self::POST_TYPES_ALLOWED;
+            }
+        }
 
         if (isset($request_args['tribe_events_cat'])) {
             $args["tax_query"][] = [
