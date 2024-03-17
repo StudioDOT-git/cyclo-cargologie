@@ -52,14 +52,15 @@ img {
 
 body {
   color: clr(black);
-  // background-image: url("/wp-content/themes/cyclo-cargologie/assets/img/bg.svg");
-  // background-repeat: no-repeat;
-  // background-size: calc(100vw - $container-margin);
-  // background-attachment: fixed;
-  // background-position: center;
-  // @include media-up(md) {
-  //   background-size: calc(100vw - $container-margin-md);
-  // }
+  background: $grey-1;
+   background-image: url("/wp-content/themes/cyclo-cargologie/assets/img/bg.svg");
+   background-repeat: no-repeat;
+   background-size: calc(100vw - $container-margin);
+   background-attachment: fixed;
+   background-position: center;
+   @include media-up(md) {
+     background-size: calc(100vw - $container-margin-md);
+   }
 }
 
 b,
