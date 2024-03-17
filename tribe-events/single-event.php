@@ -61,9 +61,11 @@ $after = apply_filters('tribe_events_single_event_title_html_after', '</h1>', $e
  *
  */
 $title = apply_filters('tribe_events_single_event_title_html', the_title($before, $after, false), $event_id);
-
-$tags = get_the_terms(null, 'post_tag');
+$formats = get_the_terms($event_id, 'format');
 $categories = get_the_terms(null, 'tribe_events_cat');
+
+$enable_slider = false;
+
 
 $slides_count = is_array(get_field('slides')) ? count(get_field('slides')) : null;
 
@@ -82,22 +84,13 @@ if (get_field('days') === false) {
     <!-- Notices -->
     <?php tribe_the_notices() ?>
 
-    <div class="t-events-single__background">
-        <svg viewBox="0 0 219 340" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-                d="M95.1074 362H16.3201C10.9402 362 6.56488 357.667 6.46765 352.259V350.304C5.23608 274.134 -56.3743 212.918 -132.18 212.657C-137.592 212.657 -142 208.194 -142 202.753V123.684C-142 118.08 -137.365 113.552 -131.823 113.78C-3.61169 119.025 99.7096 222.92 104.928 351.77C105.154 357.374 100.649 362 95.075 362H95.1074Z"
-                fill="#FFEC54"/>
-            <path
-                d="M31.1005 0H-132.135C-137.586 0 -142 4.42933 -142 9.90085V89.1077C-142 94.5792 -137.586 99.0085 -132.135 99.0085H110.187C115.639 99.0085 120.052 103.438 120.052 108.909V352.099C120.052 357.571 124.466 362 129.918 362H208.842C214.294 362 218.707 357.571 218.707 352.099V188.279C218.707 185.641 217.669 183.133 215.819 181.277L38.0777 2.89861C36.228 1.0422 33.7291 0 31.1005 0Z"
-                fill="#FFEC54"/>
-        </svg>
-    </div>
+    <?php dot_the_layout_part('yellow-background') ?>
 
-    <section class="t-events-single-header">
+    <section class="t-events-single-header c-yellow-background-brother">
         <div class="l-container">
             <div class="t-events-single-header__column">
                 <section class="t-events-single-slider c-slider slide-ttb" id="<?= uniqid() ?>">
-                    <?php if (get_field('carousel_images')) : ?>
+                    <?php if ($enable_slider) : ?>
                         <div class="t-events-single-slider__slider">
                             <?php foreach (get_field('carousel_images') as $image) : ?>
                                 <div class="t-events-single-slider__slide">
@@ -147,11 +140,10 @@ if (get_field('days') === false) {
                 </section>
             </div>
             <div class="t-events-single-header__column">
-                <div class="f-card__tags">
+                <div class="f-card__tags f-card__tags--event">
                     <div class="f-card__date f-card__date--black">
                         <span><?= $date ?></span>
                         <?php if (!empty(get_field('location'))): ?>
-
                             <div class="f-card__location">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="10" height="13" viewBox="0 0 10 13"
                                      fill="none">
@@ -169,9 +161,9 @@ if (get_field('days') === false) {
                             <span class="f-card__tag"><?= $categorie->name ?></span>
                         <?php endforeach; ?>
                     <?php endif; ?>
-                    <?php if ($tags): ?>
-                        <?php foreach ($tags as $tag): ?>
-                            <span class="f-card__tag"><?= $tag->name ?></span>
+                    <?php if ($formats): ?>
+                        <?php foreach ($formats as $format): ?>
+                            <span class="f-card__tag"><?= $format->name ?></span>
                         <?php endforeach; ?>
                     <?php endif; ?>
                 </div>

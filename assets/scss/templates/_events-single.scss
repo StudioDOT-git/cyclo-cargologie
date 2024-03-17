@@ -15,26 +15,31 @@
 .t-events-single-header {
   position: relative;
   z-index: 1;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  margin-top: -33.7rem;
 
   .l-container {
-    background: $white;
+    background: $grey-1;
 
-  }
-
-  &__column:first-child {
-    margin-bottom: 30px;
   }
 
   &__column:nth-child(2) {
     position: relative;
-    max-width: 69.6rem;
-    padding: 4.4rem 0 0;
+    padding: 2.4rem 0 2rem;
+    .c-button{
+      height: 6.1rem;
+      span {
+        font-size: 1.45rem;
+      }
+      svg {
+        width:3.6rem;
+        height: 3.6rem;
+      }
+    }
   }
+
   .f-card__tags {
     padding: 0;
+    flex-direction: column;
+
   }
 
   &__subtitle {
@@ -47,7 +52,7 @@
   }
 
   &__title {
-    font-size: 3.5rem;
+    font-size: 2.9rem;
     line-height: 110%;
     letter-spacing: -0.01em;
     margin: 1.3rem 0 1.1rem;
@@ -57,8 +62,8 @@
   &__tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
-    margin-bottom: 20px;
+    gap: .5rem;
+    margin-bottom: 2rem;
   }
 
   &__descriptions {
@@ -67,8 +72,10 @@
     padding: 2rem 0 2.4rem;
     font-size: 1.6rem;
 
-    > :first-child {
-      padding-top: 10px;
+    &> :first-child {
+      padding-top: 1rem;
+      display: grid;
+      gap: 1rem;
     }
 
   }
@@ -80,9 +87,8 @@
   &__buttons {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: .5rem;
   }
-
 
   &__location {
     a {
@@ -110,23 +116,24 @@
     }
   }
 
-  @include media-up(sm) {
-    &__deco {
-      transform: translateY(100%) !important;
 
+
+  @include media-up(md) {
+    &__column:nth-child(2) {
+      position: relative;
+      max-width: 69.6rem;
+      padding: 4.4rem 0 0;
     }
-  }
 
-  @include media-up(lg) {
     position: relative;
-    padding-bottom: 60px;
+    padding-bottom: 6rem;
 
     &__column:first-child {
       margin-bottom: 0;
     }
 
     .l-container {
-      --gap: 10px;
+      --gap: 1rem;
 
       display: grid;
       grid-template-columns: auto auto;
@@ -142,10 +149,14 @@
       font-size: 1.5625rem;
     }
 
+    &__title {
+      font-size: 3.5rem;
+    }
+
 
 
     &__description-en {
-      padding-left: 20px;
+      padding-left: 2rem;
     }
 
     &__deco {
@@ -158,40 +169,39 @@
 
 .t-events-single-slider {
   position: relative;
-  margin-bottom: 30px;
 
   &__slide {
     cursor: pointer;
     position: relative;
   }
 
-  &__image {
+  img{
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
     user-select: none;
 
-    max-height: 600px;
+    max-height: 60rem;
     aspect-ratio: 1.3;
   }
 
   &__slide-statuses {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 1rem;
+    right: 1rem;
   }
 
   &__slide-caption {
     position: relative;
-    top: 5px;
+    top: .5rem;
     color: #989898;
   }
 
   .slick-track,
   .slick-list {
-    -webkit-perspective: 2000px;
-    perspective: 2000px;
+    -webkit-perspective: 200rem;
+    perspective: 200rem;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
   }
@@ -202,68 +212,41 @@
     align-items: stretch;
   }
 
-  .slick-slide {
-    height: auto;
-    padding-bottom: 30px;
-  }
-
-  @include media-up(sm) {
-    margin-bottom: -70px;
-
-    &__index {
-      position: relative;
-      top: -100px;
-    }
-  }
 
   @include media-up(md) {
     &__image {
       width: 70.9rem;
       max-height: unset;
     }
-    &__index {
-      top: -120px;
-    }
+
   }
 
-  @include media-up(lg) {
-    margin-bottom: 0;
 
-    &__index {
-      top: -100px;
-    }
-  }
-
-  @include media-up(xxl) {
-    &__slide img {
-      max-height: 800px;
-    }
-  }
 }
 
 .c-events-single-related {
-  padding: 40px 0;
-  border-radius: 20px 20px 0 0;
-  margin-top: -30px;
+  padding: 4rem 0;
+  border-radius: 2rem 2rem 0 0;
+  margin-top: -3rem;
   position: relative;
   z-index: auto;
   background-color: $white;
 
   &__title {
-    margin-bottom: 30px;
+    margin-bottom: 3rem;
   }
 
   .c-event-card {
-    margin-bottom: 30px;
+    margin-bottom: 3rem;
   }
 
-  @include media-up(lg) {
-    padding: 40px 0 80px;
+  @include media-up(md) {
+    padding: 4rem 0 8rem;
 
     &__events {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      grid-gap: 10px;
+      grid-gap: 1rem;
     }
   }
 }
@@ -282,19 +265,12 @@
 
 
 .t-events-single {
-  &__background {
-    height: 41.8rem;
-    background: $yellow;
-    position: relative;
-    overflow: hidden;
-
-    svg {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 36rem;
-      height: 36.2rem;
-      transform: translate(-30%, 2.2rem);
+  @include media-down(md) {
+    .c-yellow-background {
+      height: 24.5rem;
+    }
+    .c-yellow-background-brother {
+      margin-top: -22.2rem;
     }
   }
 
