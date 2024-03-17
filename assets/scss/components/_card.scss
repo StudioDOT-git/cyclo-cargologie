@@ -4,10 +4,9 @@
 
 .f-card {
   &__image {
-    height: 100%;
     display: block;
     position: relative;
-    aspect-ratio: 0.7658643326;
+    aspect-ratio: 1.1666666667;
 
     img {
       width: 100%;
@@ -61,13 +60,14 @@
     &--black {
       background: $black;
       color: $white;
+
       .f-card__location-name {
-        color:$black
+        color: $black
       }
     }
 
 
-    &> span {
+    & > span {
       padding: .9rem 1rem .8rem;
 
     }
@@ -82,12 +82,18 @@
     display: flex;
     align-items: center;
 
+    span {
+      font-size: 1.4rem;
+    }
+
     svg {
       width: .8rem
     }
 
     &-name {
       margin-left: .4rem;
+      font-size: 1.4rem;
+
     }
   }
 
@@ -97,8 +103,20 @@
     align-items: center;
 
     & > * + * {
-      margin-left: .6rem; // Géner le wrap
+      margin-left: 1.3rem;
     }
+
+    &--event {
+      align-items: self-start;
+      flex-direction: column-reverse;
+      gap: .7rem;
+
+      & > * + * {
+        margin-left: 0;
+      }
+    }
+
+
   }
 
   &__tag {
@@ -106,23 +124,37 @@
     border-radius: 4rem;
     background: $white;
     color: $black;
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     font-family: $font-headings;
+
+    &--date {
+      background: $black;
+      color: $white;
+
+    }
+
+    &--format {
+      display: none;
+    }
 
   }
 
-  &__title{
-    font-size: 2.4rem;
+  &__title {
+    font-size: 2rem;
     font-weight: 500;
     line-height: 110%;
     padding: .9rem 0 0;
     font-family: $font-headings;
     letter-spacing: -0.01em;
   }
+
   &__excerpt {
-    font-size: 1.6rem;
-    font-weight: 400;
-    line-height: 140%;
+    padding: .2rem 0 0;
+    * {
+      font-size: 1.6rem;
+      font-weight: 400;
+      line-height: 140%;
+    }
   }
 
   &__statuses {
@@ -136,6 +168,32 @@
     &__image {
       aspect-ratio: 1.1775700935;
       width: 63rem;
+    }
+    &__tags {
+      display: flex;
+      padding: .9rem 0 0;
+      align-items: center;
+      flex-direction: row;
+
+      & > * + * {
+        margin-left: .6rem; // Géner le wrap
+      }
+    }
+    &__tag {
+      font-size: 1.7rem;
+
+      &--format {
+        display: block;
+      }
+    }
+    &__location {
+      span {
+        font-size: 1.7rem;
+      }
+
+    }
+    &__title {
+      font-size: 2.4rem;
     }
     &__resume {
       font-size: 2.9rem;

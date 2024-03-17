@@ -1,20 +1,23 @@
 <?php
+/**
+ * Card component
+ */
+$post = get_post();
+
+// Events
 $tickets_url = tribe_get_event_website_url();
 $statuses = get_field('status') ? get_field('status') : array();
 $categories = get_the_terms(null, 'tribe_events_cat');
-$post = get_post();
-
-$event = get_the_terms($post->ID, 'tribe_events_cat');
+$event = $post->post_type === 'tribe_events';
 $event_date = dot_get_formatted_event_date();
-
-
-
-$category = get_the_category($post->ID);
+$show_ticket_button = $tickets_url && (!in_array('full', $statuses) && !in_array('canceled', $statuses) && !in_array('postponed', $statuses));
 $formats = get_the_terms($post->ID, 'format');
 
-$show_ticket_button = $tickets_url && (!in_array('full', $statuses) && !in_array('canceled', $statuses) && !in_array('postponed', $statuses));
 
-$statuses = get_field('status') ? get_field('status') : array();
+// Posts
+$category = get_the_category($post->ID);
+$date = ucwords(get_the_date('M Y', $post->ID));
+
 
 ?>
 
@@ -27,7 +30,7 @@ $statuses = get_field('status') ? get_field('status') : array();
         <?php endif; ?>
         <div class="f-card__image-overlay">
 
-            <div class="f-card__tags">
+            <div class="f-card__tags <?= $event ? 'f-card__tags--event' : '' ?>">
                 <?php if ($event): ?>
                     <div class="f-card__date">
                         <span><?= $event_date ?></span>
@@ -46,6 +49,10 @@ $statuses = get_field('status') ? get_field('status') : array();
 
                     </div>
                 <?php endif; ?>
+                <?php if ($post->post_type === 'post'): ?>
+                    <span class="f-card__tag f-card__tag--date"><?= $date ?></span>
+                <?php endif; ?>
+
                 <?php if (isset($category[0])): ?>
                     <span class="f-card__tag"><?= $category[0]->name ?></span>
                 <?php elseif ($post->post_type == 'page'): ?>
@@ -55,11 +62,18 @@ $statuses = get_field('status') ? get_field('status') : array();
                 <?php endif; ?>
                 <?php if ($formats): ?>
                     <?php foreach ($formats as $format): ?>
-                        <span class="f-card__tag"><?= $format->name ?></span>
+                        <span class="f-card__tag f-card__tag--format"><?= $format->name ?></span>
                     <?php endforeach; ?>
                 <?php endif; ?>
             </div>
             <p class="f-card__title"><?= $post->post_title ?></p>
+            <div class="f-card__excerpt">
+                <?php if ($post->post_type === 'tribe_events'): ?>
+                    <p class="f-card__subtitle"><?= the_field('subtitle') ?></p>
+                <?php elseif ($post->post_type === 'page'): ?>
+                    <?= the_excerpt() ?>
+                <?php endif; ?>
+            </div>
         </div>
         <span class="f-card__statuses">
             <?php if (in_array('full', $statuses)) : ?>
