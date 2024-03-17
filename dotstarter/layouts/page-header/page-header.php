@@ -2,16 +2,14 @@
     <div class="l-container l-container--medium">
         <div class="f-page-header__tb">
             <div class="f-page-header__wrapper">
-                <div class="-f-page-header__heading">
-                    <h1 class="f-page-header__title">
-                        <?= get_sub_field('title'); ?>
-                    </h1>
+                <div class="f-page-header__heading">
                     <div class="f-page-header__deco">
                         <?php while (have_rows('sticker')):
                             the_row() ?>
                             <?php dot_the_layout_part('deco') ?>
                         <?php endwhile; ?>
                     </div>
+                    <h1 class="f-page-header__title"><?= get_sub_field('title'); ?></h1>
                 </div>
                 <div class="f-page-header__content">
                     <p class="f-page-header__paragraph">
