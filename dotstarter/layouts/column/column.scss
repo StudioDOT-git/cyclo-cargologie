@@ -3,6 +3,7 @@
 @use "../../../assets/scss/base/mixins" as *;
 
 .f-column {
+  background-color: $white;
 
   &__tb {
     padding: 0 0 7.3rem;

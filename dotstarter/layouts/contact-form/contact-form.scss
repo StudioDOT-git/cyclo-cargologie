@@ -6,6 +6,8 @@
   position: relative;
   padding: 3rem 0 10rem;
   overflow: hidden;
+  background-color: $white;
+
 
   &::before {
     content: "";
