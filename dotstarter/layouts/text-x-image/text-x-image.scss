@@ -3,8 +3,6 @@
 @use "../../../assets/scss/base/mixins" as *;
 
 .f-text-x-image {
-  background: #F4F6FA;
-
   .l-container {
     position: relative;
   }
@@ -15,12 +13,7 @@
     z-index: 2;
   }
 
-
   &__wrapper {
-    &.--have-section-deco {
-      margin-top: -1.2rem;
-    }
-
     &+* {
       padding: 5.2rem 0 0
     }
@@ -28,7 +21,6 @@
 
   &__content {
     padding: 2.3rem 0 0;
-
   }
 
   &__section-deco {
@@ -51,8 +43,6 @@
     max-width: 35.1rem;
     line-height: 110%;
     letter-spacing: -.029rem;
-
-
   }
 
   &__paragraph {
@@ -62,7 +52,6 @@
       font-size: 1.5rem;
       line-height: 140%;
     }
-
   }
 
   &__image {
@@ -83,7 +72,6 @@
     top: 0;
     transform: translate(0, -50%);
   }
-
 
   &__bg {
     display: block;
@@ -112,7 +100,6 @@
   }
 
   @include media-up(md) {
-
     &__tb {
       padding: 9.8rem 0 8rem;
       position: relative;
@@ -123,12 +110,6 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-
-      &.--have-section-deco {
-        margin-top: 1rem;
-
-
-      }
 
       &+* {
         padding: 9.6rem 0 0
@@ -145,13 +126,15 @@
 
       &>* {
         max-width: 57.7rem;
-
       }
     }
 
     &__section-deco {
       display: block;
-      margin: 0 0 2.2rem;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
     }
 
     &__subtitle {
@@ -164,7 +147,6 @@
     }
 
     &__paragraph {
-
       p {
         font-size: 1.7rem;
       }
@@ -172,20 +154,13 @@
 
     &__image {
       width: 50%;
+      max-width: 63.5rem;
 
-      &.--have-deco {
-        max-width: 63.5rem;
-
-        &+div {
-          .f-text-x-image__paragraph {
-            max-width: 63.4rem;
-
-          }
+      &+div {
+        .f-text-x-image__paragraph {
+          max-width: 63.4rem;
         }
-
       }
-
-
     }
 
     &__image-deco {
@@ -194,14 +169,12 @@
       top: auto;
       bottom: 2.9rem;
       transform: translate(-50%, 0);
-
     }
 
     .c-button {
       margin: 2.5rem 0 0;
       font-size: 1.7rem;
       gap: 11.358rem;
-
       padding: 1.5rem 1.7rem;
 
       svg {
