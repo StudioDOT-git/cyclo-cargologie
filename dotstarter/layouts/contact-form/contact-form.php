@@ -15,8 +15,15 @@
                 </p>
                 <div class="f-contact-form__form-container">
                     <?php
-                    $form_shortcode = get_sub_field('form_shortcode');
-                    echo do_shortcode($form_shortcode);
+
+                    if (!is_admin()) {
+                        // This means we're on the frontend of the site, not in the admin area
+                        $form_shortcode = get_sub_field('form_shortcode');
+                        echo do_shortcode('[wpforms id="414"]');
+                    } else {
+                        // Optionally, display a placeholder or message in the admin area
+                        echo '<p>Le Formulaire sera bien affiché ici sur la partie live du site.</p>';
+                    }
                     ?>
                 </div>
             </div>
