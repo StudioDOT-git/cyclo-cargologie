@@ -47,6 +47,29 @@ html {
 }
 
 
+input[type=checkbox], input[type=radio] {
+  height: 16px;
+  width: 16px;
+}
+
+input[type=checkbox]:checked::before {
+  margin: -0.5rem 0 0 -0.8rem;
+  height: 4rem;
+  width: 4rem;
+}
+
+#acf-group_main_flexible .layout>.acfe-fc-placeholder .acfe-fc-overlay.-hover, #acf-group_main_flexible .layout>.acfe-fc-placeholder:hover .acfe-fc-overlay {
+  background: rgba(0, 0, 0, 0.235);
+
+  z-index: 10000;
+
+}
+
+.layout>.acfe-fc-placeholder.acfe-fc-preview:hover>a {
+  z-index: 100000;
+}
+
+
 /* ----- LAYOUTS  ------------ */
 @import "../../dotstarter/layouts/notice-banner/notice-banner.scss";
 @import "../../dotstarter/layouts/header-yellow/header-yellow.scss";

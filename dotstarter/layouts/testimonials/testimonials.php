@@ -51,7 +51,7 @@
                     <?php endwhile; ?>
                 </ul>
             </div>
-            <div class="f-testimonial__index c-slider__index">
+            <div class="f-testimonials__index c-slider__index">
                 <span class="c-slider__prev btn-prev"><img
                         src="<?= DOT_THEME_URI ?>/assets/icons/slider-arrow-left.svg" /></span>
                 <div class="c-slider__index-mid">
@@ -59,6 +59,12 @@
                 </div>
                 <span class="c-slider__next btn-next"><img
                         src="<?= DOT_THEME_URI ?>/assets/icons/slider-arrow-right.svg" /></span>
+            </div>
+            <div class="f-testimonials__button-container">
+                <?php while (have_rows('button')):
+                    the_row() ?>
+                    <?php dot_the_layout_part('button') ?>
+                <?php endwhile; ?>
             </div>
         </div>
     </div>

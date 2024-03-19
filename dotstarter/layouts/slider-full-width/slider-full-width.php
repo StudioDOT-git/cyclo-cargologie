@@ -12,6 +12,7 @@
                     <?php endwhile; ?>
                 </div>
             </div>
+
             <div class="f-slider-full-width__index c-slider__index">
                 <span class="c-slider__prev btn-prev"><img src="<?= DOT_THEME_URI ?>/assets/icons/slider-arrow-left.svg" /></span>
                 <div class="c-slider__index-mid">

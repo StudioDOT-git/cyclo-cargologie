@@ -1,6 +1,7 @@
 import { registerGsapPlugins } from './config/gsap'
 import Menu from './components/menu'
-import Newsletter from './components/newsletter'
+// import Newsletter from './components/newsletter'
+import { NewsletterForm } from './components/newsletter'
 import TestimonialsSlider from '../../dotstarter/layouts/testimonials/testimonials.js'
 import FullWidthSlider from '../../dotstarter/layouts/slider-full-width/slider-full-width.js'
 import cardsSliderSwiper from '../../dotstarter/layouts/cards-slider/cards-slider.js'
@@ -37,7 +38,8 @@ jQuery(function ($) {
 
   registerGsapPlugins()
   Menu();
-  Newsletter();
+  // Newsletter();
+  NewsletterForm();
   searchModal();
 
   modalAnims();

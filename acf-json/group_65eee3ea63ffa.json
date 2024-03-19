@@ -193,5 +193,8 @@
     "dot_is_layout": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1710155739
+    "modified": 1710844830,
+    "acfe_categories": {
+        "slider": "Slider"
+    }
 }

@@ -223,3 +223,171 @@
     }
   }
 }
+
+
+.c-newsletter-form {
+  $root: &;
+
+  &__control {
+    display: block;
+    width: 100%;
+    font-size: 1.25rem;
+    background-color: $white;
+    font-family: $font-headings;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+
+    // &:focus,
+    // &:focus-within {
+    //   border-color: $black;
+
+    //   #{$root}__input {
+    //     color: $black;
+    //   }
+    // }
+  }
+
+  &__select {
+    background: 0;
+    outline: none;
+    border: 0;
+    width: 100%;
+    color: $red;
+  }
+
+  &__input {
+    outline: 0;
+    border: 0;
+    color: $red;
+    height: 100%;
+    width: 100%;
+
+    &:focus,
+    &:focus-within {
+      outline: 0;
+    }
+
+    &::placeholder {
+      opacity: 1;
+      color: $red;
+    }
+  }
+
+  input[type="submit"] {
+    cursor: pointer;
+
+    &:hover {
+      // background-color: $black;
+    }
+  }
+
+  &__terms {
+    position: relative;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 5px;
+    cursor: pointer;
+
+    input[type="checkbox"] {
+      appearance: none;
+      margin: 0;
+      display: flex;
+
+      &::before {
+        content: "";
+        flex-shrink: 0;
+        border: 1px solid $white;
+        display: block;
+        content: "";
+        width: 12px;
+        height: 12px;
+        background-color: $white;
+        border: 1px solid $grey-2;
+        position: relative;
+        top: 3px;
+      }
+    }
+  }
+
+  &__checkmark {
+    opacity: 0;
+    width: 10px;
+    height: 10px;
+    object-fit: contain;
+    position: absolute;
+    left: 2px;
+    top: 5px;
+    z-index: 2;
+  }
+
+  [type="checkbox"]:checked+img {
+    opacity: 1;
+  }
+
+  &__feedback {
+    font-size: 1.375rem;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
+    height: 0;
+    overflow: hidden;
+
+    &.is-error,
+    &.is-success {
+      background: $black;
+      padding: 20px;
+      margin-bottom: 10px;
+      height: auto;
+      overflow: auto;
+    }
+
+    &.is-error {
+      border-color: #ffc700;
+    }
+
+    &.is-success {
+      border-color: rgb(9, 168, 9);
+    }
+  }
+
+  &__expandable {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s;
+
+    &.is-expanded {
+      overflow: visible;
+    }
+  }
+
+  @include media-up(sm) {
+    &__columns {
+      display: flex;
+      gap: 5px;
+
+      >* {
+        min-width: 0;
+        flex-basis: 50%;
+      }
+    }
+
+    &__terms {
+      input[type="checkbox"]::before {
+        top: 2px;
+      }
+    }
+  }
+
+  @include media-up(md) {
+    &__checkmark {
+      top: 4px;
+    }
+  }
+}

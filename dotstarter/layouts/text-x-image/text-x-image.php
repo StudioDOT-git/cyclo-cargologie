@@ -27,15 +27,9 @@
                                 <?php endwhile; ?>
                             </div>
                         <?php endif; ?>
-                        <h6 class="f-text-x-image__subtitle">
-                            <?= get_sub_field('subtitle') ?>
-                        </h6>
-                        <h3 class="f-text-x-image__title heading2">
-                            <?= get_sub_field('title') ?>
-                        </h3>
-                        <div class="f-text-x-image__paragraph body-lg">
-                            <?= get_sub_field('text') ?>
-                        </div>
+                        <h6 class="f-text-x-image__subtitle"><?= get_sub_field('subtitle') ?></h6>
+                        <h3 class="f-text-x-image__title heading2"><? echo get_sub_field('title') ?></h3>
+                        <div class="f-text-x-image__paragraph body-lg"><?= get_sub_field('text') ?></div>
                         <?php while (have_rows('button')):
                             the_row() ?>
                             <?php dot_the_layout_part('button') ?>
