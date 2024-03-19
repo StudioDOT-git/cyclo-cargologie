@@ -1,5 +1,6 @@
 @use "../base/variables" as *;
 @use "../base/mixins" as *;
+@use "../base/colors" as *;
 
 .c-filters-bar {
 
@@ -7,8 +8,37 @@
   flex-direction: column;
   align-items: stretch;
   column-gap: 2.6rem;
-  z-index: 10;
+  z-index: 2;
   width: 100%;
+  position: relative;
+
+  &__filters-toggle-wrapper {
+    background: $white;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: .2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    svg {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+    button {
+      background: none;
+      border: none;
+      transform-origin: center;
+    }
+  }
+
+  &__filters-close {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+  }
 
   &__title {
     font-family: $font-headings;
@@ -19,9 +49,59 @@
     margin: 0 0 .3rem;
   }
 
-  &__filters {
-    display: flex;
-    gap: 1.1rem;
+  &__header{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    padding: 1rem 0 1.2rem;
+    &-right {
+      align-self: self-end;
+    }
+  }
+
+
+  &__filters-taxonomies {
+    display:grid;
+    gap: .9rem;
+  }
+
+  @include media-down(md) {
+    &__header {
+      background:$yellow;
+      padding: 1rem 1rem 1.2rem;
+      margin: 0 -1rem;
+    }
+    &__filters {
+      background:$yellow;
+      position: absolute;
+      top: 100%;
+      left: 1rem;
+      width: 100%;
+      padding: .6rem 1rem 1rem;
+      margin: 0 -1rem;
+      gap: 1.6rem;
+      display: none;
+      &.show {
+        display: grid;
+      }
+    }
+    &__filters-open {
+      &.hide {
+        transform: scale(0);
+      }
+    }
+    &__filters-close {
+      &.show {
+        transform: translate(-50%, -50%) scale(1);
+
+      }
+    }
+
+    .c-multi-filter,.c-filters-bar-search-form,.c-button--filter {
+      width: 100%;
+    }
+
+
   }
 
   @include media-up(md) {
@@ -35,7 +115,45 @@
 
     }
 
+
+    &__header {
+      padding: 0;
+    }
+    &__filters-toggle-wrapper {
+      display: none;
+    }
+    &__filters {
+      display: flex;
+      justify-content: space-between;
+      flex: 1;
+    }
+    &__filters-taxonomies {
+      display: flex;
+    }
   }
+}
+.c-filters {
+  &__no-results {
+    display: flex;
+    justify-content: center;
+    padding: 3.4rem 0 0;
+    grid-area: 1 / 1 / 2 / 3;
+
+
+    div {
+      max-width: 63.4rem;
+      flex: 1;
+      height: 6.6rem;
+      display: flex;
+      align-items: center;
+      background: $purple-2;
+      padding-left: 2.4rem;
+      font-size: 1.6rem;
+      border-radius: .3rem;
+    }
+
+  }
+
 }
 
 

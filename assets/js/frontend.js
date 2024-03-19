@@ -57,6 +57,7 @@ jQuery(function ($) {
   // QueryFilters : Blog, Community
   new QueryManager('.f-blog', '.f-blog__posts', 'post');
   new QueryManager('.t-events-archive', '.t-events-archive__events', 'tribe_events');
+  new QueryManager('.t-search', '.t-search__results', 'all');
 
 
 })

@@ -45,6 +45,7 @@ export default class MultiFilter {
 
   toggleOption(e) {
     e.currentTarget.dataset.selected = e.currentTarget.dataset.selected === 'true' ? 'false' : 'true'
+    this.$wrapper.classList.remove('expand')
 
     this.queryManager.applyTaxonomyFilter()
   }

@@ -5,7 +5,7 @@
         {
             "key": "field_65c604466561a",
             "label": "Activer",
-            "name": "is_active",
+            "name": "is_deco_active",
             "aria-label": "",
             "type": "true_false",
             "instructions": "",
@@ -118,5 +118,5 @@
     "dot_is_lpart": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1710175830
+    "modified": 1710424719
 }

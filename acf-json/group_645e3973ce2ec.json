@@ -23,34 +23,6 @@
             "append": ""
         },
         {
-            "key": "field_6464dbf71594a",
-            "label": "Images de carousel",
-            "name": "carousel_images",
-            "aria-label": "",
-            "type": "gallery",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "library": "all",
-            "min": 2,
-            "max": "",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "insert": "append",
-            "preview_size": "medium"
-        },
-        {
             "key": "field_645e399251532",
             "label": "Tarifs",
             "name": "prices",
@@ -334,5 +306,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1710163872
+    "modified": 1710510241
 }

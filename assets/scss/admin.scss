@@ -2,11 +2,12 @@
 /* Legacies, base and overall configurations */
 
 @use "./lib/normalize.css";
-@use "./base/breakpoints-admin";
+@use "./base/breakpoints";
 @use "./base/variables";
 @use "./base/mixins";
 @use "./base/fonts";
-@use "./typography/typography-admin";
+@use "./typography/typography";
+@use "./base/base";
 @use "./base/utils";
 
 /* ----- LAYOUT ----- */
@@ -14,11 +15,62 @@
 @use "./layout/container";
 @use "./layout/header";
 @use "./layout/footer";
+@use "./layout/newsletter";
+@use "./layout/search-modal";
+
 
 /* ----- COMPONENTS ----- */
+@use "./components/layout";
 @use "./components/buttons";
+@use "./components/loaders";
+@use "./components/marquee";
+@use "./components/wysiwyg";
+@use "./components/slider";
+@use "./components/deco";
+@use "./components/filters-bar";
+@use "./components/multi-filter";
+@use "./components/card";
+@use "./components/tag";
+@use "./components/pagination";
+@use "./components/filters-bar-search-form";
+
 
 /* ----- TEMPLATES ------------ */
+@use "./templates/four-oh-four";
+@use "./templates/legal";
+@use "./tribe/index";
+@use "./templates/events-single";
+@use "./templates/search";
+
+html {
+  font-size: calc(80vw / 1728 * 10) !important;
+}
+
+
+/* ----- LAYOUTS  ------------ */
+@import "../../dotstarter/layouts/notice-banner/notice-banner.scss";
+@import "../../dotstarter/layouts/header-yellow/header-yellow.scss";
+@import "../../dotstarter/layouts/column/column.scss";
+@import "../../dotstarter/layouts/text-x-image/text-x-image.scss";
+@import "../../dotstarter/layouts/testimonials/testimonals.scss";
+@import "../../dotstarter/layouts/slider-full-width/slider-full-width.scss";
+@import "../../dotstarter/layouts/page-header/page-header.scss";
+@import "../../dotstarter/layouts/actu-x-event/actu-x-event.scss";
+@import "../../dotstarter/layouts/dropdowns-list/dropdowns-list.scss";
+@import "../../dotstarter/layouts/blog/blog.scss";
+@import "../../dotstarter/layouts/generic-content/generic-content.scss";
+@import "../../dotstarter/layouts/members-grid/members-grid.scss";
+@import "../../dotstarter/layouts/ressources-section/ressources-section.scss";
+@import "../../dotstarter/layouts/project-partners-section/project-partners-section.scss";
+@import "../../dotstarter/layouts/key-numbers/key-numbers.scss";
+@import "../../dotstarter/layouts/contact-form/contact-form.scss";
+@import "../../dotstarter/layouts/program/program.scss";
+@import "../../dotstarter/layouts/cards-columns/cards-columns.scss";
+@import "../../dotstarter/layouts/cards-slider/cards-slider.scss";
+@import "../../dotstarter/layouts/next-events/next-events.scss";
+@import "../../dotstarter/layouts/article/article.scss";
+@import "../../dotstarter/layout-parts/yellow-background/yellow-background.scss";
+
 
 /* ----- ANIMATIONS  ------------ */
-@use "./animations/transitions";
+// @use "./animations/transitions";

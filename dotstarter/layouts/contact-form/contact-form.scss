@@ -6,6 +6,8 @@
   position: relative;
   padding: 3rem 0 10rem;
   overflow: hidden;
+  background-color: $white;
+
 
   &::before {
     content: "";
@@ -176,6 +178,39 @@
 
     .wpforms-error {
       margin-top: .5rem !important;
+    }
+
+    .wpforms-confirmation-container-full {
+      background-color: $purple-2 !important;
+      border: none !important;
+      border-radius: 3px;
+      position: relative;
+      padding-left: 6rem !important;
+
+      &::before {
+        content: url("/wp-content/themes/cyclo-cargologie/assets/icons/white-check.svg");
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 3rem;
+        height: 3rem;
+        margin-right: .85rem;
+        top: 50%;
+        left: 1.9rem;
+        transform: translateY(-50%);
+        background: $black;
+        border-radius: 100%;
+      }
+
+      p {
+        color: #000;
+        font-size: 1.6rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 2.4rem;
+        letter-spacing: 0.16px;
+      }
     }
   }
 

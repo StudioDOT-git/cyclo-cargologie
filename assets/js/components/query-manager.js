@@ -37,7 +37,7 @@ export default class QueryManager {
   posts = []
 
   constructor(selector, templateSelector, postType) {
-    bindAll(this, ['resetFilters', 'search'])
+    bindAll(this, ['resetFilters', 'search', 'toggleFilters'])
     this.$wrapper = document.querySelector(selector)
 
     if (!this.$wrapper) {
@@ -86,15 +86,26 @@ export default class QueryManager {
     this.multiFilters = [...$multiFilters].map(($multiFilter) => new MultiFilter($multiFilter, this))
 
     // Prepare reset button
-    this.$resetFiltersButton.addEventListener('click', (e) => this.resetFilters(e))
+    if (this.$resetFiltersButton) {
+      this.$resetFiltersButton.addEventListener('click', (e) => this.resetFilters(e))
+    }
 
     // Prepare search form
-    this.searchForm = this.$wrapper.querySelector('.c-filters-bar-search-form')
+    this.searchForm = this.postType === 'all' ? document.querySelector('.l-search-modal__form') : this.$wrapper.querySelector('.c-filters-bar-search-form')
     this.states = {}
     if (this.searchForm) {
       this.searchForm.addEventListener('submit', this.search)
-      this.inputElem = this.searchForm.querySelector('input[type="text"]')
+      this.inputElem = this.searchForm.querySelector('input[type="search"]')
       this.states.isSearch = false
+    }
+
+    // Prepare toggle filters button
+    this.$filtersOpenButton = this.$wrapper.querySelector('.c-filters-bar__filters-open')
+    this.$filtersCloseButton = this.$wrapper.querySelector('.c-filters-bar__filters-close')
+    this.$filtersContainer = this.$wrapper.querySelector('.c-filters-bar__filters')
+    if (this.$filtersOpenButton && this.$filtersCloseButton && this.$filtersContainer) {
+      this.$filtersOpenButton.addEventListener('click', this.toggleFilters)
+      this.$filtersCloseButton.addEventListener('click', this.toggleFilters)
     }
   }
 
@@ -112,6 +123,11 @@ export default class QueryManager {
   }
 
   buildQuery() {
+    if (this.$filtersContainer) {
+      this.$filtersContainer.classList.remove('show')
+      this.$filtersOpenButton.classList.remove('hide')
+      this.$filtersCloseButton.classList.remove('show')
+    }
     let orderby = 'date'
     let order = 'desc'
 
@@ -135,18 +151,20 @@ export default class QueryManager {
       queryUrl.searchParams.append('s', s)
     }
 
-    this.firstTaxonomy = this.multiFilters[0].getTaxonomy()
-    this.firstTerm = this.multiFilters[0].getSelected().length ? this.multiFilters[0].getSelected()[0] : false
+    if (this.postType !== 'all') {
+      this.firstTaxonomy = this.multiFilters[0].getTaxonomy()
+      this.firstTerm = this.multiFilters[0].getSelected().length ? this.multiFilters[0].getSelected()[0] : false
 
-    this.multiFilters.forEach(multiFilter => {
-      const taxonomy = multiFilter.getTaxonomy()
-      const selectedTerms = multiFilter.getSelected()
+      this.multiFilters.forEach(multiFilter => {
+        const taxonomy = multiFilter.getTaxonomy()
+        const selectedTerms = multiFilter.getSelected()
 
-      if (selectedTerms.length > 0) {
-        const terms = selectedTerms.join(',')
-        queryUrl.searchParams.append(taxonomy, terms)
-      }
-    })
+        if (selectedTerms.length > 0) {
+          const terms = selectedTerms.join(',')
+          queryUrl.searchParams.append(taxonomy, terms)
+        }
+      })
+    }
 
     this.newPathName = new URL(queryUrl.toString())
     this.newPathName.searchParams.delete('per_page')
@@ -179,7 +197,7 @@ export default class QueryManager {
 
   renderPosts() {
     if (this.posts.length === 0) {
-      this.$postsContainer.innerHTML = ' <div class="f-blog__no-results">\n' +
+      this.$postsContainer.innerHTML = ' <div class="c-filters_no-results">\n' +
         '                <div>Aucun article trouvé</div>\n' +
         '            </div>'
       return
@@ -295,6 +313,9 @@ export default class QueryManager {
   }
 
   search(e) {
+    if (this.postType === 'all') {
+      return
+    }
     e.preventDefault()
     this.states.isSearch = true
 
@@ -322,8 +343,13 @@ export default class QueryManager {
 
     this.isLoading = false
 
-    // window.scrollTo(0, 0);
+    const viewport = this.postType === 'all' ? document.querySelector('.t-search__header') : document.querySelector('.c-filters-bar')
+    viewport.scrollIntoView()
+  }
 
-    document.querySelector('.c-filters-bar').scrollIntoView()
+  toggleFilters() {
+    this.$filtersContainer.classList.toggle('show')
+    this.$filtersOpenButton.classList.toggle('hide')
+    this.$filtersCloseButton.classList.toggle('show')
   }
 }

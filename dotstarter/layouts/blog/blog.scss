@@ -6,32 +6,16 @@
   margin-top: -36.7rem;
 
 
-  &__background {
-    height: 41.8rem;
-    background: $yellow;
-    position: relative;
-    overflow: hidden;
-    z-index: -1;
-
-    svg {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 36rem;
-      height: 36.2rem;
-      transform: translate(-30%, 2.2rem);
-    }
-  }
-
   &__posts {
-    display:grid;
-    grid-template-columns: 1fr 1fr;
+    display: grid;
+    grid-template-columns: 1fr ;
     gap: 2.1rem .8rem;
     padding: 4.2rem 0 0;
     position: relative;
     z-index: 1;
 
   }
+
   .f-card__image {
     width: 100%;
   }
@@ -41,63 +25,17 @@
     position: relative;
     z-index: 1;
   }
-  &__no-results {
-    display: flex;
-    justify-content: center;
-    padding: 3.4rem 0 0;
-    grid-area: 1 / 1 / 2 / 3;
 
-
-    div {
-      max-width: 63.4rem;
-      flex: 1;
-      height: 6.6rem;
-      display: flex;
-      align-items: center;
-      background: $purple-2;
-      padding-left: 2.4rem;
-      font-size: 1.6rem;
-      border-radius: .3rem;
-    }
-
-  }
-
-  @include media-up(sm) {
-    &__posts {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
 
   @include media-up(md) {
     &__posts {
       grid-template-columns: repeat(2, 1fr);
     }
+
   }
 
 }
 
-.f-related-events {
-  background: $grey-1;
-  &__tb {
-    padding:6.9rem 0 5rem;
-  }
-  &__events {
-    padding: 3.7rem 0 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap:.9rem;
-
-  }
-  .f-card__image{
-    width: 100%;
-  }
-  &__cta{
-    padding: 3.7rem 0 0;
-
-    display: flex;
-    justify-content: center;
-  }
-}
 .c-blog-header__deco {
   display: block;
   position: absolute;

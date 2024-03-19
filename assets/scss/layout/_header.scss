@@ -5,7 +5,6 @@
 
 .main-menu {
   padding: 1.6rem 2.2rem 1.6rem;
-  background: #F4F6FA;
 
   &__container {
     display: flex;
@@ -42,7 +41,7 @@
     display: grid;
     grid-template-columns: auto auto auto;
     align-items: center;
-    gap: 1.6rem;
+    gap: 1.1rem;
     position: fixed;
     right: 1rem;
     z-index: 8;
@@ -54,18 +53,18 @@
 
   &__search-btn {
     border: none;
-    margin: 0 1rem 0 0;
     cursor: pointer;
     height: 100%;
-    width: 5.5rem;
+    width: 5rem;
     border-radius: 3px;
     position: relative;
     background: $white;
 
   }
+
   &__cta {
-    .c-button {
-      padding: 1.4rem 1.2rem;
+    .c-button.c-button__modal {
+      padding: 1.4rem ;
       background: $black;
       color: $white;
       border-radius: 5px;
@@ -91,6 +90,23 @@
     }
   }
 
+  &__hamburger {
+    display: flex;
+    flex-direction: column;
+
+    span {
+      display: block;
+      width: 4.5rem;
+      height: .1rem;
+      background-color: $black;
+
+      &:last-child {
+        margin-top: .3rem;
+      }
+
+    }
+  }
+
   &__cta-close {
     position: absolute;
     top: 3.8rem;
@@ -103,22 +119,6 @@
 
   }
 
-  &__hamburger {
-    display: flex;
-    flex-direction: column;
-
-    span {
-      display: block;
-      width: 5.7rem;
-      height: .1rem;
-      background-color: $black;
-
-      &:last-child {
-        margin-top: .3rem;
-      }
-
-    }
-  }
 
 
   &__nav {
@@ -270,6 +270,16 @@
       }
     }
 
+    &__cta-open {
+      padding: 1.6rem 1.8rem;
+
+      &>span {
+        padding: 0 0 0 1.9rem;
+        font-weight: 500;
+        font-size: 1.8rem;
+        display: block;
+      }
+    }
 
     &__cta-close {
       top: 3.8rem;
@@ -333,17 +343,6 @@
       }
     }
 
-    &__cta-open {
-      padding: 1.6rem 1.8rem;
-
-      &>span {
-        padding: 0 0 0 1.9rem;
-        font-weight: 500;
-        font-size: 1.8rem;
-        display: block;
-      }
-    }
-
 
     // Links
     &__nav-content-links {
@@ -361,6 +360,11 @@
 
     &__mailto {
       font-size: 2rem;
+    }
+
+
+    &__search-btn {
+      margin: 0 1rem 0 0;
     }
 
 
