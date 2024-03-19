@@ -4,6 +4,7 @@
 
 
 .f-testimonials {
+  padding: 4.3rem 0 4.7rem;
   background: $green-1;
   overflow: hidden;
 
@@ -140,7 +141,6 @@
       object-fit: cover;
       height: 100%;
       width: 100%;
-
     }
   }
 
@@ -186,6 +186,14 @@
 
     &__slider {
       padding: 3.75rem 0 0;
+    }
+
+    &__button-container {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      top:-2rem;
+      margin-bottom: -2rem;
     }
   }
 }
