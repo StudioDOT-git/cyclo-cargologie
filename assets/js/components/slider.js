@@ -22,7 +22,6 @@ class SlickSlider {
 
       const $slider = $(sliderSelector)
 
-
       if (!$slider.length) return
 
       $slider.not('.slick-initialized').slick({
@@ -39,10 +38,9 @@ class SlickSlider {
       totalSlidesElem.text(pagesCount)
 
       $slider.on('afterChange', function (event, slick, currentSlide, nextSlide) {
-        let indexElem = $(layoutId).find('.current-index')
+        const indexElem = $(layoutId).find('.current-index')
         indexElem.text(currentSlide + 1)
       })
-
 
       if (layoutSlug === 'f-slider-grid' || layoutSlug === 'f-slider-image-text-content' || layoutSlug === 'f-images-slider' || layoutSlug === 'f-slider-image-text') {
         defaultImagesSlider(layoutSlug)
