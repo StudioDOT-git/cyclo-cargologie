@@ -22,6 +22,7 @@ $images = get_sub_field('partners_logo');
                 </h2>
             </div>
             <div class="l-layout__description body-md">
+                <?= get_sub_field('description') ?>
             </div>
         </div>
         <div class="f-project-partners-section__content">

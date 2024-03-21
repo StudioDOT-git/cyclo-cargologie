@@ -25,8 +25,28 @@
             "prefix_name": 0
         },
         {
+            "key": "field_65fc08ed874f9",
+            "label": "Sur Titre",
+            "name": "subtitle",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_65eb15d846993",
-            "label": "Title",
+            "label": "Titre",
             "name": "title",
             "aria-label": "",
             "type": "text",
@@ -43,6 +63,27 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_65fc08d9874f8",
+            "label": "Description",
+            "name": "description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "acfe_textarea_code": 0,
+            "maxlength": "",
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
         },
         {
             "key": "field_65eb15d846999",
@@ -169,5 +210,8 @@
     "dot_is_layout": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1710757526
+    "modified": 1711016214,
+    "acfe_categories": {
+        "content": "Contenu"
+    }
 }

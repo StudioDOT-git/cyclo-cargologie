@@ -3,6 +3,48 @@
     "title": "Cards Slider",
     "fields": [
         {
+            "key": "field_65fc0979df5e0",
+            "label": "Sticker",
+            "name": "deco",
+            "aria-label": "",
+            "type": "layout_part",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_65c5fc80c3366"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_65fc098edf5e1",
+            "label": "Sur titre",
+            "name": "subtitle",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_65eee3ea66253",
             "label": "Title",
             "name": "title",
@@ -193,7 +235,7 @@
     "dot_is_layout": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1710844830,
+    "modified": 1711016495,
     "acfe_categories": {
         "slider": "Slider"
     }

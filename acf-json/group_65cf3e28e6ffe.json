@@ -25,6 +25,26 @@
             "prefix_name": 0
         },
         {
+            "key": "field_65fc0b3496d4f",
+            "label": "Sur Titre",
+            "name": "subtitle",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_65cf3eacdfd2e",
             "label": "Titre",
             "name": "title",
@@ -210,5 +230,8 @@
     "dot_is_layout": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1709904015
+    "modified": 1711016767,
+    "acfe_categories": {
+        "content": "Contenu"
+    }
 }

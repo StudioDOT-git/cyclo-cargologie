@@ -1,7 +1,49 @@
 {
     "key": "group_65e9e0a0cd974",
-    "title": "Program",
+    "title": "Programme",
     "fields": [
+        {
+            "key": "field_65fc0b5cd93dc",
+            "label": "Sticker",
+            "name": "sticker",
+            "aria-label": "",
+            "type": "layout_part",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_65c5fc80c3366"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_65fc0b69d93dd",
+            "label": "Sur Titre",
+            "name": "subtitle",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
         {
             "key": "field_65e9e0a0cf4bb",
             "label": "Title",
@@ -213,5 +255,8 @@
     "dot_is_layout": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1709828841
+    "modified": 1711016822,
+    "acfe_categories": {
+        "content": "Contenu"
+    }
 }
