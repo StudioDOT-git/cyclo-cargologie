@@ -16,7 +16,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "",
+            "message": "Cocher pour activer la décoration",
             "default_value": 1,
             "ui": 0,
             "ui_on_text": "",
@@ -118,5 +118,5 @@
     "dot_is_lpart": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1710424719
+    "modified": 1710864067
 }

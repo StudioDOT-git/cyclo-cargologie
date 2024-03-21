@@ -16,7 +16,7 @@
                 "class": "",
                 "id": ""
             },
-            "message": "Activer ou non le boutton",
+            "message": "Cocher pour activer le bouton",
             "default_value": 0,
             "ui": 0,
             "ui_on_text": "",
@@ -173,5 +173,5 @@
     "dot_is_lpart": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1709886748
+    "modified": 1710863845
 }
