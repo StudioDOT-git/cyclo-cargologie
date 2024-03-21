@@ -42,7 +42,6 @@
     }
   }
 
-  &__title {}
 
   &__description {
     text-align: center;
@@ -60,12 +59,7 @@
   }
 
   @include media-up(md) {
-
     padding: 7.2rem 0 10rem;
-
-    &__title {
-      margin-left: 12.6rem;
-    }
 
     &__wrapper {
       display: flex;
@@ -82,8 +76,5 @@
         min-width: calc(25% - 1.6rem * 4);
       }
     }
-
-
-
   }
 }

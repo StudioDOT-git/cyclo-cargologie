@@ -1,12 +1,25 @@
-<div class="f-cards-slider" id="f-cards-slider">
+<div class="f-cards-slide l-layoutr" id="f-cards-slider">
     <div class="l-container">
-        <div class="f-cards-slider__headings">
-            <h2 class="f-cards-slider__title heading2">
-                <?php the_sub_field('title') ?>
-            </h2>
-            <p class="f-cards-slider__description body-md">
-                <?php the_sub_field('description') ?>
-            </p>
+        <div class="l-layout__headings">
+            <div class="l-layout__deco-container">
+                <?php if (have_rows('sticker')): ?>
+                    <?php while (have_rows('sticker')):
+                        the_row() ?>
+                        <?php dot_the_layout_part('deco') ?>
+                    <?php endwhile; ?>
+                <?php endif; ?>
+            </div>
+            <div class="l-layout__titles">
+                <h6 class="l-layout__subtitle">
+                    <?= get_sub_field('subtitle') ?>
+                </h6>
+                <h2 class="l-layout__title">
+                    <?= get_sub_field('title') ?>
+                </h2>
+            </div>
+            <div class="l-layout__description body-md">
+            <?php the_sub_field('description') ?>
+            </div>
         </div>
         <div class="f-cards-slider__wrapper f-cards-slider__slider">
             <?php $i = 0; ?>

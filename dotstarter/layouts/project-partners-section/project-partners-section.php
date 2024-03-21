@@ -2,18 +2,27 @@
 $images = get_sub_field('partners_logo');
 ?>
 
-<div id="f-project-partners-section" class="f-project-partners-section">
+<div id="f-project-partners-section l-layout" class="f-project-partners-section">
     <div class="l-container">
-        <div class="f-project-partners-section__headings">
-            <?php if (have_rows('sticker')): ?>
-                <?php while (have_rows('sticker')):
-                    the_row() ?>
-                    <?php dot_the_layout_part('deco') ?>
-                <?php endwhile; ?>
-            <?php endif; ?>
-            <h2 class="f-project-partners-section__title heading2">
-                <?= get_sub_field('title') ?>
-            </h2>
+        <div class="l-layout__headings">
+            <div class="l-layout__deco-container">
+                <?php if (have_rows('sticker')): ?>
+                    <?php while (have_rows('sticker')):
+                        the_row() ?>
+                        <?php dot_the_layout_part('deco') ?>
+                    <?php endwhile; ?>
+                <?php endif; ?>
+            </div>
+            <div class="l-layout__titles">
+                <h6 class="l-layout__subtitle">
+                    <?= get_sub_field('subtitle') ?>
+                </h6>
+                <h2 class="l-layout__title">
+                    <?= get_sub_field('title') ?>
+                </h2>
+            </div>
+            <div class="l-layout__description body-md">
+            </div>
         </div>
         <div class="f-project-partners-section__content">
             <?php foreach ($images as $image): ?>

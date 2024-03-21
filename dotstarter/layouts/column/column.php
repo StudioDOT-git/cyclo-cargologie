@@ -1,17 +1,25 @@
-<div class="f-column">
+<div class="f-column l-layout">
     <div class="f-header-yellow">
         <div class="l-container">
             <div class="f-header-yellow__tb">
-                <div class="f-header-yellow__wrapper">
-                    <div class="f-header-yellow__hgroup heading1">
-                        <h6 class="f-header-yellow__subtitle">
-                            <?php the_sub_field('subtitle') ?>
-                        </h6>
-                        <h1 class="f-header-yellow__title ">
-                            <?php the_sub_field('title') ?>
-                        </h1>
+                <div class="l-layout__headings">
+                    <div class="l-layout__deco-container">
+                        <?php if (have_rows('sticker')): ?>
+                            <?php while (have_rows('sticker')):
+                                the_row() ?>
+                                <?php dot_the_layout_part('deco') ?>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
                     </div>
-                    <div class="f-header-yellow__content">
+                    <div class="l-layout__titles">
+                        <h6 class="l-layout__subtitle">
+                            <?= get_sub_field('subtitle') ?>
+                        </h6>
+                        <h2 class="l-layout__title">
+                            <?= get_sub_field('title') ?>
+                        </h2>
+                    </div>
+                    <div class="l-layout__description body-md">
                         <h3 class="f-header-yellow__intro heading3">
                             <?php the_sub_field('intro') ?>
                         </h3>

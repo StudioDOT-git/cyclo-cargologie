@@ -1,5 +1,5 @@
 <?php if(!is_404()):?>
-<div class="l-newsletter">
+<div class="l-newsletter l-layout">
     <div class="l-newsletter__container">
         <div class="l-newsletter__column">
             <h3 class="heading3">

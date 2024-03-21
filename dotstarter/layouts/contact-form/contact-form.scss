@@ -9,6 +9,7 @@
   background-color: $white;
 
 
+
   &::before {
     content: "";
     display: block;
@@ -240,4 +241,8 @@
       height: 53.5rem;
     }
   }
+}
+
+.grecaptcha-badge {
+  visibility: hidden;
 }

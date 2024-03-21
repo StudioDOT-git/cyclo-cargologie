@@ -1,19 +1,27 @@
-<div class="f-members-grid">
+<div class="f-members-grid l-layout">
     <div class="l-container">
-        <div class="f-members-grid__headings">
-            <?php if (have_rows('sticker')): ?>
-                <?php while (have_rows('sticker')):
-                    the_row() ?>
-                    <?php dot_the_layout_part('deco') ?>
-                <?php endwhile; ?>
-            <?php endif; ?>
-            <div class="f-members-grid__title heading2">
-                <?= get_sub_field('title') ?>
+        <div class="l-layout__headings">
+            <div class="l-layout__deco-container">
+                <?php if (have_rows('sticker')): ?>
+                    <?php while (have_rows('sticker')):
+                        the_row() ?>
+                        <?php dot_the_layout_part('deco') ?>
+                    <?php endwhile; ?>
+                <?php endif; ?>
             </div>
-            <p class="f-members-grid__description body-lg">
+            <div class="l-layout__titles">
+                <h6 class="l-layout__subtitle">
+                    <?= get_sub_field('subtitle') ?>
+                </h6>
+                <h2 class="l-layout__title">
+                    <?= get_sub_field('title') ?>
+                </h2>
+            </div>
+            <div class="l-layout__description body-md">
                 <?= get_sub_field('description') ?>
-            </p>
+            </div>
         </div>
+
         <div class="f-members-grid__list">
             <?php if (have_rows('members')): ?>
                 <?php while (have_rows('members')):

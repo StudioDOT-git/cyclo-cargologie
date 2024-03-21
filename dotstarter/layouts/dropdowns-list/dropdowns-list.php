@@ -1,26 +1,26 @@
-<?php
-$title_tag = get_sub_field('h_type');
-$title_class = get_sub_field('h_size');
-$bg_color = get_sub_field('bg_color');
-$show_top_border = get_sub_field('show_top_border');
-$decoration_url = get_sub_field('decoration');
-$titles_size = get_sub_field('titles_size');
-?>
-
-<section class="f-dropdowns-list">
+<section class="f-dropdowns-list l-layout">
     <div class="l-container">
-        <div class="f-dropdowns-list__headings">
-            <?php if (get_sub_field('subtitle')): ?>
-                <h6 class="f-dropdowns-list__subtitle">
-                    <?php the_sub_field('subtitle') ?>
+        <div class="l-layout__headings">
+            <div class="l-layout__deco-container">
+                <?php if (have_rows('sticker')): ?>
+                    <?php while (have_rows('sticker')):
+                        the_row() ?>
+                        <?php dot_the_layout_part('deco') ?>
+                    <?php endwhile; ?>
+                <?php endif; ?>
+            </div>
+            <div class="l-layout__titles">
+                <h6 class="l-layout__subtitle">
+                    <?= get_sub_field('subtitle') ?>
                 </h6>
-            <?php endif; ?>
-            <?php if (get_sub_field('title')): ?>
-                <h2 class="f-dropdowns-list__title">
-                    <?php the_sub_field('title') ?>
+                <h2 class="l-layout__title">
+                    <?= get_sub_field('title') ?>
                 </h2>
-            <?php endif; ?>
+            </div>
+            <div class="l-layout__description body-md">
+            </div>
         </div>
+
         <div class="f-dropdowns-list__column-container">
             <?php if (have_rows('dropdowns-list')): ?>
                 <div class="f-dropdowns-list__container">

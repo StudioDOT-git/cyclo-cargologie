@@ -28,18 +28,13 @@
     overflow: visible;
   }
 
-  &__headings {
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: center;
-    margin-bottom: 3.3rem;
-  }
 
   &__item {
     position: relative;
   }
 
   &__wrapper {
+    margin-top: 3.3rem;
     position: relative;
     // display: flex;
     flex-wrap: wrap;
@@ -145,14 +140,9 @@
   @include media-up(md) {
     padding: 13.8rem 0 9.7rem;
 
-    &__headings {
-      grid-template-columns: 1fr 1fr;
-      gap: 3.8rem;
-      align-items: center;
-      margin-bottom: 10rem;
-    }
-
     &__wrapper {
+      margin-top: 10rem;
+
       position: relative;
       // display: flex;
       flex-direction: row;

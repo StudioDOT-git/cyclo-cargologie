@@ -6,13 +6,6 @@
   padding: 4.8rem 0 6.6rem;
   background-color: $white;
 
-  &__headings {
-    display: grid;
-    grid-template-columns: 8rem 1fr;
-    gap: 0;
-    align-items: center;
-  }
-
   &__content {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -40,10 +33,6 @@
       justify-content: center;
       gap: 0rem 3.8rem;
       flex-wrap: wrap;
-    }
-
-    &__headings {
-      gap: 4rem;
     }
 
     &__logo {

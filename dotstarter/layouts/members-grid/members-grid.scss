@@ -6,26 +6,7 @@
   padding: 4.8rem 0 7rem;
   background-color: $grey-1;
 
-  &__headings {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: end;
-  }
 
-  .c-deco {
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-
-  &__title {
-    padding-left: 8rem;
-    min-height: 6rem;
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-  }
 
   &__list {
     display: grid;
@@ -77,21 +58,6 @@
   }
 
   @include media-up(md) {
-
-    &__headings {
-      grid-template-columns: 1fr 1fr;
-      // grid-template-columns: 8rem 1fr 1fr;
-      align-items: center;
-      padding-left: 12rem;
-    }
-
-    &__title {
-      padding-left: 0;
-    }
-
-    &__description {
-      width: 63.5rem;
-    }
 
     &__list {
       display: grid;
