@@ -96,72 +96,6 @@
             "custom_choice_button_text": "Ajouter un nouveau choix"
         },
         {
-            "key": "field_645e39b751534",
-            "label": "Dates",
-            "name": "dates",
-            "aria-label": "",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "acfe_repeater_stylised_button": 0,
-            "layout": "table",
-            "pagination": 0,
-            "min": 0,
-            "max": 0,
-            "collapsed": "",
-            "button_label": "Ajouter un élément",
-            "rows_per_page": 20,
-            "sub_fields": [
-                {
-                    "key": "field_645e39bf51535",
-                    "label": "Date",
-                    "name": "date",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "parent_repeater": "field_645e39b751534"
-                }
-            ]
-        },
-        {
-            "key": "field_645e39cd51536",
-            "label": "Durée",
-            "name": "duration",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
             "key": "field_645e39d451537",
             "label": "Lieu",
             "name": "location",
@@ -182,66 +116,9 @@
             "append": ""
         },
         {
-            "key": "field_6481eb4c3ed92",
-            "label": "Lien du lieu",
-            "name": "location_url",
-            "aria-label": "",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": ""
-        },
-        {
-            "key": "field_64931011f5f59",
-            "label": "Âge",
-            "name": "age",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
             "key": "field_645e39de51538",
             "label": "Description",
             "name": "description",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 0,
-            "delay": 0
-        },
-        {
-            "key": "field_645e39e651539",
-            "label": "Description (EN)",
-            "name": "description_en",
             "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
@@ -306,5 +183,8 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1710510241
+    "modified": 1711018330,
+    "acfe_categories": {
+        "actus-et-evenements": "Actus et Évènements"
+    }
 }
