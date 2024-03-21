@@ -70,7 +70,7 @@ $enable_slider = false;
 $slides_count = is_array(get_field('slides')) ? count(get_field('slides')) : null;
 
 $statuses = get_field('status');
-$statuses = !is_array($statuses) ? [$statuses] : $statuses;
+// $statuses = !is_array($statuses) ? [$statuses] : $statuses;
 
 $date = dot_get_formatted_event_date();
 
@@ -95,6 +95,8 @@ if (get_field('days') === false) {
                             <?php foreach (get_field('carousel_images') as $image) : ?>
                                 <div class="t-events-single-slider__slide">
                                     <div class="t-events-single-slider__slide-statuses">
+
+
                                         <?php foreach ($statuses as $s) :
                                             switch ($s) {
                                                 case 'postponed':
@@ -133,6 +135,17 @@ if (get_field('days') === false) {
                             </div>
                         <?php endif; ?>
                     <?php else : ?>
+                        <span class="t-events-single__slide-statuses">
+                            <?php if (in_array('full', $statuses)) : ?>
+                                <div class="c-status-tag c-status-tag--red">Complet</div>
+                            <?php endif; ?>
+                            <?php if (in_array('canceled', $statuses)) : ?>
+                                <div class="c-status-tag c-status-tag--red">Annulé</div>
+                            <?php endif; ?>
+                            <?php if (in_array('postponed', $statuses)) : ?>
+                                <div class="c-status-tag c-status-tag--red">Reporté</div>
+                            <?php endif; ?>
+                        </span>
                         <div class="t-events-single-slider__slide">
                             <?php the_post_thumbnail("full") ?>
                         </div>

@@ -43,7 +43,15 @@
 @use "./templates/search";
 
 html {
-  font-size: calc(80vw / 1728 * 10) !important;
+  // font-size: calc(80vw / 1728 * 10) !important;
+}
+
+.postarea.wp-editor-expand {
+  display: none;
+}
+
+#revisionsdiv.postbox {
+  display: none;
 }
 
 
@@ -60,7 +68,6 @@ input[type=checkbox]:checked::before {
 
 #acf-group_main_flexible .layout>.acfe-fc-placeholder .acfe-fc-overlay.-hover, #acf-group_main_flexible .layout>.acfe-fc-placeholder:hover .acfe-fc-overlay {
   background: rgba(0, 0, 0, 0.235);
-
   z-index: 10000;
 
 }

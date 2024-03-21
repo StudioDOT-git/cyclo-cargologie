@@ -7,6 +7,7 @@ $post = get_post();
 // Events
 $tickets_url = tribe_get_event_website_url();
 $statuses = get_field('status') ? get_field('status') : array();
+// $statuses = !is_array($statuses) ? [$statuses] : $statuses;
 $categories = get_the_terms(null, 'tribe_events_cat');
 $event = $post->post_type === 'tribe_events';
 $event_date = dot_get_formatted_event_date();
@@ -77,13 +78,13 @@ $date = ucwords(get_the_date('M Y', $post->ID));
         </div>
         <span class="f-card__statuses">
             <?php if (in_array('full', $statuses)) : ?>
-                <div class="c-status-tag c-status-tag--purple">Complet</div>
+                <div class="c-status-tag c-status-tag--red">Complet</div>
             <?php endif; ?>
             <?php if (in_array('canceled', $statuses)) : ?>
                 <div class="c-status-tag c-status-tag--red">Annulé</div>
             <?php endif; ?>
             <?php if (in_array('postponed', $statuses)) : ?>
-                <div class="c-status-tag c-status-tag--white">Reporté</div>
+                <div class="c-status-tag c-status-tag--red">Reporté</div>
             <?php endif; ?>
         </span>
     </a>

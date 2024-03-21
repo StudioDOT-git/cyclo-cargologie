@@ -38,7 +38,7 @@
 
   .f-card__tags {
     padding: 0;
-    flex-direction: column;
+    // flex-direction: column;
 
   }
 
@@ -265,6 +265,13 @@
 
 
 .t-events-single {
+  &__slide-statuses {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    z-index: 1;
+  }
+
   @include media-down(md) {
     .c-yellow-background {
       height: 24.5rem;

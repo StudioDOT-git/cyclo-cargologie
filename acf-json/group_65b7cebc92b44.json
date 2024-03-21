@@ -152,6 +152,11 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "post"
+            },
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "tribe_organizer"
             }
         ]
     ],
@@ -173,5 +178,5 @@
     "dot_is_lpart": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1710863845
+    "modified": 1711029549
 }
