@@ -17,6 +17,8 @@ function Newsletter() {
 }
 
 function NewsletterForm() {
+  const contactForm = document.querySelector('.f-contact-form__form-container form')
+
   const formEl = document.querySelector('#newsletter-form')
 
   const emailInputEl = document.querySelector('#newsletter-email')
@@ -39,6 +41,7 @@ function NewsletterForm() {
   emailInputEl.addEventListener('keydown', expandAndRemoveListeners)
   emailInputEl.addEventListener('onautocomplete', expandAndRemoveListeners)
   formEl.addEventListener('submit', handleSubmit)
+  contactForm.addEventListener('submit', onContactFormSubmit)
 
   function validateForm() {
     email = emailInputEl.value
@@ -106,8 +109,24 @@ function NewsletterForm() {
     isSubscribed = true
   }
 
-  async function sendToMailjet() {
-    const params = {
+  function getContactFormInput(selector) {
+    const baseClass = '.f-contact-form__field'
+    return contactForm.querySelector(`${baseClass}-${selector} input`)
+  }
+
+  async function onContactFormSubmit(e) {
+    const newsletterCheckbox = getContactFormInput('newsletter')
+    const termsCheckbox = getContactFormInput('terms')
+    if (!newsletterCheckbox || !newsletterCheckbox.checked || !termsCheckbox || !termsCheckbox.checked) return
+    const email = getContactFormInput('email').value
+    const firstname = getContactFormInput('firstname').value
+    const lastname = getContactFormInput('lastname').value
+    const company = getContactFormInput('company').value
+    const role = getContactFormInput('role').value
+    const city = getContactFormInput('city').value
+
+    if (!EmailValidator.validate(email) || !firstname || !lastname || !company || !city) return
+    const data = {
       action: 'subscribe_contact_to_mailjet',
       data: JSON.stringify({
         email,
@@ -118,7 +137,21 @@ function NewsletterForm() {
         city
       })
     }
+    sendToMailjet(data)
+  }
 
+  async function sendToMailjet(data = null) {
+    const params = data ?? {
+      action: 'subscribe_contact_to_mailjet',
+      data: JSON.stringify({
+        email,
+        firstname,
+        lastname,
+        company,
+        role,
+        city
+      })
+    }
 
     await fetch(ajaxConfig.ajaxUrl, {
       method: 'POST',
