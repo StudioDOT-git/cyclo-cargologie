@@ -1,14 +1,15 @@
 {
-    "name": "studio-dot/dotstarter",
-    "type": "project",
-    "authors": [
-        {
-            "name": "Studio DOT",
-            "email": "dev@studio-dot.fr"
-        }
-    ],
-    "require": {
-        "tgmpa/tgm-plugin-activation": "^2.6",
-        "vlucas/phpdotenv": "^5.5"
+  "name": "studio-dot/dotstarter",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Studio DOT",
+      "email": "dev@studio-dot.fr"
     }
+  ],
+  "require": {
+    "tgmpa/tgm-plugin-activation": "^2.6",
+    "vlucas/phpdotenv": "^5.5",
+    "mailjet/mailjet-apiv3-php": "^1.6"
+  }
 }

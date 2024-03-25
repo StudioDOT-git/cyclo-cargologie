@@ -623,6 +623,26 @@
             "append": ""
         },
         {
+            "key": "field_660187315cfa1",
+            "label": "Id de la liste de contact",
+            "name": "newsletter_contact_list_id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 10336978,
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_65ba5758917a9",
             "label": "Formulaire Shortcode",
             "name": "form_shortcode",
@@ -890,5 +910,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1710435362
+    "modified": 1711376258
 }

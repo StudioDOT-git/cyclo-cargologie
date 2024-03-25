@@ -4,6 +4,7 @@ use Mailjet\Resources;
 
 function dot_subscribe_contact_to_mailet()
 {
+
     if (!wp_doing_ajax()) {
         return;
     }
@@ -52,24 +53,33 @@ function dot_subscribe_contact_to_mailet()
      * @param [type] $business
      * @return \Mailjet\Response
      */
-    function add_contact_properties($mj, $id, $lastname, $firstname, $region)
+    function add_contact_properties($mj, $id, $params)
     {
         $body = [
             'Data' => [
                 [
-                    'Name' => "nom",
-                    'Value' => $lastname
+                    'Name' => "lastname",
+                    'Value' => $params['lastname']
                 ],
                 [
-                    'Name' => "prénom",
-                    'Value' => $firstname
+                    'Name' => "firstname",
+                    'Value' => $params['firstname']
                 ],
                 [
-                    'Name' => 'provenance_geographique',
-                    'Value' => $region
+                    'Name' => 'company',
+                    'Value' => $params['company']
+                ],
+                [
+                    'Name' => 'city',
+                    'Value' => $params['city']
                 ]
             ]
         ];
+
+        if ($params['role']) {
+            $body['Data'][] = ['Name' => 'role', 'Value' => $params['role']];
+        }
+
         return $mj->put(Resources::$Contactdata, ['id' => $id, 'body' => $body]);
     }
 
@@ -82,7 +92,7 @@ function dot_subscribe_contact_to_mailet()
      */
     function add_contact_to_list($mj, $email)
     {
-        $LIST_ID = '10313501';
+        $LIST_ID = the_field('newsletter_contact_list_id', 'option');
 
         $body = [
             'ContactAlt' => $email,
@@ -93,10 +103,17 @@ function dot_subscribe_contact_to_mailet()
         return $mj->post(Resources::$Listrecipient, ['body' => $body]);
     }
 
+
     $email = $contact_data->email;
-    $lastname = $contact_data->lastname;
-    $firstname = $contact_data->firstname;
-    $region = $contact_data->region;
+    $params = [
+        'email' => $email,
+        'lastname' => $contact_data->lastname,
+        'firstname' => $contact_data->firstname,
+        'company' => $contact_data->company,
+        'role' => $contact_data->role,
+        'city' => $contact_data->city
+    ];
+
 
     $create_request = create_contact($mj, $email);
     $create_request_data = $create_request->getData();
@@ -112,7 +129,7 @@ function dot_subscribe_contact_to_mailet()
 
     $id = $create_request_data[0]['ID'];
 
-    $add_properties_request = add_contact_properties($mj, $id, $lastname, $firstname, $region);
+    $add_properties_request = add_contact_properties($mj, $id, $params);
     $add_properties_request_data = $add_properties_request->getData();
 
     if (!$add_properties_request->success()) {
@@ -139,5 +156,6 @@ function dot_subscribe_contact_to_mailet()
     wp_send_json_success();
     wp_die();
 }
+
 add_action('wp_ajax_subscribe_contact_to_mailjet', 'dot_subscribe_contact_to_mailet');
 add_action('wp_ajax_nopriv_subscribe_contact_to_mailjet', 'dot_subscribe_contact_to_mailet');

@@ -30,6 +30,7 @@ if (!class_exists('DOT_Starter')) {
 
             // AJAX
             require_once(DOT_THEME_INCLUDES_PATH . 'ajax/events.php');
+            require_once(DOT_THEME_INCLUDES_PATH . 'ajax/newsletter.php');
             require_once(DOT_THEME_INCLUDES_PATH . 'ajax/AjaxPost.php');
 
             // REST API

@@ -1,20 +1,22 @@
 import * as EmailValidator from 'email-validator'
 
-function Newsletter () {
+function Newsletter() {
   const btn = document.querySelector('.l-newsletter__column .wpforms-submit')
   const input = document.querySelector('.l-newsletter__column #wpforms-82-field_1')
-  function checkInput () {
+
+  function checkInput() {
     if (input.value.trim() !== '') {
       btn.classList.add('is-show')
     } else {
       btn.classList.remove('is-show')
     }
   }
+
   input.addEventListener('input', checkInput)
   checkInput()
 }
 
-function NewsletterForm () {
+function NewsletterForm() {
   const formEl = document.querySelector('#newsletter-form')
 
   const emailInputEl = document.querySelector('#newsletter-email')
@@ -26,7 +28,7 @@ function NewsletterForm () {
   const expandableElHeight = expandableEl.scrollHeight + termsControlEl.scrollHeight
 
   const errors = []
-  let email, firstname, lastname, region, company, role, city
+  let email, firstname, lastname, company, role, city
   let isSubscribed = false
 
   if (!emailInputEl || !formEl) {
@@ -38,11 +40,10 @@ function NewsletterForm () {
   emailInputEl.addEventListener('onautocomplete', expandAndRemoveListeners)
   formEl.addEventListener('submit', handleSubmit)
 
-  function validateForm () {
+  function validateForm() {
     email = emailInputEl.value
     lastname = formEl.querySelector('#newsletter-lastname').value
     firstname = formEl.querySelector('#newsletter-firstname').value
-    // region = formEl.querySelector('#newsletter-region').value
 
     // TODO
     company = formEl.querySelector('#newsletter-company').value
@@ -64,7 +65,7 @@ function NewsletterForm () {
     }
 
     if (!company.length) {
-      errors.push("L'entreprise est obligatoire")
+      errors.push('L\'entreprise est obligatoire')
     }
 
     // if (!role.length) {
@@ -75,17 +76,13 @@ function NewsletterForm () {
       errors.push('La ville est obligatoire')
     }
 
-    // if (!region.length) {
-    //   errors.push('Le pays est obligatoire')
-    // }
-
     if (!termsCheckboxEl.checked) {
       errors.push('Vous devez accepter les conditions.')
       termsCheckboxEl.addEventListener('click', () => resetFeedback(), { once: true })
     }
   }
 
-  async function handleSubmit (e) {
+  async function handleSubmit(e) {
     e.preventDefault()
     resetFeedback()
 
@@ -109,16 +106,19 @@ function NewsletterForm () {
     isSubscribed = true
   }
 
-  async function sendToMailjet () {
+  async function sendToMailjet() {
     const params = {
       action: 'subscribe_contact_to_mailjet',
       data: JSON.stringify({
         email,
         firstname,
         lastname,
-        region
+        company,
+        role,
+        city
       })
     }
+
 
     await fetch(ajaxConfig.ajaxUrl, {
       method: 'POST',
@@ -146,24 +146,24 @@ function NewsletterForm () {
       })
   }
 
-  function expandAndRemoveListeners () {
+  function expandAndRemoveListeners() {
     expandForm()
     emailInputEl.removeEventListener('keydown', expandAndRemoveListeners)
     emailInputEl.removeEventListener('onautocomplete', expandAndRemoveListeners)
   }
 
-  function expandForm () {
+  function expandForm() {
     expandableEl.classList.add('is-expanded')
     expandableEl.style.maxHeight = expandableElHeight + 'px'
   }
 
-  function resetFeedback () {
+  function resetFeedback() {
     errors.length = 0
     feedbackEl.innerHTML = ''
     feedbackEl.classList.remove('is-error', 'is-success')
   }
 
-  function showFeedback (errors = null) {
+  function showFeedback(errors = null) {
     feedbackEl.classList.remove('is-error', 'is-success')
 
     if (errors.length) {
