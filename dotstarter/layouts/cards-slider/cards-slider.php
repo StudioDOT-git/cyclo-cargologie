@@ -26,7 +26,7 @@
             <?php while (have_rows('sections')):
                 the_row() ?>
                 <?php $i++; ?>
-                <div class="f-cards-slider__section">
+                <div class="f-cards-slider__section f-cards-slider">
                     <div class="f-cards-slider__section-container">
                         <div class="f-cards-slider__section-image" data-id="#<?= $i ?>">
                             <div class="f-cards-slider__image">

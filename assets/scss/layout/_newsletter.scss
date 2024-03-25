@@ -341,7 +341,7 @@
 
     &.is-error,
     &.is-success {
-      background: $black;
+      background: $purple;
       padding: 20px;
       margin-bottom: 10px;
       height: auto;
@@ -353,7 +353,7 @@
     }
 
     &.is-success {
-      border-color: rgb(9, 168, 9);
+      //border-color: rgb(9, 168, 9);
     }
   }
 
