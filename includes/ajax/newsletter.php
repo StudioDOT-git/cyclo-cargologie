@@ -92,7 +92,8 @@ function dot_subscribe_contact_to_mailet()
      */
     function add_contact_to_list($mj, $email)
     {
-        $LIST_ID = the_field('newsletter_contact_list_id', 'option');
+        $LIST_ID = get_field('newsletter_contact_list_id', 'option');
+
 
         $body = [
             'ContactAlt' => $email,
@@ -148,7 +149,7 @@ function dot_subscribe_contact_to_mailet()
         wp_send_json_error(
             array(
                 "failOn" => "add_contact_to_list",
-                "response" => $add_to_list_request_data
+                "response" => get_field('newsletter_contact_list_id', 'option')
             )
         );
     }
