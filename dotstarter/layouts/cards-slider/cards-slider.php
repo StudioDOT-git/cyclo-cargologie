@@ -1,4 +1,4 @@
-<div class="f-cards-slide l-layoutr" id="f-cards-slider">
+<div class="f-cards-slide f-cards-slider l-layoutr" id="f-cards-slider">
     <div class="l-container">
         <div class="l-layout__headings">
             <div class="l-layout__deco-container">
@@ -26,7 +26,7 @@
             <?php while (have_rows('sections')):
                 the_row() ?>
                 <?php $i++; ?>
-                <div class="f-cards-slider__section f-cards-slider">
+                <div class="f-cards-slider__section">
                     <div class="f-cards-slider__section-container">
                         <div class="f-cards-slider__section-image" data-id="#<?= $i ?>">
                             <div class="f-cards-slider__image">
@@ -61,13 +61,13 @@
         </div>
         <div class="f-cards-slider__index c-slider__index">
             <span class="c-slider__prev btn-prev">
-                <img src="<?= DOT_THEME_URI ?>/assets/icons/slider-arrow-left.svg" />
+                <img src="<?= DOT_THEME_URI ?>/assets/icons/slider-arrow-left--white.svg" />
             </span>
             <div class="c-slider__index-mid">
                 <span class="current-index">1</span> / <span class="total-slides">0</span>
             </div>
             <span class="c-slider__next btn-next">
-                <img src="<?= DOT_THEME_URI ?>/assets/icons/slider-arrow-right.svg" />
+                <img src="<?= DOT_THEME_URI ?>/assets/icons/slider-arrow-right--white.svg" />
             </span>
         </div>
     </div>

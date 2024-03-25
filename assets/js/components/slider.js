@@ -14,6 +14,8 @@ class SlickSlider {
     const layoutClass = '.' + this.layoutSlug
 
     $(layoutClass + ':not(.is-preview)').each((index, layout) => {
+      console.log(layoutClass)
+
       const layoutId = '#' + layout.id
 
       const sliderSelector = `${layoutId} ${layoutClass}__slider`
@@ -22,8 +24,8 @@ class SlickSlider {
 
       const $slider = $(sliderSelector)
 
-      if (!$slider.length) return
 
+      if (!$slider.length) return
       $slider.not('.slick-initialized').slick({
         ...this.config,
         prevArrow: prevButtonSelector,

@@ -137,6 +137,11 @@
     margin-bottom: .3rem;
   }
 
+  .c-slider__index {
+    background: $black;
+    color: $white;
+  }
+
   @include media-up(md) {
     padding: 13.8rem 0 9.7rem;
 

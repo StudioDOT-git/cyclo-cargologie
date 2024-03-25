@@ -1,5 +1,4 @@
 import Slider from '../../../assets/js/components/slider.js'
-
 const cardsSliderSwiper = new Slider('f-cards-slider', {
   slidesToScroll: 1,
   slidesToShow: 1.2,
