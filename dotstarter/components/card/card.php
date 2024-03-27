@@ -18,8 +18,6 @@ $formats = get_the_terms($post->ID, 'format');
 // Posts
 $category = get_the_category($post->ID);
 $date = ucwords(get_the_date('M Y', $post->ID));
-
-
 ?>
 
 <div class="f-card__spotlight">
@@ -30,7 +28,6 @@ $date = ucwords(get_the_date('M Y', $post->ID));
             <img src="<?= DOT_THEME_URI . '/assets/img/page-thumbnail.png' ?>" alt="Illustration">
         <?php endif; ?>
         <div class="f-card__image-overlay">
-
             <div class="f-card__tags <?= $event ? 'f-card__tags--event' : '' ?>">
                 <?php if ($event): ?>
                     <div class="f-card__date">
@@ -47,7 +44,6 @@ $date = ucwords(get_the_date('M Y', $post->ID));
                                 <span class="f-card__location-name"><?= the_field('location') ?></span>
                             </div>
                         <?php endif; ?>
-
                     </div>
                 <?php endif; ?>
                 <?php if ($post->post_type === 'post'): ?>
@@ -77,14 +73,25 @@ $date = ucwords(get_the_date('M Y', $post->ID));
             </div>
         </div>
         <span class="f-card__statuses">
-            <?php if (in_array('full', $statuses)) : ?>
-                <div class="c-status-tag c-status-tag--red">Complet</div>
-            <?php endif; ?>
-            <?php if (in_array('canceled', $statuses)) : ?>
-                <div class="c-status-tag c-status-tag--red">Annulé</div>
-            <?php endif; ?>
-            <?php if (in_array('postponed', $statuses)) : ?>
-                <div class="c-status-tag c-status-tag--red">Reporté</div>
+        <?php
+            $event_start_date_for_comparison = tribe_get_start_date(null, false, 'Y-m-d');
+            $event_start_timestamp = strtotime($event_start_date_for_comparison);
+
+            $today_date = date('Y-m-d');
+            $today_timestamp = strtotime($today_date);
+
+            if ($event_start_timestamp < $today_timestamp): ?>
+                    <div class="c-status-tag c-status-tag--red">Évènement passé</div>
+            <?php else : ?>
+                 <?php if (in_array('full', $statuses)) : ?>
+                    <div class="c-status-tag c-status-tag--red">Complet</div>
+                <?php endif; ?>
+                <?php if (in_array('canceled', $statuses)) : ?>
+                    <div class="c-status-tag c-status-tag--red">Annulé</div>
+                <?php endif; ?>
+                <?php if (in_array('postponed', $statuses)) : ?>
+                    <div class="c-status-tag c-status-tag--red">Reporté</div>
+                <?php endif; ?>
             <?php endif; ?>
         </span>
     </a>

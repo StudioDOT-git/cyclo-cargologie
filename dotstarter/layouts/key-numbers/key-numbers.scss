@@ -14,6 +14,22 @@
 
   &__item {
     position: relative;
+    .c-deco {
+      width: 4rem;
+      height: 4rem;
+      position: absolute;
+      right: 10rem;
+      top: 0;
+      transform: translateY(-35%);
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        aspect-ratio: 125 / 134;
+      }
+    }
   }
 
   &__wrapper {
@@ -25,22 +41,7 @@
     margin-top: 7.6rem;
   }
 
-  .c-deco {
-    width: 8rem;
-    height: 8rem;
-    position: absolute;
-    right: 7rem;
-    top: 0;
-    transform: translateY(-35%);
 
-    img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      aspect-ratio: 125 / 134;
-    }
-  }
 
 
   &__description {
@@ -50,7 +51,7 @@
   &__number {
     text-align: center;
     font-family: $font-body;
-    font-size: 12.2rem;
+    font-size: 6.2rem;
     font-style: normal;
     font-weight: 500;
     line-height: 110%;

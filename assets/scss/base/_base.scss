@@ -36,8 +36,8 @@ html {
   scroll-behavior: smooth;
 
   @include media-up(md) {
-    font-size: calc(var(--zoom) * min(calc(100vw / 1728 * 10), 100vw));
-
+    // font-size: calc(var(--zoom) * min(calc(100vw / 1728 * 10), 100vw));
+    font-size: calc(100vw / 1728 * 10);
   }
 }
 

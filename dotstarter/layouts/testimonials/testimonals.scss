@@ -89,16 +89,10 @@
         color: $white;
       }
     }
-
-    &:last-child {
-      &>* {
-        padding-right: 10rem;
-      }
-    }
   }
 
   &__card {
-    padding: 2.5rem 2.5rem 3.8rem;
+    padding: 2rem 2rem;
     height: 100%;
     justify-content: space-between;
     display: flex;
@@ -116,17 +110,17 @@
 
   &__card-paragraph {
     margin: -2rem 0 0;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     line-height: 150%;
     font-weight: 500;
-    font-size: 2rem;
+    // font-size: 2rem;
     font-style: italic;
     letter-spacing: -.02rem;
 
   }
 
   &__author-wrapper {
-    padding: 10rem 0 0;
+    padding: 5rem 0 0;
     display: grid;
     grid-template-columns: auto auto;
 
@@ -175,8 +169,15 @@
       font-size: 4.2rem;
 
     }
+    &__card {
+      padding: 2.5rem 2.5rem 3.8rem;
+    }
 
+    &__card-paragraph {
+      font-size: 2rem;
+    }
     &__author-wrapper {
+      padding: 10rem 0 0;
       grid-template-columns: 1fr 1fr;
     }
 

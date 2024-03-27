@@ -31,7 +31,7 @@ const sliders = [
 
 jQuery(function ($) {
   // onResize
-  onResize()
+  // onResize()
   Sliders.forEach((slider) => {
     slider.init();
   });

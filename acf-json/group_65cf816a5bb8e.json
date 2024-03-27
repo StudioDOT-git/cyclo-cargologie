@@ -162,12 +162,12 @@
         "json"
     ],
     "acfe_form": 0,
-    "dot_thumbnail": "",
+    "dot_thumbnail": 600,
     "dot_layout_slug": "project-partners-section",
     "dot_is_layout": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1711016968,
+    "modified": 1711118399,
     "acfe_categories": {
         "content": "Contenu"
     }

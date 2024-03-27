@@ -222,7 +222,7 @@
     }
 
     &__yellow {
-      padding: 11rem 0 23.8rem;
+      padding: 11rem 0 10.2rem;
     }
 
     &__container {
@@ -260,11 +260,11 @@
 
       &:hover {
         background-color: #000;
-        border-color: #4999ff;
-        color: #4999ff;
+        border-color: $yellow;
+        color: $yellow;
 
         path {
-          fill: #4999ff;
+          fill: $yellow;
         }
       }
     }

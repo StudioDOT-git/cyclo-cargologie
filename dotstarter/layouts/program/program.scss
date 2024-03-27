@@ -54,6 +54,13 @@
   &__section-image {
     position: relative;
 
+    .c-deco {
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: translate(10%, -30%);
+    }
+
     &::after {
       content: attr(data-id);
       color: $purple;
@@ -83,12 +90,7 @@
     }
   }
 
-  .c-deco {
-    position: absolute;
-    right: 0;
-    top: 0;
-    transform: translate(10%, -30%);
-  }
+
 
   &__section-container {
     display: grid;

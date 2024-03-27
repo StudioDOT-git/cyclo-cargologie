@@ -291,13 +291,14 @@
         "json"
     ],
     "acfe_form": 0,
-    "dot_thumbnail": "",
+    "dot_thumbnail": 592,
     "dot_layout_slug": "dropdowns-list",
     "dot_is_layout": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1711016607,
+    "modified": 1711118343,
     "acfe_categories": {
-        "content": "Contenu"
+        "content": "Contenu",
+        "grid": "Grille"
     }
 }

@@ -68,10 +68,13 @@
         "json"
     ],
     "acfe_form": 0,
-    "dot_thumbnail": "",
+    "dot_thumbnail": 595,
     "dot_layout_slug": "article",
     "dot_is_layout": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1710628039
+    "modified": 1711118347,
+    "acfe_categories": {
+        "actus-et-evenements": "Actus et Évènements"
+    }
 }

@@ -73,13 +73,17 @@
       line-height: 140%;
       display: flex;
       align-items: center;
+      padding-left: 2.35rem;
+      margin-bottom: .9rem;
+
       &::before {
         content: url("/wp-content/themes/cyclo-cargologie/assets/icons/gear-wheel.svg");
         display: inline-block;
-        position: relative;
+        position: absolute;
         width: 1.5rem;
         height: 1.5rem;
-        margin-right: .85rem;
+        left: 0;
+        top: .2rem;
       }
     }
 

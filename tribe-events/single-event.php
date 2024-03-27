@@ -80,7 +80,6 @@ if (get_field('days') === false) {
 ?>
 
 <div class="t-events-single">
-
     <!-- Notices -->
     <?php tribe_the_notices() ?>
 
@@ -95,8 +94,6 @@ if (get_field('days') === false) {
                             <?php foreach (get_field('carousel_images') as $image) : ?>
                                 <div class="t-events-single-slider__slide">
                                     <div class="t-events-single-slider__slide-statuses">
-
-
                                         <?php foreach ($statuses as $s) :
                                             switch ($s) {
                                                 case 'postponed':
@@ -125,25 +122,36 @@ if (get_field('days') === false) {
                         </div>
                         <?php if (count(get_field('carousel_images')) > 1) : ?>
                             <div class="t-events-single-slider__index c-slider__index">
-                                <span class="c-slider__prev btn-prev"><img
-                                        src="<?= DOT_THEME_URI ?>/assets/icons/slider-arrow-left.svg"/></span>
+                                <span class="c-slider__prev btn-prev">
+                                    <img src="<?= DOT_THEME_URI ?>/assets/icons/slider-arrow-left.svg"/></span>
                                 <div class="c-slider__index-mid">
                                     <span class="current-index">1</span> / <span class="total-slides">0</span>
                                 </div>
-                                <span class="c-slider__next btn-next"><img
-                                        src="<?= DOT_THEME_URI ?>/assets/icons/slider-arrow-right.svg"/></span>
+                                <span class="c-slider__next btn-next">
+                                    <img src="<?= DOT_THEME_URI ?>/assets/icons/slider-arrow-right.svg"/></span>
                             </div>
                         <?php endif; ?>
                     <?php else : ?>
                         <span class="t-events-single__slide-statuses">
-                            <?php if (in_array('full', $statuses)) : ?>
-                                <div class="c-status-tag c-status-tag--red">Complet</div>
-                            <?php endif; ?>
-                            <?php if (in_array('canceled', $statuses)) : ?>
-                                <div class="c-status-tag c-status-tag--red">Annulé</div>
-                            <?php endif; ?>
-                            <?php if (in_array('postponed', $statuses)) : ?>
-                                <div class="c-status-tag c-status-tag--red">Reporté</div>
+                            <?php
+                                $event_start_date_for_comparison = tribe_get_start_date(null, false, 'Y-m-d');
+                                $event_start_timestamp = strtotime($event_start_date_for_comparison);
+
+                                $today_date = date('Y-m-d');
+                                $today_timestamp = strtotime($today_date);
+
+                                if ($event_start_timestamp < $today_timestamp): ?>
+                                <div class="c-status-tag c-status-tag--red">Évènement passé</div>
+                            <?php else : ?>
+                                <?php if (in_array('full', $statuses)) : ?>
+                                    <div class="c-status-tag c-status-tag--red">Complet</div>
+                                <?php endif; ?>
+                                <?php if (in_array('canceled', $statuses)) : ?>
+                                    <div class="c-status-tag c-status-tag--red">Annulé</div>
+                                <?php endif; ?>
+                                <?php if (in_array('postponed', $statuses)) : ?>
+                                    <div class="c-status-tag c-status-tag--red">Reporté</div>
+                                <?php endif; ?>
                             <?php endif; ?>
                         </span>
                         <div class="t-events-single-slider__slide">
@@ -167,7 +175,6 @@ if (get_field('days') === false) {
                                 <span class="f-card__location-name"><?= the_field('location') ?></span>
                             </div>
                         <?php endif; ?>
-
                     </div>
                     <?php if ($categories): ?>
                         <?php foreach ($categories as $categorie): ?>
@@ -180,17 +187,14 @@ if (get_field('days') === false) {
                         <?php endforeach; ?>
                     <?php endif; ?>
                 </div>
-
                 <h1 class="t-events-single-header__title">
                     <?php the_title() ?>
                 </h1>
-
                 <?php if (get_field('subtitle')) : ?>
                     <p class="t-events-single-header__subtitle">
                         <?php the_field('subtitle') ?>
                     </p>
                 <?php endif; ?>
-
                 <div class="t-events-single-header__descriptions">
                     <?php if (get_field('description')) : ?>
                         <div class="t-events-single-header__description body-lg">
@@ -203,7 +207,6 @@ if (get_field('days') === false) {
                         </div>
                     <?php endif; ?>
                 </div>
-
                 <?php if (have_rows('button')) : ?>
                     <div class="t-events-single-header__button">
                         <?php while (have_rows('button')):
@@ -215,7 +218,5 @@ if (get_field('days') === false) {
             </div>
         </div>
     </section>
-
     <?php dot_the_layouts() ?>
-
 </div>
