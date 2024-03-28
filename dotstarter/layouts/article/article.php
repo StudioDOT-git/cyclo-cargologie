@@ -52,7 +52,7 @@ $date = ucwords(get_the_date('M Y', $post->ID));
                 </section>
             </div>
             <div class="f-article-header__column">
-                <div class="f-card__tags f-card__tags--event">
+                <div class="f-card__tags f-card__tags--post">
                     <div class="f-card__date f-card__date--black">
                         <span><?= $date ?></span>
                         <?php if (!empty(get_field('location'))): ?>

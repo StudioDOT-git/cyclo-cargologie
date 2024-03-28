@@ -88,7 +88,12 @@ class  AjaxPost
     <?php endif; ?>
         <?php wp_reset_postdata(); ?>
 
-        <?php return ["render" => ob_get_clean(), "total_posts" => $query->found_posts, "max_num_pages" => $query->max_num_pages];
+        <?php return [
+        "render" => ob_get_clean(),
+        "total_posts" => $query->found_posts,
+        "max_num_pages" => $query->max_num_pages,
+        "query" => $query
+    ];
     }
 
 
