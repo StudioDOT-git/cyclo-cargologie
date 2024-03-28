@@ -31,35 +31,17 @@
                     <div class="f-actu-x-event__spotlight">
                         <h6 class="f-actu-x-event__subtitle"><?= get_sub_field('subtitle') ?></h6>
                         <h3 class="f-actu-x-event__title heading2"><?= get_sub_field('title') ?></h3>
-                        <a href="<?= get_post_permalink($post->ID) ?>" class="f-actu-x-event__image">
-                            <?= get_the_post_thumbnail($post->ID) ?>
-                            <div class="f-actu-x-event__image-overlay">
-                                <?php if ($event): ?>
-                                    <div class="f-actu-x-event__date"><?= $event_date ?></div>
-                                <?php endif; ?>
-                                <div class="f-actu-x-event__tags">
-                                    <?php if (isset($category[0])): ?>
-                                        <span class="f-actu-x-event__tag"><?= $category[0]->name ?></span>
-                                    <?php else: ?>
-                                        <span class="f-actu-x-event__tag">Evènement</span>
-                                    <?php endif; ?>
-                                    <?php if ($tags): ?>
-                                        <?php foreach ($tags as $tag): ?>
-                                            <span class="f-actu-x-event__tag"><?= $tag->name ?></span>
-                                        <?php endforeach; ?>
-                                    <?php endif; ?>
-                                </div>
-                                <p class="f-actu-x-event__resume"><?= $post->post_title ?></p>
-                            </div>
-                        </a>
-
+                        <?php setup_postdata($GLOBALS['post'] = $post); ?>
+                        <?php dot_the_component('card') ?>
                         <?php while (have_rows('button')):
                             the_row() ?>
                             <?php dot_the_layout_part('button') ?>
                         <?php endwhile; ?>
                     </div>
                     <?php $i++; ?>
+                    <?php wp_reset_postdata(); ?>
                 <?php endwhile; ?>
+
             </div>
         </div>
     </div>
