@@ -14,7 +14,7 @@
 
   &__logo {
     img {
-      width: 20rem;
+      width: 6.314rem;
     }
 
     &-mobile {
@@ -55,14 +55,15 @@
     border: none;
     cursor: pointer;
     height: 100%;
-    width: 5rem;
-    border-radius: 3px;
+    border-radius: .3rem;
     position: relative;
     background: $white;
+    width: 4.704rem;
 
   }
 
   &__cta {
+    height: 100%;
     .c-button.c-button__modal {
       padding: 1.4rem ;
       background: $black;
@@ -73,6 +74,7 @@
       letter-spacing: 0.01em;
       white-space: nowrap;
       cursor: pointer;
+      height: 100%;
     }
   }
   &__cta-open {
@@ -257,7 +259,7 @@
 
     &__logo {
       img {
-        width: auto;
+        width: 26rem;
       }
     }
 
@@ -364,7 +366,8 @@
 
 
     &__search-btn {
-      margin: 0 1rem 0 0;
+      width: 5.27rem;
+
     }
 
 
