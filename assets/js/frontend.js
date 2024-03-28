@@ -23,6 +23,7 @@ const Sliders = [
   // ProjectPartnersSlider
 ]
 
+
 const sliders = [
   SingleEventsSlider,
   SingleEventsContactSlider,
@@ -57,7 +58,8 @@ jQuery(function ($) {
   // QueryFilters : Blog, Community
   new QueryManager('.f-blog', '.f-blog__posts', 'post');
   new QueryManager('.t-events-archive', '.t-events-archive__events', 'tribe_events');
-  new QueryManager('.t-search', '.t-search__results', 'all');
+  new QueryManager('.t-search', '.t-search__results', 'all', false);
+  new QueryManager('.f-past-events', '.f-past-events__results', 'tribe_events',false);
 
 
 })

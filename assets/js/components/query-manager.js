@@ -36,7 +36,7 @@ export default class QueryManager {
   isLoading = false
   posts = []
 
-  constructor(selector, templateSelector, postType) {
+  constructor(selector, templateSelector, postType, hasFilters = true) {
     bindAll(this, ['resetFilters', 'search', 'toggleFilters'])
     this.$wrapper = document.querySelector(selector)
 
@@ -51,6 +51,7 @@ export default class QueryManager {
     }
 
     this.postType = postType
+    this.hasFilters = hasFilters
 
     this.postsPerPage = this.$wrapper.dataset.postsPerPage
     if (!this.postsPerPage) {
@@ -144,14 +145,19 @@ export default class QueryManager {
     queryUrl.searchParams.append('page', this.paged)
     queryUrl.searchParams.append('orderby', orderby)
     queryUrl.searchParams.append('order', order)
-
-    const s = this.inputElem.value
-
-    if (s.length > 0) {
-      queryUrl.searchParams.append('s', s)
+    if (this.$wrapper.id === 'past-events') {
+      queryUrl.searchParams.append('from_past', true)
     }
 
-    if (this.postType !== 'all') {
+    if (this.searchForm) {
+      const s = this.inputElem.value
+
+      if (s.length > 0) {
+        queryUrl.searchParams.append('s', s)
+      }
+    }
+
+    if (this.hasFilters) {
       this.firstTaxonomy = this.multiFilters[0].getTaxonomy()
       this.firstTerm = this.multiFilters[0].getSelected().length ? this.multiFilters[0].getSelected()[0] : false
 
@@ -343,7 +349,11 @@ export default class QueryManager {
 
     this.isLoading = false
 
-    const viewport = this.postType === 'all' ? document.querySelector('.t-search__header') : document.querySelector('.c-filters-bar')
+    let viewport = this.postType === 'all' ? document.querySelector('.t-search__header') : document.querySelector('.c-filters-bar')
+
+    if (this.$wrapper.id === 'past-events') {
+      viewport = document.querySelector('.f-past-events__header')
+    }
     viewport.scrollIntoView()
   }
 

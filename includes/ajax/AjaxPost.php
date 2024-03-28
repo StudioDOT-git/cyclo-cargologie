@@ -22,12 +22,12 @@ class  AjaxPost
             'post_status' => 'publish',
             "posts_per_page" => $request_args['per_page'] ?? $posts_per_page,
             "paged" => $request_args['page'] ?? 1,
-            "tax_query" =>  array(
+            "tax_query" => array(
                 'relation' => 'AND'
             )
         );
-        if (isset( $request_args['post_type'] )) {
-            if($request_args['post_type'] === 'all'){
+        if (isset($request_args['post_type'])) {
+            if ($request_args['post_type'] === 'all') {
                 $args['post_type'] = self::POST_TYPES_ALLOWED;
             }
         }
@@ -65,8 +65,17 @@ class  AjaxPost
             $args["s"] = $request_args['s'];
         }
 
-        $query = new WP_Query($args);
+        if (isset($request_args['from_past'])) {
+            $args['meta_query'] = array(
+                array(
+                    "key" => "_EventEndDate",
+                    "value" => (new DateTime())->format('Y-m-d'),
+                    'compare' => '<'
+                ),
+            );
+        }
 
+        $query = new WP_Query($args);
 
 
         ?>
@@ -97,6 +106,7 @@ class  AjaxPost
                     "format" => $request->get_param('format'),
                     "categories" => $request->get_param('categories'),
                     "s" => $request->get_param('s'),
+                    "from_past" => $request->get_param('from_past'),
                 ];
 
                 $query = self::renderPosts($args);
