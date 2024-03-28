@@ -1,8 +1,13 @@
-
 <?php
 
 
-$events = tribe_get_events(['posts_per_page' => 2, 'start_date' => 'now']);
+$events = AjaxPost::renderPosts([
+    'post_type' => 'tribe_events',
+    'per_page' => 2,
+]);
+
+$events = $events['query']->posts;
+
 
 ?>
 
@@ -11,13 +16,30 @@ $events = tribe_get_events(['posts_per_page' => 2, 'start_date' => 'now']);
         <div class="f-next-events__tb">
             <div class="f-next-events__title heading2">Nos prochains RDV</div>
             <div class="f-next-events__events">
-                <?php if (!empty($events)) : ?>
-                    <?php foreach ($events as $event) : ?>
-                        <?php setup_postdata($GLOBALS['post'] = $event); ?>
-                        <?php dot_the_component('card') ?>
-                    <?php endforeach; ?>
-                    <?php wp_reset_postdata(); ?>
-                <?php endif; ?>
+                <?php $i = 0; ?>
+                <?php while (have_rows('spotlight')): the_row() ?>
+                    <?php
+
+                    $spotlight = get_sub_field('spotlight');
+                    $event = get_post(get_sub_field('post'));
+
+                    if (!$spotlight) {
+                        $event = $events[$i] ?? null;
+                        $i++;
+
+                    }
+
+
+                    if ($event) {
+                        setup_postdata($GLOBALS['post'] = $event);
+                        dot_the_component('card');
+
+                    }
+
+                    wp_reset_postdata();
+
+                    ?>
+                <?php endwhile; ?>
             </div>
             <div class="f-next-events__cta">
                 <a href="<?= get_post_type_archive_link('tribe_events') ?>"
