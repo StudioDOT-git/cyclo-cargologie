@@ -5,7 +5,7 @@ Template Name: Page de recherche
 
 get_header();
 
-$posts_per_page = 3;
+$posts_per_page = 8;
 $paged = $_GET['page'] ?? 1;
 $args = $_GET;
 $args['post_type'] = 'all';

@@ -14,7 +14,6 @@ class SlickSlider {
     const layoutClass = '.' + this.layoutSlug
 
     $(layoutClass + ':not(.is-preview)').each((index, layout) => {
-      console.log(layoutClass)
 
       const layoutId = '#' + layout.id
 

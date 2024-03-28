@@ -5,7 +5,6 @@
 .t-events-archive {
   position: relative;
   margin-top: -36.7rem;
-  padding-bottom: 7.4rem;
 
   &__header {
 
@@ -48,11 +47,6 @@
     }
   }
 
-  &__pagination {
-    margin-top: 30px;
-    position: relative;
-    z-index: 1;
-  }
 
   .c-filters_no-results {
     grid-area: 1 / 1 / 2 / 3;
@@ -69,15 +63,8 @@
     width: 100%;
   }
 
-  &__loader {
-    display: none;
-
-    &.show {
-      display: block;
-    }
-  }
-
   @include media-up(md) {
+
     &__header {
 
       padding: 6.7rem 0 4.8rem;

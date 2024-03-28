@@ -7,7 +7,6 @@ $post = get_post();
 // Events
 $tickets_url = tribe_get_event_website_url();
 $statuses = get_field('status') ? get_field('status') : array();
-// $statuses = !is_array($statuses) ? [$statuses] : $statuses;
 $categories = get_the_terms(null, 'tribe_events_cat');
 $event = $post->post_type === 'tribe_events';
 $event_date = dot_get_formatted_event_date();

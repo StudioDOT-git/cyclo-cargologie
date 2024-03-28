@@ -7,7 +7,6 @@ import {
 
 function dropdownslist() {
   const dropdownslist = document.querySelectorAll('.f-dropdowns-list__item')
-  console.log(dropdownslist.length)
   if (dropdownslist.length > 0) {
     dropdownslist.forEach((item) => {
       item.addEventListener('click', () => {
