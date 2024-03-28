@@ -41,7 +41,10 @@ function NewsletterForm() {
   emailInputEl.addEventListener('keydown', expandAndRemoveListeners)
   emailInputEl.addEventListener('onautocomplete', expandAndRemoveListeners)
   formEl.addEventListener('submit', handleSubmit)
-  contactForm.addEventListener('submit', onContactFormSubmit)
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', onContactFormSubmit)
+  }
 
   function validateForm() {
     email = emailInputEl.value
