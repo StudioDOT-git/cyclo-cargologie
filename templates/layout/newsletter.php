@@ -45,7 +45,7 @@
                     <div id="newsletter-feedback" class="c-newsletter-form__feedback"></div>
                     <label class="c-newsletter-form__terms" for="newsletter-terms">
                         <input id="newsletter-terms" type="checkbox" name="terms" />
-                        <img class="c-newsletter-form__checkmark" src="<?= DOT_THEME_URI ?>/assets/icons/check.png"
+                        <img class="c-newsletter-form__checkmark" src="<?= DOT_THEME_URI ?>/assets/icons/check.svg"
                             alt="">
                         <?php the_field('terms') ?>En validant votre inscription, vous acceptez que Cyclo-cargologie
                         mémorise et utilise votre adresse email dans le but de vous envoyer sa lettre d’informations. *
