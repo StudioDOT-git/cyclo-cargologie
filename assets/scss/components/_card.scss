@@ -108,12 +108,25 @@
 
     &--event {
       align-items: self-start;
-      flex-direction: column-reverse;
+      flex-direction: column;
+      display: grid;
+      grid-template: repeat(2, auto) / repeat(2, auto);
+      justify-items: start;
+      justify-content: start;
+
       gap: .7rem;
+
+      & > div:first-child {
+        grid-area: 1/1/2/3;
+      }
 
       & > * + * {
         margin-left: 0;
       }
+    }
+
+    &--post {
+      flex-direction: row;
     }
 
 
@@ -150,6 +163,7 @@
 
   &__excerpt {
     padding: .2rem 0 0;
+
     * {
       font-size: 1.6rem;
       font-weight: 400;
