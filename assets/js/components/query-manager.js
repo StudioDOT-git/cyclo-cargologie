@@ -203,7 +203,7 @@ export default class QueryManager {
 
   renderPosts() {
     if (this.posts.length === 0) {
-      this.$postsContainer.innerHTML = ' <div class="c-filters_no-results">\n' +
+      this.$postsContainer.innerHTML = ' <div class="c-filters__no-results">\n' +
         '                <div>Aucun article trouvé</div>\n' +
         '            </div>'
       return
