@@ -85,7 +85,7 @@ $posts = get_posts(['numberposts' => 2]);
                 <?php endif; ?>
             </div>
             <div class="f-related-posts__cta">
-                <a href="<?= get_post_type_archive_link('post') ?>" class="c-button c-button--lg c-button--black">
+                <a href="/contenus-et-ressources/" class="c-button c-button--lg c-button--black">
                     <span>voir tous les contenus & Ressources</span>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61 61" fill="none">
                         <circle class="c-button__circle" cx="30.2121" cy="30.2121" r="30.2121"/>
