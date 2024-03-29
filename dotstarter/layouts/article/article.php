@@ -84,7 +84,7 @@ $date = ucwords(get_the_date('M Y', $post->ID));
                 <?php endif; ?>
 
                 <div class="f-article-header__descriptions">
-                    <?php if (get_field('content')) : ?>
+                    <?php if (get_sub_field('content')) : ?>
                         <div class="f-article-header__description body-lg">
                             <?= get_sub_field('content') ?>
                         </div>
