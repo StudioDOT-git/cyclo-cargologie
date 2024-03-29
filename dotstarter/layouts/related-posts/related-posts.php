@@ -47,7 +47,7 @@ $posts = $posts['query']->posts;
                 <?php endwhile; ?>
             </div>
             <div class="f-related-posts__cta">
-                <a href="/contenus-et-ressources/" class="c-button c-button--lg c-button--black">
+                <a href="<?php the_field('posts_page', 'option') ?>" class="c-button c-button--lg c-button--black">
                     <span>voir tous les contenus & Ressources</span>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61 61" fill="none">
                         <circle class="c-button__circle" cx="30.2121" cy="30.2121" r="30.2121"/>

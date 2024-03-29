@@ -42,7 +42,7 @@ $events = $events['query']->posts;
                 <?php endwhile; ?>
             </div>
             <div class="f-next-events__cta">
-                <a href="/evenements"
+                <a href="<?php the_field('events_page', 'option') ?>"
                    title="Découvrir les évènements"
                    class="c-button c-button--lg c-button--black">
                     <span>Découvrir les évènements</span>
