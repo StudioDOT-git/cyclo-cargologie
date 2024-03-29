@@ -24,3 +24,6 @@
         </div>
     </div>
 </div>
+<button class="f-page-header__scroll-down">
+    <img class="f-page-header__scroll-down-image" src="<?= DOT_THEME_URI ?>/assets/icons/scroll-down.svg" alt="">
+</button>
