@@ -23,6 +23,26 @@
             "ui_off_text": ""
         },
         {
+            "key": "field_6606cee51c74f",
+            "label": "Fonctionnement",
+            "name": "fonctionnement",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "Bouton",
+            "ui_off_text": "Lien",
+            "ui": 1
+        },
+        {
             "key": "field_65b7cebc0e704",
             "label": "Color",
             "name": "color",
@@ -111,13 +131,21 @@
         },
         {
             "key": "field_65b7d06963e44",
-            "label": "Label",
+            "label": "Label du bouton",
             "name": "label",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Laisser vide s'il s'agit d'un lien",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6606cee51c74f",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -137,7 +165,15 @@
             "type": "link",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6606cee51c74f",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -178,5 +214,5 @@
     "dot_is_lpart": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1711029549
+    "modified": 1711722461
 }
