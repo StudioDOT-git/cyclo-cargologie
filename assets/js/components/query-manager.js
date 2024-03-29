@@ -161,6 +161,8 @@ export default class QueryManager {
       this.firstTaxonomy = this.multiFilters[0].getTaxonomy()
       this.firstTerm = this.multiFilters[0].getSelected().length ? this.multiFilters[0].getSelected()[0] : false
 
+      this.$resetFiltersButton.setAttribute('disabled', true)
+
       this.multiFilters.forEach(multiFilter => {
         const taxonomy = multiFilter.getTaxonomy()
         const selectedTerms = multiFilter.getSelected()
@@ -168,6 +170,10 @@ export default class QueryManager {
         if (selectedTerms.length > 0) {
           const terms = selectedTerms.join(',')
           queryUrl.searchParams.append(taxonomy, terms)
+
+          if (terms) {
+            this.$resetFiltersButton.removeAttribute('disabled')
+          }
         }
       })
     }
@@ -213,6 +219,7 @@ export default class QueryManager {
   }
 
   resetFilters(e) {
+    this.$resetFiltersButton.setAttribute('disabled', true)
     this.paged = 1
     if (e) {
       this.states.isSearch = false
