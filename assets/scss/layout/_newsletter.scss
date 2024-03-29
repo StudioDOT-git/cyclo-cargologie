@@ -129,26 +129,26 @@
       }
     }
 
+  }
 
-    &__button-container {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.3rem 1.6rem;
-    }
+  &__button-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.3rem 1.6rem;
+  }
 
-    &__deco {
-      pointer-events: none;
-      user-select: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      display: block;
-      z-index: 0;
-      object-fit: contain;
-      object-position: left center;
-    }
+  &__deco {
+    pointer-events: none;
+    user-select: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: block;
+    z-index: 0;
+    object-fit: contain;
+    object-position: left center;
   }
 
 
