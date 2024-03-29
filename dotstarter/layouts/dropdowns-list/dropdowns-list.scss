@@ -81,14 +81,11 @@
     cursor: pointer;
     border-bottom: 1px solid $grey-1;
     padding: 0 0 0rem 8.2rem;
+    transition: border-color 0.3s ease;
 
     &.js-open {
-      border-bottom: 1px solid $purple;
+      border-color: $purple;
 
-      #{$root}__content {
-        padding-bottom: 45px;
-        margin: 23px 0 20px 0;
-      }
 
       #{$root}__header {}
 
