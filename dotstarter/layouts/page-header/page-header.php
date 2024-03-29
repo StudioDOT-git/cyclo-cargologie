@@ -9,7 +9,9 @@
                             <?php dot_the_layout_part('deco') ?>
                         <?php endwhile; ?>
                     </div>
-                    <h1 class="f-page-header__title"><?= get_sub_field('title'); ?></h1>
+                    <h1 class="f-page-header__title">
+                        <?= get_sub_field('title'); ?>
+                    </h1>
                 </div>
                 <div class="f-page-header__content">
                     <p class="f-page-header__paragraph">
@@ -24,6 +26,9 @@
         </div>
     </div>
 </div>
-<button class="f-page-header__scroll-down">
-    <img class="f-page-header__scroll-down-image" src="<?= DOT_THEME_URI ?>/assets/icons/scroll-down.svg" alt="">
-</button>
+
+<?php if (get_sub_field('scroll_button')): ?>
+    <button class="f-page-header__scroll-down">
+        <img class="f-page-header__scroll-down-image" src="<?= DOT_THEME_URI ?>/assets/icons/scroll-down.svg" alt="">
+    </button>
+<?php endif; ?>

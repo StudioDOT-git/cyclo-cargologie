@@ -33,6 +33,10 @@
     font-size: 1.45rem;
   }
 
+  &__scroll-down {
+    display: none;
+  }
+
   @include media-down(md) {
     &__heading {
       display: grid;
@@ -47,9 +51,7 @@
     }
   }
 
-  &__scroll-down {
-    display: none;
-  }
+
   @include media-up(md) {
     &__tb {
       padding: 9.5rem 0 12rem
@@ -90,7 +92,7 @@
     &__scroll-down {
       display: block;
       position: absolute;
-      top: 80vh;
+      top: 90vh;
       left: 22.6rem;
       z-index: 10;
       width: 31.5rem;
@@ -99,27 +101,28 @@
       background: none;
       border: none;
       transition: ease 0.6s;
+      transform-origin: center center;
 
       &:hover {
         cursor: pointer;
-        transform: scale(0.97);
+        transform: scale(1.05);
       }
 
       &:before {
         content: "";
         display: block;
         width: 31.5rem;
-      height: 8.1rem;
-      border-radius: 4.05rem;
-      opacity: 0.3;
-      background: #181818;
-      filter: blur(47px);
-      position: absolute;
-      top: 0;
-      left: 0;
+        height: 8.1rem;
+        border-radius: 4.05rem;
+        opacity: 0.3;
+        background: #181818;
+        filter: blur(47px);
+        position: absolute;
+        top: 0;
+        left: 0;
       }
     }
-    &__scroll-down-image {
-    }
+
+    &__scroll-down-image {}
   }
 }

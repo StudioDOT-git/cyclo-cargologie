@@ -86,6 +86,26 @@
             "layout": "block",
             "prefix_label": 0,
             "prefix_name": 0
+        },
+        {
+            "key": "field_66069e62053a8",
+            "label": "Scroll button",
+            "name": "scroll_button",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Cocher cette option permet d'afficher le bouton \"Scroll pour découvrir\"",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Ce bouton est affiché en flottant en bas du premier écran. Il peut se supperposer avec le bloc suivant. Nous recommandons son utilisation si le bloc header est suivi d'un bloc \"Full width image Slider\"",
+            "default_value": 0,
+            "ui_on_text": "Activer",
+            "ui_off_text": "Désactiver",
+            "ui": 1
         }
     ],
     "location": [
@@ -116,5 +136,5 @@
     "dot_is_layout": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1711118388
+    "modified": 1711710652
 }
