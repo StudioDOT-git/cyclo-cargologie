@@ -8,6 +8,7 @@ import cardsSliderSwiper from '../../dotstarter/layouts/cards-slider/cards-slide
 
 import { modalAnims, modalForm } from './layouts/modal'
 import { dropdownslist } from '../../dotstarter/layouts/dropdowns-list/dropdowns-list.js'
+import { pageHeaderScrollDown } from '../../dotstarter/layouts/page-header/page-header.js'
 import { SingleEventsContactSlider, SingleEventsSlider } from './templates/events-single.js'
 import QueryManager from './components/query-manager.js'
 import GenericContentSlider from '../../dotstarter/layouts/generic-content/generic-content.js'
@@ -48,7 +49,7 @@ jQuery(function ($) {
 
   //faq
   dropdownslist()
-
+  pageHeaderScrollDown()
 
   sliders.forEach(slider => slider.init())
 

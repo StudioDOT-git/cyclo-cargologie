@@ -73,7 +73,7 @@
       letter-spacing: -1.381px;
       position: absolute;
       right: .5rem;
-      top: 112%;
+      top: 107%;
       z-index: 0;
       transform: translate(0, 0);
     }
@@ -103,7 +103,7 @@
 
   &__section-title {
     padding-bottom: .8rem;
-    max-width: 32rem;
+    max-width: 24rem;
     display: block;
   }
 
@@ -175,6 +175,7 @@
         font-weight: 300;
         line-height: 111%;
         letter-spacing: -1.381px;
+        top:107%;
       }
     }
 
@@ -186,6 +187,7 @@
 
     &__section-title {
       padding-bottom: 2.7rem;
+      max-width: 32rem;
     }
 
     &__section-description {

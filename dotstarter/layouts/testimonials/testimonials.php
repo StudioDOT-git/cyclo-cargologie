@@ -1,7 +1,7 @@
 <div class="f-testimonials l-layout" id="f-testimonials">
     <div class="l-container">
         <div class="f-testimonials__wrapper">
-            <div class="l-layout__headings">
+            <div class="l-layout__headings <?php if (have_rows('sticker')): ?>l-layout__headings--with-deco<?php endif; ?>">
                 <div class="l-layout__deco-container">
                     <?php if (have_rows('sticker')): ?>
                         <?php while (have_rows('sticker')):
