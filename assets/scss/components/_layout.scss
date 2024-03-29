@@ -9,14 +9,16 @@
   &__headings {
     display: grid;
     grid-template-columns: 8rem 1fr;
-    grid-template-areas: "titles titles" "description description";
+    grid-template-areas:
+      "titles titles"
+    "description description";
     align-items: center;
     margin-bottom: 3.3rem;
     position: relative;
     gap: 2rem 0rem;
 
     &--with-deco {
-      grid-template-areas: "deco titles" "description description";
+      grid-template-areas: "deco titles b" "a a  description";
     }
   }
 
