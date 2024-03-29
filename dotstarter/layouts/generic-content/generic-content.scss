@@ -8,14 +8,18 @@
   max-width: 100vw;
 
   &__tb {
-    padding: 10rem 0 9.4rem;
+    padding: 3rem 0 5rem;
+
+    @include media-up(md) {
+      padding: 10rem 0 9.4rem;
+    }
   }
 
   &__slide {
     width: 69rem;
 
 
-    & > img {
+    &>img {
       width: 100%;
       height: auto !important;
       margin: 0 !important;
@@ -47,12 +51,13 @@
     }
   }
 
-  &__main > .generic-title:first-child {
+  &__main>.generic-title:first-child {
     margin-top: 0;
     margin-bottom: 2rem;
   }
 
   &__main {
+
     p,
     ul,
     li {
@@ -100,8 +105,7 @@
       text-decoration: underline;
       transition: ease 0.4s;
 
-      &:hover {
-      }
+      &:hover {}
     }
   }
 
@@ -166,7 +170,8 @@
   }
 }
 
-.generic-image, .generic-gallery {
+.generic-image,
+.generic-gallery {
   margin: 1rem 5% 2rem;
 
   figcaption {
