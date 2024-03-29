@@ -42,7 +42,8 @@ $events = $events['query']->posts;
                 <?php endwhile; ?>
             </div>
             <div class="f-next-events__cta">
-                <a href="<?= get_post_type_archive_link('tribe_events') ?>"
+                <a href="/evenements"
+                   title="Découvrir les évènements"
                    class="c-button c-button--lg c-button--black">
                     <span>Découvrir les évènements</span>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61 61" fill="none">
