@@ -21,7 +21,7 @@ $events = $events['query']->posts;
                     <?php
 
                     $spotlight = get_sub_field('spotlight');
-                    $event = get_post(get_sub_field('post'));
+                    $event = get_post(get_sub_field('event'));
 
                     if (!$spotlight) {
                         $event = $events[$i] ?? null;
