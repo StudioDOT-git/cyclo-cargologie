@@ -17,6 +17,8 @@ $formats = get_the_terms($post->ID, 'format');
 // Posts
 $category = get_the_category($post->ID);
 $date = ucwords(get_the_date('M Y', $post->ID));
+
+
 ?>
 
 <div class="f-card__spotlight">
@@ -66,8 +68,8 @@ $date = ucwords(get_the_date('M Y', $post->ID));
             <div class="f-card__excerpt">
                 <?php if ($post->post_type === 'tribe_events'): ?>
                     <p class="f-card__subtitle"><?= the_field('subtitle') ?></p>
-                <?php elseif ($post->post_type === 'page'): ?>
-                    <?= the_excerpt() ?>
+                <?php elseif ($post->post_type === 'page' || $post->post_type === 'post'): ?>
+                    <p class="f-card__subtitle"><?= the_field('excerpt') ?></p>
                 <?php endif; ?>
             </div>
         </div>
@@ -90,6 +92,14 @@ $date = ucwords(get_the_date('M Y', $post->ID));
                 <?php endif; ?>
                 <?php if (in_array('postponed', $statuses)) : ?>
                     <div class="c-status-tag c-status-tag--red">Reporté</div>
+                <?php endif; ?>
+                <?php if (in_array('shortly', $statuses)) : ?>
+                    <div class="c-status-tag c-status-tag--purple">Prochainement</div>
+                <?php endif; ?>
+            <?php endif; ?>
+            <?php if($post->post_type === 'post'): ?>
+                <?php if (in_array('future', $statuses)) : ?>
+                    <div class="c-status-tag c-status-tag--purple">A venir</div>
                 <?php endif; ?>
             <?php endif; ?>
         </span>

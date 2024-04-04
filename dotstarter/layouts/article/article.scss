@@ -172,6 +172,13 @@
   }
 }
 .f-article {
+  &__slide-statuses {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    z-index: 1;
+  }
+
   @include media-down(md) {
     .c-yellow-background {
       height: 24.5rem;

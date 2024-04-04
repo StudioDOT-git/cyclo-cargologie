@@ -76,6 +76,10 @@ input[type=checkbox]:checked::before {
 .layout>.acfe-fc-placeholder.acfe-fc-preview:hover>a {
   z-index: 100000;
 }
+#tribe_events_event_details #event_url,#postexcerpt {
+  display: none;
+}
+
 
 
 /* ----- LAYOUTS  ------------ */

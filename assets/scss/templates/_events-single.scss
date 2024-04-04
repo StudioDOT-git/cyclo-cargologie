@@ -282,3 +282,21 @@
   }
 
 }
+
+.t-events-single-cta {
+    padding: 3.7rem 0 ;
+
+    display: flex;
+    justify-content: center;
+
+  .c-button {
+    width: 26.7rem;
+    span {
+      font-size: 1.45rem;
+    }
+    svg {
+      width: 3.6rem;
+      height: 3.6rem;
+    }
+  }
+}

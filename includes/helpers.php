@@ -70,6 +70,7 @@ function dot_get_icon($slug, $className = null) {
 function dot_get_formatted_event_date()
 {
     $start_date = tribe_get_start_date(null, true, 'D. d F, H\h');
+    tribe_event_is_all_day() && $start_date = tribe_get_start_date(null, true, 'D. d F');
     $start_date = ucwords($start_date);
 
     $end_date = tribe_get_end_date(null, false, 'D. d F');
@@ -98,6 +99,7 @@ function dot_get_formatted_event_date()
 
     return $full_date;
 }
+
 
 
 /**
