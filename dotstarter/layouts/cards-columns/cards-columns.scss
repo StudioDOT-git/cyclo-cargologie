@@ -48,7 +48,7 @@
 
     &::after {
       content: attr(data-id);
-      color: $purple;
+      color: $purple-3;
       font-family: $font-body;
       font-size: 2.3rem;
       font-style: normal;
@@ -125,7 +125,7 @@
 
       &::after {
         content: attr(data-id);
-        color: $purple;
+        color: $purple-3;
         font-family: $font-body;
         font-size: 2.3012rem;
         font-style: normal;

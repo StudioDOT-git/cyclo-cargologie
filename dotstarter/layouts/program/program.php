@@ -1,4 +1,4 @@
-<div class="f-program l-layout">
+<div class="f-program l-layout" id="f-program">
     <div class="l-container">
         <div class="l-layout__headings <?php if (have_rows('sticker')): ?>l-layout__headings--with-deco<?php endif; ?>">
             <div class="l-layout__deco-container">

@@ -14,13 +14,14 @@
 
   &__item {
     position: relative;
+
     .c-deco {
       width: 4rem;
       height: 4rem;
       position: absolute;
-      right: 10rem;
+      left: 50%;
       top: 0;
-      transform: translateY(-35%);
+      transform: translateY(-100%) translateX(-50%);
 
       img {
         display: block;
@@ -56,7 +57,7 @@
     font-weight: 500;
     line-height: 110%;
     letter-spacing: -.122rem;
-    text-shadow: 1px 1px 0px $yellow, 6px 0px 0px #000;
+    // text-shadow: 1px 1px 0px $yellow, 6px 0px 0px #000;
   }
 
   @include media-up(md) {

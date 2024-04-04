@@ -90,8 +90,6 @@
     }
   }
 
-
-
   &__section-container {
     display: grid;
     grid-template-columns: 1fr;
@@ -126,6 +124,10 @@
 
     &__section {
       padding: 12.5rem;
+
+      &:nth-of-type(1) {
+        padding-top: 5rem;
+      }
     }
 
     &__section-image {
