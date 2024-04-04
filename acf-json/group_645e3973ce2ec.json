@@ -39,7 +39,8 @@
             "choices": {
                 "postponed": "Reporté",
                 "canceled": "Annulé",
-                "full": "Complet"
+                "full": "Complet",
+                "shortly": "Prochainement"
             },
             "default_value": [],
             "return_format": "value",
@@ -137,7 +138,7 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1711547778,
+    "modified": 1712236740,
     "acfe_categories": {
         "actus-et-evenements": "Actus et Évènements"
     }

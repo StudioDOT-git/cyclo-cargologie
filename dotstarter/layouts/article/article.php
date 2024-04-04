@@ -2,12 +2,11 @@
 $post = get_post();
 
 $enable_slider = false;
-$is_excerpt = !empty(get_the_excerpt());
-
 
 $slides_count = is_array(get_field('slides')) ? count(get_field('slides')) : null;
 
 $categories = get_the_category($post->ID);
+$statuses = get_field('status') ? get_field('status') : array();
 $date = ucwords(get_the_date('M Y', $post->ID));
 
 
@@ -45,6 +44,12 @@ $date = ucwords(get_the_date('M Y', $post->ID));
                             </div>
                         <?php endif; ?>
                     <?php else : ?>
+                        <span class="f-article__slide-statuses">
+                                            <?php if (in_array('future', $statuses)) : ?>
+                                                <div class="c-status-tag c-status-tag--purple">A venir</div>
+                                            <?php endif; ?>
+                        </span>
+
                         <div class="f-article-slider__slide">
                             <?php the_post_thumbnail("full") ?>
                         </div>
@@ -69,7 +74,7 @@ $date = ucwords(get_the_date('M Y', $post->ID));
 
                     </div>
                     <?php if ($categories[0]): ?>
-                            <span class="f-card__tag"><?= $categories[0]->name ?></span>
+                        <span class="f-card__tag"><?= $categories[0]->name ?></span>
                     <?php endif; ?>
 
                 </div>
@@ -77,9 +82,9 @@ $date = ucwords(get_the_date('M Y', $post->ID));
                 <h1 class="f-article-header__title">
                     <?php the_title() ?>
                 </h1>
-                <?php if ($is_excerpt) : ?>
+                <?php if (get_sub_field('subtitle')) : ?>
                     <div class="f-article-header__subtitle">
-                        <?= the_excerpt() ?>
+                        <?= get_sub_field('subtitle') ?>
                     </div>
                 <?php endif; ?>
 
@@ -101,7 +106,6 @@ $date = ucwords(get_the_date('M Y', $post->ID));
             </div>
         </div>
     </section>
-
 
 
 </div>

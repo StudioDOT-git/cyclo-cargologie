@@ -78,7 +78,8 @@
                 "remorque": "Remorque",
                 "velo-cargo": "Vélo Cargo",
                 "velos": "Vélos",
-                "ville-verte": "Ville Verte"
+                "ville-verte": "Ville Verte",
+                "logo-boites-a-velo": "Logo boîtes à Vélos"
             },
             "default_value": false,
             "return_format": "value",
@@ -123,5 +124,5 @@
     "dot_is_lpart": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1711029516
+    "modified": 1712234735
 }

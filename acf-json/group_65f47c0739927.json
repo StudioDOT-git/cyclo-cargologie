@@ -3,6 +3,51 @@
     "title": "Article",
     "fields": [
         {
+            "key": "field_660eac8e3f7e2",
+            "label": "Status",
+            "name": "status",
+            "aria-label": "",
+            "type": "checkbox",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "future": "A venir"
+            },
+            "default_value": [],
+            "return_format": "value",
+            "allow_custom": 0,
+            "layout": "vertical",
+            "toggle": 0,
+            "save_custom": 0,
+            "custom_choice_button_text": "Ajouter un nouveau choix"
+        },
+        {
+            "key": "field_660e654da8e88",
+            "label": "Sous-titre",
+            "name": "subtitle",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_65f47c07ba0e1",
             "label": "Contenu",
             "name": "content",
@@ -73,7 +118,7 @@
     "dot_is_layout": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1711118347,
+    "modified": 1712239991,
     "acfe_categories": {
         "actus-et-evenements": "Actus et Évènements"
     }

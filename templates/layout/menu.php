@@ -22,7 +22,6 @@
                     </div>
 
                     <div class="main-menu__nav-content-row">
-                        <span class="uppercase-s">Contact & réseau</span>
                         <a href="mailto:<?php the_field('email', 'option') ?>" class="main-menu__mailto heading5">
                             <?php the_field('email', 'option') ?>
                         </a>

@@ -70,6 +70,8 @@ $enable_slider = false;
 $slides_count = is_array(get_field('slides')) ? count(get_field('slides')) : null;
 
 $statuses = get_field('status');
+//better_var_dump($statuses,true);
+
 // $statuses = !is_array($statuses) ? [$statuses] : $statuses;
 
 $date = dot_get_formatted_event_date();
@@ -108,6 +110,14 @@ if (get_field('days') === false) {
                                                     $clr = 'red';
                                                     $label = 'Complet';
                                                     break;
+                                                case 'shortly':
+                                                    $clr = 'purple';
+                                                    $label = 'Prochainement';
+                                                    break;
+                                                default:
+                                                    $clr = '';
+                                                    $label = '';
+                                                    break;
                                             }
                                             ?>
                                             <div class="c-status-tag c-status-tag--<?= $clr ?>"><?= $label ?></div>
@@ -134,13 +144,13 @@ if (get_field('days') === false) {
                     <?php else : ?>
                         <span class="t-events-single__slide-statuses">
                             <?php
-                                $event_start_date_for_comparison = tribe_get_start_date(null, false, 'Y-m-d');
-                                $event_start_timestamp = strtotime($event_start_date_for_comparison);
+                            $event_start_date_for_comparison = tribe_get_start_date(null, false, 'Y-m-d');
+                            $event_start_timestamp = strtotime($event_start_date_for_comparison);
 
-                                $today_date = date('Y-m-d');
-                                $today_timestamp = strtotime($today_date);
+                            $today_date = date('Y-m-d');
+                            $today_timestamp = strtotime($today_date);
 
-                                if ($event_start_timestamp < $today_timestamp): ?>
+                            if ($event_start_timestamp < $today_timestamp): ?>
                                 <div class="c-status-tag c-status-tag--red">Évènement passé</div>
                             <?php else : ?>
                                 <?php if (in_array('full', $statuses)) : ?>
@@ -151,6 +161,9 @@ if (get_field('days') === false) {
                                 <?php endif; ?>
                                 <?php if (in_array('postponed', $statuses)) : ?>
                                     <div class="c-status-tag c-status-tag--red">Reporté</div>
+                                <?php endif; ?>
+                                <?php if (in_array('shortly', $statuses)) : ?>
+                                    <div class="c-status-tag c-status-tag--purple">Prochainement</div>
                                 <?php endif; ?>
                             <?php endif; ?>
                         </span>
@@ -217,6 +230,19 @@ if (get_field('days') === false) {
                 <?php endif; ?>
             </div>
         </div>
+    </section>
+
+    <section class="t-events-single-cta">
+        <a href="<?php the_field('events_page', 'option') ?>"
+           title="Découvrir les évènements"
+           class="c-button c-button--lg c-button--black">
+            <span>Voir tous les événements</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61 61" fill="none">
+                <circle class="c-button__circle" cx="30.2121" cy="30.2121" r="30.2121"/>
+                <path class="c-button__arrow"
+                      d="M38.5789 30.5168L38.1689 30.1068L35.0589 26.9968L32.5689 24.5068H30.0789V24.8468L35.1989 29.9668H23.1089C22.9789 29.9668 22.8789 30.0668 22.8789 30.1968V31.7368C22.8789 31.8668 22.9789 31.9668 23.1089 31.9668H35.1889L30.0789 37.0768V37.4168H32.5689L37.6089 32.3768L38.5789 31.4068V30.5168Z"/>
+            </svg>
+        </a>
     </section>
     <?php dot_the_layouts() ?>
 </div>
