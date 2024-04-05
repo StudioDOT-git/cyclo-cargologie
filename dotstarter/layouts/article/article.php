@@ -45,9 +45,9 @@ $date = ucwords(get_the_date('M Y', $post->ID));
                         <?php endif; ?>
                     <?php else : ?>
                         <span class="f-article__slide-statuses">
-                                            <?php if (in_array('future', $statuses)) : ?>
-                                                <div class="c-status-tag c-status-tag--purple">A venir</div>
-                                            <?php endif; ?>
+                                <?php if (in_array('future', $statuses)) : ?>
+                                    <div class="c-status-tag c-status-tag--purple">A venir</div>
+                                <?php endif; ?>
                         </span>
 
                         <div class="f-article-slider__slide">
