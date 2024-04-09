@@ -102,5 +102,3 @@ $resetFiltersDisabled = empty($current_categories) ? 'disabled' : '';
         </div>
     </div>
 </div>
-
-
