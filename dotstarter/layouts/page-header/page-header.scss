@@ -27,10 +27,7 @@
 
   .c-button {
     margin-top: 2.8rem;
-    grid-template-columns: auto auto;
-    display: inline-grid;
-    gap: 7.75rem;
-    font-size: 1.45rem;
+
   }
 
   &__scroll-down {
@@ -80,8 +77,6 @@
 
     .c-button {
       margin: 2.8rem 0 0;
-      font-size: 1.7rem;
-      gap: 11.358rem;
     }
 
     &__deco {

@@ -8,7 +8,7 @@ $show_top_border = get_sub_field('show_top_border');
 
 <div id="f-generic-content"
     class="f-generic-content f-layout <?= $show_top_border ? 'f-layout--has-border-top' : '' ?> <?= $bg_color ? 'bg-' . $bg_color : '' ?>">
-    <div class="l-container">
+    <div class="l-container l-container--md">
         <div class="f-generic-content__tb">
             <div class="f-generic-content__main">
                 <?php if (have_rows('content')): ?>

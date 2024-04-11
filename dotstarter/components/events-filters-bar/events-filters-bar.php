@@ -33,7 +33,7 @@ $resetFiltersDisabled = empty($current_categories) && empty($current_formats) ? 
             <div class="c-filters-bar__header">
                 <div class="c-filters-bar__header-left">
                     <div class="c-filters-bar__title">Filtres</div>
-                    <button type="button" class="c-button c-button--sm c-button--yellow-1 reset-filters" <?=$resetFiltersDisabled?>>Effacer les filtres</button>
+                    <button type="button" class="c-button c-button--b c-button--sm c-button--yellow-1 reset-filters" <?=$resetFiltersDisabled?>>Effacer les filtres</button>
                 </div>
                 <div class="c-filters-bar__header-right c-filters-bar__filters-toggle-wrapper">
                     <button id="filters-open" class="c-filters-bar__filters-open">

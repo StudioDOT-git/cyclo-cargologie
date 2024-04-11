@@ -155,6 +155,16 @@
     padding: 0.6rem 0 0;
   }
 
+  @include media-down(md) {
+    &__button-container {
+      margin-top: calc(-2.66rem);
+      transform: translateY(-25%);
+    }
+    .c-slider__index {
+      margin: 2.8rem 0 0 auto;
+    }
+  }
+
   @include media-up(md) {
     padding: 7.5rem 0 6.3rem;
 

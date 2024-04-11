@@ -12,13 +12,18 @@
   border-radius: 3px;
   cursor: pointer;
 
-
   font-family: $font-headings;
-  font-size: 1.9rem;
+  font-size: 1.45rem;
   font-weight: 600;
   line-height: 136.646%;
   letter-spacing: -.017rem;
   text-decoration: none;
+  min-width: 23.8rem;
+
+  @include media-up(md) {
+    font-size: 1.7rem;
+    min-width: 30rem;
+  }
 
 
   border: 1px solid transparent;
@@ -35,8 +40,8 @@
 
   // Icon
   svg {
-    width: 6rem;
-    height: 6rem;
+    width: 3.6rem;
+    height: 3.6rem;
   }
 
   &__arrow {
@@ -64,7 +69,7 @@
 
     svg {
       width: 3.6rem;
-      height: 3.5rem;
+      height: 3.6rem;
     }
   }
 
@@ -73,8 +78,8 @@
   &--b {
     font-weight: 500;
     letter-spacing: -.0147rem;
-    padding: 1.9rem 3.5rem;
     width: fit-content;
+    min-width: unset;
 
     &.c-button--xs,
     &.c-button--s {

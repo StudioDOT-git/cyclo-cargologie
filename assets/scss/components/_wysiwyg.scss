@@ -2,7 +2,10 @@
 @use "../base/mixins" as *;
 
 .c-wysiwyg {
-  h2 {
+  h2:not(:first-child), {
     margin: 5rem 0 2rem;
+  }
+  h2:first-child {
+    margin: 0 0 2rem;
   }
 }

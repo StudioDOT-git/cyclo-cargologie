@@ -18,7 +18,12 @@
     gap: 2rem 0rem;
 
     &--with-deco {
+
       grid-template-areas: "deco titles description" "a a  description";
+      grid-template-areas:
+        "deco deco deco"
+      "titles titles  titles"
+      "description description  description";
     }
   }
 

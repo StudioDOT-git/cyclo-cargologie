@@ -50,7 +50,7 @@
                         <?php the_field('terms') ?>En validant votre inscription, vous acceptez que Cyclo-cargologie
                         mémorise et utilise votre adresse email dans le but de vous envoyer sa lettre d’informations. *
                     </label>
-                    <input class="c-button c-button--s c-button--yellow" type="submit" value="Envoyer" />
+                    <input class="c-button c-button--b c-button--s c-button--yellow" type="submit" value="Envoyer" />
                 </div>
             </form>
         </div>
