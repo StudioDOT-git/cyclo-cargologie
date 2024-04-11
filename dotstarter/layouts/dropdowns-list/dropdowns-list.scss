@@ -46,7 +46,7 @@
     position: absolute;
     left: 0px;
     top: 0px;
-    transform: translate(-200%, 0%);
+    transform: translate(calc(-4.1rem  - 17px), 0%);
     transition: transform 0.3s ease-out;
     display: block;
     width: 3.8rem;
@@ -80,7 +80,7 @@
     box-sizing: border-box;
     cursor: pointer;
     border-bottom: 1px solid $grey-1;
-    padding: 0 0 0rem 8.2rem;
+    padding: 0 0 0rem 4.1rem;
     transition: border-color 0.3s ease;
 
     &.js-open {
