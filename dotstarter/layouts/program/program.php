@@ -1,6 +1,12 @@
+<?php
+
+$stiker = get_row('sticker');
+$isStickerActive = $stiker['sticker']['is_deco_active'];
+?>
+
 <div class="f-program l-layout" id="f-program">
     <div class="l-container">
-        <div class="l-layout__headings <?php if (have_rows('sticker')): ?>l-layout__headings--with-deco<?php endif; ?>">
+        <div class="l-layout__headings <?php if ($isStickerActive): ?>l-layout__headings--with-deco<?php endif; ?>">
             <div class="l-layout__deco-container">
                 <?php if (have_rows('sticker')): ?>
                     <?php while (have_rows('sticker')):

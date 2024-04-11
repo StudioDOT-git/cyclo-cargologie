@@ -51,7 +51,8 @@
 
   @include media-up(md) {
     &__headings {
-      // padding: 0 0 0 12.8rem;
+      grid-template-areas:
+      "a titles description";
       grid-template-columns: 8rem 1fr 1fr;
       gap: 3.8rem;
       align-items: center;

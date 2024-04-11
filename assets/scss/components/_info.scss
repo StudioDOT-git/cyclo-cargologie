@@ -1,0 +1,16 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+@use "../base/colors" as *;
+.c-info {
+  div {
+    flex: 1;
+    height: 9.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $purple-2;
+    padding: 0 2.4rem;
+    font-size: 1.6rem;
+    border-radius: .3rem;
+  }
+}
