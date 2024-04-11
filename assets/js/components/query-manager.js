@@ -149,13 +149,7 @@ export default class QueryManager {
       queryUrl.searchParams.append('from_past', true)
     }
 
-    if (this.searchForm) {
-      const s = this.inputElem.value
 
-      if (s.length > 0) {
-        queryUrl.searchParams.append('s', s)
-      }
-    }
 
     if (this.hasFilters) {
       this.firstTaxonomy = this.multiFilters[0].getTaxonomy()
@@ -176,6 +170,15 @@ export default class QueryManager {
           }
         }
       })
+    }
+
+    if (this.searchForm) {
+      const s = this.inputElem.value
+
+      if (s.length > 0) {
+        this.$resetFiltersButton.removeAttribute('disabled')
+        queryUrl.searchParams.append('s', s)
+      }
     }
 
     this.newPathName = new URL(queryUrl.toString())
@@ -257,24 +260,24 @@ export default class QueryManager {
     this.$nextPageButton.classList.remove('hide')
 
     if (this.paged - 1 >= 1) {
-      paginationButtons.push(`<div class="c-pagination__page c-button c-button--sm c-button--sand" data-page-number="${this.paged - 1}">${this.paged - 1}</div>`)
+      paginationButtons.push(`<div class="c-pagination__page c-button--b c-button c-button--sm c-button--sand" data-page-number="${this.paged - 1}">${this.paged - 1}</div>`)
     } else {
       if (!this.$prevPageButton.classList.contains('hide')) {
         this.$prevPageButton.classList.add('hide')
       }
     }
 
-    paginationButtons.push(`<div class="c-pagination__page c-button c-button--sm c-button--sand active" data-page-number="${this.paged}">${this.paged}</div>`)
+    paginationButtons.push(`<div class="c-pagination__page  c-button--b c-button c-button--sm c-button--sand active" data-page-number="${this.paged}">${this.paged}</div>`)
 
     if (this.paged + 1 <= this.maxNumPages) {
-      paginationButtons.push(`<div class="c-pagination__page c-button c-button--sm c-button--sand" data-page-number="${this.paged + 1}">${this.paged + 1}</div>`)
+      paginationButtons.push(`<div class="c-pagination__page c-button--b c-button c-button--sm c-button--sand" data-page-number="${this.paged + 1}">${this.paged + 1}</div>`)
     } else {
       if (!this.$nextPageButton.classList.contains('hide')) {
         this.$nextPageButton.classList.add('hide')
       }
     }
     if (this.paged + 2 <= this.maxNumPages) {
-      paginationButtons.push('<div class="c-pagination__page c-button c-button--sm c-button--sand">...</div>')
+      paginationButtons.push('<div class="c-pagination__page c-button--b c-button c-button--sm c-button--sand">...</div>')
     }
 
     // Add elements to document
