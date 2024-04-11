@@ -93,6 +93,10 @@ $date = ucwords(get_the_date('M Y', $post->ID));
                         <div class="f-article-header__description body-lg">
                             <?= get_sub_field('content') ?>
                         </div>
+                    <?php else: ?>
+                    <div class="c-info">
+                        <div>Article en cours de livraison</div>
+                    </div>
                     <?php endif; ?>
                 </div>
                 <?php if (have_rows('button')) : ?>
