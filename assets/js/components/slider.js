@@ -1,13 +1,13 @@
 const $ = jQuery
 
 class SlickSlider {
-  constructor(layoutSlug, config) {
+  constructor (layoutSlug, config) {
     this.sliders = []
     this.layoutSlug = layoutSlug
     this.config = config
   }
 
-  init() {
+  init () {
     this.reset()
 
     const layoutSlug = this.layoutSlug
@@ -49,7 +49,7 @@ class SlickSlider {
     })
   }
 
-  reset() {
+  reset () {
     jQuery(($) => {
       this.sliders.forEach(slider => $(slider).slick('unslick'))
       this.sliders = []
