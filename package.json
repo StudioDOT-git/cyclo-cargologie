@@ -42,7 +42,7 @@
     "postcss": "^8.4.24",
     "sass": "^1.63.6",
     "vinyl-named": "^1.1.0",
-    "webpack": "^5.88.1",
+    "webpack": "^5.91.0",
     "webpack-stream": "^7.0.0",
     "yargs": "^17.7.2"
   },

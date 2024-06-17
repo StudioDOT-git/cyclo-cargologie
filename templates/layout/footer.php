@@ -65,7 +65,7 @@
                 </a>
             </div>
         </div>
-        <img class="l-footer__deco" src="<?= get_stylesheet_directory_uri(); ?>/assets/img/deco-footer.svg" alt="">
+        <img class="l-footer__deco" src="<?= get_stylesheet_directory_uri(); ?>/assets/img/deco-footer-v2.svg" alt="">
     </div>
 
     <div class="l-footer__white">
