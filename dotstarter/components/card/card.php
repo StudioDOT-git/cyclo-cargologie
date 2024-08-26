@@ -6,15 +6,25 @@ $post = get_post();
 
 // Events
 $tickets_url = tribe_get_event_website_url();
-$statuses = get_field('status') ? get_field('status') : array();
+$statuses = get_field('status') ?? array();
 $categories = get_the_terms(null, 'tribe_events_cat');
 $event = $post->post_type === 'tribe_events';
+
 $event_date = dot_get_formatted_event_date();
 $show_ticket_button = $tickets_url && (!in_array('full', $statuses) && !in_array('canceled', $statuses) && !in_array('postponed', $statuses));
 $formats = get_the_terms($post->ID, 'format');
 
 
 // Posts
+if (!$event) {
+    if (have_rows('dot_layouts')) {
+        while (have_rows('dot_layouts')) {
+            the_row();
+            $statuses = get_sub_field('status') ?? array();
+        }
+    }
+
+}
 $category = get_the_category($post->ID);
 $date = ucwords(get_the_date('M Y', $post->ID));
 
@@ -75,29 +85,29 @@ $date = ucwords(get_the_date('M Y', $post->ID));
         </div>
         <span class="f-card__statuses">
         <?php
-            $event_start_date_for_comparison = tribe_get_start_date(null, false, 'Y-m-d');
-            $event_start_timestamp = strtotime($event_start_date_for_comparison);
+        $event_start_date_for_comparison = tribe_get_start_date(null, false, 'Y-m-d');
+        $event_start_timestamp = strtotime($event_start_date_for_comparison);
 
-            $today_date = date('Y-m-d');
-            $today_timestamp = strtotime($today_date);
+        $today_date = date('Y-m-d');
+        $today_timestamp = strtotime($today_date);
 
-            if ($event_start_timestamp < $today_timestamp): ?>
-                    <div class="c-status-tag c-status-tag--red">Évènement passé</div>
-            <?php else : ?>
-                 <?php if (in_array('full', $statuses)) : ?>
-                    <div class="c-status-tag c-status-tag--red">Complet</div>
-                <?php endif; ?>
-                <?php if (in_array('canceled', $statuses)) : ?>
-                    <div class="c-status-tag c-status-tag--red">Annulé</div>
-                <?php endif; ?>
-                <?php if (in_array('postponed', $statuses)) : ?>
-                    <div class="c-status-tag c-status-tag--red">Reporté</div>
-                <?php endif; ?>
-                <?php if (in_array('shortly', $statuses)) : ?>
-                    <div class="c-status-tag c-status-tag--purple">Prochainement</div>
-                <?php endif; ?>
+        if ($event_start_timestamp < $today_timestamp): ?>
+            <div class="c-status-tag c-status-tag--red">Évènement passé</div>
+        <?php else : ?>
+            <?php if (in_array('full', $statuses)) : ?>
+                <div class="c-status-tag c-status-tag--red">Complet</div>
             <?php endif; ?>
-            <?php if($post->post_type === 'post'): ?>
+                <?php if (in_array('canceled', $statuses)) : ?>
+                <div class="c-status-tag c-status-tag--red">Annulé</div>
+            <?php endif; ?>
+                <?php if (in_array('postponed', $statuses)) : ?>
+                <div class="c-status-tag c-status-tag--red">Reporté</div>
+            <?php endif; ?>
+                <?php if (in_array('shortly', $statuses)) : ?>
+                <div class="c-status-tag c-status-tag--purple">Prochainement</div>
+            <?php endif; ?>
+        <?php endif; ?>
+            <?php if ($post->post_type === 'post'): ?>
                 <?php if (in_array('future', $statuses)) : ?>
                     <div class="c-status-tag c-status-tag--purple">A venir</div>
                 <?php endif; ?>

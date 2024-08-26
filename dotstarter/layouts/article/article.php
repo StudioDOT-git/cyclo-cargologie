@@ -6,9 +6,8 @@ $enable_slider = false;
 $slides_count = is_array(get_field('slides')) ? count(get_field('slides')) : null;
 
 $categories = get_the_category($post->ID);
-$statuses = get_field('status') ? get_field('status') : array();
+$statuses = get_sub_field('status') ?? array();
 $date = ucwords(get_the_date('M Y', $post->ID));
-
 
 ?>
 
@@ -94,9 +93,9 @@ $date = ucwords(get_the_date('M Y', $post->ID));
                             <?= get_sub_field('content') ?>
                         </div>
                     <?php else: ?>
-                    <div class="c-info">
-                        <div>Article en cours de livraison</div>
-                    </div>
+                        <div class="c-info">
+                            <div>Article en cours de livraison</div>
+                        </div>
                     <?php endif; ?>
                 </div>
                 <?php if (have_rows('button')) : ?>
