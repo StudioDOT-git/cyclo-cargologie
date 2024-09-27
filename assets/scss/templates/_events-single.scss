@@ -1,6 +1,7 @@
 @use "../base/variables" as *;
 @use "../base/mixins" as *;
 @use "../base/colors" as *;
+@import "../components/wysiwyg";
 
 // Remove tribe container
 .single-tribe_events #tribe-events-pg-template {
@@ -75,51 +76,10 @@
     padding: 2rem 0 2.4rem;
     font-size: 1.6rem;
 
-    li {
-      position: relative;
-      font-size: 1.6rem;
-      font-weight: 400;
-      line-height: 140%;
-      padding-left: 2.35rem;
-      margin-bottom: .9rem;
-
-      &::before {
-        content: url("/wp-content/themes/cyclo-cargologie/assets/icons/gear-wheel.svg");
-        display: inline-block;
-        position: absolute;
-        width: 1.5rem;
-        height: 1.5rem;
-        left: 0;
-        top: .2rem;
-      }
-
-      & li {
-        padding-left: 1.46875rem;
-        &::before {
-          content: '•';
-          height: auto;
-          width: auto;
-          top: 0;
-        }
-      }
-    }
-
-    & > :first-child {
-      padding-top: 1rem;
-      display: grid;
-      gap: 1rem;
-    }
-
-    img {
-      padding-bottom: 1.6rem;
-
-    }
+    @extend .wysiwyg;
 
   }
 
-  &__description-en {
-    color: $black;
-  }
 
   &__buttons {
     display: flex;
