@@ -1,0 +1,99 @@
+@use "../base/variables" as *;
+@use "../base/colors" as *;
+@use "../base/mixins" as *;
+
+.t-events-archive {
+  position: relative;
+  margin-top: -36.7rem;
+
+  &__header {
+
+    padding: .9rem 0 3.1rem;
+
+    .l-container {
+      position: relative;
+      @include media-down(md) {
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1.4rem;
+      }
+
+    }
+
+    &-deco {
+     .c-deco {
+       width: 4.4rem;
+       height: 4.4rem;
+     }
+    }
+
+    &-title {
+      font-size: 2.9rem;
+      font-weight: 500;
+
+    }
+  }
+
+  &__events {
+    display: grid;
+    padding: 1.9rem 0 0;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr;
+
+    .c-event-card {
+      margin-bottom: 30px;
+    }
+  }
+
+
+  .c-filters_no-results {
+    grid-area: 1 / 1 / 2 / 3;
+  }
+
+
+  // Contains loader & is used for scroll detection
+  &__after {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  @include media-up(md) {
+
+    &__header {
+
+      padding: 6.7rem 0 4.8rem;
+
+      .l-container {
+        position: relative;
+      }
+
+      &-deco {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(calc(-100% - 2.7rem), -50%);
+      }
+
+      &-title {
+        font-size: 5.1rem;
+
+        span {
+          color: $green;
+        }
+      }
+    }
+
+    &__events {
+      padding: 5.2rem 0 0;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+}
+

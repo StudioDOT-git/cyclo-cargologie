@@ -1,0 +1,92 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+@use "../base/colors" as *;
+
+.t-search {
+  padding: 0 0 7.9rem;
+
+
+  &__header {
+
+    padding: 6.7rem 0 4.8rem;
+
+    .l-container {
+      position: relative;
+      @include media-down(md) {
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1.4rem;
+      }
+    }
+
+    &-deco {
+      .c-deco {
+        width: 4.4rem;
+        height: 4.4rem;
+
+      }
+    }
+
+    &-title {
+      font-size: 2.9rem;
+
+      span {
+        color: $green;
+      }
+    }
+  }
+
+  &__background {
+    height: 41.8rem;
+    background: $yellow;
+    position: relative;
+    overflow: hidden;
+    svg {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 36rem;
+      height: 36.2rem;
+      transform: translate(-30%,2.2rem);
+    }
+  }
+
+  &__content {
+    margin-top:-36.4rem ;
+    position: relative;
+  }
+
+  &__results {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3.2rem .9rem;
+  }
+
+
+  @include media-up(md) {
+    .l-container {
+      max-width: calc(100vw - 2 * 22.5rem) ;
+    }
+
+    &__header {
+
+
+      &-deco {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(calc(-100% - 4.8rem), -50%);
+      }
+      &-title {
+        font-size: 5.1rem;
+      }
+    }
+
+
+    &__results {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}

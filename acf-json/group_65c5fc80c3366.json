@@ -1,0 +1,128 @@
+{
+    "key": "group_65c5fc80c3366",
+    "title": "Deco",
+    "fields": [
+        {
+            "key": "field_65c604466561a",
+            "label": "Activer",
+            "name": "is_deco_active",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Cocher pour activer la décoration",
+            "default_value": 1,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_65c5fc8179fc1",
+            "label": "Décoration",
+            "name": "deco",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "accompagnement-1": "Accompagnement 1",
+                "accompagnement-2": "Accompagnement 2",
+                "ampoule": "Ampoule",
+                "b2B": "B2B",
+                "b2C": "B2C",
+                "boiteOutils": "Boîte à Outils",
+                "carton-ferme": "Carton Fermé",
+                "carton-ouvert": "Carton Ouvert",
+                "check": "Check",
+                "click": "Click",
+                "course": "Course",
+                "dechet-organique": "Déchet Organique",
+                "demenagement": "Déménagement",
+                "document-et-guide": "Document et Guide",
+                "evenement": "Évènement",
+                "exclamation": "Exclacamtion",
+                "fleche": "Flêche",
+                "formation": "Formation",
+                "gps": "GPS",
+                "homme-ordi": "Homme Ordi",
+                "isotherme": "Isotherme",
+                "le-programme": "Le Programme",
+                "livraison": "Livraison",
+                "main-telephone": "Main Téléphone",
+                "notification": "notification",
+                "outils-numerique": "Outils numérique",
+                "palette": "Palette",
+                "personnes": "Personnes",
+                "pin": "Pin",
+                "poigne-main": "Poignée de main",
+                "poste": "Poste",
+                "pouce": "Pouce",
+                "question": "Question",
+                "recherche": "Recherce",
+                "recyclage": "Recyclage",
+                "reduction-bruit": "Réduction Bruit",
+                "reduction-polution": "Réduction Polution",
+                "reduction-urbaine": "Réduction Urbain",
+                "remorque": "Remorque",
+                "velo-cargo": "Vélo Cargo",
+                "velos": "Vélos",
+                "ville-verte": "Ville Verte",
+                "logo-boites-a-velo": "Logo boîtes à Vélos"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "tribe_organizer"
+            },
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "dot_layout_part_slug": "deco",
+    "dot_is_lpart": 1,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1724674639
+}

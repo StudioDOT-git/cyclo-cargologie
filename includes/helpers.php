@@ -55,6 +55,9 @@ function dot_get_icon($slug, $className = null) {
         case 'youtube':
             $icon = '<svg class="c-icon" width="15" height="11" viewBox="0 0 15 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.0605 5.45094C14.0892 6.33332 14.0424 7.21654 13.9205 8.09094C13.8906 8.59875 13.6774 9.07847 13.3205 9.44094C12.9626 9.8015 12.487 10.0215 11.9805 10.0609C8.74319 10.2476 5.49781 10.2476 2.2605 10.0609C1.75113 10.0212 1.27253 9.80145 0.910495 9.44094C0.551258 9.08006 0.337636 8.59942 0.310489 8.09094C0.120462 6.33941 0.120462 4.57246 0.310489 2.82093C0.337636 2.31245 0.551258 1.83183 0.910495 1.47094C1.27253 1.11043 1.75113 0.890628 2.2605 0.85093C5.49781 0.664273 8.74319 0.664273 11.9805 0.85093C12.487 0.890354 12.9626 1.11038 13.3205 1.47094C13.6774 1.83342 13.8906 2.31311 13.9205 2.82093C14.0421 3.692 14.089 4.57188 14.0605 5.45094Z" fill="#26211F" /><path d="M6.22842 7.73085L5.91843 7.44086L5.64844 3.13086L9.41843 5.41086L6.22842 7.73085Z" fill="white" /></svg>';
             break;
+        case 'return':
+            return '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.67443 17.9858C4.62012 21.0989 8.06806 23.1622 12.0047 23.1622C18.077 23.1622 23 18.2392 23 12.1668C23 6.09445 18.086 1.17139 12.0137 1.17139C7.63363 1.17139 3.85087 3.73245 2.08618 7.44283" stroke="#232323" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"/><path d="M1 3.87695L2.07692 7.43348L5.63345 6.36562" stroke="#232323" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"/><path d="M12.9003 6.13965V13.4971L7.75098 16.1577" stroke="#232323" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"/></svg>';
+            break;
     }
 
     if ($className) {
@@ -63,6 +66,41 @@ function dot_get_icon($slug, $className = null) {
 
     return $icon;
 }
+
+function dot_get_formatted_event_date()
+{
+    $start_date = tribe_get_start_date(null, true, 'D. d F, H\h');
+    tribe_event_is_all_day() && $start_date = tribe_get_start_date(null, true, 'D. d F');
+    $start_date = ucwords($start_date);
+
+    $end_date = tribe_get_end_date(null, false, 'D. d F');
+
+    $start_date_year = tribe_get_start_date(null, false, 'Y');
+    $end_date_year = tribe_get_end_date(null, false, 'Y');
+
+    $show_start_date_year = false;
+    $show_end_date = false;
+
+    if ($start_date !== $end_date) {
+        $show_end_date = false;
+
+        if ($start_date_year === $end_date_year) {
+            $show_start_date_year = false;
+        }
+    }
+
+    if ($show_start_date_year) {
+        $start_date = "$start_date\h, <span>$start_date_year</span>";
+    }
+
+    $full_date = $show_end_date ?
+        "$start_date > $end_date <span>$end_date_year</span>" :
+        $start_date;
+
+    return $full_date;
+}
+
+
 
 /**
  * the_menu
@@ -123,3 +161,14 @@ function is_edit_page_type_page(): bool {
 
     return false;
 }
+
+function  better_var_dump($var, $bool = false)
+{
+    echo '<pre>';
+    var_dump($var);
+    echo '</pre>';
+    if ($bool) {
+        die();
+    }
+}
+

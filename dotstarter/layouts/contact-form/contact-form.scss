@@ -1,0 +1,249 @@
+@use "../../../assets/scss/base/variables" as *;
+@use "../../../assets/scss/base/colors" as *;
+@use "../../../assets/scss/base/mixins" as *;
+
+.f-contact-form {
+  position: relative;
+  padding: 3rem 0 10rem;
+  overflow: hidden;
+  background-color: $white;
+
+
+
+  &::before {
+    content: "";
+    display: block;
+    background-color: $yellow;
+    width: 100vw;
+    height: 38rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .l-container {
+    position: relative;
+  }
+
+  &__wrapper {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0rem;
+    background-color: #fff;
+  }
+
+  &__column {
+    &:nth-of-type(2) {
+      padding: 0 1.5rem;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 25rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+  }
+
+  &__title {
+    margin: 2 0 2.7rem;
+  }
+
+  &__description {}
+
+
+  &__form-container {
+    padding-top: 4.6rem;
+
+    input[type=text],
+    input[type=button],
+    input[type=submit] {
+      -webkit-appearance: none !important;
+      -webkit-border-radius: 0 !important;
+    }
+
+    div.wpforms-container-full {
+      margin: 0;
+    }
+
+    .wpforms-container .wpforms-field {
+      padding: 0;
+    }
+
+    div.wpforms-container-full .wpforms-field-label {
+      margin-bottom: 0rem !important;
+    }
+
+    .wpforms-field {
+      margin-bottom: 2.3rem;
+    }
+
+    .wpforms-container input.wpforms-field-medium,
+    .wpforms-container select.wpforms-field-medium,
+    .wpforms-container .wpforms-field-row.wpforms-field-medium {
+      max-width: 100%;
+      padding: 1rem 2rem;
+      border-radius: 2px;
+      border: 1px solid var(--grey-grey5, #DCDEE1);
+      background: #FFF;
+      height: 5.8rem !important;
+      display: block;
+      margin-top: .7rem !important;
+    }
+
+    .wpforms-field-label {
+      font-family: $font-headings;
+      font-size: 1.7rem !important;
+      font-style: normal !important;
+      font-weight: 500 !important;
+      line-height: 120% !important;
+    }
+
+    .wpforms-field-label-inline {
+      font-family: $font-headings;
+      font-size: 1.4rem !important;
+      font-style: normal !important;
+      font-weight: 500 !important;
+      line-height: 120% !important;
+      color: #626262 !important;
+
+    }
+
+    div.wpforms-container-full textarea {
+      border-radius: 2px;
+      border: 1px solid var(--grey-grey5, #DCDEE1);
+      background: #FFF;
+      margin-top: .7rem !important;
+      margin-bottom: 23px;
+    }
+
+    .wpforms-field.wpforms-field-gdpr-checkbox {
+      margin-bottom: 1rem;
+
+      .wpforms-field-label {
+        margin-bottom: 1.6rem !important;
+      }
+    }
+
+    .wpforms-field.wpforms-field-checkbox {
+      background: $purple-2;
+      padding: 1.2rem 1.9rem !important;
+
+      .wpforms-field-label-inline {
+        color: $grey-5 !important;
+        font-family: $font-headings !important;
+        font-size: 1.4rem !important;
+        font-style: normal !important;
+        font-weight: 700 !important;
+        line-height: 120% !important;
+        position: relative;
+        top: .2rem;
+      }
+    }
+
+    .wpforms-submit-container {
+      margin-top: 2rem !important;
+      display: flex;
+    }
+
+    .wpforms-submit {
+      background-color: $yellow !important;
+      background-image: url('/wp-content/themes/cyclo-cargologie/assets/img/cta-arrow.svg') !important;
+      background-repeat: no-repeat !important;
+      background-position: right 17px top 50%;
+      display: flex;
+      width: 23.8rem !important;
+      height: 6.1rem !important;
+      padding: 1.5rem 1.7rem !important;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+      border-radius: .3rem !important;
+      color: $black !important;
+      font-family: $font-headings !important;
+      font-size: 1.45rem !important;
+      font-style: normal !important;
+      font-weight: 600 !important;
+      line-height: 136.646% !important;
+      letter-spacing: -.0145rem !important;
+
+      &:hover {
+        background-position: right 12px top 50% !important;
+      }
+    }
+
+    .wpforms-error {
+      margin-top: .5rem !important;
+    }
+
+    .wpforms-confirmation-container-full {
+      background-color: $purple-2 !important;
+      border: none !important;
+      border-radius: 3px;
+      position: relative;
+      padding-left: 6rem !important;
+
+      &::before {
+        content: url("/wp-content/themes/cyclo-cargologie/assets/icons/white-check.svg");
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 3rem;
+        height: 3rem;
+        margin-right: .85rem;
+        top: 50%;
+        left: 1.9rem;
+        transform: translateY(-50%);
+        background: $black;
+        border-radius: 100%;
+      }
+
+      p {
+        color: #000;
+        font-size: 1.6rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 2.4rem;
+        letter-spacing: 0.16px;
+      }
+    }
+  }
+
+  @include media-up(md) {
+    padding: 4.4rem 0 10rem;
+
+    &__column {
+      &:nth-of-type(2) {
+        padding-right: 7.6rem;
+      }
+    }
+
+    &__form-container {
+      padding-right: 5rem;
+    }
+
+    &__wrapper {
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+    }
+
+    &__title {
+      margin: 4.3rem 0 2.7rem;
+    }
+
+    &__image {
+      height: 53.5rem;
+    }
+  }
+}
+
+.grecaptcha-badge {
+  visibility: hidden;
+}

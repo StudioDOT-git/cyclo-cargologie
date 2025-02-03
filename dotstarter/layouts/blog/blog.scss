@@ -1,0 +1,61 @@
+@use "../../../assets/scss/base/colors"as *;
+@use "../../../assets/scss/base/mixins"as *;
+
+.f-blog {
+  padding-bottom: 7.4rem;
+  margin-top: -36.7rem;
+
+
+  &__posts {
+    display: grid;
+    grid-template-columns: 1fr ;
+    gap: 2.1rem .8rem;
+    padding: 4.2rem 0 0;
+    position: relative;
+    z-index: 1;
+
+  }
+
+  .f-card__image {
+    width: 100%;
+  }
+
+
+  @include media-up(md) {
+    &__posts {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+  }
+
+}
+
+.c-blog-header__deco {
+  display: block;
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  top: 50px;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+
+  @include media-up(md) {
+    top: 0;
+  }
+
+  svg {
+    width: 150vw;
+    right: 50vw;
+    position: relative;
+    display: block;
+    height: 100%;
+    object-fit: contain;
+    margin-top: 60px;
+
+    @include media-up(md) {
+      width: auto;
+      right: unset;
+    }
+  }
+}

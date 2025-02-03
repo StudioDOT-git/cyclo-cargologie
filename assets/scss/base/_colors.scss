@@ -9,19 +9,31 @@ $green: #204743;
 $green-3: #102522;
 $purple-1: #E6D0FF;
 $purple-2: #D1B1F4;
+$purple-3: #604280;
 $purple: #C59EF1;
 $grey-5: #333333;
 $grey-4: #626262;
 $grey-3: #979797;
 $grey-2: #C7C7C7;
 $grey-1: #F4F6FA;
+$red: #BA1A1A;
 
 
 $colors: (
   "black": #000,
   "white": #ffffff,
-  "blue": #0000ff,
-  "blue-dot": #0000ff,
+  //"blue": #0000ff,
+  //"blue-dot": #0000ff,
+  gray: #DFDFDF,
+  gray-dark: #8E8E8E,
+  gray-darker: #61626C,
+  blue: #6284FC,
+  blue-dark: #5470D6,
+  blue-darkest: #1D1F2E,
+  blue-soft: #2a2c39,
+  green: #5FC098,
+  green-lighter: #4DD880,
+  emerald: #06A754,
 );
 
 @function clr($name) {
@@ -30,7 +42,7 @@ $colors: (
 }
 
 $clr-body-bg: map-get($colors, white);
-$clr-text-selection: $green-2;
+$clr-text-selection: $green-3;
 $clr-text-selection-bg: $yellow-1;
 
 $clr-link: map-get($colors, blue);

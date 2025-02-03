@@ -1,0 +1,140 @@
+{
+    "key": "group_65c4e8225158f",
+    "title": "Page Header",
+    "fields": [
+        {
+            "key": "field_65c4e8226583c",
+            "label": "Titre",
+            "name": "title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_65c4ea4b6583d",
+            "label": "Paragraphe",
+            "name": "paragraph",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "acfe_textarea_code": 0,
+            "maxlength": "",
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_65c4ea616583e",
+            "label": "Bouton",
+            "name": "button",
+            "aria-label": "",
+            "type": "layout_part",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_65b7cebc92b44"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_65eac875517c0",
+            "label": "Sticker",
+            "name": "sticker",
+            "aria-label": "",
+            "type": "layout_part",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_65c5fc80c3366"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_66069e62053a8",
+            "label": "Scroll button",
+            "name": "scroll_button",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Cocher cette option permet d'afficher le bouton \"Scroll pour découvrir\"",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Ce bouton est affiché en flottant en bas du premier écran. Il peut se supperposer avec le bloc suivant. Nous recommandons son utilisation si le bloc header est suivi d'un bloc \"Full width image Slider\"",
+            "default_value": 0,
+            "ui_on_text": "Activer",
+            "ui_off_text": "Désactiver",
+            "ui": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "!=",
+                "value": "all"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "dot_thumbnail": 618,
+    "dot_layout_slug": "page-header",
+    "dot_is_layout": 1,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1711710652
+}

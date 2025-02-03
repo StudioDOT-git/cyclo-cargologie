@@ -1,0 +1,28 @@
+@use "../../../assets/scss/base/colors"as *;
+@use "../../../assets/scss/base/mixins"as *;
+.c-yellow-background {
+  height: 61.4rem;
+  background: $yellow;
+  position: relative;
+  overflow: hidden;
+
+  svg {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 36rem;
+    height: 36.2rem;
+    transform: translate(-30%, 2.2rem);
+  }
+  &-brother {
+    margin-top: -57.4rem;
+  }
+  @include media-up(md) {
+    height: 41.8rem;
+    &-brother {
+      margin-top: -36.7rem;
+
+    }
+
+  }
+}

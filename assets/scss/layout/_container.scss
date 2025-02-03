@@ -15,8 +15,13 @@
     max-width: calc(100vw - $container-margin-sm);
   }
 
+
+
   @include media-up(md) {
     max-width: calc(100vw - $container-margin-md);
+    &--md {
+      max-width: calc(100vw - 2 * 22.5rem) !important;
+    }
   }
 
   @include media-up(lg) {
@@ -32,6 +37,6 @@
   }
 
   @media screen and (min-width: 1880px) {
-    // max-width: $container-max-width;
+     //max-width: $container-max-width;
   }
 }

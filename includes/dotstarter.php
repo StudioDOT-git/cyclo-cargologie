@@ -28,6 +28,15 @@ if (!class_exists('DOT_Starter')) {
             require_once(DOT_THEME_INCLUDES_PATH . 'storage.php');
             require_once(DOT_THEME_INCLUDES_PATH . 'tinymce.php');
 
+            // AJAX
+            require_once(DOT_THEME_INCLUDES_PATH . 'ajax/events.php');
+            require_once(DOT_THEME_INCLUDES_PATH . 'ajax/newsletter.php');
+            require_once(DOT_THEME_INCLUDES_PATH . 'ajax/AjaxPost.php');
+
+            // REST API
+            require_once(DOT_THEME_INCLUDES_PATH . 'api/wp.php');
+            require_once(DOT_THEME_INCLUDES_PATH . 'api/acf.php');
+
             add_action('after_setup_theme', array($this, 'theme_setup'));
             add_action('after_setup_theme', array($this, 'register_nav_menus'));
 
@@ -43,6 +52,8 @@ if (!class_exists('DOT_Starter')) {
             add_filter('script_loader_tag', array($this, 'set_scripts_type_module_attribute'), 99, 3);
 
             add_action('admin_init', array($this, 'disable_comments'));
+            add_action('rest_api_init', [ AjaxPost::class, 'setGetPostsRoute' ] );
+
 
             // Modifier le logo sur la page de connexion à l'administration
             add_action('login_enqueue_scripts', array($this, 'login_page_custom_logo'));
@@ -63,6 +74,18 @@ if (!class_exists('DOT_Starter')) {
                 'flex-width' => true,
                 'header-text' => array('site-title', 'site-description'),
             ));
+            add_theme_support(
+                'html5',
+                array(
+                    'search-form',
+                    'comment-form',
+                    'comment-list',
+                    'gallery',
+                    'caption',
+                    'style',
+                    'script',
+                )
+            );
         }
 
         /**
@@ -82,7 +105,7 @@ if (!class_exists('DOT_Starter')) {
             <style type="text/css">
                 #login h1 a,
                 .login h1 a {
-                    background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/img/logo-dot-black.svg');
+                    background-image: url('<?= get_stylesheet_directory_uri(); ?>/assets/img/logo-dot-black.svg');
                 }
             </style>
         <?php }
@@ -94,6 +117,7 @@ if (!class_exists('DOT_Starter')) {
          * @return void
          */
         public function enqueue_styles() {
+            wp_enqueue_style('slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
             wp_enqueue_style('frontend', DOT_THEME_URI . '/dist/css/frontend.min.css', null, filemtime(DOT_THEME_PATH . '/dist/css/frontend.min.css'));
         }
 
@@ -115,6 +139,7 @@ if (!class_exists('DOT_Starter')) {
         public function enqueue_scripts() {
             wp_enqueue_script('jquery');
             wp_enqueue_script('detect-autofill', 'https://unpkg.com/detect-autofill/dist/detect-autofill.js', array(), null, true);
+            wp_enqueue_script('slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array('jquery'), null, true);
 
             wp_enqueue_script('dotstarter-frontend', DOT_THEME_URI . '/dist/js/bundle.min.js', array('jquery', 'detect-autofill'), filemtime(DOT_THEME_PATH . '/dist/js/bundle.min.js'), true);
 
@@ -127,6 +152,7 @@ if (!class_exists('DOT_Starter')) {
             $args = array(
                 'ajaxUrl' => admin_url('admin-ajax.php'),
                 'homeUrl' => home_url(),
+                'baseUrl' => get_site_url(),
                 'isLoggedIn' => is_user_logged_in(),
                 'nonce' => wp_create_nonce('dot_nonce'),
                 'isFirstVisit' => $is_first_visit

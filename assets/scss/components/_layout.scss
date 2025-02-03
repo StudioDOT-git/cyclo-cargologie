@@ -1,5 +1,71 @@
 @use "../../../assets/scss/base/variables" as *;
 @use "../../../assets/scss/base/mixins" as *;
+@use "../../../assets/scss/base/colors" as *;
 
-.f-layout {
+
+.l-layout {
+
+
+  &__headings {
+    display: grid;
+    grid-template-columns: 8rem 1fr;
+    grid-template-areas:
+      "titles titles"
+    "description description";
+    align-items: center;
+    margin-bottom: 3.3rem;
+    position: relative;
+    gap: 2rem 0rem;
+
+    &--with-deco {
+
+      grid-template-areas: "deco titles description" "a a  description";
+      grid-template-areas:
+        "deco deco deco"
+      "titles titles  titles"
+      "description description  description";
+    }
+  }
+
+  &__titles{
+    grid-area: titles;
+  }
+
+  &__subtitle {
+    color: $grey-4;
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 150%;
+    font-size: 1.6rem;
+  }
+
+  &__title {
+    letter-spacing: -0.01em;
+    font-size: 2.9rem;
+  }
+
+  &__deco {
+    grid-area: deco;
+    width: 4.4rem;
+    height: 4.4rem;
+  }
+
+  &__description {
+    grid-area: description;
+  }
+
+  @include media-up(md) {
+    &__headings {
+      grid-template-areas:
+      "a titles description";
+      grid-template-columns: 8rem 1fr 1fr;
+      gap: 3.8rem;
+      align-items: center;
+    }
+
+    &__title {
+      font-size: 4.2rem;
+
+    }
+  }
 }

@@ -1,0 +1,139 @@
+@use '../base/colors' as *;
+@use '../base/mixins' as *;
+
+.c-multi-filter {
+  width: 25.7rem;
+  border-radius: .3rem;
+  position: relative;
+  padding: .829rem 1.7rem;
+  background: $white;
+
+
+  $root: &;
+
+  .c-button__circle {
+    fill: $yellow;
+  }
+  .c-button__arrow {
+    //transform: rotate(90deg);
+  }
+
+  &__toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+    color: clr(white);
+    font-weight: 500;
+    position: relative;
+
+    cursor: pointer;
+  }
+  &__toggle-label {
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 136.646%;
+    letter-spacing: -0.01rem;
+  }
+
+  &__toggle-icon {
+    width: 3.6rem;
+    height: 3.6rem;
+    display: grid;
+    place-items: center;
+    transition: transform .3s;
+    transform: rotate(90deg);
+  }
+
+  &__options {
+    position: absolute;
+    z-index: 2;
+
+    padding-top: 0;
+    top: calc(100% - .3rem);
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity .3s;
+    background: $white;
+
+  }
+
+  &__option {
+    padding: 1.1rem 1.8rem;
+    background: $yellow-1;
+    color: $grey-3;
+    cursor: pointer;
+    font-size: 1.4rem;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    border-bottom: .1rem solid $grey-3;
+
+    &[data-selected=true] {
+      background-color: $white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      transition: background-color .3s;
+
+      &::after {
+        content: url('/wp-content/themes/cyclo-cargologie/assets/icons/check.svg');
+        display: block;
+        width: 1.2rem;
+        height: .9rem;
+      }
+    }
+  }
+
+
+
+
+  &.expand {
+
+    #{$root}__toggle {
+      background-color: clr(white);
+      font-weight: 600;
+    }
+
+    #{$root}__toggle-icon {
+      transform: rotate(270deg);
+    }
+
+    #{$root}__options {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    &#{$root}--green {
+      border-color: clr(emerald);
+
+      #{$root}__toggle {
+        color: clr(emerald);
+      }
+    }
+
+    &#{$root}--blue {
+      border-color: clr(blue-dark);
+
+      #{$root}__toggle {
+        color: clr(blue-dark);
+      }
+    }
+
+    &#{$root}--blue-darkest {
+      border-color: clr(blue-darkest);
+
+      #{$root}__toggle {
+        color: clr(blue-darkest);
+      }
+    }
+  }
+
+  @include media-up(md) {
+  }
+}

@@ -1,0 +1,77 @@
+@use "../../../assets/scss/base/variables" as *;
+@use "../../../assets/scss/base/colors" as *;
+@use "../../../assets/scss/base/mixins" as *;
+
+.f-related-posts {
+
+  &__tb {
+    padding: 6.9rem 0 5rem;
+  }
+
+  &__header{
+    position: relative;
+    @include media-down(md) {
+      display: grid;
+      grid-template-columns: auto auto;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 1.4rem;
+    }
+    &-title {
+      font-size: 2.9rem;
+      font-weight: 500;
+    }
+
+    &-deco {
+      .c-deco {
+        width: 4.4rem;
+        height: 4.4rem;
+
+      }
+    }
+  }
+
+  &__posts {
+    padding: 3.7rem 0 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .9rem;
+
+  }
+
+  &__cta {
+    padding: 3.7rem 0 0;
+
+    display: flex;
+    justify-content: center;
+    .c-button {
+
+      span{
+        font-size: 1.45rem;
+
+      }
+      svg {
+        width: 3.6rem;
+        height: 3.6rem;
+      }
+    }
+  }
+
+  @include media-up(md) {
+    &__header {
+      &-title {
+        font-size: 5.1rem;
+
+      }
+      &-deco {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(calc(-100% - 2.7rem), -50%);
+      }
+    }
+    &__posts {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
