@@ -2,15 +2,20 @@
 
 
 if (!class_exists('DOT_Starter')) {
-    class DOT_Starter {
+    class DOT_Starter
+    {
 
         /**
          * Init : set constants, load files, set hooks
          *
          * @throws Exception
          */
-        public function __construct() {
+        public function __construct()
+        {
             require_once(get_stylesheet_directory() . '/vendor/autoload.php');
+
+            // Add text domain loading to init hook with a later priority (20)
+            add_action('init', array($this, 'load_plugin_translations'), 20);
 
             add_action('tgmpa_register', array($this, 'register_required_plugins'));
 
@@ -52,19 +57,34 @@ if (!class_exists('DOT_Starter')) {
             add_filter('script_loader_tag', array($this, 'set_scripts_type_module_attribute'), 99, 3);
 
             add_action('admin_init', array($this, 'disable_comments'));
-            add_action('rest_api_init', [ AjaxPost::class, 'setGetPostsRoute' ] );
+            add_action('rest_api_init', [AjaxPost::class, 'setGetPostsRoute']);
 
 
             // Modifier le logo sur la page de connexion à l'administration
             add_action('login_enqueue_scripts', array($this, 'login_page_custom_logo'));
         }
 
+        public function load_plugin_translations()
+        {
+            // Add paths to make sure translations are loaded from correct locations
+            $plugin_rel_path = trailingslashit('the-events-calendar/lang');
+            load_plugin_textdomain('the-events-calendar', false, $plugin_rel_path);
+
+            $wpforms_rel_path = trailingslashit('wpforms-lite/assets/languages');
+            load_plugin_textdomain('wpforms-google-sheets', false, $wpforms_rel_path);
+            load_plugin_textdomain('wpforms-lite', false, $wpforms_rel_path);
+            load_plugin_textdomain('wpforms', false, $wpforms_rel_path);
+
+            $yoast_rel_path = trailingslashit('wordpress-seo/languages');
+            load_plugin_textdomain('wordpress-seo', false, $yoast_rel_path);
+        }
         /**
          * Set theme supports
          *
          * @return void
          */
-        public function theme_setup() {
+        public function theme_setup()
+        {
             add_theme_support('post-thumbnails');
             add_theme_support('title-tag');
             add_theme_support('custom-logo', array(
@@ -93,7 +113,8 @@ if (!class_exists('DOT_Starter')) {
          *
          * @return void
          */
-        public function register_nav_menus() {
+        public function register_nav_menus()
+        {
             register_nav_menus(array(
                 'main-menu' => __('Main Menu', 'dotstarter'),
                 'side-menu' => __('Side Menu', 'dotstarter'),
@@ -101,7 +122,8 @@ if (!class_exists('DOT_Starter')) {
             ));
         }
 
-        function login_page_custom_logo() { ?>
+        function login_page_custom_logo()
+        { ?>
             <style type="text/css">
                 #login h1 a,
                 .login h1 a {
@@ -116,7 +138,8 @@ if (!class_exists('DOT_Starter')) {
          *
          * @return void
          */
-        public function enqueue_styles() {
+        public function enqueue_styles()
+        {
             wp_enqueue_style('slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
             wp_enqueue_style('frontend', DOT_THEME_URI . '/dist/css/frontend.min.css', null, filemtime(DOT_THEME_PATH . '/dist/css/frontend.min.css'));
         }
@@ -126,7 +149,8 @@ if (!class_exists('DOT_Starter')) {
          *
          * @return void
          */
-        public function enqueue_admin_scripts() {
+        public function enqueue_admin_scripts()
+        {
             wp_enqueue_style('dotstarter-admin-css', DOT_THEME_URI . '/dist/css/admin.min.css', array(), @filemtime(DOT_THEME_PATH . '/dist/css/admin.min.css'));
         }
 
@@ -136,7 +160,8 @@ if (!class_exists('DOT_Starter')) {
          *
          * @return void
          */
-        public function enqueue_scripts() {
+        public function enqueue_scripts()
+        {
             wp_enqueue_script('jquery');
             wp_enqueue_script('detect-autofill', 'https://unpkg.com/detect-autofill/dist/detect-autofill.js', array(), null, true);
             wp_enqueue_script('slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array('jquery'), null, true);
@@ -165,7 +190,8 @@ if (!class_exists('DOT_Starter')) {
          *
          * @return void
          */
-        function remove_wp_block_library_css() {
+        function remove_wp_block_library_css()
+        {
             wp_dequeue_style('wp-block-library');
             wp_dequeue_style('wp-block-library-theme');
             wp_dequeue_style('wc-block-style'); // REMOVE WOOCOMMERCE BLOCK CSS
@@ -178,7 +204,8 @@ if (!class_exists('DOT_Starter')) {
          * @param $file_types
          * @return array
          */
-        public function add_mime_types_to_upload_whitelist($file_types): array {
+        public function add_mime_types_to_upload_whitelist($file_types): array
+        {
             $new_filetypes = array();
             $new_filetypes['svg'] = 'image/svg+xml';
             $new_filetypes['webp'] = 'image/webp';
@@ -194,7 +221,8 @@ if (!class_exists('DOT_Starter')) {
          * @param [type] $src
          * @return void
          */
-        public function set_scripts_type_module_attribute($tag, $handle, $src) {
+        public function set_scripts_type_module_attribute($tag, $handle, $src)
+        {
             // if not your script, do nothing and return original $tag
 
             if (!str_contains($handle, 'dotstarter-frontend')) {
@@ -211,7 +239,8 @@ if (!class_exists('DOT_Starter')) {
          *
          * @return void
          */
-        public function disable_comments() {
+        public function disable_comments()
+        {
             // Close comments on the front-end
             add_filter('comments_open', '__return_false', 20, 2);
             add_filter('pings_open', '__return_false', 20, 2);
@@ -257,7 +286,8 @@ if (!class_exists('DOT_Starter')) {
          * @return void
          * @throws Exception
          */
-        public function register_required_plugins() {
+        public function register_required_plugins()
+        {
             $plugins = array(
                 // Plug-ins that need licence key
                 array(
