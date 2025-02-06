@@ -1,0 +1,288 @@
+@use "../../../assets/scss/base/variables" as *;
+@use "../../../assets/scss/base/colors" as *;
+@use "../../../assets/scss/base/mixins" as *;
+
+.f-operateurs-grid {
+  padding: 4.8rem 0 7rem;
+  background-color: $grey-1;
+
+  &__image-container {
+    display: block;
+    width: 100vw;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    background-color: #fff;
+    position: relative;
+    left: -5vw;
+  }
+
+  &__image {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    object-position: center center;
+    padding: 3rem;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem 3rem;
+    margin-top: 4.8rem;
+  }
+
+
+  &__item {
+    background: white;
+    padding: 1.6rem 1.2rem;
+    position: relative;
+
+
+
+    &.js-open {
+      .f-operateurs-grid__dropdown-button {
+        transform-origin: center center;
+        transform: rotate(180deg);
+        background-color: $black;
+
+        path {
+          fill: white;
+        }
+      }
+
+      .f-operateurs-grid__inner {
+        height: auto;
+      }
+    }
+  }
+
+  &__logo {
+    display: block;
+    width: 7.7rem;
+    height: 3.4rem;
+    position: absolute;
+    top: 2rem;
+    left: 0;
+
+    img {
+      display: block;
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+      object-position: center center;
+    }
+  }
+
+  &__dropdown-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3.6rem;
+    height: 3.6rem;
+    background-color: $yellow;
+    border-radius: 100%;
+    border: none;
+    position: absolute;
+    top: 1.7rem;
+    right: 1.3rem;
+
+    path {
+      // fill: red;
+    }
+  }
+
+
+
+  &__name {
+    padding: .7rem 0 .7rem 9rem;
+
+  }
+
+  &__inner {
+    height: 0;
+    overflow: hidden;
+  }
+
+  &__parcours {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: .3rem;
+    padding-top: 1.5rem;
+  }
+
+  &__parcours-text {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 131%;
+    letter-spacing: 0.15px;
+    display: block;
+    width: 100%;
+  }
+
+  &__parcours-item {
+    color: $green;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 106%;
+    text-transform: uppercase;
+    padding: .9rem 1rem;
+    border: 1px solid $green;
+    border-radius: 5rem;
+  }
+
+  &__villes {
+    margin-top: .4rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: .3rem;
+    flex-wrap: wrap;
+  }
+
+  &__villes-text {
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 131%;
+    letter-spacing: 0.15px;
+    display: block;
+    width: 100%;
+  }
+
+  &__ville {
+    &:before {
+      content: "";
+      background-image: url("/wp-content/themes/cyclo-cargologie/assets/icons/map-pin.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+      display: inline-block;
+      margin-right: .4rem;
+      width: 1rem;
+      height: 1.5rem;
+      position: relative;
+      top: .2rem;
+    }
+
+    color: $black;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 106%;
+    padding: .9rem 1rem;
+    border: 1px solid $yellow;
+    background-color: $yellow;
+    border-radius: 5rem;
+  }
+
+  &__texte {
+    margin: .5rem 0 0rem;
+    font-size: 12.8px;
+    font-style: normal;
+    line-height: 16px;
+    letter-spacing: 0.128px;
+  }
+
+  &__liens {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+
+  }
+
+  &__lien {
+    &:before {
+      content: "";
+      background-image: url("/wp-content/themes/cyclo-cargologie/assets/icons/link.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+      display: inline-block;
+      margin-right: 0rem;
+      width: 2rem;
+      height: 2rem;
+      position: relative;
+      top: .5rem;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    color: $green;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+  }
+
+  .c-button {
+    margin-top: 1rem;
+  }
+
+
+  @include media-up(md) {
+    &__image-container {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 52 / 23;
+      background-color: #fff;
+      left: 0;
+    }
+
+    &__image {
+      display: block;
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+      object-position: center center;
+      padding: 3rem;
+    }
+
+    &__dropdown-button {
+      display: none;
+    }
+
+    &__list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem 1.7rem;
+      margin-top: 2.6rem;
+    }
+
+    &__name {
+      padding: 0rem;
+    }
+
+    &__logo {
+      display: block;
+      width: 11rem;
+      height: 4.8rem;
+      position: absolute;
+      top: 0.55rem;
+      right: 1.2rem;
+      left: auto;
+    }
+
+    &__inner {
+      height: auto;
+      overflow: hidden;
+    }
+
+    &__parcours-text,
+    &__villes-text {
+      width: auto;
+    }
+  }
+}

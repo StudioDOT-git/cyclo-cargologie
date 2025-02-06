@@ -3,11 +3,13 @@ import Menu from './components/menu'
 // import Newsletter from './components/newsletter'
 import { NewsletterForm } from './components/newsletter'
 import TestimonialsSlider from '../../dotstarter/layouts/testimonials/testimonials.js'
+import NewsSlider from '../../dotstarter/layouts/news-slider/news-slider.js'
 import FullWidthSlider from '../../dotstarter/layouts/slider-full-width/slider-full-width.js'
 import cardsSliderSwiper from '../../dotstarter/layouts/cards-slider/cards-slider.js'
 
 import { modalAnims, modalForm } from './layouts/modal'
 import { dropdownslist } from '../../dotstarter/layouts/dropdowns-list/dropdowns-list.js'
+import { dropdownoperator } from '../../dotstarter/layouts/operateurs-grid/operateurs-grid.js'
 import { pageHeaderScrollDown } from '../../dotstarter/layouts/page-header/page-header.js'
 import { SingleEventsContactSlider, SingleEventsSlider } from './templates/events-single.js'
 import QueryManager from './components/query-manager.js'
@@ -18,6 +20,7 @@ import searchModal from './components/search-modal.js'
 /* eslint-disable */
 const Sliders = [
   TestimonialsSlider,
+  NewsSlider,
   FullWidthSlider,
   GenericContentSlider,
   cardsSliderSwiper,
@@ -49,6 +52,7 @@ jQuery(function ($) {
 
   //faq
   dropdownslist()
+  dropdownoperator()
   pageHeaderScrollDown()
 
   sliders.forEach(slider => slider.init())
@@ -60,7 +64,7 @@ jQuery(function ($) {
   new QueryManager('.f-blog', '.f-blog__posts', 'post');
   new QueryManager('.t-events-archive', '.t-events-archive__events', 'tribe_events');
   new QueryManager('.t-search', '.t-search__results', 'all', false);
-  new QueryManager('.f-past-events', '.f-past-events__results', 'tribe_events',false);
+  new QueryManager('.f-past-events', '.f-past-events__results', 'tribe_events', false);
 
 
 })
