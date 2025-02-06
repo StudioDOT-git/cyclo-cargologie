@@ -9,7 +9,7 @@
             "aria-label": "",
             "type": "date_picker",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -17,7 +17,7 @@
                 "id": ""
             },
             "display_format": "d\/m\/Y",
-            "return_format": "d\/m\/Y",
+            "return_format": "Ymd",
             "first_day": 1,
             "allow_in_bindings": 0
         },
@@ -36,30 +36,9 @@
                 "id": ""
             },
             "display_format": "d\/m\/Y",
-            "return_format": "d\/m\/Y",
+            "return_format": "Ymd",
             "first_day": 1,
             "allow_in_bindings": 0
-        },
-        {
-            "key": "field_67a398a5165d2",
-            "label": "Lieu",
-            "name": "lieu",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
         },
         {
             "key": "field_67a398c8165d3",
@@ -153,5 +132,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1738774791
+    "modified": 1738856754
 }

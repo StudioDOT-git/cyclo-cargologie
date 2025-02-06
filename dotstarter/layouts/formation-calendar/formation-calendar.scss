@@ -1,0 +1,24 @@
+.f-formation-calendar {
+  padding: 5rem 0 7rem;
+  position: relative;
+
+  .c-yellow-background {
+    position: absolute;
+    width: 100vw;
+    top: 0rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &__archive {
+    position: relative;
+    padding-top: 4rem;
+  }
+
+  .f-formation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 1.5rem;
+    padding-top: 4.5rem;
+  }
+}

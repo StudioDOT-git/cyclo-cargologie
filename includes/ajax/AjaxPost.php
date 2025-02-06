@@ -27,6 +27,15 @@ class AjaxPost
                 'relation' => 'AND'
             )
         );
+
+        // Add meta query parameters for date sorting
+        if (isset($request_args['meta_key'])) {
+            $args['meta_key'] = $request_args['meta_key'];
+            $args['orderby'] = $request_args['orderby'] ?? 'meta_value';
+            $args['order'] = $request_args['order'] ?? 'ASC';
+            $args['meta_type'] = $request_args['meta_type'] ?? 'NUMERIC';
+        }
+
         if (isset($request_args['post_type'])) {
             if ($request_args['post_type'] === 'all') {
                 $args['post_type'] = self::POST_TYPES_ALLOWED;
