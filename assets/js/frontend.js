@@ -65,6 +65,9 @@ jQuery(function ($) {
   new QueryManager('.t-events-archive', '.t-events-archive__events', 'tribe_events');
   new QueryManager('.t-search', '.t-search__results', 'all', false);
   new QueryManager('.f-past-events', '.f-past-events__results', 'tribe_events', false);
+  new QueryManager('.f-formation-calendar__archive', '.formation-grid', 'formation');
+
 
 
 })
+

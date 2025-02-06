@@ -1,0 +1,53 @@
+// .c-formation-filters-bar {
+//   @extend .c-filters-bar;
+//   margin-bottom: var(--space-xl);
+
+//   &__select {
+//     @extend .c-multi-filter;
+
+//     .c-multi-filter__toggle {
+//       background-color: var(--color-yellow-1);
+//       transition: background-color 0.3s ease;
+
+//       &:hover {
+//         background-color: var(--color-yellow-2);
+//       }
+//     }
+//   }
+
+//   .c-filters-bar__filters-taxonomies {
+//     display: grid;
+//     grid-template-columns: 1fr;
+//     gap: var(--space-md);
+
+//     @include breakpoints.up(md) {
+//       grid-template-columns: repeat(2, 1fr);
+//       max-width: 800px;
+//       margin: 0 auto;
+//     }
+//   }
+
+//   .c-filters-bar__header {
+//     margin-bottom: var(--space-md);
+
+//     @include breakpoints.up(md) {
+//       margin-bottom: var(--space-lg);
+//     }
+//   }
+
+//   @include breakpoints.down(md) {
+//     .c-filters-bar__filters {
+//       padding: var(--space-lg);
+//       transform: translateY(-100%);
+//       transition: transform 0.3s ease;
+//     }
+
+//     &.expand {
+//       .c-filters-bar__filters {
+//         transform: translateY(0);
+//         height: auto;
+//         padding: var(--space-lg);
+//       }
+//     }
+//   }
+// }

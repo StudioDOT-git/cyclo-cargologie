@@ -7,7 +7,6 @@ if (!class_exists('DOT_Taxonomies')) {
         {
             add_action('init', array($this, 'register_taxonomies'));
         }
-
         public function register_taxonomies()
         {
             // Format Taxonomy
@@ -96,6 +95,7 @@ if (!class_exists('DOT_Taxonomies')) {
                 'rewrite' => false,
             ));
         }
+
     }
 
     new DOT_Taxonomies();
