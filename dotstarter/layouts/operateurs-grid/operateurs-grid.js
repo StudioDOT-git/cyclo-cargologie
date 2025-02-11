@@ -1,10 +1,12 @@
 import gsap from 'gsap'
+import { isMobile } from '../../../assets/js/helpers.js'
 
 import {
   gsapContentCards
 } from '../../../assets/js/animations/text.js'
 
 function dropdownoperator () {
+  if (!isMobile()) return
   const dropdownoperator = document.querySelectorAll('.f-operateurs-grid__item')
   if (dropdownoperator.length > 0) {
     dropdownoperator.forEach((item) => {

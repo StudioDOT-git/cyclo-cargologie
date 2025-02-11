@@ -95,7 +95,7 @@
                                     </div>
                                 <?php endif; ?>
 
-                                <button class="c-button c-button--s c-button--a  c-button--green">
+                                <button class="c-button c-button--xs c-button--b c-button--green">
                                     <span>Voir les sessions de <?php echo $operateur->name; ?> </span>
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61 61" fill="none">
                                         <circle class="c-button__circle" cx="30.2121" cy="30.2121" r="30.2121"></circle>
@@ -108,6 +108,13 @@
                         </div>
                     <?php endforeach;
                 endif; ?>
+            </div>
+
+            <div class="f-operateurs-grid__cta-wrapper">
+                <?php while (have_rows('button')):
+                    the_row() ?>
+                    <?php dot_the_layout_part('button') ?>
+                <?php endwhile; ?>
             </div>
         </div>
     </div>

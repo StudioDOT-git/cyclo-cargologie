@@ -53,7 +53,30 @@ if ($post->post_type === 'formation'):
                 }
                 ?>
             </div>
-            <h3 class="f-card-formation__title heading6"><?= $post->post_title ?></h3>
+            <h3 class="f-card-formation__title heading6">
+                <?php
+                $metiers = get_the_terms($post->ID, 'metier');
+                if ($metiers && !is_wp_error($metiers)) {
+                    $metier_name = $metiers[0]->name;
+                    $prefix = 'Parcours ';
+
+                    switch ($metier_name) {
+                        case 'Livreur':
+                            $prefix .= 'Livraison';
+                            break;
+                        case 'Dispatch':
+                            $prefix .= 'Dispatch';
+                            break;
+                        case 'Manager':
+                            $prefix .= 'Management';
+                            break;
+                        default:
+                            $prefix = '';
+                    }
+                    echo $prefix;
+                }
+                ?>
+            </h3>
 
             <?php if ($date): ?>
                 <div class="f-card-formation__date">

@@ -112,6 +112,29 @@
             "mime_types": "",
             "allow_in_bindings": 0,
             "preview_size": "medium"
+        },
+        {
+            "key": "field_67ab1e14b2de5",
+            "label": "Bouton",
+            "name": "button",
+            "aria-label": "",
+            "type": "layout_part",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_65b7cebc92b44"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0,
+            "allow_in_bindings": 0
         }
     ],
     "location": [
@@ -142,5 +165,8 @@
     "dot_is_layout": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1738677389
+    "modified": 1739267622,
+    "acfe_categories": {
+        "formation": "Formation"
+    }
 }

@@ -1,3 +1,7 @@
+@use "../../../assets/scss/base/variables" as *;
+@use "../../../assets/scss/base/colors" as *;
+@use "../../../assets/scss/base/mixins" as *;
+
 .f-formation-calendar {
   padding: 5rem 0 7rem;
   position: relative;
@@ -17,8 +21,17 @@
 
   .f-formation-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 1rem 1.5rem;
     padding-top: 4.5rem;
+  }
+
+  @include media-up(md) {
+    .f-formation-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem 1.5rem;
+      padding-top: 4.5rem;
+    }
   }
 }

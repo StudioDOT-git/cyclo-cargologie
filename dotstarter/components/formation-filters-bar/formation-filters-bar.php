@@ -6,6 +6,16 @@ $current_villes = AjaxPost::explode($current_villes);
 $current_operateurs = $_GET['operateur'] ?? [];
 $current_operateurs = AjaxPost::explode($current_operateurs);
 
+$date_options = array(
+    'this-month' => 'Ce mois-ci',
+    'next-month' => 'Le mois prochain',
+    'next-3-months' => 'Dans les 3 prochains mois',
+    'next-6-months' => 'Dans les 6 prochains mois',
+    'this-year' => 'Cette année'
+);
+
+$current_date_filter = $_GET['date_filter'] ?? '';
+
 $taxonomies = array(
     array(
         'label' => 'Ville',
@@ -19,9 +29,20 @@ $taxonomies = array(
         'terms' => get_terms(['taxonomy' => 'operateur', 'hide_empty' => false]),
         'current' => $current_operateurs
     ),
+    array(
+        'label' => 'Date',
+        'slug' => 'date_filter',
+        'terms' => array_map(function ($key, $value) {
+            return (object) [
+                'slug' => $key,
+                'name' => $value,
+                'term_id' => $key
+            ];
+        }, array_keys($date_options), $date_options),
+        'current' => [$current_date_filter]
+    ),
 );
-
-$resetFiltersDisabled = empty($current_villes) && empty($current_operateurs) ? 'disabled' : '';
+$resetFiltersDisabled = empty($current_villes) && empty($current_operateurs) && empty($current_date_filter) ? 'disabled' : '';
 ?>
 <div id="formation-filters-bar" class="c-formation-filters-bar">
     <div class="l-container">

@@ -1,6 +1,5 @@
 <div class="f-formation-calendar l-layout">
     <div class="l-container">
-
         <div class="l-layout__headings <?php if (have_rows('sticker')): ?>l-layout__headings--with-deco<?php endif; ?>">
             <div class="l-layout__deco-container">
                 <?php if (have_rows('sticker')): ?>
@@ -16,6 +15,8 @@
                 </h2>
             </div>
         </div>
+    </div>
+    <div class="l-container l-container--md">
         <?php
         $posts_per_page = 4;
         $paged = $_GET['page'] ?? 1;
@@ -28,35 +29,30 @@
         $args['order'] = 'ASC';
         $args['meta_type'] = 'NUMERIC';
 
-        $posts = AjaxPost::renderPosts($args);
+        $posts = AjaxFormationPost::renderPosts($args);
         ?>
-        <div class="l-container l-container--md">
-            <div id="formation-archive" class="f-formation-calendar__archive"
-                data-posts-per-page="<?= $posts_per_page ?>">
-                <?php dot_the_layout_part('yellow-background') ?>
+        <div id="formation-archive" class="f-formation-calendar__archive" data-posts-per-page="<?= $posts_per_page ?>">
+            <?php dot_the_layout_part('yellow-background') ?>
 
-                <div class="l-container l-container--md"></div>
-                <?php
-                $component = acf_get_instance('\DOT\Core\Main\Components');
-                $component->the_component('formation-filters-bar');
-                ?>
-                <div class="f-formation-grid">
-                    <?= $posts['render'] ?>
-                    <?php if (!$posts['total_posts']): ?>
-                        <div class="c-filters_no-results">
-                            <div>Aucun article trouvé</div>
-                        </div>
-                    <?php endif; ?>
-                </div>
+            <div class="l-container l-container--md"></div>
+            <?php
+            $component = acf_get_instance('\DOT\Core\Main\Components');
+            $component->the_component('formation-filters-bar');
+            ?>
+            <div class="f-formation-grid">
+                <?= $posts['render'] ?>
+                <?php if (!$posts['total_posts']): ?>
+                    <div class="c-filters_no-results">
+                        <div>Aucun article trouvé</div>
+                    </div>
+                <?php endif; ?>
+            </div>
 
-                <div class="c-pagination" data-max-num-pages="<?= $posts['max_num_pages'] ?>"
-                    data-paged="<?= $paged ?>">
-                    <div class="c-pagination__prev" rel="prev">Précédent</div>
-                    <div class="c-pagination__pages"></div>
-                    <div class="c-pagination__next" rel="next">Suivant</div>
-                </div>
+            <div class="c-pagination" data-max-num-pages="<?= $posts['max_num_pages'] ?>" data-paged="<?= $paged ?>">
+                <div class="c-pagination__prev" rel="prev">Précédent</div>
+                <div class="c-pagination__pages"></div>
+                <div class="c-pagination__next" rel="next">Suivant</div>
             </div>
         </div>
     </div>
-</div>
 </div>

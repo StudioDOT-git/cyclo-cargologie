@@ -49,7 +49,19 @@ if (!class_exists('DOT_Taxonomies')) {
                 'publicly_queryable' => false,
                 'public' => false,
                 'rewrite' => false,
+                'meta_box_cb' => 'radio_tax_metabox' // This makes it radio buttons instead of checkboxes
             ));
+
+            // Add this function to create radio buttons
+            function radio_tax_metabox($post, $box)
+            {
+                $terms = get_terms(['taxonomy' => 'metier', 'hide_empty' => false]);
+                $current = wp_get_post_terms($post->ID, 'metier', ['fields' => 'ids']);
+                $name = 'tax_input[metier][]';
+                foreach ($terms as $term) {
+                    echo '<label><input type="radio" name="' . $name . '" value="' . $term->term_id . '" ' . checked(in_array($term->term_id, $current), true, false) . '>' . $term->name . '</label><br>';
+                }
+            }
 
             // Opérateurs Taxonomy
             $operateur_labels = array(
@@ -61,6 +73,22 @@ if (!class_exists('DOT_Taxonomies')) {
                 'menu_name' => 'Opérateurs'
             );
 
+            function radio_tax_operateur_metabox($post, $box)
+            {
+                $terms = get_terms(['taxonomy' => 'operateur', 'hide_empty' => false]);
+                $current = wp_get_post_terms($post->ID, 'operateur', ['fields' => 'ids']);
+                $name = 'tax_input[operateur][]';
+
+                // Add link to manage terms
+                echo '<p><a href="' . admin_url('edit-tags.php?taxonomy=operateur') . '" target="_blank">Gérer les opérateurs</a></p>';
+
+                foreach ($terms as $term) {
+                    echo '<label><input type="radio" name="' . $name . '" value="' . $term->term_id . '" ' . checked(in_array($term->term_id, $current), true, false) . '>' . $term->name . '</label><br>';
+                }
+            }
+
+
+            // Update the taxonomy registration to use the radio buttons
             register_taxonomy('operateur', array('formation'), array(
                 'hierarchical' => true,
                 'labels' => $operateur_labels,
@@ -71,6 +99,7 @@ if (!class_exists('DOT_Taxonomies')) {
                 'publicly_queryable' => false,
                 'public' => false,
                 'rewrite' => false,
+                'meta_box_cb' => 'radio_tax_operateur_metabox'
             ));
 
             // Ville Taxonomy
