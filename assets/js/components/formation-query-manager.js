@@ -102,12 +102,15 @@ export default class FormationQueryManager {
       const taxonomy = multiFilter.getTaxonomy()
       const selectedTerms = multiFilter.getSelected()
 
+      console.log('Taxonomy:', taxonomy, 'Selected terms:', selectedTerms)
+
       if (selectedTerms.length > 0) {
         queryUrl.searchParams.append(taxonomy, selectedTerms.join(','))
         this.$resetFiltersButton?.removeAttribute('disabled')
       }
     })
 
+    console.log('Final query URL:', queryUrl.toString())
     this.query = queryUrl
   }
 
@@ -223,6 +226,9 @@ export default class FormationQueryManager {
     if (this.query.searchParams.has('operateur')) {
       params.append('operateur', this.query.searchParams.get('operateur'))
     }
+    if (this.query.searchParams.has('date_filter')) {
+      params.append('date_filter', this.query.searchParams.get('date_filter'))
+    }
     if (this.paged > 1) {
       params.append('page', this.paged)
     }
@@ -234,6 +240,7 @@ export default class FormationQueryManager {
 
     history.pushState({ page: this.paged }, null, url)
   }
+
   nextPage () {
     if (this.paged + 1 <= this.maxNumPages) {
       this.paged = this.paged + 1

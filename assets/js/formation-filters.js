@@ -12,13 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const filters = document.querySelectorAll('.c-multi-terms-selector')
   filters.forEach($filter => {
     const taxonomy = $filter.dataset.taxonomy
-    // Only process ville and operateur taxonomies
-    if (['ville', 'operateur'].includes(taxonomy)) {
+    // Process all taxonomies including date_filter
+    if (['ville', 'operateur', 'date_filter'].includes(taxonomy)) {
       const multiFilter = new MultiFilter($filter, queryManager)
       queryManager.addFilter(multiFilter)
     }
   })
-
   // Reset filters button
   const resetButton = document.querySelector('.reset-filters')
   if (resetButton) {

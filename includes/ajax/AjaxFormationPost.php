@@ -29,6 +29,38 @@ class AjaxFormationPost
             'order' => 'ASC',
             'meta_type' => 'NUMERIC'
         );
+
+        // Add this debug line
+        error_log('Date filter value: ' . print_r($request_args['date_filter'], true));
+
+        if (isset($request_args['date_filter'])) {
+            $date_filter = $request_args['date_filter'];
+            $today = new DateTime();
+
+            switch ($date_filter) {
+                case 'this-month':
+                    $start_date = $today->format('Ymd');
+                    $end_date = (clone $today)->modify('last day of this month')->format('Ymd');
+                    break;
+                case 'next-month':
+                    $start_date = $today->modify('first day of next month')->format('Ymd');
+                    $end_date = (clone $today)->modify('last day of this month')->format('Ymd');
+                    break;
+            }
+
+            // Add this debug line
+            error_log('Date range: ' . $start_date . ' to ' . $end_date);
+
+            $args['meta_query'] = array(
+                array(
+                    'key' => 'date',
+                    'value' => array($start_date, $end_date),
+                    'type' => 'NUMERIC',
+                    'compare' => 'BETWEEN'
+                )
+            );
+        }
+
         if (isset($request_args['ville'])) {
             $args["tax_query"][] = [
                 "taxonomy" => "ville",
@@ -70,7 +102,6 @@ class AjaxFormationPost
             "query" => $query
         ];
     }
-
     static function setGetFormationPostsRoute()
     {
         register_rest_route('ajax-formation-posts/v1', '/posts', [
@@ -81,6 +112,7 @@ class AjaxFormationPost
                     "per_page" => $request->get_param('per_page'),
                     "ville" => $request->get_param('ville'),
                     "operateur" => $request->get_param('operateur'),
+                    "date_filter" => $request->get_param('date_filter'),
                     "s" => $request->get_param('s'),
                 ];
 

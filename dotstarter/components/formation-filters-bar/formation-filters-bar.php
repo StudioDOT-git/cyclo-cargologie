@@ -20,18 +20,32 @@ $taxonomies = array(
     array(
         'label' => 'Ville',
         'slug' => 'ville',
-        'terms' => get_terms(['taxonomy' => 'ville', 'hide_empty' => false]),
+        'terms' => get_terms(['taxonomy' => 'ville', 'hide_empty' => true]),
         'current' => $current_villes
     ),
     array(
         'label' => 'Opérateur',
         'slug' => 'operateur',
-        'terms' => get_terms(['taxonomy' => 'operateur', 'hide_empty' => false]),
+        'terms' => get_terms(['taxonomy' => 'operateur', 'hide_empty' => true]),
         'current' => $current_operateurs
-    )
+    ),
+    array(
+        'label' => 'Date',
+        'slug' => 'date_filter',
+        'terms' => array_map(function ($key, $value) {
+            return (object) [
+                'slug' => $key,
+                'name' => $value,
+                'term_id' => $key
+            ];
+        }, array_keys($date_options), $date_options),
+        'current' => [$current_date_filter]
+    ),
 );
+
 $resetFiltersDisabled = empty($current_villes) && empty($current_operateurs) && empty($current_date_filter) ? 'disabled' : '';
 ?>
+
 <div id="formation-filters-bar" class="c-formation-filters-bar">
     <div class="l-container">
         <div class="c-filters-bar">
