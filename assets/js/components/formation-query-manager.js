@@ -214,12 +214,26 @@ export default class FormationQueryManager {
 
   setCurrentUrl () {
     let url = location.origin + location.pathname
+
+    const params = new URLSearchParams()
+
+    if (this.query.searchParams.has('ville')) {
+      params.append('ville', this.query.searchParams.get('ville'))
+    }
+    if (this.query.searchParams.has('operateur')) {
+      params.append('operateur', this.query.searchParams.get('operateur'))
+    }
+    if (this.paged > 1) {
+      params.append('page', this.paged)
+    }
+
+    const queryString = params.toString()
     url = url.endsWith('/') ? url.slice(0, -1) : url
-    url += '/?' + new URLSearchParams(this.query.searchParams).toString()
-    url = url.replace(/\/page\/\d.*/, '')
+    url += queryString ? '/?' + queryString : ''
+    url += '#formation-archive'
+
     history.pushState({ page: this.paged }, null, url)
   }
-
   nextPage () {
     if (this.paged + 1 <= this.maxNumPages) {
       this.paged = this.paged + 1

@@ -20,14 +20,23 @@
         <?php
         $posts_per_page = 4;
         $paged = $_GET['page'] ?? 1;
-        $args = $_GET;
-        $args['post_type'] = 'formation';
-        $args['per_page'] = $posts_per_page;
-        $args['page'] = $paged;
-        $args['meta_key'] = 'date';
-        $args['orderby'] = 'meta_value_num';
-        $args['order'] = 'ASC';
-        $args['meta_type'] = 'NUMERIC';
+        $args = [
+            'post_type' => 'formation',
+            'per_page' => $posts_per_page,
+            'page' => $paged,
+            'meta_key' => 'date',
+            'orderby' => 'meta_value_num',
+            'order' => 'ASC',
+            'meta_type' => 'NUMERIC'
+        ];
+
+        // Handle URL parameters
+        if (!empty($_GET['ville'])) {
+            $args['ville'] = $_GET['ville'];
+        }
+        if (!empty($_GET['operateur'])) {
+            $args['operateur'] = $_GET['operateur'];
+        }
 
         $posts = AjaxFormationPost::renderPosts($args);
         ?>
