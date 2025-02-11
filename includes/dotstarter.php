@@ -59,7 +59,7 @@ if (!class_exists('DOT_Starter')) {
 
             add_action('admin_init', array($this, 'disable_comments'));
             add_action('rest_api_init', [AjaxPost::class, 'setGetPostsRoute']);
-
+            add_action('rest_api_init', [AjaxFormationPost::class, 'setGetFormationPostsRoute']);
 
             // Modifier le logo sur la page de connexion à l'administration
             add_action('login_enqueue_scripts', array($this, 'login_page_custom_logo'));

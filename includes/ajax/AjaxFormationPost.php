@@ -71,7 +71,7 @@ class AjaxFormationPost
         ];
     }
 
-    static function setGetPostsRoute()
+    static function setGetFormationPostsRoute()
     {
         register_rest_route('ajax-formation-posts/v1', '/posts', [
             'methods' => 'GET',

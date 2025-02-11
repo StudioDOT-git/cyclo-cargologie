@@ -3,7 +3,7 @@ import MultiFilter from './multi-filter'
 
 export default class FormationQueryManager {
   // Static properties
-  endpoint = '/wp-json/ajax-posts/v1/posts'
+  endpoint = '/wp-json/ajax-formation-posts/v1/posts'
   $query
   multiFilters
 
