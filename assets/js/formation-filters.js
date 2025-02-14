@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   filters.forEach($filter => {
     const taxonomy = $filter.dataset.taxonomy
     // Only process ville and operateur taxonomies
-    if (['ville', 'operateur'].includes(taxonomy)) {
+    if (['ville', 'operateur', 'date_filter'].includes(taxonomy)) {
       const multiFilter = new MultiFilter($filter, queryManager)
       queryManager.addFilter(multiFilter)
     }
@@ -39,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
     hideOnClickOutside(filtersBar, 'expand')
   }
 })
-
 class MultiFilter {
   constructor ($filter, queryManager) {
     this.isSingleSelect = $filter.dataset.singleSelect === 'true'

@@ -11,10 +11,13 @@ class AjaxFormationPost
         $exploded = explode(',', $string);
         return array_map('intval', $exploded);
     }
-
     static function renderPosts($request_args)
     {
-        $posts_per_page = 4;
+        // Add debug output at the start
+        echo '<div style="display:block" class="debug-info">';
+        echo 'Request args: ';
+        print_r($request_args);
+        echo '<br>';
 
         $args = array(
             "post_type" => 'formation',
@@ -30,36 +33,28 @@ class AjaxFormationPost
             'meta_type' => 'NUMERIC'
         );
 
-        // Add this debug line
-        error_log('Date filter value: ' . print_r($request_args['date_filter'], true));
-
-        if (isset($request_args['date_filter'])) {
-            $date_filter = $request_args['date_filter'];
-            $today = new DateTime();
-
-            switch ($date_filter) {
-                case 'this-month':
-                    $start_date = $today->format('Ymd');
-                    $end_date = (clone $today)->modify('last day of this month')->format('Ymd');
-                    break;
-                case 'next-month':
-                    $start_date = $today->modify('first day of next month')->format('Ymd');
-                    $end_date = (clone $today)->modify('last day of this month')->format('Ymd');
-                    break;
-            }
-
-            // Add this debug line
-            error_log('Date range: ' . $start_date . ' to ' . $end_date);
-
-            $args['meta_query'] = array(
-                array(
-                    'key' => 'date',
-                    'value' => array($start_date, $end_date),
-                    'type' => 'NUMERIC',
-                    'compare' => 'BETWEEN'
-                )
-            );
+        if (isset($request_args['metier']) && !empty($request_args['metier'])) {
+            $args["tax_query"][] = [
+                "taxonomy" => "metier",
+                "field" => "slug",
+                "terms" => explode(',', $request_args['metier']),
+                "operator" => "IN"
+            ];
         }
+
+        if (isset($request_args['operateur']) && !empty($request_args['operateur'])) {
+            $args["tax_query"][] = [
+                "taxonomy" => "operateur",
+                "field" => "id",
+                "terms" => self::explode($request_args['operateur']),
+                "operator" => "IN"
+            ];
+            // Add debug output for tax query
+            echo 'Operateur tax query: ';
+            print_r($args["tax_query"]);
+        }
+
+        echo '</div>';
 
         if (isset($request_args['ville'])) {
             $args["tax_query"][] = [
@@ -70,20 +65,18 @@ class AjaxFormationPost
             ];
         }
 
-        if (isset($request_args['operateur'])) {
-            $args["tax_query"][] = [
-                "taxonomy" => "operateur",
-                "field" => "id",
-                "terms" => self::explode($request_args['operateur']),
-                "operator" => "IN"
-            ];
-        }
-
-        if (isset($request_args['s'])) {
-            $args["s"] = $request_args['s'];
-        }
-
         $query = new WP_Query($args);
+
+        echo '<div style="display:block" class="debug-info">';
+        echo 'Found posts: ' . $query->found_posts . '<br>';
+        echo 'Post IDs: ';
+        while ($query->have_posts()) {
+            $query->the_post();
+            echo get_the_ID() . ', ';
+        }
+        echo '</div>';
+
+        wp_reset_postdata();
 
         ob_start();
 
@@ -113,6 +106,7 @@ class AjaxFormationPost
                     "ville" => $request->get_param('ville'),
                     "operateur" => $request->get_param('operateur'),
                     "date_filter" => $request->get_param('date_filter'),
+                    "metier" => $request->get_param('metier'), // Add metier parameter
                     "s" => $request->get_param('s'),
                 ];
 

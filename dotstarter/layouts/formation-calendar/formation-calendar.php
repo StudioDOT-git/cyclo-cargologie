@@ -49,17 +49,16 @@
                 $is_all = in_array('all', $selected_metier);
                 ?>
                 <div
-                    class="f-formation-calendar__job <?php echo ($is_all || in_array('livraison', $selected_metier)) ? 'is-active' : ''; ?>">
+                    class="f-formation-calendar__job <?php echo ($is_all || in_array('livreur', $selected_metier)) ? 'is-active' : ''; ?>">
                     Parcours Livraison</div>
                 <div
                     class="f-formation-calendar__job <?php echo ($is_all || in_array('dispatch', $selected_metier)) ? 'is-active' : ''; ?>">
                     Parcours Dispatch</div>
                 <div
-                    class="f-formation-calendar__job <?php echo ($is_all || in_array('management', $selected_metier)) ? 'is-active' : ''; ?>">
+                    class="f-formation-calendar__job <?php echo ($is_all || in_array('manager', $selected_metier)) ? 'is-active' : ''; ?>">
                     Parcours Management</div>
             </div>
         </div>
-
         <div id="formation-archive" class="f-formation-calendar__archive" data-posts-per-page="<?= $posts_per_page ?>">
 
             <?php dot_the_layout_part('yellow-background') ?>

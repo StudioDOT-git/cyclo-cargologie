@@ -1,13 +1,13 @@
 import { bindAll } from '../helpers.js'
 import MultiFilter from './multi-filter'
+import JobFilter from './job-filter'
 
 export default class FormationQueryManager {
-  // Static properties
   endpoint = '/wp-json/ajax-formation-posts/v1/posts'
   $query
   multiFilters
+  jobFilter = null
 
-  // Elements
   $wrapper
   $postsContainer
   $loader
@@ -16,30 +16,24 @@ export default class FormationQueryManager {
   $filtersCloseButton
   $filtersContainer
 
-  // Pagination elements
   $prevPageButton
   $nextPageButton
   $pagesButtonsContainer
   $pageButtons
 
-  // Query vars
   postType = 'formation'
   postsPerPage
   paged = 1
   maxNumPages
 
-  // State
   allPostsLoaded = false
   isLoading = false
   posts = []
+
   constructor (selector, templateSelector) {
     this.$wrapper = document.querySelector(selector)
+    if (!this.$wrapper) return
 
-    if (!this.$wrapper) {
-      return
-    }
-
-    // Initialize all properties first
     this.$postsContainer = this.$wrapper.querySelector(templateSelector)
     this.postsPerPage = this.$wrapper.dataset.postsPerPage
 
@@ -57,29 +51,35 @@ export default class FormationQueryManager {
     const $multiFilters = document.querySelectorAll('.c-multi-filter')
     this.multiFilters = [...$multiFilters].map(($multiFilter) => new MultiFilter($multiFilter, this))
 
+    const jobFilterWrapper = document.querySelector('.f-formation-calendar__job-filter')
+    if (jobFilterWrapper) {
+      this.jobFilter = new JobFilter(jobFilterWrapper, this)
+    }
+
     this.$loader = document.querySelector('#loader')
     this.$resetFiltersButton = this.$wrapper.querySelector('.reset-filters')
     this.$filtersOpenButton = this.$wrapper.querySelector('.c-formation-filters-bar__filters-toggle-wrapper button')
     this.$filtersCloseButton = this.$wrapper.querySelector('.c-formation-filters-bar__filters-close')
     this.$filtersContainer = this.$wrapper.querySelector('.c-formation-filters-bar__filters')
 
-    // Then bind methods
-    bindAll(this, ['resetFilters', 'applyTaxonomyFilter', 'toggleFilters'])
-
-    // Finally add event listeners
     if (this.$resetFiltersButton) {
-      this.$resetFiltersButton.addEventListener('click', this.resetFilters)
+      this.$resetFiltersButton.addEventListener('click', this.resetFilters.bind(this))
     }
 
     if (this.$filtersOpenButton && this.$filtersCloseButton && this.$filtersContainer) {
-      this.$filtersOpenButton.addEventListener('click', this.toggleFilters)
-      this.$filtersCloseButton.addEventListener('click', this.toggleFilters)
+      this.$filtersOpenButton.addEventListener('click', this.toggleFilters.bind(this))
+      this.$filtersCloseButton.addEventListener('click', this.toggleFilters.bind(this))
     }
 
     this.$prevPageButton?.addEventListener('click', () => this.previousPage())
     this.$nextPageButton?.addEventListener('click', () => this.nextPage())
 
     this.buildPagination()
+  }
+
+  applyJobFilter () {
+    this.paged = 1
+    this.doQueryAndRender()
   }
 
   async doQueryAndRender () {
@@ -96,39 +96,33 @@ export default class FormationQueryManager {
     const baseUrl = ajaxConfig.baseUrl + this.endpoint
     const queryUrl = new URL(baseUrl)
 
-    // Formation specific parameters
     queryUrl.searchParams.append('meta_key', 'date')
     queryUrl.searchParams.append('orderby', 'meta_value_num')
     queryUrl.searchParams.append('order', 'ASC')
     queryUrl.searchParams.append('meta_type', 'NUMERIC')
-
-    // Standard parameters
     queryUrl.searchParams.append('per_page', this.postsPerPage)
     queryUrl.searchParams.append('post_type', this.postType)
     queryUrl.searchParams.append('page', this.paged)
 
-    // Handle filters
     this.multiFilters.forEach(multiFilter => {
       const taxonomy = multiFilter.getTaxonomy()
       const selectedTerms = multiFilter.getSelected()
-
-      console.log('Taxonomy:', taxonomy, 'Selected terms:', selectedTerms)
-
       if (selectedTerms.length > 0) {
         queryUrl.searchParams.append(taxonomy, selectedTerms.join(','))
         this.$resetFiltersButton?.removeAttribute('disabled')
       }
     })
 
+    if (this.jobFilter) {
+      const selectedJobs = this.jobFilter.getSelected()
+      console.log('Selected jobs for query:', selectedJobs)
+      if (selectedJobs.length > 0) {
+        queryUrl.searchParams.append('metier', selectedJobs.join(','))
+      }
+    }
+
     console.log('Final query URL:', queryUrl.toString())
     this.query = queryUrl
-  }
-
-  toggleFilters () {
-    console.log('Toggle filters called')
-    this.$filtersContainer.classList.toggle('show')
-    this.$filtersOpenButton.classList.toggle('hide')
-    this.$filtersCloseButton.classList.toggle('show')
   }
 
   async fetchPosts () {
@@ -141,13 +135,7 @@ export default class FormationQueryManager {
       this.maxNumPages = parseInt(maxNumPages)
 
       response = await response.json()
-
-      if (response.total_posts) {
-        this.posts = response.rendered_posts
-        return
-      }
-
-      this.posts = []
+      this.posts = response.total_posts ? response.rendered_posts : []
     } catch (error) {
       console.error('Error fetching posts:', error)
       this.posts = []
@@ -155,52 +143,30 @@ export default class FormationQueryManager {
   }
 
   renderPosts () {
-    if (this.posts.length === 0) {
-      this.$postsContainer.innerHTML = '<div class="c-filters__no-results">\n' +
-        '                <div>Aucun article trouvé</div>\n' +
-        '            </div>'
-      return
-    }
-
-    this.$postsContainer.innerHTML = this.posts
-  }
-
-  resetFilters () {
-    this.$resetFiltersButton.setAttribute('disabled', true)
-    this.paged = 1
-
-    this.multiFilters?.forEach(filter => {
-      filter.resetSelection()
-    })
-
-    this.doQueryAndRender()
+    this.$postsContainer.innerHTML = this.posts.length ? this.posts : '<div class="c-filters__no-results"><div>Aucun article trouvé</div></div>'
   }
 
   buildPagination () {
+    if (!this.paginationContainer) return
+
     if (this.maxNumPages === 0) {
       this.paginationContainer.classList.add('hide')
       return
-    } else {
-      this.paginationContainer.classList.remove('hide')
     }
 
+    this.paginationContainer.classList.remove('hide')
+    this.$prevPageButton.classList.toggle('hide', this.paged <= 1)
+    this.$nextPageButton.classList.toggle('hide', this.paged >= this.maxNumPages)
+
     const paginationButtons = []
-
-    this.$prevPageButton.classList.remove('hide')
-    this.$nextPageButton.classList.remove('hide')
-
-    if (this.paged - 1 >= 1) {
+    if (this.paged > 1) {
       paginationButtons.push(`<div class="c-pagination__page c-button--b c-button c-button--sm c-button--sand" data-page-number="${this.paged - 1}">${this.paged - 1}</div>`)
-    } else {
-      this.$prevPageButton.classList.add('hide')
     }
 
     paginationButtons.push(`<div class="c-pagination__page c-button--b c-button c-button--sm c-button--sand active" data-page-number="${this.paged}">${this.paged}</div>`)
 
-    if (this.paged + 1 <= this.maxNumPages) {
+    if (this.paged < this.maxNumPages) {
       paginationButtons.push(`<div class="c-pagination__page c-button--b c-button c-button--sm c-button--sand" data-page-number="${this.paged + 1}">${this.paged + 1}</div>`)
-    } else {
-      this.$nextPageButton.classList.add('hide')
     }
 
     this.$pagesButtonsContainer.innerHTML = paginationButtons.join('')
@@ -227,16 +193,21 @@ export default class FormationQueryManager {
     document.documentElement.classList.remove('no-scroll')
     this.$loader?.classList.remove('show')
     this.isLoading = false
-
-    const viewport = document.querySelector('.c-filters-bar')
-    viewport?.scrollIntoView()
+    this.$wrapper.querySelector('.c-filters-bar')?.scrollIntoView()
   }
 
   setCurrentUrl () {
-    let url = location.origin + location.pathname
-
     const params = new URLSearchParams()
 
+    // Get all filter parameters
+    if (this.jobFilter) {
+      const selectedJobs = this.jobFilter.getSelected()
+      if (selectedJobs.length > 0) {
+        params.append('metier', selectedJobs.join(','))
+      }
+    }
+
+    // Add other existing parameters
     if (this.query.searchParams.has('ville')) {
       params.append('ville', this.query.searchParams.get('ville'))
     }
@@ -250,26 +221,19 @@ export default class FormationQueryManager {
       params.append('page', this.paged)
     }
 
-    const queryString = params.toString()
+    let url = location.origin + location.pathname
     url = url.endsWith('/') ? url.slice(0, -1) : url
-    url += queryString ? '/?' + queryString : ''
+    url += params.toString() ? '/?' + params.toString() : ''
     url += '#formation-archive'
 
     history.pushState({ page: this.paged }, null, url)
   }
 
-  nextPage () {
-    if (this.paged + 1 <= this.maxNumPages) {
-      this.paged = this.paged + 1
-      this.doQueryAndRender()
-    }
-  }
-
-  previousPage () {
-    if (this.paged - 1 >= 1) {
-      this.paged = this.paged - 1
-      this.doQueryAndRender()
-    }
+  resetFilters () {
+    this.$resetFiltersButton.setAttribute('disabled', true)
+    this.paged = 1
+    this.multiFilters?.forEach(filter => filter.resetSelection())
+    this.doQueryAndRender()
   }
 
   applyTaxonomyFilter () {
@@ -278,14 +242,22 @@ export default class FormationQueryManager {
   }
 
   toggleFilters () {
-    const $filtersContainer = this.$wrapper.querySelector('.c-formation-filters-bar__filters')
-    const $filtersOpenButton = this.$wrapper.querySelector('.c-formation-filters-bar__filters-open')
-    const $filtersCloseButton = this.$wrapper.querySelector('.c-formation-filters-bar__filters-close')
+    this.$filtersContainer?.classList.toggle('show')
+    this.$filtersOpenButton?.classList.toggle('hide')
+    this.$filtersCloseButton?.classList.toggle('show')
+  }
 
-    if ($filtersContainer && $filtersOpenButton && $filtersCloseButton) {
-      $filtersContainer.classList.toggle('show')
-      $filtersOpenButton.classList.toggle('hide')
-      $filtersCloseButton.classList.toggle('show')
+  previousPage () {
+    if (this.paged > 1) {
+      this.paged--
+      this.doQueryAndRender()
+    }
+  }
+
+  nextPage () {
+    if (this.paged < this.maxNumPages) {
+      this.paged++
+      this.doQueryAndRender()
     }
   }
 }
