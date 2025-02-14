@@ -5,6 +5,8 @@
 .f-formation-calendar {
   padding: 5rem 0 7rem;
   position: relative;
+  min-height: 80vh;
+  display: block;
 
   .c-yellow-background {
     position: absolute;
@@ -26,7 +28,89 @@
     padding-top: 4.5rem;
   }
 
+  .c-pagination {
+    position: relative;
+    z-index: 2;
+  }
+
+
+  &__job-filter {
+    position: relative;
+    z-index: 2;
+    display: block;
+    margin-bottom: 4.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 3rem;
+  }
+
+  &__job-filter-title {
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    letter-spacing: -0.2px;
+  }
+
+  &__job-filter-list {
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  &__job {
+    &:before {
+      content: "";
+      display: block;
+      width: 2.4rem;
+      height: 2.4rem;
+      background-color: $yellow;
+      border-radius: .5rem;
+    }
+
+    display: flex;
+    gap: 2.9rem;
+    font-size: 1.9rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.38px;
+    background: $black;
+    color: $white;
+    padding: 2rem;
+    border-radius: .3rem;
+    min-width: 27rem;
+    cursor: pointer;
+
+    &.is-active {
+      &:before {
+        background-image: url("/wp-content/themes/cyclo-cargologie/assets/icons/check.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 70% 70%;
+      }
+    }
+  }
+
   @include media-up(md) {
+    &__job-filter {
+      flex-direction: row;
+      gap: 0 5rem;
+    }
+
+    &__job-filter-list {
+      grid-template-columns: 1fr 1fr 1fr;
+      margin-top: 0;
+    }
+
+    &__job {
+      padding: 3rem 3rem 3rem 1.7rem;
+
+    }
+
     .f-formation-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;

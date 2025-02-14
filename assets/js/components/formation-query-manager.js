@@ -12,6 +12,9 @@ export default class FormationQueryManager {
   $postsContainer
   $loader
   $resetFiltersButton
+  $filtersOpenButton
+  $filtersCloseButton
+  $filtersContainer
 
   // Pagination elements
   $prevPageButton
@@ -29,20 +32,17 @@ export default class FormationQueryManager {
   allPostsLoaded = false
   isLoading = false
   posts = []
-
   constructor (selector, templateSelector) {
-    // Only bind methods that we've implemented
-    bindAll(this, ['resetFilters', 'applyTaxonomyFilter', 'toggleFilters'])
     this.$wrapper = document.querySelector(selector)
 
     if (!this.$wrapper) {
       return
     }
 
+    // Initialize all properties first
     this.$postsContainer = this.$wrapper.querySelector(templateSelector)
     this.postsPerPage = this.$wrapper.dataset.postsPerPage
 
-    // Initialize pagination elements
     this.$prevPageButton = this.$wrapper.querySelector('.c-pagination__prev')
     this.$nextPageButton = this.$wrapper.querySelector('.c-pagination__next')
     this.$pagesButtonsContainer = this.$wrapper.querySelector('.c-pagination__pages')
@@ -54,16 +54,26 @@ export default class FormationQueryManager {
       this.paged = parseInt(paginationContainer.dataset.paged)
     }
 
-    // Initialize filters
     const $multiFilters = document.querySelectorAll('.c-multi-filter')
     this.multiFilters = [...$multiFilters].map(($multiFilter) => new MultiFilter($multiFilter, this))
 
     this.$loader = document.querySelector('#loader')
     this.$resetFiltersButton = this.$wrapper.querySelector('.reset-filters')
+    this.$filtersOpenButton = this.$wrapper.querySelector('.c-formation-filters-bar__filters-toggle-wrapper button')
+    this.$filtersCloseButton = this.$wrapper.querySelector('.c-formation-filters-bar__filters-close')
+    this.$filtersContainer = this.$wrapper.querySelector('.c-formation-filters-bar__filters')
 
-    // Add event listeners
+    // Then bind methods
+    bindAll(this, ['resetFilters', 'applyTaxonomyFilter', 'toggleFilters'])
+
+    // Finally add event listeners
     if (this.$resetFiltersButton) {
       this.$resetFiltersButton.addEventListener('click', this.resetFilters)
+    }
+
+    if (this.$filtersOpenButton && this.$filtersCloseButton && this.$filtersContainer) {
+      this.$filtersOpenButton.addEventListener('click', this.toggleFilters)
+      this.$filtersCloseButton.addEventListener('click', this.toggleFilters)
     }
 
     this.$prevPageButton?.addEventListener('click', () => this.previousPage())
@@ -112,6 +122,13 @@ export default class FormationQueryManager {
 
     console.log('Final query URL:', queryUrl.toString())
     this.query = queryUrl
+  }
+
+  toggleFilters () {
+    console.log('Toggle filters called')
+    this.$filtersContainer.classList.toggle('show')
+    this.$filtersOpenButton.classList.toggle('hide')
+    this.$filtersCloseButton.classList.toggle('show')
   }
 
   async fetchPosts () {
@@ -261,9 +278,9 @@ export default class FormationQueryManager {
   }
 
   toggleFilters () {
-    const $filtersContainer = this.$wrapper.querySelector('.c-filters-bar__filters')
-    const $filtersOpenButton = this.$wrapper.querySelector('.c-filters-bar__filters-open')
-    const $filtersCloseButton = this.$wrapper.querySelector('.c-filters-bar__filters-close')
+    const $filtersContainer = this.$wrapper.querySelector('.c-formation-filters-bar__filters')
+    const $filtersOpenButton = this.$wrapper.querySelector('.c-formation-filters-bar__filters-open')
+    const $filtersCloseButton = this.$wrapper.querySelector('.c-formation-filters-bar__filters-close')
 
     if ($filtersContainer && $filtersOpenButton && $filtersCloseButton) {
       $filtersContainer.classList.toggle('show')

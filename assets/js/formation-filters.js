@@ -12,12 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const filters = document.querySelectorAll('.c-multi-terms-selector')
   filters.forEach($filter => {
     const taxonomy = $filter.dataset.taxonomy
-    // Process all taxonomies including date_filter
-    if (['ville', 'operateur', 'date_filter'].includes(taxonomy)) {
+    // Only process ville and operateur taxonomies
+    if (['ville', 'operateur'].includes(taxonomy)) {
       const multiFilter = new MultiFilter($filter, queryManager)
       queryManager.addFilter(multiFilter)
     }
   })
+
   // Reset filters button
   const resetButton = document.querySelector('.reset-filters')
   if (resetButton) {
@@ -38,3 +39,22 @@ document.addEventListener('DOMContentLoaded', () => {
     hideOnClickOutside(filtersBar, 'expand')
   }
 })
+
+class MultiFilter {
+  constructor ($filter, queryManager) {
+    this.isSingleSelect = $filter.dataset.singleSelect === 'true'
+
+    // In the click handler for options:
+    if (this.isSingleSelect) {
+      // Deselect all other options first
+      this.$options.forEach($opt => {
+        $opt.dataset.selected = 'false'
+      })
+      // Select only the clicked option
+      $option.dataset.selected = 'true'
+    } else {
+      // Original multi-select behavior
+      $option.dataset.selected = $option.dataset.selected === 'true' ? 'false' : 'true'
+    }
+  }
+}

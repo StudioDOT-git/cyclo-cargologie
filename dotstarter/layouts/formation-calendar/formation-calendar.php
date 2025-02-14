@@ -16,9 +16,10 @@
             </div>
         </div>
     </div>
+
     <div class="l-container l-container--md">
         <?php
-        $posts_per_page = 4;
+        $posts_per_page = 10;
         $paged = $_GET['page'] ?? 1;
         $args = [
             'post_type' => 'formation',
@@ -40,7 +41,27 @@
 
         $posts = AjaxFormationPost::renderPosts($args);
         ?>
+        <div class="f-formation-calendar__job-filter">
+            <span class="f-formation-calendar__job-filter-title">Choisir un métier</span>
+            <div class="f-formation-calendar__job-filter-list">
+                <?php
+                $selected_metier = get_sub_field('preselection_metier');
+                $is_all = in_array('all', $selected_metier);
+                ?>
+                <div
+                    class="f-formation-calendar__job <?php echo ($is_all || in_array('livraison', $selected_metier)) ? 'is-active' : ''; ?>">
+                    Parcours Livraison</div>
+                <div
+                    class="f-formation-calendar__job <?php echo ($is_all || in_array('dispatch', $selected_metier)) ? 'is-active' : ''; ?>">
+                    Parcours Dispatch</div>
+                <div
+                    class="f-formation-calendar__job <?php echo ($is_all || in_array('management', $selected_metier)) ? 'is-active' : ''; ?>">
+                    Parcours Management</div>
+            </div>
+        </div>
+
         <div id="formation-archive" class="f-formation-calendar__archive" data-posts-per-page="<?= $posts_per_page ?>">
+
             <?php dot_the_layout_part('yellow-background') ?>
 
             <div class="l-container l-container--md"></div>

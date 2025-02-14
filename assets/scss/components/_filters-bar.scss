@@ -26,6 +26,7 @@
       width: 2.4rem;
       height: 2.4rem;
     }
+
     button {
       background: none;
       border: none;
@@ -43,17 +44,19 @@
   &__title {
     font-family: $font-headings;
     font-size: 2rem;
-    line-height: 120%; /* 24px */
+    line-height: 120%;
+    /* 24px */
     font-weight: 500;
     letter-spacing: -0.01em;
     margin: 0 0 .3rem;
   }
 
-  &__header{
+  &__header {
     display: grid;
     grid-template-columns: auto auto;
     justify-content: space-between;
     padding: 1rem 0 1.2rem;
+
     &-right {
       align-self: self-end;
     }
@@ -61,18 +64,19 @@
 
 
   &__filters-taxonomies {
-    display:grid;
+    display: grid;
     gap: .9rem;
   }
 
   @include media-down(md) {
     &__header {
-      background:$yellow;
+      background: $yellow;
       padding: 1rem 1rem 1.2rem;
       margin: 0 -1rem;
     }
+
     &__filters {
-      background:$yellow;
+      background: $yellow;
       position: absolute;
       top: 100%;
       left: 1rem;
@@ -81,15 +85,18 @@
       margin: 0 -1rem;
       gap: 1.6rem;
       display: none;
+
       &.show {
         display: grid;
       }
     }
+
     &__filters-open {
       &.hide {
         transform: scale(0);
       }
     }
+
     &__filters-close {
       &.show {
         transform: translate(-50%, -50%) scale(1);
@@ -97,7 +104,9 @@
       }
     }
 
-    .c-multi-filter,.c-filters-bar-search-form,.c-button--filter {
+    .c-multi-filter,
+    .c-filters-bar-search-form,
+    .c-button--filter {
       width: 100%;
     }
 
@@ -108,6 +117,7 @@
     flex-direction: row;
     align-items: flex-end;
     justify-content: space-between;
+
     &__left {
       display: flex;
       align-items: flex-end;
@@ -119,19 +129,23 @@
     &__header {
       padding: 0;
     }
+
     &__filters-toggle-wrapper {
       display: none;
     }
+
     &__filters {
       display: flex;
       justify-content: space-between;
       flex: 1;
     }
+
     &__filters-taxonomies {
       display: flex;
     }
   }
 }
+
 .c-filters {
   &__no-results {
     display: flex;
@@ -155,5 +169,3 @@
   }
 
 }
-
-
