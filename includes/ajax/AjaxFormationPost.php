@@ -44,8 +44,18 @@ class AjaxFormationPost
 
         error_log('Final query args: ' . print_r($args, true));
 
-        // Rest of the existing code...
 
+        // Add this before the existing date filter logic
+        $args['meta_query'] = array(
+            array(
+                'key' => 'date',
+                'value' => date('Ymd'), // Today's date in Ymd format
+                'type' => 'NUMERIC',
+                'compare' => '>='
+            )
+        );
+
+        // Then when handling date filters, merge with existing conditions
         if (isset($request_args['date_filter'])) {
             $date_filter = $request_args['date_filter'];
             $today = new DateTime();
@@ -76,14 +86,15 @@ class AjaxFormationPost
             // Add this debug line
             error_log('Date range: ' . $start_date . ' to ' . $end_date);
 
-            $args['meta_query'] = array(
-                array(
-                    'key' => 'date',
-                    'value' => array($start_date, $end_date),
-                    'type' => 'NUMERIC',
-                    'compare' => 'BETWEEN'
-                )
+            $args['meta_query'][] = array(
+                'key' => 'date',
+                'value' => array($start_date, $end_date),
+                'type' => 'NUMERIC',
+                'compare' => 'BETWEEN'
             );
+
+            // Set the relation between the conditions
+            $args['meta_query']['relation'] = 'AND';
         }
 
         if (isset($request_args['ville'])) {
