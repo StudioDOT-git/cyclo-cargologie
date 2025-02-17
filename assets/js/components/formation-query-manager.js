@@ -121,14 +121,8 @@ export default class FormationQueryManager {
     })
 
     console.log('Final query URL:', queryUrl.toString())
-    this.query = queryUrl
-  }
 
-  toggleFilters () {
-    console.log('Toggle filters called')
-    this.$filtersContainer.classList.toggle('show')
-    this.$filtersOpenButton.classList.toggle('hide')
-    this.$filtersCloseButton.classList.toggle('show')
+    this.query = queryUrl
   }
 
   async fetchPosts () {
@@ -234,9 +228,11 @@ export default class FormationQueryManager {
 
   setCurrentUrl () {
     let url = location.origin + location.pathname
-
     const params = new URLSearchParams()
 
+    if (this.query.searchParams.has('metier')) {
+      params.append('metier', this.query.searchParams.get('metier'))
+    }
     if (this.query.searchParams.has('ville')) {
       params.append('ville', this.query.searchParams.get('ville'))
     }

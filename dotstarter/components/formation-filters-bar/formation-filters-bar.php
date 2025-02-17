@@ -1,5 +1,8 @@
 <?php
 error_log('Debug formation-filters-bar: Starting');
+$current_metiers = $_GET['metier'] ?? [];
+$current_metiers = AjaxPost::explode($current_metiers);
+
 $current_villes = $_GET['ville'] ?? [];
 $current_villes = AjaxPost::explode($current_villes);
 
@@ -17,6 +20,12 @@ $date_options = array(
 $current_date_filter = $_GET['date_filter'] ?? '';
 
 $taxonomies = array(
+    array(
+        'label' => 'Métier',
+        'slug' => 'metier',
+        'terms' => get_terms(['taxonomy' => 'metier', 'hide_empty' => true]),
+        'current' => $current_metiers
+    ),
     array(
         'label' => 'Ville',
         'slug' => 'ville',
@@ -43,9 +52,8 @@ $taxonomies = array(
     ),
 );
 
-$resetFiltersDisabled = empty($current_villes) && empty($current_operateurs) && empty($current_date_filter) ? 'disabled' : '';
+$resetFiltersDisabled = empty($current_villes) && empty($current_operateurs) && empty($current_date_filter) && empty($current_metiers) ? 'disabled' : '';
 ?>
-
 <div id="formation-filters-bar" class="c-formation-filters-bar">
     <div class="l-container">
         <div class="c-filters-bar">

@@ -11,9 +11,11 @@ class AjaxFormationPost
         $exploded = explode(',', $string);
         return array_map('intval', $exploded);
     }
-
     static function renderPosts($request_args)
     {
+        error_log('Debug AjaxFormationPost: Starting renderPosts');
+        error_log('Request args: ' . print_r($request_args, true));
+
         $posts_per_page = 4;
 
         $args = array(
@@ -30,8 +32,19 @@ class AjaxFormationPost
             'meta_type' => 'NUMERIC'
         );
 
-        // Add this debug line
-        error_log('Date filter value: ' . print_r($request_args['date_filter'], true));
+        if (isset($request_args['metier'])) {
+            error_log('Metier filter applied: ' . $request_args['metier']);
+            $args["tax_query"][] = [
+                "taxonomy" => "metier",
+                "field" => "id",
+                "terms" => self::explode($request_args['metier']),
+                "operator" => "IN"
+            ];
+        }
+
+        error_log('Final query args: ' . print_r($args, true));
+
+        // Rest of the existing code...
 
         if (isset($request_args['date_filter'])) {
             $date_filter = $request_args['date_filter'];
@@ -113,6 +126,7 @@ class AjaxFormationPost
                     "ville" => $request->get_param('ville'),
                     "operateur" => $request->get_param('operateur'),
                     "date_filter" => $request->get_param('date_filter'),
+                    "metier" => $request->get_param('metier'),
                     "s" => $request->get_param('s'),
                 ];
 
@@ -127,7 +141,16 @@ class AjaxFormationPost
                 );
 
                 return new WP_REST_Response(
-                    ['rendered_posts' => $rendered_posts, 'max_num_pages' => $max_num_page, 'total_posts' => $total_posts],
+                    [
+                        'rendered_posts' => $rendered_posts,
+                        'max_num_pages' => $max_num_page,
+                        'total_posts' => $total_posts,
+                        'debug' => [
+                            'request_args' => $args,
+                            'query_args' => $query['query']->query,
+                            'tax_query' => $query['query']->tax_query
+                        ]
+                    ],
                     200,
                     $headers
                 );
