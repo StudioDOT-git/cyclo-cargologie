@@ -56,11 +56,23 @@ class AjaxFormationPost
                     $end_date = (clone $today)->modify('last day of this month')->format('Ymd');
                     break;
                 case 'next-month':
-                    $start_date = $today->modify('first day of next month')->format('Ymd');
-                    $end_date = (clone $today)->modify('last day of this month')->format('Ymd');
+                    $next_month = (clone $today)->modify('first day of next month');
+                    $start_date = $next_month->format('Ymd');
+                    $end_date = (clone $next_month)->modify('last day of this month')->format('Ymd');
+                    break;
+                case 'next-3-months':
+                    $start_date = $today->format('Ymd');
+                    $end_date = (clone $today)->modify('+3 months')->format('Ymd');
+                    break;
+                case 'next-6-months':
+                    $start_date = $today->format('Ymd');
+                    $end_date = (clone $today)->modify('+6 months')->format('Ymd');
+                    break;
+                case 'this-year':
+                    $start_date = $today->format('Ymd');
+                    $end_date = (clone $today)->modify('last day of December')->format('Ymd');
                     break;
             }
-
             // Add this debug line
             error_log('Date range: ' . $start_date . ' to ' . $end_date);
 
