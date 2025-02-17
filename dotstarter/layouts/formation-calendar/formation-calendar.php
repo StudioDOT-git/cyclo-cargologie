@@ -41,7 +41,7 @@
 
         $posts = AjaxFormationPost::renderPosts($args);
         ?>
-        <div class="f-formation-calendar__job-filter">
+        <!-- <div class="f-formation-calendar__job-filter">
             <span class="f-formation-calendar__job-filter-title">Choisir un métier</span>
             <div class="f-formation-calendar__job-filter-list">
                 <?php
@@ -58,7 +58,7 @@
                     class="f-formation-calendar__job <?php echo ($is_all || in_array('management', $selected_metier)) ? 'is-active' : ''; ?>">
                     Parcours Management</div>
             </div>
-        </div>
+        </div> -->
 
         <div id="formation-archive" class="f-formation-calendar__archive" data-posts-per-page="<?= $posts_per_page ?>">
 
