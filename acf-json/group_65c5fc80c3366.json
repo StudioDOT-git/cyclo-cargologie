@@ -54,6 +54,7 @@
                 "evenement": "Évènement",
                 "exclamation": "Exclacamtion",
                 "fleche": "Flêche",
+                "formateur": "Formateur",
                 "formation": "Formation",
                 "gps": "GPS",
                 "homme-ordi": "Homme Ordi",
@@ -85,6 +86,7 @@
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
+            "allow_in_bindings": 1,
             "ui": 0,
             "ajax": 0,
             "placeholder": "",
@@ -124,5 +126,5 @@
     "dot_is_lpart": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1724674639
+    "modified": 1739267245
 }

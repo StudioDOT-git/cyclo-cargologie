@@ -14,10 +14,12 @@ export default class MultiFilter {
   taxonomy
   selected = []
 
-  constructor(element, queryManager) {
+  constructor ($el, queryManager) {
+    this.$el = $el
     this.queryManager = queryManager
-    this.$wrapper = element
-    this.taxonomy = element.dataset.taxonomy
+    this.isSingleSelect = this.$el.dataset.singleSelect === 'true'
+    this.$wrapper = $el
+    this.taxonomy = $el.dataset.taxonomy
     if (!this.taxonomy) {
       console.error('MultiFilter error : no data-taxonomy found on wrapper element')
       return
@@ -33,33 +35,47 @@ export default class MultiFilter {
     this.setListeners()
   }
 
-  setListeners() {
+  setListeners () {
     this.$toggle.addEventListener('click', this.toggleOptions.bind(this))
-    this.$options.forEach($option => $option.addEventListener('click', this.toggleOption.bind(this)))
+    this.$options.forEach($option => $option.addEventListener('click', this.handleOptionClick.bind(this)))
     hideOnClickOutside(this.$wrapper, false, 'expand')
   }
 
-  toggleOptions() {
+  toggleOptions () {
     this.$wrapper.classList.toggle('expand')
   }
 
-  toggleOption(e) {
-    e.currentTarget.dataset.selected = e.currentTarget.dataset.selected === 'true' ? 'false' : 'true'
-    this.$wrapper.classList.remove('expand')
+  handleOptionClick (e) {
+    const $option = e.currentTarget
 
+    if (this.isSingleSelect) {
+      // Deselect all other options first
+      this.$options.forEach($opt => {
+        if ($opt !== $option) {
+          $opt.dataset.selected = 'false'
+        }
+      })
+      // Toggle current option
+      $option.dataset.selected = $option.dataset.selected === 'true' ? 'false' : 'true'
+    } else {
+      // Your existing toggle logic for multi-select
+      $option.dataset.selected = $option.dataset.selected === 'true' ? 'false' : 'true'
+    }
+
+    this.$wrapper.classList.remove('expand')
     this.queryManager.applyTaxonomyFilter()
   }
 
-  getTaxonomy() {
+  getTaxonomy () {
     return this.taxonomy
   }
 
-  getSelected() {
+  getSelected () {
     const $selectedOptions = this.$wrapper.querySelectorAll('[data-selected=true]')
     return [...$selectedOptions].map($option => $option.dataset.termId)
   }
 
-  resetSelection() {
+  resetSelection () {
     this.$options.forEach($option => {
       $option.dataset.selected = 'false'
     })

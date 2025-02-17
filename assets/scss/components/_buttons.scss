@@ -65,7 +65,13 @@
   }
 
   &--xs {
-    //width: 23.8rem;
+    // width: 23.8rem;
+
+    font-size: 1.0775rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 136.646%;
+    letter-spacing: -0.108px;
 
     svg {
       width: 3.6rem;
@@ -83,7 +89,7 @@
 
     &.c-button--xs,
     &.c-button--s {
-      padding: 1.55rem 3.85rem;
+      padding: 1.5rem 1rem;
 
     }
   }

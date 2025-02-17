@@ -17,6 +17,8 @@ import GenericContentSlider from '../../dotstarter/layouts/generic-content/gener
 import { onResize } from './lib/utils.js'
 import searchModal from './components/search-modal.js'
 
+import FormationQueryManager from './components/formation-query-manager.js'
+
 /* eslint-disable */
 const Sliders = [
   TestimonialsSlider,
@@ -66,5 +68,9 @@ jQuery(function ($) {
   new QueryManager('.t-search', '.t-search__results', 'all', false);
   new QueryManager('.f-past-events', '.f-past-events__results', 'tribe_events', false);
 
+  new FormationQueryManager('.f-formation-calendar__archive', '.f-formation-grid');
+
+
 
 })
+
