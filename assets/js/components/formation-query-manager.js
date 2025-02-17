@@ -112,7 +112,7 @@ export default class FormationQueryManager {
       const taxonomy = multiFilter.getTaxonomy()
       const selectedTerms = multiFilter.getSelected()
 
-      console.log('Taxonomy:', taxonomy, 'Selected terms:', selectedTerms)
+      // console.log('Taxonomy:', taxonomy, 'Selected terms:', selectedTerms)
 
       if (selectedTerms.length > 0) {
         queryUrl.searchParams.append(taxonomy, selectedTerms.join(','))
@@ -120,7 +120,7 @@ export default class FormationQueryManager {
       }
     })
 
-    console.log('Final query URL:', queryUrl.toString())
+    // console.log('Final query URL:', queryUrl.toString())
 
     this.query = queryUrl
   }
