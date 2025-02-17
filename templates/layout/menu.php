@@ -104,7 +104,7 @@
                     <?php endwhile; ?>
                 <?php endwhile; ?>
             </div>
-            <a class="c-button--nav main-menu__cta-former">
+            <a href="/formations-et-metiers/" class="c-button--nav main-menu__cta-former">
                 <span>Se Former</span>
             </a>
             <button class="c-button--nav main-menu__cta-open">
