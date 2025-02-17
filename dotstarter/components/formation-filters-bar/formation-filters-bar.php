@@ -89,7 +89,7 @@ $resetFiltersDisabled = empty($current_villes) && empty($current_operateurs) && 
                 <div class="c-filters-bar__filters-taxonomies">
                     <?php foreach ($taxonomies as $tax): ?>
                         <div class="c-multi-filter c-multi-filter--white c-formation-filters-bar__select c-multi-terms-selector"
-                            data-taxonomy="<?= $tax['slug'] ?>">
+                            data-taxonomy="<?= $tax['slug'] ?>" <?= $tax['slug'] === 'date_filter' ? 'data-single-select="true"' : '' ?>>
                             <div class="c-multi-filter__toggle">
                                 <span class="c-multi-filter__toggle-label"><?= $tax['label'] ?></span>
                                 <div class="c-multi-filter__toggle-icon">
