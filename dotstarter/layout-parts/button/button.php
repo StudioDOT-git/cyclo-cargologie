@@ -20,8 +20,8 @@ $is_button = get_sub_field('fonctionnement')
     <?php if (is_array($link)): ?>
         <?php
         $url = $link['url'];
-
         $target = $link['target'] !== '' ? $link['target'] : false;
+        $is_pdf = pathinfo($url, PATHINFO_EXTENSION) === 'pdf';
 
         if (!$is_button) {
             if ($link['title'] !== '') {
@@ -30,9 +30,8 @@ $is_button = get_sub_field('fonctionnement')
                 $label = $url;
             }
         }
-
         ?>
-        <a <?= $target ? "target=\"$target\"" : '' ?> href="<?= $url ?? '#' ?>"
+        <a <?= $target ? "target=\"$target\"" : '' ?> href="<?= $url ?? '#' ?>" <?= $is_pdf ? 'download' : '' ?>
             class="c-button c-button--<?= $size ?> c-button--<?= $type ?>   c-button--<?= $color ?>">
             <span>
                 <?= $label ?>
