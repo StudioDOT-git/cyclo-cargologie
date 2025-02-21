@@ -102,11 +102,12 @@
 
   &__card-image {
     width: 100%;
-    height: auto;
-    aspect-ratio: 16/9;
+    height: 25rem;
+    aspect-ratio: 16 / 9;
+    display: block;
 
     img {
-      object-fit: contain;
+      object-fit: cover;
       object-position: center center;
       height: 100%;
       width: 100%;

@@ -73,7 +73,7 @@
                 <?= $posts['render'] ?>
                 <?php if (!$posts['total_posts']): ?>
                     <div class="c-filters_no-results">
-                        <div>Aucun article trouvé</div>
+                        <div>Aucune formation n'est actuellement disponible</div>
                     </div>
                 <?php endif; ?>
             </div>
