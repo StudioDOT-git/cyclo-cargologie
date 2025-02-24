@@ -33,6 +33,7 @@
 @use "./components/pagination";
 @use "./components/filters-bar-search-form";
 @use "./components/info";
+@use "./components/formation-filters-bar";
 
 /* ----- TEMPLATES ------------ */
 @use "./templates/four-oh-four";
@@ -51,13 +52,16 @@
 @import "../../dotstarter/layouts/column/column.scss";
 @import "../../dotstarter/layouts/text-x-image/text-x-image.scss";
 @import "../../dotstarter/layouts/testimonials/testimonals.scss";
+@import "../../dotstarter/layouts/news-slider/news-slider.scss";
 @import "../../dotstarter/layouts/slider-full-width/slider-full-width.scss";
 @import "../../dotstarter/layouts/page-header/page-header.scss";
 @import "../../dotstarter/layouts/actu-x-event/actu-x-event.scss";
 @import "../../dotstarter/layouts/dropdowns-list/dropdowns-list.scss";
 @import "../../dotstarter/layouts/blog/blog.scss";
+@import "../../dotstarter/layouts/formation-calendar/formation-calendar.scss";
 @import "../../dotstarter/layouts/generic-content/generic-content.scss";
 @import "../../dotstarter/layouts/members-grid/members-grid.scss";
+@import "../../dotstarter/layouts/operateurs-grid/operateurs-grid.scss";
 @import "../../dotstarter/layouts/ressources-section/ressources-section.scss";
 @import "../../dotstarter/layouts/project-partners-section/project-partners-section.scss";
 @import "../../dotstarter/layouts/key-numbers/key-numbers.scss";
@@ -70,6 +74,7 @@
 @import "../../dotstarter/layouts/past-events/past-events.scss";
 @import "../../dotstarter/layouts/related-posts/related-posts.scss";
 @import "../../dotstarter/layout-parts/yellow-background/yellow-background.scss";
+@import "../../dotstarter/layouts/button-insert/button-insert.scss";
 
 
 

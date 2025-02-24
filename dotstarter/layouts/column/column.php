@@ -27,6 +27,7 @@
                         <p class="f-header-yellow__paragraph body-md">
                             <?php the_sub_field('paragraph') ?>
                         </p>
+
                     </div>
                 </div>
             </div>
@@ -64,6 +65,13 @@
                         <p class="f-column__description body-lg">
                             <?= get_sub_field('description') ?>
                         </p>
+                        <?php if (have_rows('button')): ?>
+                            <?php while (have_rows('button')):
+                                the_row(); ?>
+                                <?php dot_the_layout_part('button'); ?>
+                            <?php endwhile; ?>
+                        <?php endif; ?>
+
                     </div>
                 <?php endwhile; ?>
             </div>

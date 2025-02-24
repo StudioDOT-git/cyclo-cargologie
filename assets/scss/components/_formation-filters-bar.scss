@@ -2,8 +2,7 @@
 @use "../base/mixins" as *;
 @use "../base/colors" as *;
 
-.c-filters-bar {
-
+.c-formation-filters-bar {
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -11,6 +10,7 @@
   z-index: 2;
   width: 100%;
   position: relative;
+  margin-bottom: var(--space-xl);
 
   &__filters-toggle-wrapper {
     background: $white;
@@ -45,7 +45,6 @@
     font-family: $font-headings;
     font-size: 2rem;
     line-height: 120%;
-    /* 24px */
     font-weight: 500;
     letter-spacing: -0.01em;
     margin: 0 0 .3rem;
@@ -61,7 +60,6 @@
       align-self: self-end;
     }
   }
-
 
   &__filters-taxonomies {
     display: grid;
@@ -100,7 +98,6 @@
     &__filters-close {
       &.show {
         transform: translate(-50%, -50%) scale(1);
-
       }
     }
 
@@ -109,8 +106,6 @@
     .c-button--filter {
       width: 100%;
     }
-
-
   }
 
   @include media-up(md) {
@@ -122,9 +117,7 @@
       display: flex;
       align-items: flex-end;
       column-gap: 2.6rem;
-
     }
-
 
     &__header {
       padding: 0;
@@ -142,31 +135,8 @@
 
     &__filters-taxonomies {
       display: flex;
+      max-width: 800px;
+      margin: 0 auto;
     }
   }
-}
-
-.c-filters {
-  &__no-results {
-    display: flex;
-    justify-content: center;
-    padding: 3.4rem 0 0;
-    grid-area: 1 / 1 / 2 / 3;
-    // position: relative;
-    // z-index: 3;
-
-    div {
-      max-width: 63.4rem;
-      flex: 1;
-      height: 6.6rem;
-      display: flex;
-      align-items: center;
-      background: $purple-2;
-      padding-left: 2.4rem;
-      font-size: 1.6rem;
-      border-radius: .3rem;
-    }
-
-  }
-
 }

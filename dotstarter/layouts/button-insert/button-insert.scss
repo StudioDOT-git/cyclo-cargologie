@@ -1,0 +1,64 @@
+@use "../../../assets/scss/base/variables" as *;
+@use "../../../assets/scss/base/colors" as *;
+@use "../../../assets/scss/base/mixins" as *;
+
+.f-button-insert {
+  padding: 4.4rem 0 4.6rem;
+
+  &__title {}
+
+  &__wrapper {
+    position: relative;
+    background: $white;
+    padding: 3rem;
+    background-image: url("/wp-content/themes/cyclo-cargologie/assets/img/bg-button-insert.svg");
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .c-button {}
+
+  @include media-down(md) {
+    &__heading {
+      display: grid;
+      gap: 1.4rem;
+      margin-bottom: 2rem;
+    }
+
+    &__deco {
+      .c-deco {
+        // width: 4.4rem;
+        // height: 4.4rem;
+      }
+    }
+  }
+
+
+  @include media-up(md) {
+    padding: 9.5rem 0 12rem;
+
+    &__heading {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    &__wrapper {
+      padding: 5rem 13rem;
+
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    &__title {}
+
+    .c-button {}
+
+    &__deco {}
+  }
+}

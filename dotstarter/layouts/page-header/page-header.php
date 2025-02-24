@@ -14,9 +14,15 @@
                     </h1>
                 </div>
                 <div class="f-page-header__content">
+                    <?php if (get_sub_field('intro')): ?>
+                        <span class="f-page-header__intro heading5"><?= get_sub_field('intro'); ?></span>
+                    <?php endif; ?>
                     <p class="f-page-header__paragraph">
                         <?= get_sub_field('paragraph'); ?>
                     </p>
+                    <?php if (get_sub_field('encart')): ?>
+                        <span class=" body-lg f-page-header__encart"><?= get_sub_field('encart'); ?></span>
+                    <?php endif; ?>
                     <?php while (have_rows('button')):
                         the_row() ?>
                         <?php dot_the_layout_part('button') ?>
