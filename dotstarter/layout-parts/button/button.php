@@ -22,6 +22,8 @@ $is_button = get_sub_field('fonctionnement')
         $url = $link['url'];
         $target = $link['target'] !== '' ? $link['target'] : false;
         $is_pdf = pathinfo($url, PATHINFO_EXTENSION) === 'pdf';
+        $is_zip = pathinfo($url, PATHINFO_EXTENSION) === 'zip';
+        $should_download = $is_pdf || $is_zip;
 
         if (!$is_button) {
             if ($link['title'] !== '') {
@@ -31,7 +33,7 @@ $is_button = get_sub_field('fonctionnement')
             }
         }
         ?>
-        <a <?= $target ? "target=\"$target\"" : '' ?> href="<?= $url ?? '#' ?>" <?= $is_pdf ? 'download' : '' ?>
+        <a <?= $target ? "target=\"$target\"" : '' ?> href="<?= $url ?? '#' ?>" <?= $should_download ? 'download' : '' ?>
             class="c-button c-button--<?= $size ?> c-button--<?= $type ?>   c-button--<?= $color ?>">
             <span>
                 <?= $label ?>
