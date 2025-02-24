@@ -1,13 +1,14 @@
 <?php
 
-class  AjaxPost
+class AjaxPost
 {
-//    TODO : Add the ability to filter by post type
+    //    TODO : Add the ability to filter by post type
     const POST_TYPES_ALLOWED = ['post', 'tribe_events', 'page'];
 
     static function explode($string): array
     {
-        if (empty($string)) return array();
+        if (empty($string))
+            return array();
         $exploded = explode(',', $string);
         return array_map('intval', $exploded);
     }
@@ -26,6 +27,15 @@ class  AjaxPost
                 'relation' => 'AND'
             )
         );
+
+        // Add meta query parameters for date sorting
+        if (isset($request_args['meta_key'])) {
+            $args['meta_key'] = $request_args['meta_key'];
+            $args['orderby'] = $request_args['orderby'] ?? 'meta_value';
+            $args['order'] = $request_args['order'] ?? 'ASC';
+            $args['meta_type'] = $request_args['meta_type'] ?? 'NUMERIC';
+        }
+
         if (isset($request_args['post_type'])) {
             if ($request_args['post_type'] === 'all') {
                 $args['post_type'] = self::POST_TYPES_ALLOWED;
@@ -75,25 +85,47 @@ class  AjaxPost
             );
         }
 
+
+        // Add these conditions alongside the existing tax_query handling
+        if (isset($request_args['ville'])) {
+            $args["tax_query"][] = [
+                "taxonomy" => "ville",
+                "field" => "id",
+                "terms" => self::explode($request_args['ville']),
+                "operator" => "IN"
+            ];
+        }
+
+        if (isset($request_args['operateur'])) {
+            $args["tax_query"][] = [
+                "taxonomy" => "operateur",
+                "field" => "id",
+                "terms" => self::explode($request_args['operateur']),
+                "operator" => "IN"
+            ];
+        }
+
+
         $query = new WP_Query($args);
 
 
         ?>
         <?php ob_start(); ?>
 
-        <?php if ($query->have_posts()) : ?>
-        <?php while ($query->have_posts()) : $query->the_post(); ?>
-            <?php dot_the_component('card') ?>
-        <?php endwhile; ?>
-    <?php endif; ?>
+        <?php if ($query->have_posts()): ?>
+            <?php while ($query->have_posts()):
+                $query->the_post(); ?>
+                <?php dot_the_component('card') ?>
+            <?php endwhile; ?>
+        <?php endif; ?>
         <?php wp_reset_postdata(); ?>
 
         <?php return [
-        "render" => ob_get_clean(),
-        "total_posts" => $query->found_posts,
-        "max_num_pages" => $query->max_num_pages,
-        "query" => $query
-    ];
+            "render" => ob_get_clean(),
+            "total_posts" => $query->found_posts,
+            "max_num_pages" => $query->max_num_pages,
+            "query" => $query
+        ];
     }
 
 

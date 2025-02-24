@@ -1,9 +1,31 @@
 {
-    "key": "group_65b91263b3e7e",
-    "title": "Colonne",
+    "key": "group_67a23c4227ced",
+    "title": "Slider Actualités",
     "fields": [
         {
-            "key": "field_65ca2ad0028c6",
+            "key": "field_67a23c422a5fe",
+            "label": "Sticker",
+            "name": "sticker",
+            "aria-label": "",
+            "type": "layout_part",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_65c5fc80c3366"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_67a23c422a603",
             "label": "Sous-titre",
             "name": "subtitle",
             "aria-label": "",
@@ -16,15 +38,36 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "Nos actions",
+            "default_value": "ILS témoignent",
             "maxlength": "",
             "placeholder": "",
             "prepend": "",
             "append": ""
         },
         {
-            "key": "field_65ca2a833b269",
-            "label": "Title",
+            "key": "field_67a23c422a606",
+            "label": "Description",
+            "name": "description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "acfe_textarea_code": 0,
+            "maxlength": "",
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_67a23c422a609",
+            "label": "Titre",
             "name": "title",
             "aria-label": "",
             "type": "text",
@@ -36,57 +79,16 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "Le programme s'articule autour de trois actions principales :",
+            "default_value": "Témoignages & lmpact",
             "maxlength": "",
             "placeholder": "",
             "prepend": "",
             "append": ""
         },
         {
-            "key": "field_65ca2a983b26a",
-            "label": "Intro",
-            "name": "intro",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_65ca2a9d3b26b",
-            "label": "Paragraphe",
-            "name": "paragraph",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "Ce projet est axé sur la promotion et le développement de la cyclologistique pour optimiser la logistique du dernier kilomètre en milieu urbain. Innovant et écologiquement responsable.",
-            "acfe_textarea_code": 0,
-            "maxlength": "",
-            "rows": "",
-            "placeholder": "",
-            "new_lines": ""
-        },
-        {
-            "key": "field_65b912632b70d",
-            "label": "Colonne",
-            "name": "columns",
+            "key": "field_67a23c422a60c",
+            "label": "News",
+            "name": "news",
             "aria-label": "",
             "type": "repeater",
             "instructions": "",
@@ -103,17 +105,17 @@
             "min": 0,
             "max": 0,
             "collapsed": "",
-            "button_label": "Add Row",
+            "button_label": "Ajouter un élément",
             "rows_per_page": 20,
             "sub_fields": [
                 {
-                    "key": "field_65b912a52b70e",
+                    "key": "field_67a23c422e364",
                     "label": "Image",
                     "name": "image",
                     "aria-label": "",
                     "type": "image",
                     "instructions": "",
-                    "required": 1,
+                    "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -132,16 +134,16 @@
                     "mime_types": "",
                     "preview_size": "medium",
                     "library": "all",
-                    "parent_repeater": "field_65b912632b70d"
+                    "parent_repeater": "field_67a23c422a60c"
                 },
                 {
-                    "key": "field_65b912be2b70f",
+                    "key": "field_67a23d35e7436",
                     "label": "Titre",
-                    "name": "title",
+                    "name": "titre",
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
-                    "required": 1,
+                    "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "",
@@ -150,15 +152,16 @@
                     },
                     "default_value": "",
                     "maxlength": "",
+                    "allow_in_bindings": 0,
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "parent_repeater": "field_65b912632b70d"
+                    "parent_repeater": "field_67a23c422a60c"
                 },
                 {
-                    "key": "field_65b912cd2b710",
-                    "label": "Description",
-                    "name": "description",
+                    "key": "field_67a23c422e357",
+                    "label": "Message",
+                    "name": "message",
                     "aria-label": "",
                     "type": "textarea",
                     "instructions": "",
@@ -175,10 +178,10 @@
                     "rows": "",
                     "placeholder": "",
                     "new_lines": "",
-                    "parent_repeater": "field_65b912632b70d"
+                    "parent_repeater": "field_67a23c422a60c"
                 },
                 {
-                    "key": "field_67a36f871cdff",
+                    "key": "field_67a23c90cd1ea",
                     "label": "Bouton",
                     "name": "button",
                     "aria-label": "",
@@ -199,54 +202,9 @@
                     "prefix_label": 0,
                     "prefix_name": 0,
                     "allow_in_bindings": 0,
-                    "parent_repeater": "field_65b912632b70d"
+                    "parent_repeater": "field_67a23c422a60c"
                 }
             ]
-        },
-        {
-            "key": "field_65ca2c6c4fe4b",
-            "label": "Bouton",
-            "name": "button",
-            "aria-label": "",
-            "type": "layout_part",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "group_65b7cebc92b44"
-            ],
-            "display": "group",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
-        },
-        {
-            "key": "field_67b3b26015dab",
-            "label": "Sticker",
-            "name": "sticker",
-            "aria-label": "",
-            "type": "layout_part",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "group_65c5fc80c3366"
-            ],
-            "display": "group",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0,
-            "allow_in_bindings": 0
         }
     ],
     "location": [
@@ -272,10 +230,10 @@
         "json"
     ],
     "acfe_form": 0,
-    "dot_thumbnail": 615,
-    "dot_layout_slug": "column",
+    "dot_thumbnail": "",
+    "dot_layout_slug": "news-slider",
     "dot_is_layout": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1739829874
+    "modified": 1738687336
 }

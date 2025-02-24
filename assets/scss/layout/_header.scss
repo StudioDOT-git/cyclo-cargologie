@@ -39,11 +39,12 @@
   // Buttons
   &__cta-wrapper {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto auto auto;
     align-items: center;
     gap: 1.1rem;
     right: 1rem;
     z-index: 8;
+
     @include media-up(md) {
       right: 9.6rem;
       position: fixed;
@@ -64,8 +65,9 @@
 
   &__cta {
     height: 100%;
+
     .c-button.c-button__modal {
-      padding: 1.4rem ;
+      padding: 1.4rem;
       background: $black;
       color: $white;
       border-radius: 5px;
@@ -78,6 +80,31 @@
     }
   }
 
+  &__cta-former {
+    background-color: $black;
+    color: $white;
+    border-radius: 5px;
+    padding: 2rem 1.2rem;
+    border: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+    font-size: 1.2rem;
+    transition: background-color ease 0.4s;
+    text-decoration: none;
+
+    &>span {
+      text-transform: uppercase;
+      // display: none;
+    }
+
+    &:hover {
+      background-color: $yellow;
+      color: $black;
+    }
+  }
+
   &__cta-open {
     background: $white;
     border-radius: 5px;
@@ -87,8 +114,10 @@
     align-items: center;
     cursor: pointer;
     justify-content: center;
+    min-height: 5.5rem;
 
     &>span {
+      text-transform: uppercase;
       display: none;
     }
   }
@@ -121,8 +150,6 @@
     }
 
   }
-
-
 
   &__nav {
     pointer-events: none;
@@ -210,13 +237,12 @@
 
   .current_page_item {
     font-weight: 400;
-
   }
 
   &__nav-content-row {
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
 
     &+* {
       padding: 3.6rem 0 0;
@@ -273,13 +299,26 @@
       }
     }
 
+    &__cta-former {
+      padding: 1.6rem 1.8rem;
+
+
+      &>span {
+        font-weight: 500;
+        font-size: 1.4rem;
+        display: block;
+      }
+    }
+
     &__cta-open {
       padding: 1.6rem 1.8rem;
+      background: $yellow;
+      min-height: 0;
 
       &>span {
         padding: 0 0 0 1.9rem;
         font-weight: 500;
-        font-size: 1.8rem;
+        font-size: 1.4rem;
         display: block;
       }
     }

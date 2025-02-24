@@ -13,7 +13,7 @@
   &__wrapper {
     display: grid;
     grid-template-rows: repeat(2, 1fr);
-    gap:8rem;
+    gap: 8rem;
 
   }
 
@@ -132,7 +132,7 @@
 
     &__wrapper {
       grid-template: auto/ auto auto;
-      justify-content: start;
+      justify-content: flex-start;
       gap: 14.6rem;
     }
 

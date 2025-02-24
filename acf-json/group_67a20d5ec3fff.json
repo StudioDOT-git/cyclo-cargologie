@@ -1,114 +1,9 @@
 {
-    "key": "group_65c4e8225158f",
-    "title": "Page Header",
+    "key": "group_67a20d5ec3fff",
+    "title": "Opérateurs Grid",
     "fields": [
         {
-            "key": "field_65c4e8226583c",
-            "label": "Titre",
-            "name": "title",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_67a38fa33ae1d",
-            "label": "Intro",
-            "name": "intro",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_65c4ea4b6583d",
-            "label": "Paragraphe",
-            "name": "paragraph",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "acfe_textarea_code": 0,
-            "maxlength": "",
-            "rows": "",
-            "placeholder": "",
-            "new_lines": ""
-        },
-        {
-            "key": "field_67a38fc73ae1e",
-            "label": "Encart Violet",
-            "name": "encart",
-            "aria-label": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "allow_in_bindings": 0,
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
-        },
-        {
-            "key": "field_65c4ea616583e",
-            "label": "Bouton",
-            "name": "button",
-            "aria-label": "",
-            "type": "layout_part",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "clone": [
-                "group_65b7cebc92b44"
-            ],
-            "display": "group",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
-        },
-        {
-            "key": "field_65eac875517c0",
+            "key": "field_67a20d5ec64c7",
             "label": "Sticker",
             "name": "sticker",
             "aria-label": "",
@@ -130,12 +25,12 @@
             "prefix_name": 0
         },
         {
-            "key": "field_66069e62053a8",
-            "label": "Scroll button",
-            "name": "scroll_button",
+            "key": "field_67a20d5ec64cb",
+            "label": "Sur Titre",
+            "name": "subtitle",
             "aria-label": "",
-            "type": "true_false",
-            "instructions": "Cocher cette option permet d'afficher le bouton \"Scroll pour découvrir\"",
+            "type": "text",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -143,11 +38,103 @@
                 "class": "",
                 "id": ""
             },
-            "message": "Ce bouton est affiché en flottant en bas du premier écran. Il peut se supperposer avec le bloc suivant. Nous recommandons son utilisation si le bloc header est suivi d'un bloc \"Full width image Slider\"",
-            "default_value": 0,
-            "ui_on_text": "Activer",
-            "ui_off_text": "Désactiver",
-            "ui": 1
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_67a20d5ec64cf",
+            "label": "Titre",
+            "name": "title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "L’équipe",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_67a20d5ec64d1",
+            "label": "Description",
+            "name": "description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "acfe_textarea_code": 0,
+            "maxlength": "",
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_67a21c79335ce",
+            "label": "Image",
+            "name": "image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "uploader": "",
+            "return_format": "array",
+            "library": "all",
+            "acfe_thumbnail": 0,
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 0,
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_67ab1e14b2de5",
+            "label": "Bouton",
+            "name": "button",
+            "aria-label": "",
+            "type": "layout_part",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_65b7cebc92b44"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0,
+            "allow_in_bindings": 0
         }
     ],
     "location": [
@@ -173,10 +160,13 @@
         "json"
     ],
     "acfe_form": 0,
-    "dot_thumbnail": 618,
-    "dot_layout_slug": "page-header",
+    "dot_thumbnail": "",
+    "dot_layout_slug": "operateurs-grid",
     "dot_is_layout": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1738772455
+    "modified": 1739267622,
+    "acfe_categories": {
+        "formation": "Formation"
+    }
 }
