@@ -26,7 +26,7 @@
                 <img class="f-operateurs-grid__image" src="<?= get_sub_field('image')['url'] ?>"
                     alt="<?= get_sub_field('image')['alt'] ?>">
             </div>
-            <!-- <div class="f-operateurs-grid__list">
+            <div class="f-operateurs-grid__list">
                 <?php
                 $operateurs = get_terms(array(
                     'taxonomy' => 'operateur',
@@ -108,7 +108,7 @@
                         </div>
                     <?php endforeach;
                 endif; ?>
-            </div> -->
+            </div>
 
             <div class="f-operateurs-grid__cta-wrapper">
                 <?php while (have_rows('button')):
