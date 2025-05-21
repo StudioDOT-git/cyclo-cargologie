@@ -66,6 +66,15 @@ export default class BibliothequeMediaQueryManager {
     this.$filtersCloseButton = this.$wrapper.querySelector('.c-formation-filters-bar__filters-close')
     this.$filtersContainer = this.$wrapper.querySelector('.c-formation-filters-bar__filters')
 
+    // Add after initializing this.$wrapper etc:
+    this.searchForm = this.$wrapper.querySelector('.c-filters-bar-search-form')
+    this.states = {}
+    if (this.searchForm) {
+      this.searchForm.addEventListener('submit', this.search.bind(this))
+      this.inputElem = this.searchForm.querySelector('input[type="search"]')
+      this.states.isSearch = false
+    }
+
     // Then bind methods
     bindAll(this, ['resetFilters', 'applyTaxonomyFilter', 'toggleFilters'])
 
@@ -114,6 +123,12 @@ export default class BibliothequeMediaQueryManager {
         this.$resetFiltersButton?.removeAttribute('disabled')
       }
     })
+
+    // Add search parameter if present
+    if (this.searchForm && this.inputElem && this.inputElem.value.length > 0) {
+      queryUrl.searchParams.append('s', this.inputElem.value)
+      this.$resetFiltersButton?.removeAttribute('disabled')
+    }
 
     this.query = queryUrl
 
@@ -270,5 +285,12 @@ export default class BibliothequeMediaQueryManager {
       $filtersOpenButton.classList.toggle('hide')
       $filtersCloseButton.classList.toggle('show')
     }
+  }
+
+  search (e) {
+    e.preventDefault()
+    this.states.isSearch = true
+    this.paged = 1
+    this.doQueryAndRender()
   }
 }

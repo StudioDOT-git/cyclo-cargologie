@@ -47,7 +47,7 @@ class AjaxBibliothequeMediaPost
         if ($query->have_posts()):
             while ($query->have_posts()):
                 $query->the_post();
-                include get_template_directory() . '/dotstarter/components/card/media-card.php';
+                dot_the_component('card');
             endwhile;
         endif;
         wp_reset_postdata();
