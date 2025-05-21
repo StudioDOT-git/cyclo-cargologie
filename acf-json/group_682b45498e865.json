@@ -1,9 +1,9 @@
 {
-    "key": "group_67a47d6d0dd28",
-    "title": "Calendrier Formation",
+    "key": "group_682b45498e865",
+    "title": "Bibliothèque Média",
     "fields": [
         {
-            "key": "field_67a47d6d1e655",
+            "key": "field_682b454990932",
             "label": "Titre",
             "name": "title",
             "aria-label": "",
@@ -24,7 +24,7 @@
             "append": ""
         },
         {
-            "key": "field_67a47d8e1e656",
+            "key": "field_682b45499093e",
             "label": "Sticker",
             "name": "sticker",
             "aria-label": "",
@@ -47,7 +47,7 @@
             "allow_in_bindings": 0
         },
         {
-            "key": "field_67a47e0a1e657",
+            "key": "field_682b454990943",
             "label": "Présélection métier",
             "name": "preselection_metier",
             "aria-label": "",
@@ -102,12 +102,9 @@
     ],
     "acfe_form": 0,
     "dot_thumbnail": "",
-    "dot_layout_slug": "formation-calendar",
+    "dot_layout_slug": "bibliotheque-media",
     "dot_is_layout": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1747666223,
-    "acfe_categories": {
-        "formation": "Formation"
-    }
+    "modified": 1747666286
 }

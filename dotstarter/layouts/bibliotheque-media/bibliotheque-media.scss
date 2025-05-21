@@ -1,0 +1,40 @@
+@use "../../../assets/scss/base/variables" as *;
+@use "../../../assets/scss/base/colors" as *;
+@use "../../../assets/scss/base/mixins" as *;
+
+.f-bibliotheque-media {
+  padding: 5rem 0 7rem;
+  position: relative;
+  min-height: 70rem;
+  display: block;
+
+  .c-yellow-background {
+    position: absolute;
+    width: 100vw;
+    top: 0rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+
+  &__archive {
+    position: relative;
+    padding-top: 4rem;
+  }
+
+  .f-bibliotheque-media-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem 1.5rem;
+    padding-top: 4.5rem;
+  }
+
+  .c-pagination {}
+
+  @include media-up(md) {
+    .f-bibliotheque-media-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem 1.5rem;
+    }
+  }
+}

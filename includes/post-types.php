@@ -28,7 +28,7 @@ if (!class_exists('DOT_PostTypes')) {
             $args = array(
                 'labels' => $labels,
                 'public' => true,
-                'has_archive' => true,
+                'has_archive' => false,
                 'publicly_queryable' => true,
                 'show_ui' => true,
                 'show_in_menu' => true,
@@ -67,16 +67,40 @@ if (!class_exists('DOT_PostTypes')) {
                 'rewrite' => array('slug' => 'bibliotheque-media'),
                 'capability_type' => 'post',
                 'hierarchical' => false,
-                'has_archive' => true,
+                'has_archive' => false,
                 'menu_icon' => 'dashicons-format-image',
                 'supports' => array('title', 'thumbnail'),
-                'taxonomies' => array('category'),
+                'taxonomies' => array('media_category'),
             );
 
             register_post_type('bibliotheque-media', $media_args);
 
-            // Attach default category taxonomy to this CPT
-            register_taxonomy_for_object_type('category', 'bibliotheque-media');
+            // Register a custom taxonomy for Bibliothèque média CPT
+            $media_category_labels = array(
+                'name' => __('Types de média', 'dotcore'),
+                'singular_name' => __('Type de média', 'dotcore'),
+                'search_items' => __('Rechercher des types de média', 'dotcore'),
+                'all_items' => __('Tous les types de média', 'dotcore'),
+                'parent_item' => __('Type de média parent', 'dotcore'),
+                'parent_item_colon' => __('Type de média parent:', 'dotcore'),
+                'edit_item' => __('Modifier le type de média', 'dotcore'),
+                'update_item' => __('Mettre à jour le type de média', 'dotcore'),
+                'add_new_item' => __('Ajouter un type de média', 'dotcore'),
+                'new_item_name' => __('Nouveau type de média', 'dotcore'),
+                'menu_name' => __('Types de média', 'dotcore'),
+            );
+
+            $media_category_args = array(
+                'hierarchical' => true,
+                'labels' => $media_category_labels,
+                'show_ui' => true,
+                'show_admin_column' => true,
+                'query_var' => true,
+                'rewrite' => array('slug' => 'type-media'),
+                'show_in_rest' => true,
+            );
+
+            register_taxonomy('media_category', array('bibliotheque-media'), $media_category_args);
         }
     }
 

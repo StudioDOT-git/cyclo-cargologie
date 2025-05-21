@@ -18,6 +18,7 @@ import { onResize } from './lib/utils.js'
 import searchModal from './components/search-modal.js'
 
 import FormationQueryManager from './components/formation-query-manager.js'
+import BibliothequeMediaQueryManager from './components/bibliotheque-media-query-manager.js'
 
 /* eslint-disable */
 const Sliders = [
@@ -69,8 +70,6 @@ jQuery(function ($) {
   new QueryManager('.f-past-events', '.f-past-events__results', 'tribe_events', false);
 
   new FormationQueryManager('.f-formation-calendar__archive', '.f-formation-grid');
-
-
-
+  new BibliothequeMediaQueryManager('.f-bibliotheque-media__archive', '.f-bibliotheque-media-grid');
 })
 

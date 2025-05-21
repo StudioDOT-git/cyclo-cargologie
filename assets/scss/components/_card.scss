@@ -2,6 +2,7 @@
 @use "../base/mixins" as *;
 @use "../base/colors" as *;
 
+
 .f-card {
   &__image {
     display: block;
@@ -38,8 +39,6 @@
         height: 100%;
         opacity: 0.7;
         background: linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.00) 100%);
-
-
       }
     }
   }
@@ -222,7 +221,8 @@
   }
 }
 
-.f-card-formation {
+.f-card-formation,
+.f-media-card {
   flex-direction: column;
   background: $white;
   position: relative;
@@ -344,3 +344,105 @@
 
   @include media-up(md) {}
 }
+
+// .f-media-card {
+//   display: flex;
+//   flex-direction: column;
+//   background: $white;
+//   border-radius: 1.2rem;
+//   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+//   overflow: hidden;
+//   position: relative;
+//   transition: box-shadow 0.2s;
+
+//   &:hover {
+//     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+//   }
+
+//   &__link {
+//     display: flex;
+//     flex-direction: column;
+//     text-decoration: none;
+//     color: inherit;
+//     height: 100%;
+//   }
+
+//   &__image {
+//     width: 100%;
+//     aspect-ratio: 16/9;
+//     background: $grey-1;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     overflow: hidden;
+//     position: relative;
+
+//     img {
+//       width: 100%;
+//       height: 100%;
+//       object-fit: cover;
+//       display: block;
+//     }
+//   }
+
+//   &__content {
+//     padding: 2rem 1.5rem 1.5rem 1.5rem;
+//     display: flex;
+//     flex-direction: column;
+//     flex: 1 1 auto;
+//   }
+
+//   &__title {
+//     font-size: 1.7rem;
+//     font-family: $font-headings;
+//     font-weight: 500;
+//     margin-bottom: .7rem;
+//     line-height: 1.2;
+//     color: $black;
+//   }
+
+//   &__excerpt {
+//     font-size: 1.4rem;
+//     color: $grey-3;
+//     margin-bottom: 1rem;
+//     line-height: 1.5;
+//     flex: 1 1 auto;
+//   }
+
+//   &__categories {
+//     margin-top: auto;
+//     display: flex;
+//     flex-wrap: wrap;
+//     gap: .6rem;
+//   }
+
+//   &__category {
+//     background: $yellow;
+//     color: $black;
+//     font-size: 1.2rem;
+//     border-radius: 2rem;
+//     padding: .3rem 1.1rem;
+//     font-family: $font-headings;
+//     font-weight: 500;
+//     display: inline-block;
+//   }
+
+//   @include media-up(md) {
+//     &__image {
+//       aspect-ratio: 1.777;
+//       width: 100%;
+//     }
+
+//     &__title {
+//       font-size: 2.1rem;
+//     }
+
+//     &__excerpt {
+//       font-size: 1.6rem;
+//     }
+
+//     &__category {
+//       font-size: 1.4rem;
+//     }
+//   }
+// }

@@ -38,3 +38,15 @@
         <img class="f-page-header__scroll-down-image" src="<?= DOT_THEME_URI ?>/assets/icons/scroll-down.svg" alt="">
     </button>
 <?php endif; ?>
+
+<iframe src="https://www.youtube.com/embed/C9z8yXOVZoU?si=FvIRHEIXkgPdE0v_" title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+<h1>My Dropbox Folder</h1>
+<iframe src="https://drive.google.com/embeddedfolderview?id=16QpV3Nd4_b69Qm0HSdY8PyxdMFbds9F4#grid" width="100%"
+    height="600" frameborder="0"></iframe>
+
+<iframe src="https://drive.google.com/embeddedfolderview?id=163tAivuOHVKlosMcpavmv-Dko6fhjimn#grid" width="100%"
+    height="600" frameborder="0"></iframe>
