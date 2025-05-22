@@ -40,6 +40,7 @@
 @use "./templates/legal";
 @use "./tribe/index";
 @use "./templates/events-single";
+@use "./templates/single-bibliotheque-media";
 @use "./templates/search";
 
 html {
@@ -113,6 +114,8 @@ input[type=checkbox]:checked::before {
 @import "../../dotstarter/layouts/button-insert/button-insert.scss";
 @import "../../dotstarter/layout-parts/yellow-background/yellow-background.scss";
 @import "../../dotstarter/layouts/formation-calendar/formation-calendar.scss";
+@import "../../dotstarter/layouts/video-player/video-player.scss";
+
 
 
 

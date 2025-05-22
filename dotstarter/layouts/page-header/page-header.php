@@ -38,7 +38,3 @@
         <img class="f-page-header__scroll-down-image" src="<?= DOT_THEME_URI ?>/assets/icons/scroll-down.svg" alt="">
     </button>
 <?php endif; ?>
-<!-- 
-<iframe src="https://www.youtube.com/embed/C9z8yXOVZoU?si=FvIRHEIXkgPdE0v_" title="YouTube video player" frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->

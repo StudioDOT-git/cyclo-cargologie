@@ -41,6 +41,7 @@
 @use "./templates/legal";
 @use "./tribe/index";
 @use "./templates/events-single";
+@use "./templates/single-bibliotheque-media";
 @use "./templates/search";
 
 /* ----- ANIMATIONS  ------------ */
@@ -77,6 +78,7 @@
 @import "../../dotstarter/layouts/related-posts/related-posts.scss";
 @import "../../dotstarter/layout-parts/yellow-background/yellow-background.scss";
 @import "../../dotstarter/layouts/button-insert/button-insert.scss";
+@import "../../dotstarter/layouts/video-player/video-player.scss";
 
 
 

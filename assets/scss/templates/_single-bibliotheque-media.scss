@@ -1,0 +1,188 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+@use "../base/colors" as *;
+@import "../components/wysiwyg";
+
+// Remove default container if needed
+.single-bibliotheque-media #media-pg-template {
+  max-width: unset;
+  padding: unset;
+}
+
+.t-media-single-header {
+  position: relative;
+  z-index: 1;
+
+  .l-container {
+    background: $grey-1;
+  }
+
+  &__column:nth-child(2) {
+    position: relative;
+    padding: 2.4rem 0 10rem;
+
+    .c-button {
+      height: 6.1rem;
+
+      span {
+        font-size: 1.45rem;
+      }
+
+      svg {
+        width: 3.6rem;
+        height: 3.6rem;
+      }
+    }
+  }
+
+  .f-card__tags {
+    padding: 0;
+  }
+
+  &__subtitle {
+    color: $black;
+    font-size: 2rem;
+    line-height: 1.2;
+    font-weight: 500;
+    font-family: $font-headings;
+    margin: 0;
+  }
+
+  &__title {
+    font-size: 2.9rem;
+    line-height: 110%;
+    letter-spacing: -0.01em;
+    margin: 1.3rem 0 1.1rem;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin-bottom: 2rem;
+  }
+
+  &__descriptions {
+    position: relative;
+    margin: 0 0 1.3rem;
+    padding: 2rem 0 2.4rem;
+    font-size: 1.6rem;
+
+    @extend .wysiwyg;
+  }
+
+  &__button {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+
+  &__meta {
+    margin-bottom: 1.5rem;
+  }
+
+  &__media {
+    margin: 2rem 0;
+  }
+
+  &__caption {
+    color: #989898;
+    font-size: 1.3rem;
+    margin-top: 1rem;
+  }
+
+  .f-card__location {
+
+    a,
+    span {
+      color: $black;
+      width: fit-content;
+      display: inline-block;
+      text-decoration: none;
+      position: relative;
+    }
+
+    svg {
+      margin-right: .5rem;
+      vertical-align: middle;
+    }
+
+    .f-card__location-name {
+      vertical-align: middle;
+    }
+  }
+
+  @include media-up(md) {
+    &__column:nth-child(2) {
+      position: relative;
+      max-width: 69.6rem;
+      padding: 2.4rem 2.4rem 0 0;
+    }
+
+    position: relative;
+    padding-bottom: 6rem;
+
+    &__column:first-child {
+      margin-bottom: 0;
+    }
+
+    .l-container {
+      --gap: 1rem;
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      gap: 2.4rem;
+
+      &>*:first-child {
+        // width: 70.9rem;
+      }
+    }
+
+    &__title {
+      font-size: 3.5rem;
+    }
+  }
+}
+
+.t-media-single-slider__slide {
+  position: relative;
+  width: 100%;
+
+  img,
+  .wp-post-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+    max-height: 60rem;
+    aspect-ratio: 16/9;
+  }
+}
+
+.t-media-single__slide-statuses {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1;
+  display: flex;
+  gap: .5rem;
+}
+
+.t-media-single-cta {
+  padding: 3.7rem 0;
+  display: flex;
+  justify-content: center;
+
+  .c-button {
+    width: 26.7rem;
+
+    span {
+      font-size: 1.45rem;
+    }
+
+    svg {
+      width: 3.6rem;
+      height: 3.6rem;
+    }
+  }
+}
