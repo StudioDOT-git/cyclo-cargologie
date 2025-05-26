@@ -86,6 +86,14 @@ input[type=checkbox]:checked::before {
 }
 
 
+// disable hidden in out of the box plugin
+//document.querySelector('#wpcp').classList.remove('hidden')
+
+#wpcp {
+  visibility: visible !important;
+}
+
+
 
 /* ----- LAYOUTS  ------------ */
 @import "../../dotstarter/layouts/notice-banner/notice-banner.scss";
