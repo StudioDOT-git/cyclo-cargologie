@@ -24,8 +24,8 @@
 
         <div class="f-dropbox-iframe__iframe-container">
             <?php
-            $$iframe_shortcode = get_sub_field('iframe_shortcode');
-            echo do_shortcode($$iframe_shortcode);
+            $iframe_shortcode = get_sub_field('iframe_shortcode');
+            echo do_shortcode($iframe_shortcode);
             ?>
         </div>
     </div>

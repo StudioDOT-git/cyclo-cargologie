@@ -14,3 +14,4 @@ function format_french_date($date_string)
     return $days[date('w', $timestamp)] . ' ' . date('d', $timestamp) . ' ' . $months[date('n', $timestamp)];
 }
 
+?>

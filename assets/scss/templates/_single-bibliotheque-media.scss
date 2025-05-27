@@ -17,9 +17,19 @@
     background: $grey-1;
   }
 
+  .t-media-single-header__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
   &__column:nth-child(2) {
     position: relative;
     padding: 2.4rem 0 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 
     .c-button {
       height: 6.1rem;
@@ -75,6 +85,14 @@
     display: flex;
     flex-direction: column;
     gap: .5rem;
+  }
+
+  &__nav-links {
+    display: flex;
+    flex-direction: row;
+    // flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1rem 0;
   }
 
   &__meta {
