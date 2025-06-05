@@ -172,19 +172,6 @@ if (have_posts()):
                             <?php endwhile; ?>
                         </div>
                     <?php endif; ?>
-
-                    <!-- <div class="t-media-single-header__nav-links">
-                        <?php if ($lien_precedent): ?>
-                            <a href="<?= esc_url($lien_precedent) ?>" class="c-button c-button--sm c-button--gray">
-                                ← Précédent
-                            </a>
-                        <?php endif; ?>
-                        <?php if ($lien_suivant): ?>
-                            <a href="<?= esc_url($lien_suivant) ?>" class="c-button c-button--sm c-button--gray">
-                                Suivant →
-                            </a>
-                        <?php endif; ?>
-                    </div> -->
                 </div>
             </div>
         </section>
