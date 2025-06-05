@@ -6,6 +6,7 @@ import TestimonialsSlider from '../../dotstarter/layouts/testimonials/testimonia
 import NewsSlider from '../../dotstarter/layouts/news-slider/news-slider.js'
 import FullWidthSlider from '../../dotstarter/layouts/slider-full-width/slider-full-width.js'
 import cardsSliderSwiper from '../../dotstarter/layouts/cards-slider/cards-slider.js'
+import singleBibliothequeMediaSlider from './templates/bibliotheque-media-single.js'
 
 import { modalAnims, modalForm } from './layouts/modal'
 import { dropdownslist } from '../../dotstarter/layouts/dropdowns-list/dropdowns-list.js'
@@ -27,6 +28,7 @@ const Sliders = [
   FullWidthSlider,
   GenericContentSlider,
   cardsSliderSwiper,
+  singleBibliothequeMediaSlider,
   // ProjectPartnersSlider
 ]
 
