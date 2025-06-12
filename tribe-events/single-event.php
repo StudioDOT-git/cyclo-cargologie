@@ -91,12 +91,12 @@ if (get_field('days') === false) {
         <div class="l-container">
             <div class="t-events-single-header__column">
                 <section class="t-events-single-slider c-slider slide-ttb" id="<?= uniqid() ?>">
-                    <?php if ($enable_slider) : ?>
+                    <?php if ($enable_slider): ?>
                         <div class="t-events-single-slider__slider">
-                            <?php foreach (get_field('carousel_images') as $image) : ?>
+                            <?php foreach (get_field('carousel_images') as $image): ?>
                                 <div class="t-events-single-slider__slide">
                                     <div class="t-events-single-slider__slide-statuses">
-                                        <?php foreach ($statuses as $s) :
+                                        <?php foreach ($statuses as $s):
                                             switch ($s) {
                                                 case 'postponed':
                                                     $clr = 'red';
@@ -130,18 +130,18 @@ if (get_field('days') === false) {
                                 </div>
                             <?php endforeach; ?>
                         </div>
-                        <?php if (count(get_field('carousel_images')) > 1) : ?>
+                        <?php if (count(get_field('carousel_images')) > 1): ?>
                             <div class="t-events-single-slider__index c-slider__index">
                                 <span class="c-slider__prev btn-prev">
-                                    <img src="<?= DOT_THEME_URI ?>/assets/icons/slider-arrow-left.svg"/></span>
+                                    <img src="<?= DOT_THEME_URI ?>/assets/icons/slider-arrow-left.svg" /></span>
                                 <div class="c-slider__index-mid">
                                     <span class="current-index">1</span> / <span class="total-slides">0</span>
                                 </div>
                                 <span class="c-slider__next btn-next">
-                                    <img src="<?= DOT_THEME_URI ?>/assets/icons/slider-arrow-right.svg"/></span>
+                                    <img src="<?= DOT_THEME_URI ?>/assets/icons/slider-arrow-right.svg" /></span>
                             </div>
                         <?php endif; ?>
-                    <?php else : ?>
+                    <?php else: ?>
                         <span class="t-events-single__slide-statuses">
                             <?php
                             $event_start_date_for_comparison = tribe_get_start_date(null, false, 'Y-m-d');
@@ -152,17 +152,17 @@ if (get_field('days') === false) {
 
                             if ($event_start_timestamp < $today_timestamp): ?>
                                 <div class="c-status-tag c-status-tag--red">Évènement passé</div>
-                            <?php else : ?>
-                                <?php if (in_array('full', $statuses)) : ?>
+                            <?php else: ?>
+                                <?php if (in_array('full', $statuses)): ?>
                                     <div class="c-status-tag c-status-tag--red">Complet</div>
                                 <?php endif; ?>
-                                <?php if (in_array('canceled', $statuses)) : ?>
+                                <?php if (in_array('canceled', $statuses)): ?>
                                     <div class="c-status-tag c-status-tag--red">Annulé</div>
                                 <?php endif; ?>
-                                <?php if (in_array('postponed', $statuses)) : ?>
+                                <?php if (in_array('postponed', $statuses)): ?>
                                     <div class="c-status-tag c-status-tag--red">Reporté</div>
                                 <?php endif; ?>
-                                <?php if (in_array('shortly', $statuses)) : ?>
+                                <?php if (in_array('shortly', $statuses)): ?>
                                     <div class="c-status-tag c-status-tag--purple">Prochainement</div>
                                 <?php endif; ?>
                             <?php endif; ?>
@@ -180,10 +180,10 @@ if (get_field('days') === false) {
                         <?php if (!empty(get_field('location'))): ?>
                             <div class="f-card__location">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="10" height="13" viewBox="0 0 10 13"
-                                     fill="none">
+                                    fill="none">
                                     <path
                                         d="M9 5.13105C9 7.02445 6.5625 10.3594 5.47917 11.7579C5.22917 12.0807 4.75 12.0807 4.5 11.7579C3.41667 10.3594 1 7.02445 1 5.13105C1 2.85037 2.77083 1 5 1C7.20833 1 9 2.85037 9 5.13105Z"
-                                        fill="white" fill-opacity="0.5" stroke="#181818" stroke-width="1.1"/>
+                                        fill="white" fill-opacity="0.5" stroke="#181818" stroke-width="1.1" />
                                 </svg>
                                 <span class="f-card__location-name"><?= the_field('location') ?></span>
                             </div>
@@ -203,24 +203,24 @@ if (get_field('days') === false) {
                 <h1 class="t-events-single-header__title">
                     <?php the_title() ?>
                 </h1>
-                <?php if (get_field('subtitle')) : ?>
+                <?php if (get_field('subtitle')): ?>
                     <p class="t-events-single-header__subtitle">
                         <?php the_field('subtitle') ?>
                     </p>
                 <?php endif; ?>
                 <div class="t-events-single-header__descriptions">
-                    <?php if (get_field('description')) : ?>
+                    <?php if (get_field('description')): ?>
                         <div class="t-events-single-header__description body-lg">
                             <?php the_field('description') ?>
                         </div>
                     <?php endif; ?>
-                    <?php if (get_field('description_en')) : ?>
+                    <?php if (get_field('description_en')): ?>
                         <div class="t-events-single-header__description-en body-lg">
                             <?php the_field('description_en') ?>
                         </div>
                     <?php endif; ?>
                 </div>
-                <?php if (have_rows('button')) : ?>
+                <?php if (have_rows('button')): ?>
                     <div class="t-events-single-header__button">
                         <?php while (have_rows('button')):
                             the_row() ?>
@@ -233,14 +233,13 @@ if (get_field('days') === false) {
     </section>
 
     <section class="t-events-single-cta">
-        <a href="<?php the_field('events_page', 'option') ?>"
-           title="Découvrir les évènements"
-           class="c-button c-button--lg c-button--black">
+        <a href="<?php the_field('events_page', 'option') ?>" title="Découvrir les évènements"
+            class="c-button c-button--lg c-button--black">
             <span>Voir tous les événements</span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61 61" fill="none">
-                <circle class="c-button__circle" cx="30.2121" cy="30.2121" r="30.2121"/>
+                <circle class="c-button__circle" cx="30.2121" cy="30.2121" r="30.2121" />
                 <path class="c-button__arrow"
-                      d="M38.5789 30.5168L38.1689 30.1068L35.0589 26.9968L32.5689 24.5068H30.0789V24.8468L35.1989 29.9668H23.1089C22.9789 29.9668 22.8789 30.0668 22.8789 30.1968V31.7368C22.8789 31.8668 22.9789 31.9668 23.1089 31.9668H35.1889L30.0789 37.0768V37.4168H32.5689L37.6089 32.3768L38.5789 31.4068V30.5168Z"/>
+                    d="M38.5789 30.5168L38.1689 30.1068L35.0589 26.9968L32.5689 24.5068H30.0789V24.8468L35.1989 29.9668H23.1089C22.9789 29.9668 22.8789 30.0668 22.8789 30.1968V31.7368C22.8789 31.8668 22.9789 31.9668 23.1089 31.9668H35.1889L30.0789 37.0768V37.4168H32.5689L37.6089 32.3768L38.5789 31.4068V30.5168Z" />
             </svg>
         </a>
     </section>

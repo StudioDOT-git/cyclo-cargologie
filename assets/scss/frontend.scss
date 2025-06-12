@@ -34,12 +34,14 @@
 @use "./components/filters-bar-search-form";
 @use "./components/info";
 @use "./components/formation-filters-bar";
+@use "./components/bibliotheque-media-filters-bar";
 
 /* ----- TEMPLATES ------------ */
 @use "./templates/four-oh-four";
 @use "./templates/legal";
 @use "./tribe/index";
 @use "./templates/events-single";
+@use "./templates/single-bibliotheque-media";
 @use "./templates/search";
 
 /* ----- ANIMATIONS  ------------ */
@@ -59,6 +61,7 @@
 @import "../../dotstarter/layouts/dropdowns-list/dropdowns-list.scss";
 @import "../../dotstarter/layouts/blog/blog.scss";
 @import "../../dotstarter/layouts/formation-calendar/formation-calendar.scss";
+@import "../../dotstarter/layouts/bibliotheque-media/bibliotheque-media.scss";
 @import "../../dotstarter/layouts/generic-content/generic-content.scss";
 @import "../../dotstarter/layouts/members-grid/members-grid.scss";
 @import "../../dotstarter/layouts/operateurs-grid/operateurs-grid.scss";
@@ -75,7 +78,8 @@
 @import "../../dotstarter/layouts/related-posts/related-posts.scss";
 @import "../../dotstarter/layout-parts/yellow-background/yellow-background.scss";
 @import "../../dotstarter/layouts/button-insert/button-insert.scss";
-
+@import "../../dotstarter/layouts/video-player/video-player.scss";
+@import "../../dotstarter/layouts/dropbox-iframe/dropbox-iframe.scss";
 
 
 /* ----- DOT/COMPONENTS  ------------ */

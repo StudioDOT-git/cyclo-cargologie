@@ -1,5 +1,4 @@
 <?php
-
 $is_active = get_sub_field('is_active');
 if (!$is_active) {
     return;
@@ -8,12 +7,8 @@ $label = get_sub_field('label');
 $color = get_sub_field('color');
 $type = get_sub_field('type');
 $size = get_sub_field('size');
-
 $link = get_sub_field('link');
-
-
 $is_button = get_sub_field('fonctionnement')
-
     ?>
 
 <?php if ($is_active): ?>

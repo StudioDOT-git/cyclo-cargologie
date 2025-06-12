@@ -6,6 +6,7 @@ import TestimonialsSlider from '../../dotstarter/layouts/testimonials/testimonia
 import NewsSlider from '../../dotstarter/layouts/news-slider/news-slider.js'
 import FullWidthSlider from '../../dotstarter/layouts/slider-full-width/slider-full-width.js'
 import cardsSliderSwiper from '../../dotstarter/layouts/cards-slider/cards-slider.js'
+import singleBibliothequeMediaSlider from './templates/bibliotheque-media-single.js'
 
 import { modalAnims, modalForm } from './layouts/modal'
 import { dropdownslist } from '../../dotstarter/layouts/dropdowns-list/dropdowns-list.js'
@@ -18,6 +19,7 @@ import { onResize } from './lib/utils.js'
 import searchModal from './components/search-modal.js'
 
 import FormationQueryManager from './components/formation-query-manager.js'
+import BibliothequeMediaQueryManager from './components/bibliotheque-media-query-manager.js'
 
 /* eslint-disable */
 const Sliders = [
@@ -26,15 +28,14 @@ const Sliders = [
   FullWidthSlider,
   GenericContentSlider,
   cardsSliderSwiper,
+  singleBibliothequeMediaSlider,
   // ProjectPartnersSlider
 ]
-
 
 const sliders = [
   SingleEventsSlider,
   SingleEventsContactSlider,
 ];
-
 
 jQuery(function ($) {
   // onResize
@@ -59,7 +60,6 @@ jQuery(function ($) {
 
   sliders.forEach(slider => slider.init())
 
-
   // new EventsArchiveManager();
 
   // QueryFilters : Blog, Community
@@ -69,8 +69,6 @@ jQuery(function ($) {
   new QueryManager('.f-past-events', '.f-past-events__results', 'tribe_events', false);
 
   new FormationQueryManager('.f-formation-calendar__archive', '.f-formation-grid');
-
-
-
+  new BibliothequeMediaQueryManager('.f-bibliotheque-media__archive', '.f-bibliotheque-media-grid');
 })
 

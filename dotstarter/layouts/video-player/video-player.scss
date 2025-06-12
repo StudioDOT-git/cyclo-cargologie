@@ -1,0 +1,26 @@
+@use "../../../assets/scss/base/variables" as *;
+@use "../../../assets/scss/base/colors" as *;
+@use "../../../assets/scss/base/mixins" as *;
+
+.f-video-player {
+  padding: 4.8rem 0 7rem;
+  background-color: $grey-1;
+
+  &__iframe-container {
+    // max-width: 100rem;
+    // border: 1px solid red;
+    display: flex;
+    justify-content: center;
+
+    iframe {
+      width: 100%;
+      max-width: 128rem;
+      aspect-ratio: 16 / 9;
+      position: relative;
+    }
+  }
+
+
+
+  @include media-up(md) {}
+}
