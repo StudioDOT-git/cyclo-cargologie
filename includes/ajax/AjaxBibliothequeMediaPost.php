@@ -19,14 +19,12 @@ class AjaxBibliothequeMediaPost
 
         $posts_per_page = 12;
 
-        $args = array(
+        $args = array_merge([
             "post_type" => 'bibliotheque-media',
             'post_status' => 'publish',
             "posts_per_page" => $request_args['posts_per_page'] ?? $posts_per_page,
             "paged" => $request_args['paged'] ?? 1,
-            "orderby" => $request_args['orderby'] ?? 'date',
-            "order" => $request_args['order'] ?? 'DESC',
-        );
+        ], $request_args);
 
         // Pass through tax_query if present (for media_category filtering)
         if (isset($request_args['tax_query'])) {
@@ -36,6 +34,16 @@ class AjaxBibliothequeMediaPost
         // Search
         if (isset($request_args['s'])) {
             $args["s"] = $request_args['s'];
+        }
+
+        if (isset($request_args['meta_key'])) {
+            $args['meta_key'] = $request_args['meta_key'];
+        }
+        if (isset($request_args['meta_type'])) {
+            $args['meta_type'] = $request_args['meta_type'];
+        }
+        if (isset($request_args['orderby'])) {
+            $args['orderby'] = $request_args['orderby'];
         }
 
         error_log('Final query args: ' . print_r($args, true));

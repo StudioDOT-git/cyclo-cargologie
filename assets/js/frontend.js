@@ -32,12 +32,10 @@ const Sliders = [
   // ProjectPartnersSlider
 ]
 
-
 const sliders = [
   SingleEventsSlider,
   SingleEventsContactSlider,
 ];
-
 
 jQuery(function ($) {
   // onResize
@@ -61,7 +59,6 @@ jQuery(function ($) {
   pageHeaderScrollDown()
 
   sliders.forEach(slider => slider.init())
-
 
   // new EventsArchiveManager();
 

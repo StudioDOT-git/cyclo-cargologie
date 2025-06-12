@@ -30,27 +30,41 @@ if (have_posts()):
             <div class="t-media-single-header__buttons-container">
                 <div class="l-container">
                     <div class="t-media-single-header__nav-links">
-                        <?php if ($lien_precedent): ?>
-                            <a href="<?= esc_url($lien_precedent) ?>"
-                                class="c-button c-button--m c-button--a c-button--white c-button-previous">
+
+                        <div class="t-media-single-header__back-container">
+                            <a href="/bibliotheque-media/"
+                                class="c-button c-button--m c-button--a c-button--green c-button-previous">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61 61" fill="none">
                                     <circle class="c-button__circle" cx="30.2121" cy="30.2121" r="30.2121" />
                                     <path class="c-button__arrow"
                                         d="M38.5789 30.5168L38.1689 30.1068L35.0589 26.9968L32.5689 24.5068H30.0789V24.8468L35.1989 29.9668H23.1089C22.9789 29.9668 22.8789 30.0668 22.8789 30.1968V31.7368C22.8789 31.8668 22.9789 31.9668 23.1089 31.9668H35.1889L30.0789 37.0768V37.4168H32.5689L37.6089 32.3768L38.5789 31.4068V30.5168Z" />
                                 </svg>
-                                <span>Précédent</span>
+                                <span>Retour à la bibliothèque</span>
                             </a>
-                        <?php endif; ?>
-                        <?php if ($lien_suivant): ?>
-                            <a href="<?= esc_url($lien_suivant) ?>" class="c-button c-button--m c-button--a c-button--white">
-                                <span>Suivant</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61 61" fill="none">
-                                    <circle class="c-button__circle" cx="30.2121" cy="30.2121" r="30.2121" />
-                                    <path class="c-button__arrow"
-                                        d="M38.5789 30.5168L38.1689 30.1068L35.0589 26.9968L32.5689 24.5068H30.0789V24.8468L35.1989 29.9668H23.1089C22.9789 29.9668 22.8789 30.0668 22.8789 30.1968V31.7368C22.8789 31.8668 22.9789 31.9668 23.1089 31.9668H35.1889L30.0789 37.0768V37.4168H32.5689L37.6089 32.3768L38.5789 31.4068V30.5168Z" />
-                                </svg>
-                            </a>
-                        <?php endif; ?>
+                        </div>
+                        <div class="t-media-single-header__next-prev-container">
+                            <?php if ($lien_precedent): ?>
+                                <a href="<?= esc_url($lien_precedent) ?>"
+                                    class="c-button c-button--m c-button--a c-button--white c-button-previous">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61 61" fill="none">
+                                        <circle class="c-button__circle" cx="30.2121" cy="30.2121" r="30.2121" />
+                                        <path class="c-button__arrow"
+                                            d="M38.5789 30.5168L38.1689 30.1068L35.0589 26.9968L32.5689 24.5068H30.0789V24.8468L35.1989 29.9668H23.1089C22.9789 29.9668 22.8789 30.0668 22.8789 30.1968V31.7368C22.8789 31.8668 22.9789 31.9668 23.1089 31.9668H35.1889L30.0789 37.0768V37.4168H32.5689L37.6089 32.3768L38.5789 31.4068V30.5168Z" />
+                                    </svg>
+                                    <span>Précédent</span>
+                                </a>
+                            <?php endif; ?>
+                            <?php if ($lien_suivant): ?>
+                                <a href="<?= esc_url($lien_suivant) ?>" class="c-button c-button--m c-button--a c-button--white">
+                                    <span>Suivant</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 61 61" fill="none">
+                                        <circle class="c-button__circle" cx="30.2121" cy="30.2121" r="30.2121" />
+                                        <path class="c-button__arrow"
+                                            d="M38.5789 30.5168L38.1689 30.1068L35.0589 26.9968L32.5689 24.5068H30.0789V24.8468L35.1989 29.9668H23.1089C22.9789 29.9668 22.8789 30.0668 22.8789 30.1968V31.7368C22.8789 31.8668 22.9789 31.9668 23.1089 31.9668H35.1889L30.0789 37.0768V37.4168H32.5689L37.6089 32.3768L38.5789 31.4068V30.5168Z" />
+                                    </svg>
+                                </a>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -172,7 +172,16 @@ if (!class_exists('DOT_Starter')) {
             wp_enqueue_script('detect-autofill', 'https://unpkg.com/detect-autofill/dist/detect-autofill.js', array(), null, true);
             wp_enqueue_script('slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array('jquery'), null, true);
 
-            wp_enqueue_script('dotstarter-frontend', DOT_THEME_URI . '/dist/js/bundle.min.js', array('jquery', 'detect-autofill'), filemtime(DOT_THEME_PATH . '/dist/js/bundle.min.js'), true);
+            $bundle_js_path = DOT_THEME_PATH . '/dist/js/bundle.min.js';
+            $bundle_js_version = file_exists($bundle_js_path) ? filemtime($bundle_js_path) : null;
+
+            wp_enqueue_script(
+                'dotstarter-frontend',
+                DOT_THEME_URI . '/dist/js/bundle.min.js',
+                array('jquery', 'detect-autofill'),
+                $bundle_js_version,
+                true
+            );
 
             if (get_field('gmaps_api_key', 'option')) {
                 wp_enqueue_script('google-map', 'https://maps.googleapis.com/maps/api/js?key=' . get_field('gmaps_api_key', 'option'), array(), '3', true);

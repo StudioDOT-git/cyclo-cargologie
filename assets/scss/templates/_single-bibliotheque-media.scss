@@ -12,6 +12,7 @@
 .t-media-single-header {
   position: relative;
   z-index: 1;
+  margin-bottom: 7rem;
 
   .l-container {
     background: $grey-1;
@@ -46,7 +47,6 @@
 
     @include media-up(md) {
       padding: 2.4rem 0 10rem;
-
     }
   }
 
@@ -65,7 +65,10 @@
 
   &__nav-links {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    gap: 1rem;
+    margin: 1rem 0;
 
     .c-button {
       width: fit-content;
@@ -78,6 +81,12 @@
         transform: rotate(180deg);
       }
     }
+  }
+
+  &__next-prev-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   &__title {
@@ -107,14 +116,6 @@
     display: flex;
     flex-direction: column;
     gap: .5rem;
-  }
-
-  &__nav-links {
-    display: flex;
-    flex-direction: row;
-    // flex-wrap: wrap;
-    gap: 1rem;
-    margin: 1rem 0;
   }
 
   &__meta {
@@ -160,7 +161,7 @@
   }
 
   &.c-yellow-background-brother {
-    margin-top: -52rem;
+    margin-top: -46rem;
   }
 
   @include media-up(md) {
@@ -176,7 +177,8 @@
     }
 
     &__nav-links {
-      display: flex;
+      display: grid;
+      grid-template-columns: 7fr 5fr;
       justify-content: space-between;
 
       .c-button {
@@ -190,6 +192,12 @@
           transform: rotate(180deg);
         }
       }
+    }
+
+    &__next-prev-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     &.c-yellow-background-brother {

@@ -10,13 +10,10 @@
                 <?php endif; ?>
             </div>
             <div class="l-layout__titles">
-                <h2 class="l-layout__title">
-                    <?= get_sub_field('title') ?>
-                </h2>
+                <h2 class="l-layout__title"><?= get_sub_field('title') ?></h2>
             </div>
         </div>
     </div>
-
     <div class="l-container l-container--md">
         <?php
         $posts_per_page = 12;
@@ -25,7 +22,8 @@
             'post_type' => 'bibliotheque-media',
             'posts_per_page' => $posts_per_page,
             'paged' => $paged,
-            'orderby' => 'date',
+            'meta_key' => 'date',
+            'orderby' => 'meta_value_num',
             'order' => 'DESC',
         ];
 
@@ -42,11 +40,9 @@
 
         $posts = AjaxBibliothequeMediaPost::renderPosts($args);
         ?>
-
         <div id="bibliotheque-media-archive" class="f-bibliotheque-media__archive"
             data-posts-per-page="<?= $posts_per_page ?>">
             <?php dot_the_layout_part('yellow-background') ?>
-
             <div class="l-container l-container--md"></div>
             <?php
             $component = acf_get_instance('\DOT\Core\Main\Components');
@@ -60,7 +56,6 @@
                     </div>
                 <?php endif; ?>
             </div>
-
             <div class="c-pagination" data-max-num-pages="<?= $posts['max_num_pages'] ?>" data-paged="<?= $paged ?>">
                 <div class="c-pagination__prev" rel="prev">Précédent</div>
                 <div class="c-pagination__pages"></div>

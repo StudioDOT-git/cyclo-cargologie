@@ -116,8 +116,8 @@ if ($post->post_type === 'formation'):
 
         </div>
     </div>
-<?php
-// MEDIA CARD
+    <?php
+    // MEDIA CARD
 elseif ($post->post_type === 'media'): ?>
     <div class="f-media-card">
         <a href="<?= get_permalink($post->ID) ?>" class="f-media-card__link">
@@ -147,8 +147,53 @@ elseif ($post->post_type === 'media'): ?>
             </div>
         </a>
     </div>
-<?php
-// DEFAULT CARD (EVENT/POST/PAGE)
+    <?php
+    // BIBLIOTHEQUE MEDIA CARD
+elseif ($post->post_type === 'bibliotheque-media'):
+    $date = get_field('date', $post->ID);
+    $location = get_field('location', $post->ID);
+    $media_type_terms = get_the_terms($post->ID, 'media_category');
+    $media_type_names = $media_type_terms ? wp_list_pluck($media_type_terms, 'name') : [];
+    ?>
+    <div class="f-card__spotlight">
+        <a href="<?= get_permalink($post->ID) ?>" class="f-card__image">
+            <?php if (has_post_thumbnail($post->ID)): ?>
+                <?= get_the_post_thumbnail($post->ID) ?>
+            <?php else: ?>
+                <img src="<?= DOT_THEME_URI . '/assets/img/page-thumbnail.png' ?>" alt="Illustration">
+            <?php endif; ?>
+            <div class="f-card__image-overlay">
+                <div class="f-card__tags">
+                    <?php if ($date): ?>
+                        <span class="f-card__tag f-card__tag--date"><?= esc_html($date) ?></span>
+                    <?php endif; ?>
+                    <?php if ($location): ?>
+                        <span class="f-card__tag f-card__tag--location">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="13" viewBox="0 0 10 13" fill="none">
+                                <path
+                                    d="M9 5.13105C9 7.02445 6.5625 10.3594 5.47917 11.7579C5.22917 12.0807 4.75 12.0807 4.5 11.7579C3.41667 10.3594 1 7.02445 1 5.13105C1 2.85037 2.77083 1 5 1C7.20833 1 9 2.85037 9 5.13105Z"
+                                    fill="white" fill-opacity="0.5" stroke="#181818" stroke-width="1.1" />
+                            </svg>
+                            <span class="f-card__location-name"><?= esc_html($location) ?></span>
+                        </span>
+                    <?php endif; ?>
+                    <?php if (!empty($media_type_names)): ?>
+                        <?php foreach ($media_type_names as $type_name): ?>
+                            <span class="f-card__tag"><?= esc_html($type_name) ?></span>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </div>
+                <p class="f-card__title"><?= esc_html(get_the_title($post->ID)) ?></p>
+                <?php if (get_field('excerpt', $post->ID)): ?>
+                    <div class="f-card__excerpt">
+                        <p class="f-card__subtitle"><?= esc_html(get_field('excerpt', $post->ID)) ?></p>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </a>
+    </div>
+    <?php
+    // DEFAULT CARD (EVENT/POST/PAGE)
 else: ?>
     <div class="f-card__spotlight">
         <a href="<?= get_post_permalink($post->ID) ?>" class="f-card__image">

@@ -57,7 +57,7 @@
                 "class": "",
                 "id": ""
             },
-            "display_format": "d\/m\/Y",
+            "display_format": "Y-m-d",
             "return_format": "d\/m\/Y",
             "first_day": 1,
             "allow_in_bindings": 0
@@ -236,5 +236,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1748877871
+    "modified": 1749136689
 }
