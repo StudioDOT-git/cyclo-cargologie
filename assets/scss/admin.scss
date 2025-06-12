@@ -40,6 +40,7 @@
 @use "./templates/legal";
 @use "./tribe/index";
 @use "./templates/events-single";
+@use "./templates/single-bibliotheque-media";
 @use "./templates/search";
 
 html {
@@ -85,6 +86,14 @@ input[type=checkbox]:checked::before {
 }
 
 
+// disable hidden in out of the box plugin
+//document.querySelector('#wpcp').classList.remove('hidden')
+
+#wpcp {
+  visibility: visible !important;
+}
+
+
 
 /* ----- LAYOUTS  ------------ */
 @import "../../dotstarter/layouts/notice-banner/notice-banner.scss";
@@ -113,6 +122,10 @@ input[type=checkbox]:checked::before {
 @import "../../dotstarter/layouts/button-insert/button-insert.scss";
 @import "../../dotstarter/layout-parts/yellow-background/yellow-background.scss";
 @import "../../dotstarter/layouts/formation-calendar/formation-calendar.scss";
+@import "../../dotstarter/layouts/video-player/video-player.scss";
+@import "../../dotstarter/layouts/dropbox-iframe/dropbox-iframe.scss";
+
+
 
 
 
