@@ -20,6 +20,8 @@ import searchModal from './components/search-modal.js'
 
 import FormationQueryManager from './components/formation-query-manager.js'
 import BibliothequeMediaQueryManager from './components/bibliotheque-media-query-manager.js'
+import Popup from './components/popup'
+
 
 /* eslint-disable */
 const Sliders = [
@@ -46,8 +48,24 @@ jQuery(function ($) {
 
   registerGsapPlugins()
   Menu();
+  Popup();
   // Newsletter();
   NewsletterForm();
+
+  // Initialize popup newsletter form
+  NewsletterForm({
+    formSelector: '#newsletter-popup-form',
+    emailSelector: '#newsletter-popup-email',
+    lastnameSelector: '#newsletter-popup-lastname',
+    firstnameSelector: '#newsletter-popup-firstname',
+    companySelector: '#newsletter-popup-company',
+    roleSelector: '#newsletter-popup-role',
+    citySelector: '#newsletter-popup-city',
+    termsSelector: '#newsletter-popup-terms',
+    feedbackSelector: '#newsletter-popup-feedback',
+    expandableSelector: '.c-newsletter-form__expandable',
+    termsControlSelector: '.c-newsletter-form__terms'
+  });
   searchModal();
 
   modalAnims();

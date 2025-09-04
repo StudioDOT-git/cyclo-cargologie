@@ -237,13 +237,13 @@
     outline: none;
     border: 0;
     width: 100%;
-    color: $red;
+    color: $black;
   }
 
   &__input {
     outline: 0;
     border: 0;
-    color: $red;
+    color: $black;
     height: 100%;
     width: 100%;
 
@@ -254,7 +254,7 @@
 
     &::placeholder {
       opacity: 1;
-      color: $red;
+      color: $black;
     }
   }
 
