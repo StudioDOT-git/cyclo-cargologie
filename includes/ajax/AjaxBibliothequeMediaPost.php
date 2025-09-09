@@ -96,20 +96,23 @@ class AjaxBibliothequeMediaPost
                 // Support legacy "category" and specific taxonomy "media_category" (comma-separated slugs)
                 $media_category = $request->get_param('media_category');
                 $category = $request->get_param('category');
+                $raw_terms = null;
                 if (!empty($media_category)) {
-                    $args['tax_query'] = [
-                        [
-                            'taxonomy' => 'media_category',
-                            'field' => 'slug',
-                            'terms' => array_map('trim', explode(',', $media_category)),
-                        ]
-                    ];
+                    $raw_terms = array_map('trim', explode(',', $media_category));
                 } elseif (!empty($category)) {
+                    $raw_terms = array_map('trim', explode(',', $category));
+                }
+
+                if (!empty($raw_terms)) {
+                    $all_numeric = array_reduce($raw_terms, function ($carry, $item) {
+                        return $carry && ctype_digit($item);
+                    }, true);
+
                     $args['tax_query'] = [
                         [
                             'taxonomy' => 'media_category',
-                            'field' => 'slug',
-                            'terms' => array_map('trim', explode(',', $category)),
+                            'field' => $all_numeric ? 'term_id' : 'slug',
+                            'terms' => $all_numeric ? array_map('intval', $raw_terms) : $raw_terms,
                         ]
                     ];
                 }
