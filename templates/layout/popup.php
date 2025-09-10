@@ -1,8 +1,8 @@
 <?php
 // Activation guard: if disabled in options, output nothing
-// if (!get_field('activer_les_pop-ups', 'option')) {
-//     return;
-// }
+if (!get_field('activer_les_pop-ups', 'option')) {
+    return;
+}
 // Get today's date and the start/end dates in the same format as ACF date_picker return_format
 $today = DateTime::createFromFormat('d/m/Y', date('d/m/Y'));
 // Fetch ACF group for personalized message
