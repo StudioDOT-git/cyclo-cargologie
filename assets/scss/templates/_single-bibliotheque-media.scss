@@ -1,7 +1,7 @@
 @use "../base/variables" as *;
 @use "../base/mixins" as *;
 @use "../base/colors" as *;
-@import "../components/wysiwyg";
+@use "../components/wysiwyg";
 
 // Remove default container if needed
 .single-bibliotheque-media #media-pg-template {

@@ -1,7 +1,7 @@
-@use "../../../assets/scss/base/colors"as *;
-@use "../../../assets/scss/base/mixins"as *;
-@use "../../../assets/scss/base/variables"as *;
-@import "../../../assets/scss/components/wysiwyg";
+@use "../../../assets/scss/base/colors" as *;
+@use "../../../assets/scss/base/mixins" as *;
+@use "../../../assets/scss/base/variables" as *;
+@use "../../../assets/scss/components/wysiwyg";
 
 
 .f-article-header {
@@ -127,7 +127,7 @@
       grid-template-columns: auto auto;
       gap: 6.4rem;
 
-      & > *:first-child {
+      &>*:first-child {
         width: 70.9rem;
       }
 
@@ -167,6 +167,7 @@
     .c-yellow-background {
       height: 24.5rem;
     }
+
     .c-yellow-background-brother {
       margin-top: -22.2rem;
     }

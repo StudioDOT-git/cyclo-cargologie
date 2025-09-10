@@ -1,7 +1,7 @@
 @use "../base/variables" as *;
 @use "../base/mixins" as *;
 @use "../base/colors" as *;
-@import "../components/wysiwyg";
+@use "../components/wysiwyg";
 
 // Remove tribe container
 .single-tribe_events #tribe-events-pg-template {
@@ -135,7 +135,7 @@
       grid-template-columns: auto auto;
       gap: 6.4rem;
 
-      & > *:first-child {
+      &>*:first-child {
         width: 70.9rem;
       }
 
@@ -250,6 +250,7 @@
 // Admin interface
 .wp-admin {
   #tribe_events_event_details {
+
     #event_tribe_venue,
     #event_tribe_organizer,
     #event_cost,
@@ -272,6 +273,7 @@
     .c-yellow-background {
       height: 24.5rem;
     }
+
     .c-yellow-background-brother {
       margin-top: -22.2rem;
     }
