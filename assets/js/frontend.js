@@ -15,14 +15,12 @@ import { pageHeaderScrollDown } from '../../dotstarter/layouts/page-header/page-
 import { SingleEventsContactSlider, SingleEventsSlider } from './templates/events-single.js'
 import QueryManager from './components/query-manager.js'
 import GenericContentSlider from '../../dotstarter/layouts/generic-content/generic-content.js'
-import { onResize } from './lib/utils.js'
+// import { onResize } from './lib/utils.js'
 import searchModal from './components/search-modal.js'
 
 import FormationQueryManager from './components/formation-query-manager.js'
 import BibliothequeMediaQueryManager from './components/bibliotheque-media-query-manager.js'
 import Popup from './components/popup'
-
-
 /* eslint-disable */
 const Sliders = [
   TestimonialsSlider,
@@ -63,6 +61,20 @@ jQuery(function ($) {
     citySelector: '#newsletter-popup-city',
     termsSelector: '#newsletter-popup-terms',
     feedbackSelector: '#newsletter-popup-feedback',
+    expandableSelector: '.c-newsletter-__expandable',
+    termsControlSelector: '.c-newsletter-form__terms'
+  });
+
+  NewsletterForm({
+    formSelector: '#newsletter-form-block',
+    emailSelector: '#newsletter-block-email',
+    lastnameSelector: '#newsletter-block-lastname',
+    firstnameSelector: '#newsletter-block-firstname',
+    companySelector: '#newsletter-block-company',
+    roleSelector: '#newsletter-block-role',
+    citySelector: '#newsletter-block-city',
+    termsSelector: '#newsletter-block-terms',
+    feedbackSelector: '#newsletter-block-feedback',
     expandableSelector: '.c-newsletter-form__expandable',
     termsControlSelector: '.c-newsletter-form__terms'
   });
