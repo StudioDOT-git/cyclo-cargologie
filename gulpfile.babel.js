@@ -118,12 +118,26 @@ const js = async () => {
 
 /* CSS */
 const css = () => {
+  // Build timestamp for cache-busting in production (YYYYMMDDHHmm)
+  const buildTimestamp = process.env.BUILD_TIME || new Date()
+    .toISOString()
+    .replace(/[-:TZ.]/g, '')
+    .slice(0, 12)
+
   return gulp.src(stylesEntryPoints)
     .pipe(sass().on('error', sass.logError))
     .pipe(gulpif(!PRODUCTION, sourcemaps.init()))
     .pipe(postcss([autoprefixer()]))
     .pipe(minifyCSS())
-    .pipe(rename({ suffix: '.min' }))
+    .pipe(rename((pathObj) => {
+      // Always add .min; in production also append timestamp to filename
+      if (!pathObj.basename.endsWith('.min')) {
+        pathObj.basename += '.min'
+      }
+      if (PRODUCTION) {
+        pathObj.basename += `.${buildTimestamp}`
+      }
+    }))
     .pipe(gulpif(!PRODUCTION, sourcemaps.write(dirs.css)))
     .pipe(gulp.dest(dirs.css))
     .pipe(server.stream())

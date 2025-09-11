@@ -973,24 +973,6 @@
             "selected": 0
         },
         {
-            "key": "field_687e079ff92fa",
-            "label": "Message Newsletter",
-            "name": "",
-            "aria-label": "",
-            "type": "accordion",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "open": 1,
-            "multi_expand": 0,
-            "endpoint": 0
-        },
-        {
             "key": "field_68b85d2f44c58",
             "label": "Activer les pop-ups",
             "name": "activer_les_pop-ups",
@@ -1010,6 +992,24 @@
             "ui": 0,
             "ui_on_text": "",
             "ui_off_text": ""
+        },
+        {
+            "key": "field_687e079ff92fa",
+            "label": "Message Newsletter",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 1,
+            "multi_expand": 0,
+            "endpoint": 0
         },
         {
             "key": "field_687e069df92f5",
@@ -1087,7 +1087,7 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -1121,7 +1121,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -1191,13 +1191,14 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
                     "display_format": "d\/m\/Y",
                     "return_format": "d\/m\/Y",
                     "first_day": 1,
+                    "default_to_current_date": 0,
                     "allow_in_bindings": 0
                 },
                 {
@@ -1210,14 +1211,36 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
                     "display_format": "d\/m\/Y",
                     "return_format": "d\/m\/Y",
                     "first_day": 1,
+                    "default_to_current_date": 0,
                     "allow_in_bindings": 0
+                },
+                {
+                    "key": "field_687e080ce9878",
+                    "label": "Titre",
+                    "name": "titre_popup_perso",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
                 },
                 {
                     "key": "field_687e0af78d4df",
@@ -1242,27 +1265,6 @@
                     "new_lines": ""
                 },
                 {
-                    "key": "field_687e080ce9878",
-                    "label": "Titre",
-                    "name": "titre_popup_perso",
-                    "aria-label": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "maxlength": "",
-                    "allow_in_bindings": 0,
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": ""
-                },
-                {
                     "key": "field_6884d5f9e4b0d",
                     "label": "Sticker message personnalisé",
                     "name": "sticker_message_perso",
@@ -1272,7 +1274,7 @@
                     "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
@@ -1295,7 +1297,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
@@ -1318,7 +1320,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
@@ -1352,7 +1354,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "",
+                        "width": "50",
                         "class": "",
                         "id": ""
                     },
@@ -1402,5 +1404,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1756913714
+    "modified": 1757599780
 }

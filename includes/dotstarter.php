@@ -147,7 +147,29 @@ if (!class_exists('DOT_Starter')) {
         public function enqueue_styles()
         {
             wp_enqueue_style('slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css');
-            wp_enqueue_style('frontend', DOT_THEME_URI . '/dist/css/frontend.min.css', null, filemtime(DOT_THEME_PATH . '/dist/css/frontend.min.css'));
+
+            $base_name = 'frontend.min.css';
+            $base_path = DOT_THEME_PATH . '/dist/css/' . $base_name;
+            $base_uri = DOT_THEME_URI . '/dist/css/' . $base_name;
+
+            $pattern = DOT_THEME_PATH . '/dist/css/frontend.min.*.css';
+            $matches = glob($pattern);
+
+            if ($matches && count($matches) > 0) {
+                // Choose the newest file by modification time
+                usort($matches, function ($a, $b) {
+                    return filemtime($b) <=> filemtime($a);
+                });
+                $latest_path = $matches[0];
+                $latest_file = basename($latest_path);
+                $latest_uri = DOT_THEME_URI . '/dist/css/' . $latest_file;
+
+                wp_enqueue_style('frontend', $latest_uri, null, filemtime($latest_path));
+            } else {
+                // Fallback to non-versioned file if no match
+                $version = file_exists($base_path) ? filemtime($base_path) : null;
+                wp_enqueue_style('frontend', $base_uri, null, $version);
+            }
         }
 
         /**
@@ -157,7 +179,26 @@ if (!class_exists('DOT_Starter')) {
          */
         public function enqueue_admin_scripts()
         {
-            wp_enqueue_style('dotstarter-admin-css', DOT_THEME_URI . '/dist/css/admin.min.css', array(), @filemtime(DOT_THEME_PATH . '/dist/css/admin.min.css'));
+            $base_name = 'admin.min.css';
+            $base_path = DOT_THEME_PATH . '/dist/css/' . $base_name;
+            $base_uri = DOT_THEME_URI . '/dist/css/' . $base_name;
+
+            $pattern = DOT_THEME_PATH . '/dist/css/admin.min.*.css';
+            $matches = glob($pattern);
+
+            if ($matches && count($matches) > 0) {
+                usort($matches, function ($a, $b) {
+                    return filemtime($b) <=> filemtime($a);
+                });
+                $latest_path = $matches[0];
+                $latest_file = basename($latest_path);
+                $latest_uri = DOT_THEME_URI . '/dist/css/' . $latest_file;
+
+                wp_enqueue_style('dotstarter-admin-css', $latest_uri, array(), filemtime($latest_path));
+            } else {
+                $version = file_exists($base_path) ? @filemtime($base_path) : null;
+                wp_enqueue_style('dotstarter-admin-css', $base_uri, array(), $version);
+            }
         }
 
 

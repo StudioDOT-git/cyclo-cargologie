@@ -58,7 +58,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "Vidéo",
+            "default_value": "",
             "maxlength": "",
             "allow_in_bindings": 1,
             "placeholder": "",
@@ -115,5 +115,5 @@
     "dot_is_layout": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1757585303
+    "modified": 1757599798
 }
