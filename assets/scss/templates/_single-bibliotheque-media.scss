@@ -213,7 +213,7 @@
 
     &__column:first-child {
       margin-bottom: 0;
-      padding-top: 2.8rem;
+      // padding-top: 2.8rem;
     }
 
     .l-container {
@@ -223,7 +223,7 @@
       gap: 2.4rem;
 
       &>*:first-child {
-        // width: 70.9rem;
+        width: 100%;
       }
     }
 
@@ -244,30 +244,56 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  // overflow: hidden;
 
 
   &__slider {
     position: relative;
     aspect-ratio: 16/9;
     max-height: 20rem;
+    width: 100%;
+    // padding-top: 2.8rem;
 
     img,
     .wp-post-image {
       display: block;
+      width: 100%;
       height: 100%;
       object-fit: cover;
       user-select: none;
       aspect-ratio: 16/9;
       max-height: 20rem;
+
     }
   }
+
+  // Ensure Slick containers behave in Firefox
+  .slick-list {
+    overflow: hidden;
+  }
+
+  .slick-track {
+    display: flex;
+    align-items: stretch;
+  }
+
+  // Make slides fill the track height
+  &__slide,
+  &__slide>div {
+    height: 100%;
+  }
+
 
   .c-slider__index {
     margin: 1rem 0 0 0;
   }
 
   @include media-up(md) {
-    max-height: 50rem;
+    // max-height: 50rem;
+
+    &__slide {
+      min-height: 0;
+    }
 
     &__slider {
       position: relative;
@@ -277,11 +303,13 @@
       img,
       .wp-post-image {
         display: block;
+        width: 100%;
         height: 100%;
         object-fit: cover;
         user-select: none;
         aspect-ratio: 16/9;
-        max-height: none;
+        max-height: 50rem;
+        // max-width: 75rem;
       }
     }
 
