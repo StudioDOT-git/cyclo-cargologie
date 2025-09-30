@@ -18,6 +18,7 @@ if (have_posts()):
         $subtitle = get_field('subtitle');
         $location = get_field('location');
         $date = get_field('date');
+        $display_date = dot_format_time_string(is_string($date) ? $date : '');
         $description = get_field('description');
         $media_file = get_field('media_file');
         $media_url = $media_file ? $media_file['url'] : '';
@@ -129,7 +130,7 @@ if (have_posts()):
                         <?php if ($date || $location): ?>
                             <div class="f-card__date f-card__date--black">
                                 <?php if ($date): ?>
-                                    <span><?= esc_html($date) ?></span>
+                                    <span><?= esc_html($display_date ?: $date) ?></span>
                                 <?php endif; ?>
                                 <?php if ($location): ?>
                                     <div class="f-card__location">
