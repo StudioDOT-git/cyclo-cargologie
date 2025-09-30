@@ -86,6 +86,43 @@
             "new_lines": ""
         },
         {
+            "key": "field_68dbf63c32ddd",
+            "label": "Taille des titres des cartes",
+            "name": "cards_title_size",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "heading2": "2",
+                "heading3": "3",
+                "heading4": "4",
+                "heading5": "5",
+                "heading6": "6",
+                "heading7": "7",
+                "headingxs": "XS",
+                "headingxxs": "XXS"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0,
+            "allow_custom": 0,
+            "search_placeholder": ""
+        },
+        {
             "key": "field_65eee3ea66256",
             "label": "Sections",
             "name": "sections",
@@ -235,7 +272,7 @@
     "dot_is_layout": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1711118356,
+    "modified": 1759246026,
     "acfe_categories": {
         "slider": "Slider"
     }
