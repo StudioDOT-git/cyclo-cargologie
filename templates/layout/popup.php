@@ -80,7 +80,9 @@ $content_hash = substr(md5($popup_title), 0, 8); // Short hash of title
                 <p><?php the_field('text_pop_newsletter', 'option'); ?></p>
             </div>
         </div>
-        <form id="newsletter-popup-form" class="f-newsletter__form c-newsletter-form" action="">
+        <?php $newsletter_list_id = get_field('newsletter_contact_list_id', 'option'); ?>
+        <form id="newsletter-popup-form" class="f-newsletter__form c-newsletter-form" action=""
+            data-mailjet-list="<?= esc_attr($newsletter_list_id); ?>">
             <label class="c-newsletter-form__control">
                 <input class="c-newsletter-form__input" type="email" name="email" id="newsletter-popup-email"
                     placeholder="Votre e-mail*" required>

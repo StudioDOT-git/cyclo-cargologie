@@ -24,7 +24,11 @@
 
         <div class="f-newsletter-form__container">
 
-            <form id="newsletter-form-block" class="f-newsletter__form c-newsletter-form" action="">
+            <?php
+            $newsletter_list_id = get_sub_field('newsletter_contact_list_id') ?: get_field('newsletter_contact_list_id', 'option');
+            ?>
+            <form id="newsletter-form-block" class="f-newsletter__form c-newsletter-form" action=""
+                data-mailjet-list="<?= esc_attr($newsletter_list_id); ?>">
                 <label class="c-newsletter-form__control">
                     <input class="c-newsletter-form__input" type="email" name="email" id="newsletter-block-email"
                         placeholder="Votre e-mail*" required>

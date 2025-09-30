@@ -17,8 +17,22 @@ function dot_subscribe_contact_to_mailet()
         );
     }
 
-    if (!isset($_POST)) {
+    if (empty($_POST['data'])) {
         wp_send_json_error('Error : missing POST data');
+        wp_die();
+    }
+
+    $list_id = isset($_POST['listId']) ? absint($_POST['listId']) : 0;
+    if (!$list_id) {
+        $list_id = (int) get_field('newsletter_contact_list_id', 'option');
+    }
+
+    if (!$list_id) {
+        wp_send_json_error(
+            array(
+                "error" => "Identifiant de liste Mailjet manquant. Veuillez le renseigner dans les options du thème."
+            )
+        );
         wp_die();
     }
 
@@ -90,18 +104,30 @@ function dot_subscribe_contact_to_mailet()
      * @param [type] $id
      * @return \Mailjet\Response
      */
-    function add_contact_to_list($mj, $email)
+    function find_contact($mj, $email)
     {
-        $LIST_ID = get_field('newsletter_contact_list_id', 'option');
+        return $mj->get(Resources::$Contact, [
+            'filters' => [
+                'Email' => $email
+            ]
+        ]);
+    }
 
-
+    /**
+     * Add a Mailjet contact to a Mailjet list
+     *
+     * @param [type] $mj
+     * @param [type] $email
+     * @return \Mailjet\Response
+     */
+    function add_contact_to_list($mj, $email, $list_id)
+    {
         $body = [
-            'ContactAlt' => $email,
-            'ListID' => $LIST_ID,
-            'IsUnsubscribed' => "false",
-            "IsActive" => true,
+            'Action' => 'addforce',
+            'Email' => $email,
         ];
-        return $mj->post(Resources::$Listrecipient, ['body' => $body]);
+
+        return $mj->post(Resources::$ContactslistManagecontact, ['id' => $list_id, 'body' => $body]);
     }
 
 
@@ -118,19 +144,44 @@ function dot_subscribe_contact_to_mailet()
 
     $create_request = create_contact($mj, $email);
     $create_request_data = $create_request->getData();
+    $contact_id = null;
 
-    if (!$create_request->success()) {
-        wp_send_json_error(
-            array(
-                "failOn" => "create_contact",
-                "response" => $create_request_data
-            )
-        );
+    if ($create_request->success()) {
+        $contact_id = $create_request_data[0]['ID'];
+    } else {
+        $error_message = $create_request_data[0]['ErrorMessage'] ?? '';
+        if (strpos($error_message, 'MJ18') === 0) {
+            $find_contact_request = find_contact($mj, $email);
+            if (!$find_contact_request->success()) {
+                wp_send_json_error(
+                    array(
+                        "failOn" => "find_contact",
+                        "response" => $find_contact_request->getData()
+                    )
+                );
+            }
+
+            $existing_contact = $find_contact_request->getData();
+            if (empty($existing_contact)) {
+                wp_send_json_error(
+                    array(
+                        "failOn" => "find_contact",
+                        "response" => $find_contact_request->getData()
+                    )
+                );
+            }
+            $contact_id = $existing_contact[0]['ID'];
+        } else {
+            wp_send_json_error(
+                array(
+                    "failOn" => "create_contact",
+                    "response" => $create_request_data
+                )
+            );
+        }
     }
 
-    $id = $create_request_data[0]['ID'];
-
-    $add_properties_request = add_contact_properties($mj, $id, $params);
+    $add_properties_request = add_contact_properties($mj, $contact_id, $params);
     $add_properties_request_data = $add_properties_request->getData();
 
     if (!$add_properties_request->success()) {
@@ -142,14 +193,15 @@ function dot_subscribe_contact_to_mailet()
         );
     }
 
-    $add_to_list_request = add_contact_to_list($mj, $email);
+    $add_to_list_request = add_contact_to_list($mj, $email, $list_id);
     $add_to_list_request_data = $add_to_list_request->getData();
 
     if (!$add_to_list_request->success()) {
         wp_send_json_error(
             array(
                 "failOn" => "add_contact_to_list",
-                "response" => get_field('newsletter_contact_list_id', 'option')
+                "response" => $add_to_list_request_data,
+                "listId" => $list_id
             )
         );
     }

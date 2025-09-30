@@ -236,7 +236,8 @@ if (!class_exists('DOT_Starter')) {
                 'baseUrl' => get_site_url(),
                 'isLoggedIn' => is_user_logged_in(),
                 'nonce' => wp_create_nonce('dot_nonce'),
-                'isFirstVisit' => $is_first_visit
+                'isFirstVisit' => $is_first_visit,
+                'mailjetListId' => (int) get_field('newsletter_contact_list_id', 'option')
             );
             wp_localize_script('dotstarter-frontend', 'ajaxConfig', $args);
         }

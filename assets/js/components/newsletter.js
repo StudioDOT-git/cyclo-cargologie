@@ -28,7 +28,8 @@ function NewsletterForm ({
   termsSelector = '#newsletter-terms',
   feedbackSelector = '#newsletter-feedback',
   expandableSelector = '.c-newsletter-form__expandable',
-  termsControlSelector = '.c-newsletter-form__terms'
+  termsControlSelector = '.c-newsletter-form__terms',
+  listId = null
 } = {}) {
   const formEl = document.querySelector(formSelector)
   const emailInputEl = document.querySelector(emailSelector)
@@ -39,6 +40,7 @@ function NewsletterForm ({
   const expandableElHeight = expandableEl && termsControlEl
     ? expandableEl.scrollHeight + termsControlEl.scrollHeight
     : 0
+  const resolvedListId = listId ?? formEl?.dataset.mailjetList ?? ajaxConfig?.mailjetListId ?? null
 
   const errors = []
   let email, firstname, lastname, company, role, city
@@ -113,27 +115,42 @@ function NewsletterForm ({
         city
       })
     }
-    await fetch(ajaxConfig.ajaxUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Cache-Control': 'no-cache'
-      },
-      body: new URLSearchParams(params)
-    })
-      .then(res => res.json())
-      .then(res => {
-        const data = res.data?.response
-        if (!data?.ErrorMessage) {
-          errors.length = 0
-          return
-        }
-        if (data?.ErrorMessage?.startsWith('MJ18')) {
-          errors.push('Cette adresse e-mail est déjà inscrite')
-        }
-      }).catch(err => {
-        errors.push('Inscription impossible. Vérifiez vos informations ou réessayez plus tard.')
+    if (!data && resolvedListId) {
+      params.listId = resolvedListId
+    }
+    try {
+      const response = await fetch(ajaxConfig.ajaxUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Cache-Control': 'no-cache'
+        },
+        body: new URLSearchParams(params)
       })
+      const json = await response.json()
+      if (json.success === false) {
+        const errorResponse = json.data?.response
+        if (errorResponse?.ErrorMessage?.startsWith('MJ18')) {
+          errors.push('Cette adresse e-mail est déjà inscrite')
+        } else {
+          errors.push('Inscription impossible. Vérifiez vos informations ou réessayez plus tard.')
+        }
+        return false
+      }
+      const data = json.data?.response
+      if (!data?.ErrorMessage) {
+        errors.length = 0
+        return true
+      }
+      if (data?.ErrorMessage?.startsWith('MJ18')) {
+        errors.push('Cette adresse e-mail est déjà inscrite')
+      } else {
+        errors.push('Inscription impossible. Vérifiez vos informations ou réessayez plus tard.')
+      }
+    } catch (err) {
+      errors.push('Inscription impossible. Vérifiez vos informations ou réessayez plus tard.')
+    }
+    return errors.length === 0
   }
 
   function expandAndRemoveListeners () {
