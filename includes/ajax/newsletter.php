@@ -17,13 +17,62 @@ function dot_subscribe_contact_to_mailet()
         );
     }
 
-    if (!isset($_POST)) {
-        wp_send_json_error('Error : missing POST data');
+    if (!isset($_POST['data'])) {
+        wp_send_json_error(
+            array(
+                'error' => 'Données manquantes pour l\'inscription.'
+            )
+        );
+        wp_die();
+    }
+
+    $decoded_data = json_decode(wp_unslash($_POST['data']), true);
+
+    if (JSON_ERROR_NONE !== json_last_error() || !is_array($decoded_data)) {
+        wp_send_json_error(
+            array(
+                'error' => 'Format de données invalide.'
+            )
+        );
+        wp_die();
+    }
+
+    $email = isset($decoded_data['email']) ? sanitize_email($decoded_data['email']) : '';
+    $lastname = isset($decoded_data['lastname']) ? sanitize_text_field($decoded_data['lastname']) : '';
+    $firstname = isset($decoded_data['firstname']) ? sanitize_text_field($decoded_data['firstname']) : '';
+    $company = isset($decoded_data['company']) ? sanitize_text_field($decoded_data['company']) : '';
+    $role = isset($decoded_data['role']) ? sanitize_text_field($decoded_data['role']) : '';
+    $city = isset($decoded_data['city']) ? sanitize_text_field($decoded_data['city']) : '';
+
+    $required_fields = array(
+        'Adresse e-mail' => $email,
+        'Nom de famille' => $lastname,
+        'Prénom' => $firstname,
+        'Entreprise' => $company,
+        'Ville' => $city,
+    );
+
+    foreach ($required_fields as $label => $value) {
+        if (empty($value)) {
+            wp_send_json_error(
+                array(
+                    'error' => sprintf('%s est obligatoire.', $label)
+                )
+            );
+            wp_die();
+        }
+    }
+
+    if (!is_email($email)) {
+        wp_send_json_error(
+            array(
+                'error' => 'Adresse e-mail invalide.'
+            )
+        );
         wp_die();
     }
 
     $mj = new \Mailjet\Client($_ENV['MJ_APIKEY_PUBLIC'], $_ENV['MJ_APIKEY_PRIVATE'], true, ['version' => 'v3']);
-    $contact_data = json_decode(stripslashes($_POST['data']));
 
     /**
      * Create a Mailjet contact
@@ -55,32 +104,109 @@ function dot_subscribe_contact_to_mailet()
      */
     function add_contact_properties($mj, $id, $params)
     {
-        $body = [
-            'Data' => [
-                [
-                    'Name' => "lastname",
-                    'Value' => $params['lastname']
-                ],
-                [
-                    'Name' => "firstname",
-                    'Value' => $params['firstname']
-                ],
-                [
-                    'Name' => 'company',
-                    'Value' => $params['company']
-                ],
-                [
-                    'Name' => 'city',
-                    'Value' => $params['city']
-                ]
-            ]
+        $properties = [
+            'lastname' => $params['lastname'],
+            'firstname' => $params['firstname'],
+            'company' => $params['company'],
+            'city' => $params['city'],
         ];
 
-        if ($params['role']) {
-            $body['Data'][] = ['Name' => 'role', 'Value' => $params['role']];
+        if (!empty($params['role'])) {
+            $properties['role'] = $params['role'];
         }
 
-        return $mj->put(Resources::$Contactdata, ['id' => $id, 'body' => $body]);
+        static $known_property_names = null;
+
+        if (!is_array($known_property_names)) {
+            $metadata_response = $mj->get(Resources::$Contactmetadata);
+
+            if ($metadata_response->success()) {
+                $known_property_names = array_map(
+                    function ($property) {
+                        return isset($property['Name']) ? strtolower($property['Name']) : null;
+                    },
+                    $metadata_response->getData()
+                );
+                $known_property_names = array_filter($known_property_names);
+            } else {
+                $known_property_names = [];
+            }
+        }
+
+        if (!empty($known_property_names)) {
+            foreach ($properties as $name => $value) {
+                if (!in_array(strtolower($name), $known_property_names, true)) {
+                    unset($properties[$name]);
+                }
+            }
+        }
+
+        $properties = array_filter(
+            $properties,
+            function ($value) {
+                return !empty($value);
+            }
+        );
+
+        if (empty($properties)) {
+            return true;
+        }
+
+        $body = [
+            'Data' => []
+        ];
+
+        foreach ($properties as $name => $value) {
+            $body['Data'][] = [
+                'Name' => $name,
+                'Value' => $value
+            ];
+        }
+
+        $response = $mj->put(Resources::$Contactdata, ['id' => $id, 'body' => $body]);
+
+        if ($response->success()) {
+            return $response;
+        }
+
+        $response_data = $response->getData();
+        $error_details = $response_data[0] ?? [];
+        $error_message = isset($error_details['ErrorMessage']) ? $error_details['ErrorMessage'] : '';
+
+        if ($error_message && stripos($error_message, 'Invalid key name') !== false) {
+            if (preg_match('/Invalid key name:\s*["\']?([a-z0-9_\-]+)["\']?/i', $error_message, $matches)) {
+                $invalid_property = $matches[1];
+                unset($properties[$invalid_property]);
+
+                $properties = array_filter(
+                    $properties,
+                    function ($value) {
+                        return !empty($value);
+                    }
+                );
+
+                if (empty($properties)) {
+                    return true;
+                }
+
+                $retry_body = [
+                    'Data' => []
+                ];
+
+                foreach ($properties as $name => $value) {
+                    $retry_body['Data'][] = [
+                        'Name' => $name,
+                        'Value' => $value
+                    ];
+                }
+
+                $retry_response = $mj->put(Resources::$Contactdata, ['id' => $id, 'body' => $retry_body]);
+
+                return $retry_response;
+            }
+        }
+
+        return $response;
     }
 
     /**
@@ -104,15 +230,13 @@ function dot_subscribe_contact_to_mailet()
         return $mj->post(Resources::$Listrecipient, ['body' => $body]);
     }
 
-
-    $email = $contact_data->email;
     $params = [
         'email' => $email,
-        'lastname' => $contact_data->lastname,
-        'firstname' => $contact_data->firstname,
-        'company' => $contact_data->company,
-        'role' => $contact_data->role,
-        'city' => $contact_data->city
+        'lastname' => $lastname,
+        'firstname' => $firstname,
+        'company' => $company,
+        'role' => $role,
+        'city' => $city
     ];
 
 
@@ -131,13 +255,12 @@ function dot_subscribe_contact_to_mailet()
     $id = $create_request_data[0]['ID'];
 
     $add_properties_request = add_contact_properties($mj, $id, $params);
-    $add_properties_request_data = $add_properties_request->getData();
 
-    if (!$add_properties_request->success()) {
+    if ($add_properties_request instanceof \Mailjet\Response && !$add_properties_request->success()) {
         wp_send_json_error(
             array(
                 "failOn" => "add_contact_properties",
-                "response" => $add_properties_request_data
+                "response" => $add_properties_request->getData()
             )
         );
     }
