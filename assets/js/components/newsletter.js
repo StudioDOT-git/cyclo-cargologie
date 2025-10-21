@@ -113,27 +113,44 @@ function NewsletterForm ({
         city
       })
     }
-    await fetch(ajaxConfig.ajaxUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Cache-Control': 'no-cache'
-      },
-      body: new URLSearchParams(params)
-    })
-      .then(res => res.json())
-      .then(res => {
-        const data = res.data?.response
-        if (!data?.ErrorMessage) {
-          errors.length = 0
-          return
-        }
-        if (data?.ErrorMessage?.startsWith('MJ18')) {
-          errors.push('Cette adresse e-mail est déjà inscrite')
-        }
-      }).catch(err => {
-        errors.push('Inscription impossible. Vérifiez vos informations ou réessayez plus tard.')
+
+    try {
+      const response = await fetch(ajaxConfig.ajaxUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Cache-Control': 'no-cache'
+        },
+        body: new URLSearchParams(params)
       })
+
+      const result = await response.json()
+
+      if (result.success) {
+        errors.length = 0
+        return true
+      }
+
+      const responseData = result.data?.response ?? result.data
+      const errorMessage = Array.isArray(responseData)
+        ? responseData[0]?.ErrorMessage
+        : responseData?.ErrorMessage
+
+      if (errorMessage?.startsWith('MJ18')) {
+        errors.push('Cette adresse e-mail est déjà inscrite')
+      } else if (typeof errorMessage === 'string' && errorMessage.length) {
+        errors.push('Inscription impossible : ' + errorMessage)
+      } else if (typeof result.data?.error === 'string' && result.data.error.length) {
+        errors.push(result.data.error)
+      } else {
+        errors.push('Inscription impossible. Vérifiez vos informations ou réessayez plus tard.')
+      }
+
+      return false
+    } catch (err) {
+      errors.push('Inscription impossible. Vérifiez vos informations ou réessayez plus tard.')
+      return false
+    }
   }
 
   function expandAndRemoveListeners () {
