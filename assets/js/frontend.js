@@ -61,7 +61,7 @@ jQuery(function ($) {
     citySelector: '#newsletter-popup-city',
     termsSelector: '#newsletter-popup-terms',
     feedbackSelector: '#newsletter-popup-feedback',
-    expandableSelector: '.c-newsletter-__expandable',
+    expandableSelector: '.c-newsletter-form__expandable',
     termsControlSelector: '.c-newsletter-form__terms'
   });
 
@@ -101,4 +101,3 @@ jQuery(function ($) {
   new FormationQueryManager('.f-formation-calendar__archive', '.f-formation-grid');
   new BibliothequeMediaQueryManager('.f-bibliotheque-media__archive', '.f-bibliotheque-media-grid');
 })
-
