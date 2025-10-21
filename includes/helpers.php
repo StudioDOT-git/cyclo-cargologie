@@ -69,9 +69,14 @@ function dot_get_icon($slug, $className = null) {
 
 function dot_get_formatted_event_date()
 {
-    $start_date = tribe_get_start_date(null, true, 'D. d F, H\h');
-    tribe_event_is_all_day() && $start_date = tribe_get_start_date(null, true, 'D. d F');
+    $start_date = tribe_get_start_date(null, true, 'D. d F');
     $start_date = ucwords($start_date);
+
+    if (!tribe_event_is_all_day()) {
+        $start_hour = tribe_get_start_date(null, true, 'H');
+        $start_minutes = tribe_get_start_date(null, true, 'i');
+        $start_date .= ', ' . dot_format_hour_minutes($start_hour, $start_minutes);
+    }
 
     $end_date = tribe_get_end_date(null, false, 'D. d F');
 
@@ -90,7 +95,7 @@ function dot_get_formatted_event_date()
     }
 
     if ($show_start_date_year) {
-        $start_date = "$start_date\h, <span>$start_date_year</span>";
+        $start_date = "$start_date, <span>$start_date_year</span>";
     }
 
     $full_date = $show_end_date ?
@@ -98,6 +103,64 @@ function dot_get_formatted_event_date()
         $start_date;
 
     return $full_date;
+}
+
+function dot_format_hour_minutes($hour, $minutes = '00')
+{
+    if ($hour === null || $hour === '') {
+        return '';
+    }
+
+    $hour = str_pad((int)$hour, 2, '0', STR_PAD_LEFT);
+
+    if ($minutes === null || $minutes === '' || (int)$minutes === 0) {
+        return $hour . 'h';
+    }
+
+    $minutes = str_pad((int)$minutes, 2, '0', STR_PAD_LEFT);
+
+    return $hour . 'h' . $minutes;
+}
+
+function dot_format_time_string($time_string)
+{
+    if (!is_string($time_string)) {
+        return $time_string;
+    }
+
+    $time_string = trim($time_string);
+
+    if ($time_string === '') {
+        return $time_string;
+    }
+
+    if (preg_match('/^(\d{1,2})$/', $time_string, $matches)) {
+        return $matches[1] . 'h';
+    }
+
+    if (preg_match('/^(\d{1,2}):(\d{2})$/', $time_string, $matches)) {
+        $hour = $matches[1];
+        $minutes = $matches[2];
+
+        if ($minutes === '00') {
+            return $hour . 'h';
+        }
+
+        return $hour . 'h' . $minutes;
+    }
+
+    if (preg_match('/^(\d{1,2})h(\d{2})?$/', $time_string, $matches)) {
+        $hour = $matches[1];
+        $minutes = $matches[2] ?? '';
+
+        if ($minutes === '') {
+            return $hour . 'h';
+        }
+
+        return $hour . 'h' . str_pad((int)$minutes, 2, '0', STR_PAD_LEFT);
+    }
+
+    return $time_string;
 }
 
 
@@ -171,4 +234,3 @@ function  better_var_dump($var, $bool = false)
         die();
     }
 }
-

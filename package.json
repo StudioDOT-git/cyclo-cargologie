@@ -47,9 +47,8 @@
     "yargs": "^17.7.2"
   },
   "dependencies": {
-    "@gsap/shockingly": "^3.11.5",
     "email-validator": "^2.0.4",
-    "gsap": "npm:@gsap/shockingly@^3.11.5",
+    "gsap": "^3",
     "slick": "^1.12.2",
     "slick-slider": "^1.8.2",
     "swiper": "^9.4.1"

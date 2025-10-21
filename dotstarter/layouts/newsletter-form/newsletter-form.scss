@@ -1,0 +1,22 @@
+@use "../../../assets/scss/base/variables" as *;
+@use "../../../assets/scss/base/colors" as *;
+@use "../../../assets/scss/base/mixins" as *;
+
+.f-newsletter-form {
+  padding: 4.8rem 0 7rem;
+  background-color: $grey-1;
+
+  &__container {
+    // max-width: 100rem;
+    // border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    min-height: 40rem;
+    padding: 5rem 0 5rem;
+
+  }
+
+
+
+  @include media-up(md) {}
+}

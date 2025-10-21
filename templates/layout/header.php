@@ -10,7 +10,9 @@
         function gtag () { dataLayer.push(arguments); }
         gtag('js', new Date());
 
-        gtag('config', 'G-WHZG08PZF5');
+        gtag('config', 'G-WHZG08PZF5', {
+            'anonymize_ip': true
+        });
     </script>
 
     <meta charset="<?php bloginfo('charset'); ?>">

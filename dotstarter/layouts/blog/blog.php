@@ -2,18 +2,49 @@
 
 $posts_per_page = 8;
 $paged = $_GET['page'] ?? 1;
+
+$selected_categories = get_sub_field('categories') ?: [];
+$default_category_ids = array_map(
+    static fn($term) => is_object($term) ? (int) $term->term_id : (int) $term,
+    (array) $selected_categories
+);
+$default_category_ids = array_filter($default_category_ids);
+
 $args = $_GET;
 $args['post_type'] = 'post';
 $args['per_page'] = $posts_per_page;
 $args['page'] = $paged;
 
+$current_categories = $_GET['categories'] ?? [];
+$current_categories = AjaxPost::explode($current_categories);
+
+if (empty($current_categories) && !empty($default_category_ids)) {
+    $current_categories = $default_category_ids;
+}
+
+if (!empty($current_categories)) {
+    $args['categories'] = implode(',', $current_categories);
+}
 
 $posts = AjaxPost::renderPosts($args);
 
-$categories = get_categories();
+$categories = [];
 
-$current_categories = $_GET['categories'] ?? [];
-$current_categories = AjaxPost::explode($current_categories);
+if (!empty($default_category_ids)) {
+    $categories = get_terms([
+        'taxonomy' => 'category',
+        'hide_empty' => false,
+        'include' => $default_category_ids,
+        'orderby' => 'include',
+    ]);
+    if (is_wp_error($categories)) {
+        $categories = [];
+    }
+}
+
+if (empty($categories)) {
+    $categories = get_categories();
+}
 
 $resetFiltersDisabled = empty($current_categories) ? 'disabled' : '';
 
@@ -59,8 +90,14 @@ $resetFiltersDisabled = empty($current_categories) ? 'disabled' : '';
                         </div>
                         <div class="c-multi-filter__options">
                             <?php foreach ($categories as $cat) : ?>
-                                <div class="c-multi-filter__option" data-term-id="<?= $cat->term_id ?>"
-                                     data-selected="<?= in_array($cat->term_id, $current_categories) ? 'true' : 'false' ?>">
+                                <?php
+                                $term_id = (int) $cat->term_id;
+                                $is_current_selected = in_array($term_id, $current_categories, true);
+                                $is_default_selected = in_array($term_id, $default_category_ids, true);
+                                ?>
+                                <div class="c-multi-filter__option" data-term-id="<?= $term_id ?>"
+                                     data-selected="<?= $is_current_selected ? 'true' : 'false' ?>"
+                                     data-default-selected="<?= $is_default_selected ? 'true' : 'false' ?>">
                                     <?= $cat->name; ?>
                                 </div>
                             <?php endforeach; ?>

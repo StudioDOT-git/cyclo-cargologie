@@ -73,14 +73,49 @@ class AjaxBibliothequeMediaPost
         register_rest_route('ajax-bibliotheque-media-posts/v1', '/posts', [
             'methods' => 'GET',
             'callback' => function (WP_REST_Request $request) {
-                $args = [
-                    "page" => $request->get_param('page'),
-                    "per_page" => $request->get_param('per_page'),
-                    "category" => $request->get_param('category'),
-                    "s" => $request->get_param('s'),
-                    "orderby" => $request->get_param('orderby'),
-                    "order" => $request->get_param('order'),
-                ];
+                // Normalize and map incoming params to WP_Query args
+                $args = [];
+
+                // Pagination
+                $page = intval($request->get_param('page')) ?: 1;
+                $per_page = intval($request->get_param('per_page')) ?: 12;
+                $args['paged'] = $page;
+                $args['posts_per_page'] = $per_page;
+
+                // Search and ordering
+                if ($request->get_param('s')) {
+                    $args['s'] = $request->get_param('s');
+                }
+                if ($request->get_param('orderby')) {
+                    $args['orderby'] = $request->get_param('orderby');
+                }
+                if ($request->get_param('order')) {
+                    $args['order'] = $request->get_param('order');
+                }
+
+                // Support legacy "category" and specific taxonomy "media_category" (comma-separated slugs)
+                $media_category = $request->get_param('media_category');
+                $category = $request->get_param('category');
+                $raw_terms = null;
+                if (!empty($media_category)) {
+                    $raw_terms = array_map('trim', explode(',', $media_category));
+                } elseif (!empty($category)) {
+                    $raw_terms = array_map('trim', explode(',', $category));
+                }
+
+                if (!empty($raw_terms)) {
+                    $all_numeric = array_reduce($raw_terms, function ($carry, $item) {
+                        return $carry && ctype_digit($item);
+                    }, true);
+
+                    $args['tax_query'] = [
+                        [
+                            'taxonomy' => 'media_category',
+                            'field' => $all_numeric ? 'term_id' : 'slug',
+                            'terms' => $all_numeric ? array_map('intval', $raw_terms) : $raw_terms,
+                        ]
+                    ];
+                }
 
                 $query = self::renderPosts($args);
 

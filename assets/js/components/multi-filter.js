@@ -20,6 +20,7 @@ export default class MultiFilter {
     this.isSingleSelect = this.$el.dataset.singleSelect === 'true'
     this.$wrapper = $el
     this.taxonomy = $el.dataset.taxonomy
+    this.defaultSelectedTerms = []
     if (!this.taxonomy) {
       console.error('MultiFilter error : no data-taxonomy found on wrapper element')
       return
@@ -31,6 +32,10 @@ export default class MultiFilter {
     if (!this.$toggle || !this.$options) {
       console.error('MultiSelect | Malformed markup : toggle or options could not be found.')
     }
+
+    this.defaultSelectedTerms = [...this.$options]
+      .filter($option => $option.dataset.defaultSelected === 'true')
+      .map($option => $option.dataset.termId)
 
     this.setListeners()
   }
@@ -77,7 +82,9 @@ export default class MultiFilter {
 
   resetSelection () {
     this.$options.forEach($option => {
-      $option.dataset.selected = 'false'
+      const termId = $option.dataset.termId
+      const shouldSelect = this.defaultSelectedTerms.includes(termId)
+      $option.dataset.selected = shouldSelect ? 'true' : 'false'
     })
   }
 }

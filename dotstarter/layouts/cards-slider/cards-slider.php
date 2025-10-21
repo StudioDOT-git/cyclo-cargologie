@@ -23,6 +23,10 @@
             </div>
         </div>
         <div class="f-cards-slider__wrapper f-cards-slider__slider">
+            <?php
+            $cards_title_size = get_sub_field('cards_title_size');
+            $cards_title_class = $cards_title_size ? $cards_title_size : 'heading5';
+            ?>
             <?php $i = 0; ?>
             <?php while (have_rows('sections')):
                 the_row() ?>
@@ -41,7 +45,7 @@
                             <?php endif; ?>
                         </div>
                         <div class="f-cards-slider__section-text">
-                            <h3 class="f-cards-slider__section-title heading5">
+                            <h3 class="f-cards-slider__section-title <?= esc_attr($cards_title_class) ?>">
                                 <?php the_sub_field('title') ?>
                             </h3>
                             <ul class="f-cards-slider__list">

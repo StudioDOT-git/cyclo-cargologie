@@ -50,6 +50,10 @@
     <div class="l-container">
         <div class="f-column__tb">
             <div class="f-column__wrapper">
+                <?php
+                $columns_title_size = get_sub_field('columns_title_size');
+                $columns_title_class = $columns_title_size ? $columns_title_size : 'heading3';
+                ?>
                 <?php $i = 0; ?>
                 <?php while (have_rows('columns')):
                     the_row() ?>
@@ -59,7 +63,7 @@
                         <div class="f-column__image" data-id="#<?= $i ?>">
                             <?= wp_get_attachment_image(get_sub_field('image'), 'large') ?>
                         </div>
-                        <h3 class="f-column__title heading3">
+                        <h3 class="f-column__title <?= esc_attr($columns_title_class) ?>">
                             <?= get_sub_field('title') ?>
                         </h3>
                         <p class="f-column__description body-lg">

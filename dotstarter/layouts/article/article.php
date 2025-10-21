@@ -7,7 +7,16 @@ $slides_count = is_array(get_field('slides')) ? count(get_field('slides')) : nul
 
 $categories = get_the_category($post->ID);
 $statuses = get_sub_field('status') ?? array();
-$date = ucwords(get_the_date('M Y', $post->ID));
+$date = $post->post_type === 'tribe_events'
+    ? dot_get_formatted_event_date()
+    : ucwords(get_the_date('M Y', $post->ID));
+
+if ($post->post_type !== 'tribe_events') {
+    $maybe_time = dot_format_time_string($date);
+    if ($maybe_time !== '' && $maybe_time !== $date) {
+        $date = $maybe_time;
+    }
+}
 
 ?>
 

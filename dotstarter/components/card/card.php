@@ -151,6 +151,7 @@ elseif ($post->post_type === 'media'): ?>
     // BIBLIOTHEQUE MEDIA CARD
 elseif ($post->post_type === 'bibliotheque-media'):
     $date = get_field('date', $post->ID);
+    $display_date = is_string($date) ? dot_format_time_string($date) : '';
     $location = get_field('location', $post->ID);
     $media_type_terms = get_the_terms($post->ID, 'media_category');
     $media_type_names = $media_type_terms ? wp_list_pluck($media_type_terms, 'name') : [];
@@ -165,7 +166,7 @@ elseif ($post->post_type === 'bibliotheque-media'):
             <div class="f-card__image-overlay">
                 <div class="f-card__tags">
                     <?php if ($date): ?>
-                        <span class="f-card__tag f-card__tag--date"><?= esc_html($date) ?></span>
+                        <span class="f-card__tag f-card__tag--date"><?= esc_html($display_date ?: (is_string($date) ? $date : '')) ?></span>
                     <?php endif; ?>
                     <?php if ($location): ?>
                         <span class="f-card__tag f-card__tag--location">
