@@ -83,6 +83,12 @@ class AjaxPost
                     'compare' => '<'
                 ),
             );
+
+            // Show most recent past events first
+            $args['meta_key'] = '_EventEndDate';
+            $args['orderby'] = 'meta_value';
+            $args['order'] = 'DESC';
+            $args['meta_type'] = 'DATETIME';
         }
 
 
