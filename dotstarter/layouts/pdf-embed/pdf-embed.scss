@@ -1,0 +1,23 @@
+@use "../../../assets/scss/base/variables" as *;
+@use "../../../assets/scss/base/colors" as *;
+@use "../../../assets/scss/base/mixins" as *;
+
+.f-pdf-embed {
+  padding: 4.8rem 0 7rem;
+  background-color: $grey-1;
+
+  &__iframe-container {
+    display: flex;
+    justify-content: center;
+
+    iframe {
+      width: 100%;
+      max-width: 128rem;
+      height: clamp(48rem, 75vh, 96rem);
+      border: 0;
+      border-radius: 1rem;
+    }
+  }
+
+  @include media-up(md) {}
+}
