@@ -40,6 +40,36 @@ if (!class_exists('DOT_PostTypes')) {
 
             register_post_type('formation', $args);
 
+            // Matériel CPT
+            $materiel_labels = array(
+                'name' => 'Matériel',
+                'singular_name' => 'Matériel',
+                'menu_name' => 'Matériel',
+                'add_new' => 'Ajouter du matériel',
+                'add_new_item' => 'Ajouter un matériel',
+                'edit_item' => 'Modifier le matériel',
+                'new_item' => 'Nouveau matériel',
+                'view_item' => 'Voir le matériel',
+                'search_items' => 'Rechercher du matériel',
+                'not_found' => 'Aucun matériel trouvé',
+                'not_found_in_trash' => 'Aucun matériel trouvé dans la corbeille'
+            );
+
+            $materiel_args = array(
+                'labels' => $materiel_labels,
+                'public' => true,
+                'has_archive' => false,
+                'publicly_queryable' => true,
+                'show_ui' => true,
+                'show_in_menu' => true,
+                'show_in_rest' => true,
+                'menu_icon' => 'dashicons-store',
+                'supports' => array('title', 'thumbnail', 'custom-fields'),
+                'rewrite' => array('slug' => 'materiel')
+            );
+
+            register_post_type('materiel', $materiel_args);
+
             // Bibliothèque média CPT
             $media_labels = array(
                 'name' => _x('Bibliothèque média', 'Post type general name', 'dotcore'),

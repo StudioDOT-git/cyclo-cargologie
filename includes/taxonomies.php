@@ -123,6 +123,28 @@ if (!class_exists('DOT_Taxonomies')) {
                 'public' => false,
                 'rewrite' => false,
             ));
+
+            // Prestataire Taxonomy
+            $prestataire_labels = array(
+                'name' => 'Prestataires',
+                'singular_name' => 'Prestataire',
+                'all_items' => 'Tous les prestataires',
+                'edit_item' => 'Modifier le prestataire',
+                'add_new_item' => 'Ajouter un prestataire',
+                'menu_name' => 'Prestataires'
+            );
+
+            register_taxonomy('prestataire', array('materiel'), array(
+                'hierarchical' => true,
+                'labels' => $prestataire_labels,
+                'show_ui' => true,
+                'show_in_rest' => true,
+                'show_admin_column' => true,
+                'query_var' => false,
+                'publicly_queryable' => false,
+                'public' => false,
+                'rewrite' => false,
+            ));
         }
 
     }

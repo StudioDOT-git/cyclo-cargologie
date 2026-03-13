@@ -11,6 +11,7 @@ import singleBibliothequeMediaSlider from './templates/bibliotheque-media-single
 import { modalAnims, modalForm } from './layouts/modal'
 import { dropdownslist } from '../../dotstarter/layouts/dropdowns-list/dropdowns-list.js'
 import { dropdownoperator } from '../../dotstarter/layouts/operateurs-grid/operateurs-grid.js'
+import { dropdownprestataire } from '../../dotstarter/layouts/prestataires-grid/prestataires-grid.js'
 import { pageHeaderScrollDown } from '../../dotstarter/layouts/page-header/page-header.js'
 import { SingleEventsContactSlider, SingleEventsSlider } from './templates/events-single.js'
 import QueryManager from './components/query-manager.js'
@@ -86,6 +87,7 @@ jQuery(function ($) {
   //faq
   dropdownslist()
   dropdownoperator()
+  dropdownprestataire()
   pageHeaderScrollDown()
 
   sliders.forEach(slider => slider.init())
