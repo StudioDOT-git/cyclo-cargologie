@@ -57,23 +57,52 @@ if ($post->post_type === 'formation'):
                 <?php
                 $metiers = get_the_terms($post->ID, 'metier');
                 if ($metiers && !is_wp_error($metiers)) {
-                    $metier_name = $metiers[0]->name;
-                    $prefix = 'Parcours ';
+                    $metier_labels = [];
+                    $metier_label_map = [
+                        'livraison' => 'Livraison',
+                        'livreur' => 'Livraison',
+                        'dispatch' => 'Dispatch',
+                        'management' => 'Management',
+                        'manager' => 'Management',
+                    ];
+                    $metier_order = ['Livraison', 'Dispatch', 'Management'];
 
-                    switch ($metier_name) {
-                        case 'Livreur':
-                            $prefix .= 'Livraison';
-                            break;
-                        case 'Dispatch':
-                            $prefix .= 'Dispatch';
-                            break;
-                        case 'Manager':
-                            $prefix .= 'Management';
-                            break;
-                        default:
-                            $prefix = '';
+                    foreach ($metiers as $metier) {
+                        $normalized_keys = [
+                            sanitize_title($metier->slug),
+                            sanitize_title($metier->name),
+                        ];
+
+                        foreach ($normalized_keys as $normalized_key) {
+                            if (isset($metier_label_map[$normalized_key])) {
+                                $label = $metier_label_map[$normalized_key];
+                                $metier_labels[$label] = $label;
+                                continue 2;
+                            }
+                        }
+
+                        $metier_labels[$metier->name] = $metier->name;
                     }
-                    echo $prefix;
+
+                    $ordered_labels = [];
+                    foreach ($metier_order as $label) {
+                        if (isset($metier_labels[$label])) {
+                            $ordered_labels[] = $label;
+                            unset($metier_labels[$label]);
+                        }
+                    }
+
+                    $ordered_labels = array_merge($ordered_labels, array_values($metier_labels));
+                    $ordered_labels = array_values(array_filter($ordered_labels));
+
+                    if (count($ordered_labels) === 1) {
+                        echo esc_html($ordered_labels[0]);
+                    } elseif (count($ordered_labels) === 2) {
+                        echo esc_html($ordered_labels[0] . ' et ' . $ordered_labels[1]);
+                    } elseif (count($ordered_labels) > 2) {
+                        $last_label = array_pop($ordered_labels);
+                        echo esc_html(implode(', ', $ordered_labels) . ' et ' . $last_label);
+                    }
                 }
                 ?>
             </h3>

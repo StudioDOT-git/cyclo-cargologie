@@ -21,7 +21,11 @@
                 <?= get_sub_field('description') ?>
             </div>
         </div>
+    </div>
 
+    <?php dot_the_layout_part('yellow-background') ?>
+
+    <div class="f-prestataires-grid__content c-yellow-background-brother">
         <div class="l-container l-container--md">
             <?php $image = get_sub_field('image'); ?>
             <?php if ($image): ?>
