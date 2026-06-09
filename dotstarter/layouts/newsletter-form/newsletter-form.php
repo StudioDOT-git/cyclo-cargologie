@@ -1,3 +1,9 @@
+<?php
+$is_admin_preview = is_admin();
+$admin_input_attr = $is_admin_preview ? ' disabled' : '';
+$required_input_attr = $is_admin_preview ? '' : ' required';
+?>
+
 <div class="f-newsletter-form l-layout">
     <div class="l-container">
         <div class="l-layout__headings <?php if (have_rows('sticker')): ?>l-layout__headings--with-deco<?php endif; ?>">
@@ -27,42 +33,42 @@
             <form id="newsletter-form-block" class="f-newsletter__form c-newsletter-form" action="">
                 <label class="c-newsletter-form__control">
                     <input class="c-newsletter-form__input" type="email" name="email" id="newsletter-block-email"
-                        placeholder="Votre e-mail*" required>
+                        placeholder="Votre e-mail*"<?= $required_input_attr ?><?= $admin_input_attr ?>>
                 </label>
                 <div class="c-newsletter-form__expandable is-expanded">
                     <div class="c-newsletter-form__columns">
                         <label class="c-newsletter-form__control">
                             <input class="c-newsletter-form__input" type="text" name="lastname"
-                                id="newsletter-block-lastname" placeholder="Nom de famille*" required>
+                                id="newsletter-block-lastname" placeholder="Nom de famille*"<?= $required_input_attr ?><?= $admin_input_attr ?>>
                         </label>
                         <label class="c-newsletter-form__control">
                             <input class="c-newsletter-form__input" type="text" name="firstname"
-                                id="newsletter-block-firstname" placeholder="Prénom*" required>
+                                id="newsletter-block-firstname" placeholder="Prénom*"<?= $required_input_attr ?><?= $admin_input_attr ?>>
                         </label>
                     </div>
 
                     <label class="c-newsletter-form__control">
                         <input class="c-newsletter-form__input" type="text" name="company" id="newsletter-block-company"
-                            placeholder="Entreprise*" required>
+                            placeholder="Entreprise*"<?= $required_input_attr ?><?= $admin_input_attr ?>>
                     </label>
                     <label class="c-newsletter-form__control">
                         <input class="c-newsletter-form__input" type="text" name="role" id="newsletter-block-role"
-                            placeholder="Fonction">
+                            placeholder="Fonction"<?= $admin_input_attr ?>>
                     </label>
                     <label class="c-newsletter-form__control">
                         <input class="c-newsletter-form__input" type="text" name="city" id="newsletter-block-city"
-                            placeholder="Ville*" required>
+                            placeholder="Ville*"<?= $required_input_attr ?><?= $admin_input_attr ?>>
                     </label>
 
                     <div id="newsletter-block-feedback" class="c-newsletter-form__feedback"></div>
                     <label class="c-newsletter-form__terms" for="newsletter-block-terms">
-                        <input id="newsletter-block-terms" type="checkbox" name="terms" />
+                        <input id="newsletter-block-terms" type="checkbox" name="terms"<?= $admin_input_attr ?> />
                         <img class="c-newsletter-form__checkmark" src="<?= DOT_THEME_URI ?>/assets/icons/check.svg"
                             alt="">
                         <?php the_field('terms') ?>En validant votre inscription, vous acceptez que Cyclo-cargologie
                         mémorise et utilise votre adresse email dans le but de vous envoyer sa lettre d’informations. *
                     </label>
-                    <input class="c-button c-button--b c-button--s c-button--yellow" type="submit" value="Envoyer" />
+                    <input class="c-button c-button--b c-button--s c-button--yellow" type="submit" value="Envoyer"<?= $admin_input_attr ?> />
                 </div>
             </form>
         </div>

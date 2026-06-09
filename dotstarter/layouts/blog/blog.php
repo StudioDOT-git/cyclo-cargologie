@@ -18,10 +18,6 @@ $args['page'] = $paged;
 $current_categories = $_GET['categories'] ?? [];
 $current_categories = AjaxPost::explode($current_categories);
 
-if (empty($current_categories) && !empty($default_category_ids)) {
-    $current_categories = $default_category_ids;
-}
-
 if (!empty($current_categories)) {
     $args['categories'] = implode(',', $current_categories);
 }
@@ -93,11 +89,10 @@ $resetFiltersDisabled = empty($current_categories) ? 'disabled' : '';
                                 <?php
                                 $term_id = (int) $cat->term_id;
                                 $is_current_selected = in_array($term_id, $current_categories, true);
-                                $is_default_selected = in_array($term_id, $default_category_ids, true);
                                 ?>
                                 <div class="c-multi-filter__option" data-term-id="<?= $term_id ?>"
                                      data-selected="<?= $is_current_selected ? 'true' : 'false' ?>"
-                                     data-default-selected="<?= $is_default_selected ? 'true' : 'false' ?>">
+                                     data-default-selected="false">
                                     <?= $cat->name; ?>
                                 </div>
                             <?php endforeach; ?>

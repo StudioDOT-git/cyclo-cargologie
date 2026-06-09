@@ -27,13 +27,15 @@
             'order' => 'DESC',
         ];
 
-        // Handle URL parameters for filtering by category (Types de média)
-        if (!empty($_GET['media_category'])) {
+        // Handle URL parameters for filtering by category (Types de média).
+        $current_media_categories = AjaxBibliothequeMediaPost::explode($_GET['media_category'] ?? '');
+
+        if (!empty($current_media_categories)) {
             $args['tax_query'] = [
                 [
                     'taxonomy' => 'media_category',
-                    'field' => 'slug',
-                    'terms' => $_GET['media_category'],
+                    'field' => 'term_id',
+                    'terms' => $current_media_categories,
                 ]
             ];
         }

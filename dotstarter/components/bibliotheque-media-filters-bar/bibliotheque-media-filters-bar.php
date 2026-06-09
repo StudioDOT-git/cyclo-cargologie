@@ -1,6 +1,6 @@
 <?php
-$current_categories = $_GET['category'] ?? [];
-$current_categories = AjaxPost::explode($current_categories);
+$current_categories = $_GET['media_category'] ?? [];
+$current_categories = AjaxBibliothequeMediaPost::explode($current_categories);
 
 $taxonomies = array(
     array(

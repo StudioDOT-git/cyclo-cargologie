@@ -107,6 +107,7 @@ export default class BibliothequeMediaQueryManager {
   buildQuery () {
     const baseUrl = ajaxConfig.baseUrl + this.endpoint
     const queryUrl = new URL(baseUrl)
+    let hasActiveFilters = false
 
     // Standard parameters
     queryUrl.searchParams.append('per_page', this.postsPerPage)
@@ -120,14 +121,20 @@ export default class BibliothequeMediaQueryManager {
 
       if (selectedTerms.length > 0) {
         queryUrl.searchParams.append(taxonomy, selectedTerms.join(','))
-        this.$resetFiltersButton?.removeAttribute('disabled')
+        hasActiveFilters = true
       }
     })
 
     // Add search parameter if present
     if (this.searchForm && this.inputElem && this.inputElem.value.length > 0) {
       queryUrl.searchParams.append('s', this.inputElem.value)
+      hasActiveFilters = true
+    }
+
+    if (hasActiveFilters) {
       this.$resetFiltersButton?.removeAttribute('disabled')
+    } else {
+      this.$resetFiltersButton?.setAttribute('disabled', true)
     }
 
     this.query = queryUrl
@@ -177,6 +184,10 @@ export default class BibliothequeMediaQueryManager {
     this.multiFilters?.forEach(filter => {
       filter.resetSelection()
     })
+
+    if (this.inputElem) {
+      this.inputElem.value = ''
+    }
 
     this.doQueryAndRender()
   }
@@ -241,8 +252,11 @@ export default class BibliothequeMediaQueryManager {
     let url = location.origin + location.pathname
     const params = new URLSearchParams()
 
-    if (this.query.searchParams.has('category')) {
-      params.append('category', this.query.searchParams.get('category'))
+    if (this.query.searchParams.has('media_category')) {
+      params.append('media_category', this.query.searchParams.get('media_category'))
+    }
+    if (this.query.searchParams.has('s')) {
+      params.append('s', this.query.searchParams.get('s'))
     }
     if (this.paged > 1) {
       params.append('page', this.paged)
