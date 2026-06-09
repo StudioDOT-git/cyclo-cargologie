@@ -24,6 +24,28 @@
             "append": ""
         },
         {
+            "key": "field_68482f83b0c41",
+            "label": "Description",
+            "name": "description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "acfe_textarea_code": 0,
+            "maxlength": "",
+            "rows": "",
+            "placeholder": "",
+            "new_lines": "",
+            "allow_in_bindings": 0
+        },
+        {
             "key": "field_67a47d8e1e656",
             "label": "Sticker",
             "name": "sticker",
@@ -106,7 +128,7 @@
     "dot_is_layout": 1,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1747666223,
+    "modified": 1780997385,
     "acfe_categories": {
         "formation": "Formation"
     }

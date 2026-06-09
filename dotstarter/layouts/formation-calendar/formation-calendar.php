@@ -14,6 +14,9 @@
                     <?= get_sub_field('title') ?>
                 </h2>
             </div>
+            <div class="l-layout__description body-md">
+                <?= get_sub_field('description') ?>
+            </div>
         </div>
     </div>
 
